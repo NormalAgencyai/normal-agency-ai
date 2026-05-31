@@ -64,5 +64,27 @@ header h1 { color: #8a2be2; }
     transform: scale(1.1);
     transition: 0.2s;
 }
+.navbar {
+    background-color: #100720;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    position: sticky;
+    top: 0;
+    border-bottom: 2px solid #8a2be2;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #8a2be2;
+}
 
 
