@@ -1,7 +1,23 @@
-body{
-background:#2b0a4a;
-color:white;
-font-family:Arial,sans-serif;
-text-align:center;
-padding:50px;
+body {
+    background-color: #1a0b2e; /* خلفية أرجوانية داكنة */
+    color: #ffffff;
+    font-family: sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 { color: #8a2be2; }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #2d1b4e;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #4b2c8c;
 }
