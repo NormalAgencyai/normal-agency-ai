@@ -21,3 +21,27 @@ header h1 { color: #8a2be2; }
     border-radius: 15px;
     border: 1px solid #4b2c8c;
 }
+.assistant-box {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #2d1b4e;
+    border-radius: 20px;
+    border: 2px solid #8a2be2;
+}
+
+.chat-container input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 10px;
+}
+
+.chat-container button {
+    padding: 10px 20px;
+    background-color: #8a2be2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
