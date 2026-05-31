@@ -86,12 +86,25 @@ header h1 { color: #8a2be2; }
 .navbar a:hover {
     color: #8a2be2;
 }
-<div class="grid">
-    <div style="background: rgba(255,255,255,0.05); border: 1px solid white; border-radius: 15px; padding: 20px; margin: 10px; color: white; text-align: center;">التصميم الداخلي</div>
-    <div style="background: rgba(255,255,255,0.05); border: 1px solid white; border-radius: 15px; padding: 20px; margin: 10px; color: white; text-align: center;">تصوير المنتجات</div>
-    <div style="background: rgba(255,255,255,0.05); border: 1px solid white; border-radius: 15px; padding: 20px; margin: 10px; color: white; text-align: center;">الهوية البصرية</div>
-    <div style="background: rgba(255,255,255,0.05); border: 1px solid white; border-radius: 15px; padding: 20px; margin: 10px; color: white; text-align: center;">إدارة السوشيال ميديا</div>
-</div>
+/* تنسيق المربعات لتشبه لون المساعد الذكي */
+.card {
+    background-color: rgba(67, 34, 107, 0.6) !important; /* لون بنفسجي غامق شفاف */
+    border: 1px solid rgba(138, 43, 226, 0.5) !important; /* إطار بنفسجي فاتح */
+    border-radius: 15px;
+    padding: 25px;
+    margin: 10px;
+    transition: all 0.4s ease;
+    color: #ffffff;
+}
+
+/* تأثير الضوء (التوهج) عند اللمس */
+.card:hover {
+    background-color: rgba(138, 43, 226, 0.4) !important; /* لون بنفسجي فاتح عند اللمس */
+    border-color: #a855f7 !important; /* لون حدود ساطع */
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.5); /* إضافة توهج ضوئي */
+}
+
 
 
 
