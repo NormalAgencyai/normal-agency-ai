@@ -44,4 +44,10 @@ header h1 { color: #8a2be2; }
     border: none;
     border-radius: 10px;
     cursor: pointer;
+}.card:hover {
+    background-color: #4b2c8c;
+    transform: scale(1.05);
+    transition: 0.3s;
+    cursor: pointer;
 }
+
