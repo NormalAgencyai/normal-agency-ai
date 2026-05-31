@@ -49,5 +49,20 @@ header h1 { color: #8a2be2; }
     transform: scale(1.05);
     transition: 0.3s;
     cursor: pointer;
+}/* تأثير التفاعل عند تمرير الفأرة أو لمس المربعات */
+.card:hover {
+    background-color: #4b2c8c;
+    transform: scale(1.05);
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    border: 1px solid #8a2be2;
 }
+
+/* تأثير بسيط لزر إرسال المساعد */
+.chat-container button:hover {
+    background-color: #a348ff;
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
 
