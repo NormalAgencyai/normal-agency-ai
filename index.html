@@ -1,20 +1,33 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { background-color: #0d0717; color: white; text-align: center; font-family: sans-serif; margin: 0; padding: 20px; }
-        /* تكبير الشعار مع ضمان عرضه */
-        .logo { width: 220px; height: auto; display: block; margin: 40px auto 20px; filter: brightness(0) invert(1); }
-        .hero { font-size: 15px; margin-bottom: 40px; color: #ccc; }
+        body { background-color: #050a14; color: #e0e0e0; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; }
+        
+        /* الشعار الأصلي بألوانه */
+        .logo { width: 220px; height: auto; display: block; margin: 40px auto 20px; }
+        
+        .hero { font-size: 16px; margin-bottom: 40px; color: #88aacc; letter-spacing: 1px; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 500px; margin: 0 auto; }
-        .card { padding: 25px 15px; border: 1px solid #4a356a; border-radius: 12px; background: rgba(169, 85, 247, 0.05); box-shadow: 0 0 15px rgba(169, 85, 247, 0.15); cursor: pointer; transition: 0.3s; }
-        .card:active { background: #a855f7; transform: scale(0.95); }
-        .assistant-box { border: 1px solid #4a356a; border-radius: 15px; padding: 25px; max-width: 500px; margin: 40px auto; background: rgba(169, 85, 247, 0.05); box-shadow: 0 0 20px rgba(169, 85, 247, 0.1); }
-        input, textarea { width: 85%; padding: 12px; border-radius: 8px; border: 1px solid #4a356a; background: #0d0717; color: white; margin-bottom: 15px; }
-        button { background: #a855f7; color: white; border: none; padding: 12px 40px; border-radius: 8px; cursor: pointer; font-weight: bold; }
-        .footer { margin-top: 50px; color: #888; font-size: 13px; border-top: 1px solid #333; padding-top: 20px; }
+        
+        /* تصميم فخم وأرستقراطي */
+        .card { 
+            padding: 25px 15px; border: 1px solid #1e3a5f; border-radius: 8px; 
+            background: linear-gradient(145deg, #0a1424, #050a14); 
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.15); 
+            cursor: pointer; transition: 0.4s; 
+        }
+        .card:hover { border-color: #007bff; }
+        .card:active { background: #0056b3; transform: scale(0.97); }
+        
+        .assistant-box { border: 1px solid #1e3a5f; border-radius: 12px; padding: 25px; max-width: 500px; margin: 40px auto; background: rgba(5, 10, 20, 0.8); }
+        input, textarea { width: 85%; padding: 12px; border-radius: 4px; border: 1px solid #1e3a5f; background: #0a1424; color: white; margin-bottom: 15px; }
+        button { background: #007bff; color: white; border: none; padding: 12px 40px; border-radius: 4px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        button:hover { background: #0056b3; }
+        
+        .footer { margin-top: 50px; color: #556688; font-size: 12px; border-top: 1px solid #1e3a5f; padding-top: 20px; }
     </style>
 </head>
 <body>
@@ -22,7 +35,7 @@
     <img src="logo.png" alt="شعار نورمال" class="logo">
     <div class="hero">إبداع بلا حدود | نُحوّل أفكارك إلى تجارب استثنائية</div>
 
-    <h2 style="font-size: 20px; margin-bottom: 20px;">خدماتنا</h2>
+    <h2 style="font-size: 20px; margin-bottom: 20px; color: #007bff;">خدماتنا</h2>
     <div class="grid">
         <div class="card">تصوير المنتجات</div>
         <div class="card">التصميم الداخلي</div>
@@ -31,7 +44,7 @@
     </div>
 
     <div class="assistant-box">
-        <h3>المساعد الذكي "نورمال"</h3>
+        <h3 style="color: #007bff;">المساعد الذكي "نورمال"</h3>
         <p style="font-size: 14px;">مرحباً بك! أنا مساعد نورمال، كيف يمكنني مساعدتك اليوم؟</p>
         <form action="https://formspree.io/f/xykvqjek" method="POST">
             <input type="email" name="email" placeholder="بريدك للتواصل" required>
