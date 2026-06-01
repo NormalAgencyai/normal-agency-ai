@@ -5,40 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Normal Agency | نورمال</title>
     <style>
-        body { background-color: #050a14; color: #e0e0e0; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; }
+        /* خلفية بيضاء ونصوص داكنة */
+        body { background-color: #ffffff; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; }
         
-        /* الشعار - تم ضبطه ليتطابق مع اسم الملف logo.png.png */
-        .logo { width: 220px; height: auto; display: block; margin: 40px auto 20px; border-radius: 8px; filter: drop-shadow(0 0 10px rgba(0, 123, 255, 0.3)); }
+        /* الشعار - تم تكبيره قليلاً */
+        .logo { width: 280px; height: auto; display: block; margin: 40px auto 20px; transition: transform 0.3s; }
+        .logo:hover { transform: scale(1.05); }
         
-        .hero { font-size: 16px; margin-bottom: 40px; color: #88aacc; letter-spacing: 1px; }
+        .hero { font-size: 18px; margin-bottom: 40px; color: #1e3a5f; letter-spacing: 0.5px; font-weight: 500; }
         
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 500px; margin: 0 auto; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 500px; margin: 0 auto; }
         
+        /* بطاقات الخدمات - تصميم فاتح وأنيق */
         .card { 
-            padding: 25px 15px; border: 1px solid #1e3a5f; border-radius: 8px; 
-            background: linear-gradient(145deg, #0a1424, #050a14); 
-            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.15); 
-            cursor: pointer; transition: all 0.3s ease; 
+            padding: 25px 15px; border: 2px solid #e0e7ff; border-radius: 12px; 
+            background: #f8f9ff; color: #050a14;
+            cursor: pointer; transition: all 0.3s ease; font-weight: bold;
         }
-        .card:hover { border-color: #007bff; background: #0a1424; }
-        .card:active { background: #007bff; color: white; transform: scale(0.95); }
+        .card:hover { border-color: #007bff; background: #eef5ff; }
         
-        .assistant-box { border: 1px solid #1e3a5f; border-radius: 12px; padding: 25px; max-width: 500px; margin: 40px auto; background: rgba(5, 10, 20, 0.9); }
-        input, textarea { width: 85%; padding: 12px; border-radius: 4px; border: 1px solid #1e3a5f; background: #0a1424; color: white; margin-bottom: 15px; }
-        button { background: #007bff; color: white; border: none; padding: 12px 40px; border-radius: 4px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        /* صندوق المساعد الذكي */
+        .assistant-box { border: 2px solid #e0e7ff; border-radius: 16px; padding: 25px; max-width: 500px; margin: 40px auto; background: #fdfdfd; }
+        input, textarea { width: 85%; padding: 12px; border-radius: 8px; border: 1px solid #c0c9d9; background: #ffffff; color: #050a14; margin-bottom: 15px; }
+        button { background: #007bff; color: white; border: none; padding: 12px 40px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; }
         button:hover { background: #0056b3; }
         
-        .footer { margin-top: 50px; color: #556688; font-size: 12px; border-top: 1px solid #1e3a5f; padding-top: 20px; }
+        .footer { margin-top: 50px; color: #8899aa; font-size: 12px; border-top: 1px solid #e0e7ff; padding-top: 20px; }
     </style>
 </head>
 <body>
 
-    <!-- الشعار - الاسم هنا يطابق تماماً ما رفعته في الصورة -->
-    <img src="logo.png.png" alt="شعار نورمال" class="logo">
+    <img src="logo.png.PNG" alt="شعار نورمال" class="logo">
     
     <div class="hero">إبداع بلا حدود | نُحوّل أفكارك إلى تجارب استثنائية</div>
 
-    <h2 style="font-size: 20px; margin-bottom: 20px; color: #007bff;">خدماتنا</h2>
+    <h2 style="font-size: 24px; margin-bottom: 25px; color: #007bff;">خدماتنا</h2>
     <div class="grid">
         <div class="card">تصوير المنتجات</div>
         <div class="card">التصميم الداخلي</div>
@@ -48,7 +49,7 @@
 
     <div class="assistant-box">
         <h3 style="color: #007bff;">المساعد الذكي "نورمال"</h3>
-        <p style="font-size: 14px;">مرحباً بك! أنا مساعد نورمال، كيف يمكنني مساعدتك اليوم؟</p>
+        <p style="font-size: 14px; color: #445566;">مرحباً بك! أنا مساعد نورمال، كيف يمكنني مساعدتك اليوم؟</p>
         <form action="https://formspree.io/f/xykvqjek" method="POST">
             <input type="email" name="email" placeholder="بريدك للتواصل" required>
             <textarea name="message" placeholder="اكتب رسالتك هنا..." required></textarea>
