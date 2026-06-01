@@ -5,19 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body { background-color: #0d0717; color: white; text-align: center; font-family: sans-serif; margin: 0; padding: 20px; }
-        /* تكبير الشعار */
-        .logo { width: 220px; filter: brightness(0) invert(1); margin: 40px 0 20px; }
+        /* تكبير الشعار مع ضمان عرضه */
+        .logo { width: 220px; height: auto; display: block; margin: 40px auto 20px; filter: brightness(0) invert(1); }
         .hero { font-size: 15px; margin-bottom: 40px; color: #ccc; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 500px; margin: 0 auto; }
-        
-        /* تأثير الوميض/الضغط للخدمات */
-        .card { 
-            padding: 25px 15px; border: 1px solid #4a356a; border-radius: 12px; 
-            background: rgba(169, 85, 247, 0.05); box-shadow: 0 0 15px rgba(169, 85, 247, 0.15); 
-            cursor: pointer; transition: 0.3s; 
-        }
+        .card { padding: 25px 15px; border: 1px solid #4a356a; border-radius: 12px; background: rgba(169, 85, 247, 0.05); box-shadow: 0 0 15px rgba(169, 85, 247, 0.15); cursor: pointer; transition: 0.3s; }
         .card:active { background: #a855f7; transform: scale(0.95); }
-        
         .assistant-box { border: 1px solid #4a356a; border-radius: 15px; padding: 25px; max-width: 500px; margin: 40px auto; background: rgba(169, 85, 247, 0.05); box-shadow: 0 0 20px rgba(169, 85, 247, 0.1); }
         input, textarea { width: 85%; padding: 12px; border-radius: 8px; border: 1px solid #4a356a; background: #0d0717; color: white; margin-bottom: 15px; }
         button { background: #a855f7; color: white; border: none; padding: 12px 40px; border-radius: 8px; cursor: pointer; font-weight: bold; }
@@ -26,7 +19,7 @@
 </head>
 <body>
 
-    <img src="logo.png" class="logo">
+    <img src="logo.png" alt="شعار نورمال" class="logo">
     <div class="hero">إبداع بلا حدود | نُحوّل أفكارك إلى تجارب استثنائية</div>
 
     <h2 style="font-size: 20px; margin-bottom: 20px;">خدماتنا</h2>
