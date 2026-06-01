@@ -1,3 +1,6 @@
+تفضل يا عبد المنعم، هذا هو الكود الكامل والجاهز للنسخ، والذي يحتوي على الربط الخاص بك (xykvqjek) وعلى التصميم الذي اتفقنا عليه.
+قم بنسخ هذا الكود بالكامل وضعه داخل ملف index.html في GitHub:
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -8,22 +11,16 @@
         .logo { width: 140px; filter: brightness(0) invert(1); margin: 40px 0 20px; }
         .hero { font-size: 15px; margin-bottom: 40px; color: #ccc; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 500px; margin: 0 auto; }
-        
-        /* المربعات بنفس لون المساعد */
-        .card { padding: 25px 15px; border: 1px solid #4a356a; border-radius: 12px; background: rgba(169, 85, 247, 0.05); transition: 0.4s; cursor: pointer; }
-        .card:hover { border-color: #a855f7; box-shadow: 0 0 15px rgba(168, 85, 247, 0.3); }
-        
-        /* المساعد الذكي بنفس التنسيق واللون */
+        .card { padding: 25px 15px; border: 1px solid #4a356a; border-radius: 12px; background: rgba(169, 85, 247, 0.05); }
         .assistant-box { border: 1px solid #4a356a; border-radius: 15px; padding: 25px; max-width: 500px; margin: 40px auto; background: rgba(169, 85, 247, 0.05); }
-        input { width: 85%; padding: 12px; border-radius: 8px; border: 1px solid #4a356a; background: #0d0717; color: white; margin-bottom: 15px; }
-        button { background: #a855f7; color: white; border: none; padding: 10px 30px; border-radius: 8px; cursor: pointer; transition: 0.3s; }
-        
+        input, textarea { width: 85%; padding: 12px; border-radius: 8px; border: 1px solid #4a356a; background: #0d0717; color: white; margin-bottom: 15px; }
+        button { background: #a855f7; color: white; border: none; padding: 10px 30px; border-radius: 8px; cursor: pointer; }
         .footer { margin-top: 50px; color: #888; font-size: 13px; border-top: 1px solid #333; padding-top: 20px; }
     </style>
 </head>
 <body>
 
-    <img src="logo.png.PNG" class="logo">
+    <img src="logo.png" class="logo">
     <div class="hero">إبداع بلا حدود | نُحوّل أفكارك إلى تجارب استثنائية</div>
 
     <h2 style="font-size: 20px; margin-bottom: 20px;">خدماتنا</h2>
@@ -37,9 +34,13 @@
     <div class="assistant-box">
         <h3>المساعد الذكي "نورمال"</h3>
         <p style="font-size: 14px;">مرحباً بك! أنا مساعد نورمال، كيف يمكنني مساعدتك اليوم؟</p>
-        <input type="text" placeholder="اكتب رسالتك هنا...">
-        <br>
-        <button>إرسال</button>
+        <!-- نموذج الإرسال المرتبط بإيميلك -->
+        <form action="https://formspree.io/f/xykvqjek" method="POST">
+            <input type="email" name="email" placeholder="بريدك الإلكتروني" required>
+            <textarea name="message" placeholder="اكتب رسالتك هنا..." required></textarea>
+            <br>
+            <button type="submit">إرسال</button>
+        </form>
     </div>
 
     <div class="footer">
@@ -48,3 +49,6 @@
 
 </body>
 </html>
+
+```
+بعد لصق هذا الكود في GitHub وحفظه (Commit changes)، سيكون موقعك جاهزاً لاستقبال الرسائل. هل تريد مني توضيح أي خطوة أخرى؟
