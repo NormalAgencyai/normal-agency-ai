@@ -1,63 +1,26 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Normal Agency - إبداع بلا حدود</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body { background-color: #0d0717; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .logo-anim { 
+            width: 250px; 
+            animation: fadeInOut 3s ease-in-out forwards;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1.1); }
+        }
+    </style>
 </head>
 <body>
-
-<header style="text-align: center; padding: 50px 20px 30px 20px;">
-    <img src="logo.png.PNG" alt="Normal Agency Logo" style="width: 320px; max-width: 90%; display: block; margin: 0 auto; filter: brightness(0) invert(1);">
-    
-    <p style="color: #ffffff; font-size: 19px; margin-top: 30px; letter-spacing: 4px; font-weight: 300; line-height: 1.6;">
-        إبداع بلا حدود | نُحوّل أفكارك إلى تجارب استثنائية
-    </p>
-</header>
-
-
-    </p>
-</header>
-
-
-    <section class="services">
-        <h2>خدماتنا</h2>
-        <div class="grid">
-            <div class="card">التصميم الداخلي</div>
-            <div class="card">تصوير المنتجات</div>
-            <div class="card">الهوية البصرية</div>
-            <div class="card">إدارة السوشيال ميديا</div>
-        </div>
-    </section>
-
-    <footer class="why-us">
-        <h3>لماذا تختار نورمال؟</h3>
-        <p>تصاميم احترافية | دعم 24/7 | أمان وخصوصية</p>
-    </footer>
-
+    <img src="logo.png.PNG" class="logo-anim" alt="Normal Agency">
+    <script>
+        // الانتقال التلقائي بعد 3 ثوانٍ
+        setTimeout(function() {
+            window.location.href = "home.html";
+        }, 3000);
+    </script>
 </body>
 </html>
-<section id="ai-assistant" class="assistant-box">
-    <h2>المساعد الذكي "نورمال"</h2>
-    <div class="chat-container">
-        <p>مرحباً بك! أنا مساعد نورمال، كيف يمكنني مساعدتك اليوم؟</p>
-        <input type="text" placeholder="اكتب رسالتك هنا...">
-        <button>إرسال</button>
-    </div>
-</section>
-<nav style="background: #100720; padding: 15px; display: flex; justify-content: center; gap: 20px;">
-    <a href="index.html" style="color: white; text-decoration: none;">الرئيسية</a>
-    <a href="#" style="color: white; text-decoration: none;">خدماتنا</a>
-    <a href="#" style="color: white; text-decoration: none;">تواصل معنا</a>
-</nav><script>
-    document.querySelector('button').addEventListener('click', function() {
-        alert('شكراً لتواصلك مع وكالة نورمال! سنقوم بالرد عليك قريباً.');
-    });
-</script>
-<nav class="navbar">
-    <a href="index.html">الرئيسية</a>
-    <a href="#services">خدماتنا</a>
-    <a href="#ai-assistant">المساعد الذكي</a>
-</nav>
-
