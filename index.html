@@ -2,25 +2,23 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
     <style>
-        body { background-color: #0d0717; color: white; text-align: center; font-family: sans-serif; padding: 20px; }
-        .logo { width: 120px; filter: brightness(0) invert(1); margin-top: 30px; }
-        .hero { margin: 30px 0; color: #ccc; }
+        body { background-color: #0d0717; color: white; text-align: center; font-family: sans-serif; margin: 0; padding: 20px; }
+        .hero { margin-bottom: 30px; font-size: 14px; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 500px; margin: 0 auto; }
-        .card { padding: 20px; border: 1px solid #333; border-radius: 10px; background: #160d26; }
-        .main-card { margin-top: 20px; padding: 25px; border: 1px solid #a855f7; border-radius: 10px; background: #160d26; max-width: 470px; margin-left: auto; margin-right: auto; }
+        .card { padding: 20px; border: 1px solid #4a356a; border-radius: 10px; background: #160d26; }
+        .features { margin: 30px 0; color: #aaa; }
+        .assistant-box { border: 2px solid #a855f7; border-radius: 15px; padding: 20px; max-width: 500px; margin: 0 auto; }
+        input { width: 80%; padding: 10px; border-radius: 5px; border: none; margin: 10px 0; }
+        button { background: #a855f7; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+        .footer { margin-top: 40px; color: #666; font-size: 12px; }
     </style>
 </head>
 <body>
 
-    <img src="logo.png.PNG" class="logo">
-    <div class="hero">
-        <p>إبداع بلا حدود | نُحوّل أفكارك إلى تجارب استثنائية</p>
-    </div>
-
-    <h2 style="margin-bottom: 20px;">خدماتنا</h2>
+    <div class="hero">إبداع بلا حدود | نُحوّل أفكارك إلى تجارب استثنائية</div>
     
+    <h2>خدماتنا</h2>
     <div class="grid">
         <div class="card">تصوير المنتجات</div>
         <div class="card">التصميم الداخلي</div>
@@ -28,8 +26,19 @@
         <div class="card">الهوية البصرية</div>
     </div>
 
-    <div class="main-card">
+    <div class="features">لماذا تختار نورمال؟<br>تصاميم احترافية | دعم 24/7 | أمان وخصوصية</div>
+
+    <div class="assistant-box">
         <h3>المساعد الذكي "نورمال"</h3>
+        <p>مرحباً بك! أنا مساعد نورمال، كيف يمكنني مساعدتك اليوم؟</p>
+        <input type="text" placeholder="اكتب رسالتك هنا...">
+        <br>
+        <button>إرسال</button>
+    </div>
+
+    <div class="footer">
+        الرئيسية | خدماتنا | تواصل معنا<br>
+        الرئيسية | خدماتنا | المساعد الذكي
     </div>
 
 </body>
