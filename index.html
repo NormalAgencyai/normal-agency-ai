@@ -5,18 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Normal Agency | نورمال</title>
     <style>
-        /* خلفية بيضاء ونصوص داكنة */
         body { background-color: #ffffff; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; }
         
-        /* الشعار - تم تكبيره قليلاً */
-        .logo { width: 280px; height: auto; display: block; margin: 40px auto 20px; transition: transform 0.3s; }
-        .logo:hover { transform: scale(1.05); }
+        /* تصميم الشعار المتناسق مع الخلفية البيضاء */
+        .logo { 
+            width: 280px; 
+            height: auto; 
+            display: block; 
+            margin: 40px auto 20px; 
+            border-radius: 12px; 
+            /* إضافة ظل خفيف جداً يبرز الشعار على الخلفية البيضاء */
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s; 
+        }
+        .logo:hover { transform: scale(1.02); }
         
         .hero { font-size: 18px; margin-bottom: 40px; color: #1e3a5f; letter-spacing: 0.5px; font-weight: 500; }
         
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 500px; margin: 0 auto; }
         
-        /* بطاقات الخدمات - تصميم فاتح وأنيق */
         .card { 
             padding: 25px 15px; border: 2px solid #e0e7ff; border-radius: 12px; 
             background: #f8f9ff; color: #050a14;
@@ -24,7 +31,6 @@
         }
         .card:hover { border-color: #007bff; background: #eef5ff; }
         
-        /* صندوق المساعد الذكي */
         .assistant-box { border: 2px solid #e0e7ff; border-radius: 16px; padding: 25px; max-width: 500px; margin: 40px auto; background: #fdfdfd; }
         input, textarea { width: 85%; padding: 12px; border-radius: 8px; border: 1px solid #c0c9d9; background: #ffffff; color: #050a14; margin-bottom: 15px; }
         button { background: #007bff; color: white; border: none; padding: 12px 40px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; }
@@ -35,7 +41,7 @@
 </head>
 <body>
 
-    <img src="logo.png.PNG" alt="شعار نورمال" class="logo">
+    <img src="Logo.png.png" alt="شعار نورمال" class="logo">
     
     <div class="hero">إبداع بلا حدود | نُحوّل أفكارك إلى تجارب استثنائية</div>
 
