@@ -1,68 +1,79 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="htmlTag">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Normal Agency | نورمال</title>
     <style>
-        body { background: #ffffff; color: #050a14; font-family: 'Segoe UI', sans-serif; text-align: center; margin: 0; padding: 20px; }
-        .logo { width: 220px; margin: 30px auto; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 800px; margin: 0 auto; }
-        .card { padding: 40px 20px; border: 2px solid #f0f4f8; border-radius: 20px; background: #fdfdfd; cursor: pointer; transition: 0.3s; }
-        .card:hover { border-color: #007bff; background: #f0f7ff; transform: translateY(-5px); }
-        .card h2 { color: #007bff; margin-top: 0; }
-        .card ul { list-style: none; padding: 0; color: #555; }
+        body { background-color: #ffffff; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; transition: 0.3s; }
         
-        /* النافذة المنبثقة */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); }
-        .modal-content { background: white; width: 90%; max-width: 450px; margin: 10% auto; padding: 30px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
-        input, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
-        .btn-order { background: #007bff; color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; }
+        /* زر تبديل اللغة */
+        .lang-switch { margin-bottom: 20px; cursor: pointer; color: #007bff; font-weight: bold; }
+        
+        .logo { width: 280px; height: auto; display: block; margin: 20px auto 20px; border-radius: 12px; filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1)); }
+        
+        .hero { font-size: 18px; margin-bottom: 40px; color: #1e3a5f; }
+        
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 500px; margin: 0 auto; }
+        .card { padding: 25px 15px; border: 2px solid #e0e7ff; border-radius: 12px; background: #f8f9ff; cursor: pointer; transition: 0.3s; font-weight: bold; }
+        .card:hover { border-color: #007bff; background: #eef5ff; }
+        
+        .assistant-box { border: 2px solid #e0e7ff; border-radius: 16px; padding: 25px; max-width: 500px; margin: 40px auto; background: #fdfdfd; }
+        input, textarea { width: 85%; padding: 12px; border-radius: 8px; border: 1px solid #c0c9d9; margin-bottom: 15px; }
+        button { background: #007bff; color: white; border: none; padding: 12px 40px; border-radius: 8px; cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <img src="logo.png.png" alt="Normal Agency" class="logo">
+    <!-- زر تبديل اللغة -->
+    <div class="lang-switch" onclick="toggleLang()">English / العربية</div>
+
+    <img src="logo.png.png" alt="Normal Logo" class="logo">
     
+    <div class="hero" id="hero">إبداع بلا حدود | نُحوّل أفكارك إلى تجارب استثنائية</div>
+
+    <h2 id="servicesTitle" style="color: #007bff;">خدماتنا</h2>
     <div class="grid">
-        <div class="card" onclick="openModal('نورمال ستوديو')">
-            <h2>نورمال ستوديو</h2>
-            <ul><li>تعليق صوتي</li><li>تصوير منتجات</li><li>تصوير فوتوغرافي</li></ul>
-        </div>
-        <div class="card" onclick="openModal('نورمال ديجيتال')">
-            <h2>نورمال ديجيتال</h2>
-            <ul><li>برمجة خاصة</li><li>تصميم مواقع</li><li>صناعة محتوى</li></ul>
-        </div>
-        <div class="card" onclick="openModal('نورمال برينت')">
-            <h2>نورمال برينت</h2>
-            <ul><li>طباعة وتغليف</li><li>تصميم سيرة ذاتية</li><li>كتابة تقارير</li></ul>
-        </div>
-        <div class="card" onclick="openModal('نورمال آرت')">
-            <h2>نورمال آرت</h2>
-            <ul><li>تصميم داخلي</li><li>رسم على الجدران</li><li>جرافيك ديزاين</li></ul>
-        </div>
+        <div class="card" id="s1">تصوير المنتجات</div>
+        <div class="card" id="s2">التصميم الداخلي</div>
+        <div class="card" id="s3">إدارة السوشيال ميديا</div>
+        <div class="card" id="s4">الهوية البصرية</div>
     </div>
 
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <h2 id="modalTitle">طلب الخدمة</h2>
-            <p style="color: #666; font-size: 14px;">نعدكم بالتسليم خلال 12 ساعة من الآن</p>
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                <input type="text" name="name" placeholder="اسمك الكريم" required>
-                <input type="email" name="email" placeholder="بريدك للتواصل" required>
-                <textarea name="message" placeholder="تفاصيل الخدمة التي تحتاجها" required></textarea>
-                <button type="submit" class="btn-order">إرسال الطلب والانتقال للدفع</button>
-            </form>
-            <p style="margin-top:15px; cursor:pointer; color:#888;" onclick="closeModal()">إلغاء</p>
-        </div>
+    <div class="assistant-box">
+        <h3 id="asstTitle" style="color: #007bff;">المساعد الذكي "نورمال"</h3>
+        <p id="asstText">مرحباً بك! أنا مساعد نورمال، كيف يمكنني مساعدتك اليوم؟</p>
+        <form action="https://formspree.io/f/xykvqjek" method="POST">
+            <input type="email" name="email" id="email" placeholder="بريدك للتواصل" required>
+            <textarea name="message" id="message" placeholder="اكتب رسالتك هنا..." required></textarea>
+            <br>
+            <button type="submit" id="sendBtn">إرسال</button>
+        </form>
     </div>
 
     <script>
-        function openModal(service) {
-            document.getElementById('modalTitle').innerText = "طلب: " + service;
-            document.getElementById('modal').style.display = 'block';
+        function toggleLang() {
+            const html = document.getElementById('htmlTag');
+            const isAr = html.getAttribute('dir') === 'rtl';
+            
+            if (isAr) {
+                html.setAttribute('dir', 'ltr');
+                html.setAttribute('lang', 'en');
+                document.getElementById('hero').innerText = "Creativity Without Limits | Transforming Ideas into Exceptional Experiences";
+                document.getElementById('servicesTitle').innerText = "Our Services";
+                document.getElementById('s1').innerText = "Product Photography";
+                document.getElementById('s2').innerText = "Interior Design";
+                document.getElementById('s3').innerText = "Social Media Management";
+                document.getElementById('s4').innerText = "Brand Identity";
+                document.getElementById('asstTitle').innerText = "Normal Smart Assistant";
+                document.getElementById('asstText').innerText = "Welcome! I am the Normal assistant, how can I help you today?";
+                document.getElementById('email').placeholder = "Your contact email";
+                document.getElementById('message').placeholder = "Write your message here...";
+                document.getElementById('sendBtn').innerText = "Send";
+            } else {
+                location.reload(); // لإعادة تحميل الصفحة بالعربي بسهولة
+            }
         }
-        function closeModal() { document.getElementById('modal').style.display = 'none'; }
     </script>
 </body>
 </html>
