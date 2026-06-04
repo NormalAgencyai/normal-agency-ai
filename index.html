@@ -32,14 +32,77 @@
     
     <div class="hero" id="hero">إبداع بلا حدود | نُحوّل أفكارك إلى تجارب استثنائية</div>
 
-    <h2 style="margin-top: 40px; color: #111827;">خدمات وكالة نورمال</h2>
-    
-    <div class="grid">
-        <div class="card" onclick="loadService('نورمال ديجيتال', ['برمجة خاصة', 'تصميم مواقع', 'صناعة محتوى'])">💻 نورمال ديجيتال</div>
-        <div class="card" onclick="loadService('نورمال آرت', ['تصميم داخلي', 'رسم على الجدران', 'جرافيك ديزاين'])">🎨 نورمال آرت</div>
-        <div class="card" onclick="loadService('نورمال ستوديو', ['تعليق صوتي', 'تصوير منتجات', 'تصوير فوتوغرافي'])">📸 نورمال ستوديو</div>
-        <div class="card" onclick="loadService('نورمال برينت', ['طباعة وتغليف', 'تصميم سيرة ذاتية', 'كتابة تقارير'])">🖨️ نورمال برينت</div>
-        <div class="card" onclick="loadService('نورمال سفر وسياحة', ['إصدار التأشيرات السياحية', 'حجوزات الطيران', 'حجوزات الفنادق'])">✈️ نورمال سفر وسياحة</div>
+    <h2<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>خدمات وكالة نورمال</title>
+    <style>
+        body { font-family: sans-serif; background-color: #ffffff; padding: 20px; color: #333; }
+        .accordion { max-width: 500px; margin: auto; }
+        .section { margin-bottom: 10px; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; }
+        .header { background: #f9f9f9; padding: 15px; cursor: pointer; font-weight: bold; display: flex; justify-content: space-between; }
+        .content { display: none; padding: 15px; background: #fff; border-top: 1px solid #ddd; }
+        .content ul { list-style: none; padding: 0; }
+        .content li { padding: 8px 0; border-bottom: 1px solid #eee; }
+    </style>
+</head>
+<body>
+
+<div class="accordion">
+    <h2 style="text-align: center;">خدمات وكالة نورمال</h2>
+
+    <!-- نورمال ديجيتال -->
+    <div class="section">
+        <div class="header" onclick="toggle(this)">نورمال ديجيتال ▾</div>
+        <div class="content">
+            <ul><li>برمجة خاصة</li><li>تصميم مواقع</li><li>صناعة محتوى</li></ul>
+        </div>
+    </div>
+
+    <!-- نورمال آرت -->
+    <div class="section">
+        <div class="header" onclick="toggle(this)">نورمال آرت ▾</div>
+        <div class="content">
+            <ul><li>تصميم داخلي</li><li>رسم على الجدران</li><li>جرافيك ديزاين</li></ul>
+        </div>
+    </div>
+
+    <!-- نورمال ستوديو -->
+    <div class="section">
+        <div class="header" onclick="toggle(this)">نورمال ستوديو ▾</div>
+        <div class="content">
+            <ul><li>تعليق صوتي</li><li>تصوير منتجات</li><li>تصوير فوتوغرافي</li></ul>
+        </div>
+    </div>
+
+    <!-- نورمال برينت -->
+    <div class="section">
+        <div class="header" onclick="toggle(this)">نورمال برينت ▾</div>
+        <div class="content">
+            <ul><li>طباعة وتغليف</li><li>تصميم سيرة ذاتية</li><li>كتابة تقارير</li></ul>
+        </div>
+    </div>
+
+    <!-- نورمال سفر وسياحة -->
+    <div class="section">
+        <div class="header" onclick="toggle(this)">نورمال سفر وسياحة ▾</div>
+        <div class="content">
+            <ul><li>فيزا سياحية</li><li>حجوزات طيران</li><li>حجوزات فنادق</li></ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggle(element) {
+        const content = element.nextElementSibling;
+        content.style.display = (content.style.display === "block") ? "none" : "block";
+    }
+</script>
+
+</body>
+</html>
+
     </div>
 
     </div>
