@@ -1,73 +1,75 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" id="htmlTag">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Normal Agency | نورمال</title>
-    <style>
-        body { background-color: #ffffff; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; transition: <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Normal Agency | الهوية الرقمية</title>
+    <!-- تحميل الخطوط -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #2563eb; --bg: #ffffff; }
-        body { font-family: 'IBM Plex Sans Arabic', sans-serif; background: var(--bg); margin: 0; padding: 20px; text-align: center; }
+        body { font-family: 'IBM Plex Sans Arabic', sans-serif; background: #ffffff; margin: 0; padding: 20px; transition: 0.5s; }
         
-        /* الأقسام الرئيسية */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: auto; }
+        /* تصميم المربعات */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1000px; margin: 50px auto; }
         .card { 
             background: #f9fafb; padding: 40px; border-radius: 25px; cursor: pointer; 
-            transition: all 0.5s ease; border: 2px solid transparent; 
+            border: 2px solid #f0f0f0; transition: all 0.4s ease; text-align: center; font-weight: bold;
         }
-        .card:hover { border-color: var(--primary); box-shadow: 0 0 30px rgba(37,99,235,0.2); transform: scale(1.02); }
+        .card:hover { border-color: #2563eb; box-shadow: 0 0 30px rgba(37,99,235,0.2); transform: translateY(-10px); }
 
-        /* النافذة التفاعلية */
-        .modal { display: none; position: fixed; inset: 0; background: white; z-index: 1000; padding: 50px; overflow-y: auto; text-align: right; }
-        .btn-order { background: var(--primary); color: white; padding: 15px 30px; border-radius: 12px; border: none; cursor: pointer; width: 100%; margin-top: 20px; }
-        
-        input, select, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; }
+        /* نافذة الطلب */
+        .modal { display: none; position: fixed; inset: 0; background: rgba(255,255,255,0.98); z-index: 1000; padding: 40px; overflow-y: auto; }
+        .form-container { max-width: 500px; margin: auto; }
+        input, select, textarea { width: 100%; padding: 15px; margin: 10px 0; border: 1px solid #ddd; border-radius: 12px; box-sizing: border-box; }
+        .btn-order { background: #2563eb; color: white; padding: 15px; border-radius: 12px; border: none; width: 100%; cursor: pointer; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Normal Agency 🌐</h1>
-        <select><option>العربية (Saudi Arabia)</option><option>English (USA)</option></select>
-    </header>
+    <h1 style="text-align: center;">خدمات وكالة نورمال</h1>
 
-    <div class="grid" id="mainGrid">
-        <div class="card" onclick="openSection('نورمال ديجيتال', 'برمجة، تصميم، محتوى')">💻 نورمال ديجيتال</div>
-        <div class="card" onclick="openSection('نورمال آرت', 'تصميم داخلي، رسم، جرافيك')">🎨 نورمال آرت</div>
-        <div class="card" onclick="openSection('نورمال ستوديو', 'تعليق، تصوير منتجات، فوتوغرافي')">📸 نورمال ستوديو</div>
-        <div class="card" onclick="openSection('نورمال برينت', 'طباعة، سيرة ذاتية، تقارير')">🖨️ نورمال برينت</div>
-        <div class="card" onclick="openSection('نورمال سفر', 'تأشيرات، طيران، فنادق')">✈️ نورمال سفر وسياحة</div>
+    <div class="grid">
+        <div class="card" onclick="openForm('نورمال ديجيتال')">💻 نورمال ديجيتال</div>
+        <div class="card" onclick="openForm('نورمال آرت')">🎨 نورمال آرت</div>
+        <div class="card" onclick="openForm('نورمال ستوديو')">📸 نورمال ستوديو</div>
+        <div class="card" onclick="openForm('نورمال برينت')">🖨️ نورمال برينت</div>
+        <div class="card" onclick="openForm('نورمال سفر وسياحة')">✈️ نورمال سفر وسياحة</div>
     </div>
 
-    <!-- نافذة الخدمة -->
+    <!-- نافذة نموذج الطلب -->
     <div id="modal" class="modal">
-        <button onclick="closeModal()">✖ إغلاق</button>
-        <h2 id="modalTitle"></h2>
-        <form onsubmit="event.preventDefault(); alert('تم استلام طلبكم بنجاح!');">
-            <input type="text" placeholder="الاسم الكامل" required>
-            <input type="tel" placeholder="رقم الجوال" required>
-            <input type="email" placeholder="البريد الإلكتروني" required>
-            <textarea placeholder="تفاصيل الطلب"></textarea>
-            <select>
-                <option>طريقة الدفع: مدى (Mada)</option>
-                <option>طريقة الدفع: Apple Pay</option>
-                <option>طريقة الدفع: Visa/Mastercard</option>
-            </select>
-            <button type="submit" class="btn-order">إرسال الطلب وإتمام الدفع (Moyasar)</button>
-        </form>
+        <div class="form-container">
+            <button onclick="document.getElementById('modal').style.display='none'" style="border:none; background:none; cursor:pointer;">✖ إغلاق</button>
+            <h2 id="modalTitle"></h2>
+            <form id="orderForm">
+                <input type="text" name="name" placeholder="الاسم الكامل" required>
+                <input type="tel" name="phone" placeholder="رقم الجوال" required>
+                <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+                <textarea name="details" placeholder="تفاصيل الطلب"></textarea>
+                <select name="payment">
+                    <option value="mada">مدى (Mada)</option>
+                    <option value="applepay">Apple Pay</option>
+                    <option value="visa">Visa / Mastercard</option>
+                </select>
+                <button type="submit" class="btn-order">إرسال الطلب وإتمام الدفع</button>
+            </form>
+        </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
-        function openSection(title, desc) {
+        (function(){ emailjs.init("YOUR_PUBLIC_KEY"); })(); // ضع مفتاحك هنا
+
+        function openForm(title) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modal').style.display = 'block';
         }
-        function closeModal() { document.getElementById('modal').style.display = 'none'; }
+
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+                .then(() => alert('تم استلام طلبكم بنجاح، سيتم التواصل معكم!'));
+        });
     </script>
 </body>
 </html>
