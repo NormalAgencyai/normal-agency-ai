@@ -75,13 +75,21 @@
  <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Normal Agency | خدماتنا</title>
-    <style>
-        body { background-color: #ffffff; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; padding: 20px; }
-        h1 { color: #007bff; }
-        
+</head>
+<body>
+
+    <h1>خدماتنا</h1>
+    <div class="grid">
+        <div class="card" onclick="showSub('نورمال ديجيتال', ['برمجة خاصة', 'تصميم مواقع', 'صناعة محتوى'])">نورمال ديجيتال</div>
+        <div class="card" onclick="showSub('نورمال آرت', ['تصميم داخلي', 'رسم على الجدران', 'جرافيك ديزاين'])">نورمال آرت</div>
+        <div class="card" onclick="showSub('نورمال ستوديو', ['تعليق صوتي', 'تصوير منتجات', 'تصوير فوتوغرافي'])">نورمال ستوديو</div>
+        <div class="card" onclick="showSub('نورمال برينت', ['طباعة وتغليف', 'تصميم سيرة ذاتية', 'كتابة تقارير'])">نورمال برينت</div>
+    </div>
+
+    <!-- نافذة الطلب -->
+    <div id="modal" class="modal">
+        <div class="form-box">
+            <button       
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 600px; margin: 40px auto; }
         
         .card { padding: 30px 10px; border: 2px solid #e0e7ff; border-radius: 12px; background: #f8f9ff; cursor: pointer; transition: 0.3s; font-weight: bold; }
