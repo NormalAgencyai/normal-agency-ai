@@ -3,98 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Normal Agency | الخدمات</title>
+    <title>Normal Agency | نورمال</title>
     <style>
-        :root { --primary: #1e3a8a; --bg: #ffffff; --text: #1f2937; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding: 20px; text-align: center; }
+        body { background-color: #ffffff; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; }
         
-        /* القسم الخاص باللوغو */
-        .logo-container { margin: 30px auto; }
-        .logo-container img { width: 150px; height: auto; }
-
-        /* الشبكة التفاعلية */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 900px; margin: 40px auto; }
-        .card { 
-            background: #ffffff; padding: 30px; border-radius: 20px; border: 1px solid #e5e7eb; 
-            cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+        /* تصميم الشعار المتناسق مع الاسم المرفوع logo.png.png */
+        .logo { 
+            width: 280px; 
+            height: auto; 
+            display: block; 
+            margin: 40px auto 20px; 
+            border-radius: 12px; 
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s; 
         }
-        .card:hover { border-color: var(--primary); box-shadow: 0 10px 25px rgba(30, 58, 138, 0.1); transform: translateY(-5px); }
-        .card h3 { color: var(--primary); margin-top: 0; }
-        .card ul { list-style: none; padding: 0; text-align: right; }
-        .card li { margin: 10px 0; font-size: 14px; color: #6b7280; cursor: pointer; }
-        .card li:hover { color: var(--primary); font-weight: bold; }
-
-        /* نافذة الطلب */
-        .modal { display: none; position: fixed; inset: 0; background: rgba(255,255,255,0.97); z-index: 1000; padding: 40px; overflow-y: auto; }
-        .modal-content { max-width: 500px; margin: auto; text-align: right; }
-        input, textarea, select { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #d1d5db; border-radius: 8px; box-sizing: border-box; }
-        .submit-btn { background: var(--primary); color: white; border: none; padding: 15px; width: 100%; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        
+        .hero { font-size: 18px; margin-bottom: 40px; color: #1e3a5f; letter-spacing: 0.5px; font-weight: 500; }
+        
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 500px; margin: 0 auto; }
+        
+        .card { 
+            padding: 25px 15px; border: 2px solid #e0e7ff; border-radius: 12px; 
+            background: #f8f9ff; color: #050a14;
+            cursor: pointer; transition: all 0.3s ease; font-weight: bold;
+        }
+        .card:hover { border-color: #007bff; background: #eef5ff; }
+        
+        .assistant-box { border: 2px solid #e0e7ff; border-radius: 16px; padding: 25px; max-width: 500px; margin: 40px auto; background: #fdfdfd; }
+        input, textarea { width: 85%; padding: 12px; border-radius: 8px; border: 1px solid #c0c9d9; background: #ffffff; color: #050a14; margin-bottom: 15px; }
+        button { background: #007bff; color: white; border: none; padding: 12px 40px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        button:hover { background: #0056b3; }
+        
+        .footer { margin-top: 50px; color: #8899aa; font-size: 12px; border-top: 1px solid #e0e7ff; padding-top: 20px; }
     </style>
 </head>
 <body>
 
-    <!-- اللوغو -->
-    <div class="logo-container">
-        <img src="YOUR_LOGO_URL" alt="Normal Agency Logo">
-    </div>
+    <!-- تم استخدام الاسم المطابق للملف المرفوع في المستودع -->
+    <img src="logo.png.png" alt="شعار نورمال" class="logo">
+    
+    <div class="hero">إبداع بلا حدود | نُحوّل أفكارك إلى تجارب استثنائية</div>
 
-    <h1>خدمات وكالة نورمال</h1>
-
-    <!-- الشبكة -->
+    <h2 style="font-size: 24px; margin-bottom: 25px; color: #007bff;">خدماتنا</h2>
     <div class="grid">
-        <div class="card">
-            <h3>نورمال ديجيتال</h3>
-            <ul>
-                <li onclick="openForm('برمجة خاصة')">برمجة خاصة</li>
-                <li onclick="openForm('تصميم مواقع')">تصميم مواقع</li>
-                <li onclick="openForm('صناعة محتوى')">صناعة محتوى</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3>نورمال آرت</h3>
-            <ul>
-                <li onclick="openForm('تصميم داخلي')">تصميم داخلي</li>
-                <li onclick="openForm('رسم على الجدران')">رسم على الجدران</li>
-                <li onclick="openForm('جرافيك ديزاين')">جرافيك ديزاين</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3>نورمال ستوديو</h3>
-            <ul>
-                <li onclick="openForm('تعليق صوتي')">تعليق صوتي</li>
-                <li onclick="openForm('تصوير منتجات')">تصوير منتجات</li>
-                <li onclick="openForm('تصوير فوتوغرافي')">تصوير فوتوغرافي</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3>نورمال برينت</h3>
-            <ul>
-                <li onclick="openForm('طباعة وتغليف')">طباعة وتغليف</li>
-                <li onclick="openForm('تصميم سيرة ذاتية')">تصميم سيرة ذاتية</li>
-                <li onclick="openForm('كتابة تقارير')">كتابة تقارير</li>
-            </ul>
-        </div>
+        <div class="card">تصوير المنتجات</div>
+        <div class="card">التصميم الداخلي</div>
+        <div class="card">إدارة السوشيال ميديا</div>
+        <div class="card">الهوية البصرية</div>
     </div>
 
-    <!-- نافذة نموذج الطلب -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <button onclick="document.getElementById('modal').style.display='none'" style="background:none; border:none; cursor:pointer;">✖ إغلاق</button>
-            <h2 id="serviceTitle"></h2>
-            <form onsubmit="alert('تم إرسال طلبك للخدمة!'); return false;">
-                <input type="text" placeholder="الاسم الكامل" required>
-                <input type="tel" placeholder="رقم الجوال" required>
-                <textarea placeholder="تفاصيل الطلب الإضافية"></textarea>
-                <button type="submit" class="submit-btn">إرسال الطلب</button>
-            </form>
-        </div>
+    <div class="assistant-box">
+        <h3 style="color: #007bff;">المساعد الذكي "نورمال"</h3>
+        <p style="font-size: 14px; color: #445566;">مرحباً بك! أنا مساعد نورمال، كيف يمكنني مساعدتك اليوم؟</p>
+        <form action="https://formspree.io/f/xykvqjek" method="POST">
+            <input type="email" name="email" placeholder="بريدك للتواصل" required>
+            <textarea name="message" placeholder="اكتب رسالتك هنا..." required></textarea>
+            <br>
+            <button type="submit">إرسال</button>
+        </form>
     </div>
 
-    <script>
-        function openForm(serviceName) {
-            document.getElementById('serviceTitle').innerText = "طلب خدمة: " + serviceName;
-            document.getElementById('modal').style.display = 'block';
-        }
-    </script>
+    <div class="footer">
+        <p>الرئيسية | خدماتنا | تواصل معنا | المساعد الذكي</p>
+    </div>
+
 </body>
 </html>
