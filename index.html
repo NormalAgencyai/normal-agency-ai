@@ -44,141 +44,13 @@
     
     <div class="hero">إبداع بلا حدود | نُحوّل أفكارك إلى تجارب استثنائية</div>
 
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Normal Agency | خدماتنا</title>
-    <style>
-        body { background-color: #ffffff; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; }
-        
-        .logo { width: 280px; height: auto; margin: 40px auto 20px; border-radius: 12px; filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1)); }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 900px; margin: 40px auto; }
-        
-        .card { padding: 30px 15px; border: 2px solid #e0e7ff; border-radius: 12px; background: #f8f9ff; cursor: pointer; transition: 0.3s; font-weight: bold; }
-        .card:hover { border-color: #007bff; background: #eef5ff; transform: translateY(-5px); }
-        
-        /* النافذة المنبثقة */
-        .modal { display: none; position: fixed; inset: 0; background: rgba(255,255,255,0.98); z-index: 1000; padding: 40px; overflow-y: auto; }
-        .form-box { max-width: 500px; margin: auto; border: 2px solid #e0e7ff; padding: 30px; border-radius: 16px; background: #fff; text-align: right; }
-        
-        ul { list-style: none; padding: 0; }
-        li { padding: 10px; border-bottom: 1px solid #eee; cursor: pointer; color: #007bff; font-weight: 500; }
-        li:hover { text-decoration: underline; background: #f0f7ff; }
-        
-        input, textarea { width: 90%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #c0c9d9; display: block; margin-right: auto; margin-left: auto; }
-        button { background: #007bff; color: white; border: none; padding: 12px 40px; border-radius: 8px; cursor: pointer; font-weight: bold; }
-    </style>
-</head>
-<body>
-
-    <img src="logo.png.png" alt="شعار نورمال" class="logo">
-    
-    <h2>خدماتنا</h2>
+    <h2 style="font-size: 24px; margin-bottom: 25px; color: #007bff;">خدماتنا</h2>
     <div class="grid">
-        <div class="card" onclick="showServices('نورمال ديجيتال', ['برمجة خاصة', 'تصميم مواقع', 'صناعة محتوى'])">نورمال ديجيتال</div>
-        <div class="card" onclick="showServices('نورمال آرت', ['تصميم داخلي', 'رسم على الجدران', 'جرافيك ديزاين'])">نورمال آرت</div>
-        <div class="card" onclick="showServices('نورمال ستوديو', ['تعليق صوتي', 'تصوير منتجات', 'تصوير فوتوغرافي'])">نورمال ستوديو</div>
-        <div class="card" onclick="showServices('نورمال برينت', ['طباعة وتغليف', 'تصميم سيرة ذاتية', 'كتابة تقارير'])">نورمال برينت</div>
-        <div class="card" onclick="showServices('نورمال سفر وسياحة', ['فيزا سياحية', 'حجوزات طيران', 'حجوزات فنادق'])">نورمال سفر وسياحة</div>
+        <div class="card">تصوير المنتجات</div>
+        <div class="card">التصميم الداخلي</div>
+        <div class="card">إدارة السوشيال ميديا</div>
+        <div class="card">الهوية البصرية</div>
     </div>
-
-    <!-- نافذة عرض الخدمات والطلب -->
-    <div id="modal" class="modal">
-        <div class="form-box">
-            <button onclick="document.getElementById('modal').style.display='none'" style="background:none; color:red; border:none; float:left; cursor:pointer;">إغلاق ✖</button>
-            <h3 id="modalTitle" style="text-align: center;"></h3>
-            <ul id="serviceList"></ul>
-            <hr>
-            <form action="https://formspree.io/f/xykvqjek" method="POST">
-                <input type="hidden" name="service_choice" id="hiddenService">
-                <input type="text" name="name" placeholder="اسمك الكريم" required>
-                <input type="email" name="email" placeholder="بريدك الإلكتروني" required>
-                <textarea name="message" id="messageArea" placeholder="تفاصيل طلبك..." required></textarea>
-                <button type="submit">إرسال الطلب</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        function showServices(title, items) {
-            document.getElementById('modalTitle').innerText = title;
-            const listDiv = document.getElementById('serviceList');
-            listDiv.innerHTML = items.map(item => `<li onclick="selectItem('${item}')">✅ ${item}</li>`).join('');
-            document.getElementById('modal').style.display = 'block';
-        }
-
-        function selectItem(item) {
-            document.getElementById('hiddenService').value = item;
-            document.getElementById('messageArea').value = "أرغب في خدمة: " + item;
-            alert("تم اختيار: " + item + "، يرجى إكمال بيانات الطلب أدناه.");
-        }
-    </script>
-
-</body>
-</html>
-
-        /* تصميم النافذة المنبثقة */
-        .modal { display: none; position: fixed; inset: 0; background: rgba(255,255,255,0.98); z-index: 1000; padding: 40px; overflow-y: auto; }
-        .form-box { max-width: 500px; margin: auto; border: 2px solid #e0e7ff; padding: 30px; border-radius: 16px; background: #fff; text-align: right; }
-        
-        ul { list-style: none; padding: 0; }
-        li { padding: 10px; border-bottom: 1px solid #eee; cursor: pointer; color: #007bff; font-weight: 500; }
-        li:hover { text-decoration: underline; }
-        
-        input, textarea { width: 90%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #c0c9d9; display: block; margin-right: auto; margin-left: auto; }
-        button { background: #007bff; color: white; border: none; padding: 12px 40px; border-radius: 8px; cursor: pointer; font-weight: bold; }
-    </style>
-</head>
-<body>
-
-    <img src="logo.png.png" alt="شعار نورمال" class="logo">
-    
-    <h2>خدماتنا</h2>
-    <div class="grid">
-        <div class="card" onclick="showServices('نورمال ديجيتال', ['برمجة خاصة', 'تصميم مواقع', 'صناعة محتوى'])">نورمال ديجيتال</div>
-        <div class="card" onclick="showServices('نورمال آرت', ['تصميم داخلي', 'رسم على الجدران', 'جرافيك ديزاين'])">نورمال آرت</div>
-        <div class="card" onclick="showServices('نورمال ستوديو', ['تعليق صوتي', 'تصوير منتجات', 'تصوير فوتوغرافي'])">نورمال ستوديو</div>
-        <div class="card" onclick="showServices('نورمال برينت', ['طباعة وتغليف', 'تصميم سيرة ذاتية', 'كتابة تقارير'])">نورمال برينت</div>
-    </div>
-
-    <!-- نافذة عرض الخدمات والطلب -->
-    <div id="modal" class="modal">
-        <div class="form-box">
-            <button onclick="document.getElementById('modal').style.display='none'" style="background:none; color:red; border:none; float:left;">إغلاق ✖</button>
-            <h3 id="modalTitle" style="text-align: center;"></h3>
-            <ul id="serviceList"></ul>
-            <hr>
-            <form action="https://formspree.io/f/xykvqjek" method="POST">
-                <input type="hidden" name="service_choice" id="hiddenService">
-                <input type="text" name="name" placeholder="اسمك الكريم" required>
-                <input type="email" name="email" placeholder="بريدك الإلكتروني" required>
-                <textarea name="message" id="messageArea" placeholder="تفاصيل طلبك..." required></textarea>
-                <button type="submit">إرسال الطلب</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        function showServices(title, items) {
-            document.getElementById('modalTitle').innerText = title;
-            const listDiv = document.getElementById('serviceList');
-            listDiv.innerHTML = items.map(item => `<li onclick="selectItem('${item}')">✅ ${item}</li>`).join('');
-            document.getElementById('modal').style.display = 'block';
-        }
-
-        function selectItem(item) {
-            document.getElementById('hiddenService').value = item;
-            document.getElementById('messageArea').value = "أرغب في خدمة: " + item;
-            alert("تم اختيار: " + item + "، يرجى إكمال بيانات الطلب أدناه.");
-        }
-    </script>
-
-</body>
-</html>
-
 
     <div class="assistant-box">
         <h3 style="color: #007bff;">المساعد الذكي "نورمال"</h3>
@@ -192,4 +64,3 @@
     </div>
 
     <div class="footer">
-        <p>الرئيسية | خدماتنا | تواصل معنا | المساعد الذكي</p>
