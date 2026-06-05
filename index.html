@@ -72,6 +72,34 @@
 </head>
 <body>
 
+ <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normal Agency | خدماتنا</title>
+    <style>
+        body { background-color: #ffffff; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; padding: 20px; }
+        h1 { color: #007bff; }
+        
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 600px; margin: 40px auto; }
+        
+        .card { padding: 30px 10px; border: 2px solid #e0e7ff; border-radius: 12px; background: #f8f9ff; cursor: pointer; transition: 0.3s; font-weight: bold; }
+        .card:hover { border-color: #007bff; background: #eef5ff; }
+        
+        .modal { display: none; position: fixed; inset: 0; background: rgba(255,255,255,0.98); z-index: 1000; padding: 40px; overflow-y: auto; }
+        .form-box { max-width: 500px; margin: auto; border: 2px solid #e0e7ff; padding: 20px; border-radius: 16px; text-align: right; }
+        
+        ul { list-style: none; padding: 0; }
+        li { padding: 12px; border-bottom: 1px solid #eee; cursor: pointer; color: #007bff; font-weight: bold; }
+        li:hover { background: #f0f7ff; }
+        
+        input, textarea { width: 90%; padding: 10px; margin: 10px 0; border-radius: 8px; border: 1px solid #ccc; display: block; margin: 10px auto; }
+        button { background: #007bff; color: white; border: none; padding: 10px 30px; border-radius: 8px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
     <h1 id="title">خدماتنا</h1>
     <div class="grid" id="mainGrid">
         <div class="card" onclick="showSubServices('التصميم الداخلي', ['تصميم غرف', 'تصميم مكاتب', 'استشارات هندسية'])">التصميم الداخلي</div>
@@ -79,6 +107,40 @@
         <div class="card" onclick="showSubServices('الهوية البصرية', ['تصميم شعار', 'دليل علامة تجارية', 'خطوط'])">الهوية البصرية</div>
         <div class="card" onclick="showSubServices('إدارة السوشيال ميديا', ['إدارة حسابات', 'إعلانات ممولة', 'صناعة محتوى'])">إدارة السوشيال ميديا</div>
     </div>
+
+    <!-- نافذة الخدمات الفرعية -->
+    <div id="modal" class="modal">
+        <div class="form-box">
+            <button onclick="document.getElementById('modal').style.display='none'" style="background:none; border:none; color:red; cursor:pointer;">إغلاق ✖</button>
+            <h3 id="modalTitle"></h3>
+            <ul id="subList"></ul>
+            <hr>
+            <form action="https://formspree.io/f/xykvqjek" method="POST">
+                <input type="hidden" name="service_detail" id="hiddenService">
+                <input type="text" name="name" placeholder="اسمك الكريم" required>
+                <textarea name="message" id="messageArea" placeholder="تفاصيل الطلب..."></textarea>
+                <button type="submit">إرسال الطلب</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showSubServices(title, items) {
+            document.getElementById('modalTitle').innerText = title;
+            const list = document.getElementById('subList');
+            list.innerHTML = items.map(item => `<li onclick="selectSub('${item}')">✅ ${item}</li>`).join('');
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function selectSub(item) {
+            document.getElementById('hiddenService').value = item;
+            document.getElementById('messageArea').value = "طلب خدمة فرعية: " + item;
+            alert("تم اختيار: " + item + "، يرجى ملء بياناتك للطلب.");
+        }
+    </script>
+</body>
+</html>
+
 
     <!-- نافذة الخدمات الفرعية -->
     <div id="modal" class="modal">
