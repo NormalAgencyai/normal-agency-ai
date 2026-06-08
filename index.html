@@ -58,7 +58,8 @@
             <h3 id="modalTitle"></h3>
             <ul id="subList"></ul>
             <form action="https://formspree.io/f/xykvqjek" method="POST">
-                <input type="hidden" name="service_detail" id="hiddenService">
+                <!-- النموذج المحدث بـ 3 خانات -->
+                <input type="text" name="service" id="hiddenService" placeholder="الخدمة المطلوبة" required readonly>
                 <input type="email" name="email" placeholder="البريد الإلكتروني" required>
                 <textarea name="message" id="messageArea" placeholder="تفاصيل الطلب..."></textarea>
                 <button type="submit">إرسال الطلب</button>
@@ -74,8 +75,7 @@
         }
         function selectSub(item) {
             document.getElementById('hiddenService').value = item;
-            document.getElementById('messageArea').value = "طلب خدمة: " + item;
-            alert("تم اختيار: " + item + "، يرجى ملء بياناتك بالأسفل.");
+            alert("تم اختيار: " + item + "، يرجى ملء البيانات بالأسفل.");
         }
     </script>
 </body>
