@@ -5,7 +5,7 @@
     <title>Normal Agency</title>
     <style>
         body { background-color: #f4f7fb; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0 0 80px 0; }
-        .top-bar { background: #007bff; padding: 15px; display: flex; justify-content: center; }
+        .top-bar { background: #007bff; padding: 15px; display: flex; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .lang-btn { background: white; color: #007bff; border: none; padding: 8px 25px; border-radius: 20px; cursor: pointer; font-weight: bold; }
         .container { max-width: 800px; margin: auto; padding: 20px; }
         .logo { width: 250px; margin: 20px auto; }
@@ -25,7 +25,7 @@
 <body>
 
 <div class="top-bar">
-    <button class="lang-btn" onclick="switchLanguage()">🌐 English / العربية</button>
+    <button class="lang-btn" onclick="toggleLanguage()">🌐 English / العربية</button>
 </div>
 
 <div class="container">
@@ -35,10 +35,10 @@
     <div id="services-section">
         <h1 data-en="Our Services">خدماتنا</h1>
         <div class="grid">
-            <div class="card" onclick="openModal('Normal Digital', 'نورمال ديجيتال')" data-en="Normal Digital">نورمال ديجيتال</div>
-            <div class="card" onclick="openModal('Normal Studio', 'نورمال ستوديو')" data-en="Normal Studio">نورمال ستوديو</div>
-            <div class="card" onclick="openModal('Normal Art', 'نورمال آرت')" data-en="Normal Art">نورمال آرت</div>
-            <div class="card" onclick="openModal('Normal Print', 'نورمال برينت')" data-en="Normal Print">نورمال برينت</div>
+            <div class="card" onclick="openModal('Digital')" data-en="Normal Digital">نورمال ديجيتال</div>
+            <div class="card" onclick="openModal('Studio')" data-en="Normal Studio">نورمال ستوديو</div>
+            <div class="card" onclick="openModal('Art')" data-en="Normal Art">نورمال آرت</div>
+            <div class="card" onclick="openModal('Print')" data-en="Normal Print">نورمال برينت</div>
         </div>
     </div>
 
@@ -62,45 +62,37 @@
     <div class="form-box">
         <button onclick="document.getElementById('modal').style.display='none'" style="background:red;" data-en="Close">إغلاق ✖</button>
         <h3 id="modalTitle"></h3>
-        <form action="https://formspree.io/f/xykvqjek" method="POST">
-            <input type="text" name="service" id="hiddenService" data-en="Required Service" placeholder="الخدمة المطلوبة" required readonly>
-            <input type="email" name="email" data-en="Email" placeholder="البريد الإلكتروني" required>
-            <textarea name="message" data-en="Request details..." placeholder="تفاصيل الطلب..."></textarea>
-            <button type="submit" data-en="Send Request">إرسال الطلب</button>
-        </form>
+        <ul id="subList" style="text-align:right;"></ul>
     </div>
 </div>
 
 <script>
-    let lastEnTitle = "";
-    let lastArTitle = "";
+    const data = {
+        Digital: { ar: "نورمال ديجيتال", en: "Normal Digital", items: [['تصميم المواقع', 'Web Design'], ['تطوير المتاجر', 'E-commerce'], ['تطبيقات الجوال', 'Mobile Apps'], ['برمجة خاصة', 'Custom Coding'], ['ذكاء اصطناعي', 'AI Solutions']] },
+        Studio: { ar: "نورمال ستوديو", en: "Normal Studio", items: [['تصوير المنتجات', 'Product Photography'], ['مونتاج احترافي', 'Video Editing'], ['تعليق صوتي', 'Voice Over'], ['تصوير جوي', 'Drone Shots']] },
+        Art: { ar: "نورمال آرت", en: "Normal Art", items: [['هوية بصرية', 'Brand Identity'], ['تصميم شعارات', 'Logo Design'], ['جرافيك', 'Graphic Design'], ['تصميم داخلي', 'Interior Design']] },
+        Print: { ar: "نورمال برينت", en: "Normal Print", items: [['بطاقات شخصية', 'Business Cards'], ['بروشورات', 'Brochures'], ['لوحات إعلانية', 'Billboards'], ['تغليف', 'Packaging']] }
+    };
 
-    function switchLanguage() {
-        const isEnglish = document.documentElement.lang === 'en';
-        document.documentElement.lang = isEnglish ? 'ar' : 'en';
-        document.body.dir = isEnglish ? 'rtl' : 'ltr';
+    let currentCat = "Digital";
+
+    function toggleLanguage() {
+        const isEn = document.documentElement.lang === 'en';
+        document.documentElement.lang = isEn ? 'ar' : 'en';
+        document.body.dir = isEn ? 'rtl' : 'ltr';
         
-        // تبديل النصوص العامة
         document.querySelectorAll('[data-en]').forEach(el => {
-            const arText = el.dataset.ar || el.innerText || el.placeholder;
-            if(!el.dataset.ar) el.dataset.ar = arText;
-            if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = isEnglish ? el.dataset.en : el.dataset.ar;
-            else el.innerText = isEnglish ? el.dataset.en : el.dataset.ar;
+            el.innerText = isEn ? el.dataset.ar : el.dataset.en;
         });
-
-        // تبديل مسمى الخدمة في النافذة إذا كانت مفتوحة
-        if(document.getElementById('modal').style.display === 'block') {
-            document.getElementById('modalTitle').innerText = (document.documentElement.lang === 'en') ? lastEnTitle : lastArTitle;
-            document.getElementById('hiddenService').value = (document.documentElement.lang === 'en') ? lastEnTitle : lastArTitle;
-        }
+        
+        if(document.getElementById('modal').style.display === 'block') openModal(currentCat);
     }
 
-    function openModal(enTitle, arTitle) {
-        lastEnTitle = enTitle;
-        lastArTitle = arTitle;
-        const isEnglish = document.documentElement.lang === 'en';
-        document.getElementById('modalTitle').innerText = isEnglish ? enTitle : arTitle;
-        document.getElementById('hiddenService').value = isEnglish ? enTitle : arTitle;
+    function openModal(cat) {
+        currentCat = cat;
+        const isEn = document.documentElement.lang === 'en';
+        document.getElementById('modalTitle').innerText = isEn ? data[cat].en : data[cat].ar;
+        document.getElementById('subList').innerHTML = data[cat].items.map(i => `<li>✅ ${isEn ? i[1] : i[0]}</li>`).join('');
         document.getElementById('modal').style.display = 'block';
     }
 </script>
