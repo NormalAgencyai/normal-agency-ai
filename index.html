@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>Normal Agency | نورمال للخدمات</title>
+    <title>Normal Agency</title>
     <style>
         body { background-color: #f4f7fb; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0 0 80px 0; }
         .top-bar { background: #007bff; padding: 15px; display: flex; justify-content: center; }
@@ -30,15 +30,15 @@
 
 <div class="container">
     <img src="logo.png.png" alt="شعار نورمال" class="logo">
-    <div class="hero-title" data-en="Normal Agency for Integrated Electronic Services">✦✦ نورمال للخدمات الإلكترونية المتكاملة ✦✦</div>
+    <div class="hero-title" data-en="Normal Agency">✦✦ نورمال للخدمات الإلكترونية المتكاملة ✦✦</div>
     
     <div id="services-section">
         <h1 data-en="Our Services">خدماتنا</h1>
         <div class="grid">
-            <div class="card" onclick="openModal('Normal Digital', 'نورمال ديجيتال', ['تصميم المواقع الإلكترونية', 'تطوير المتاجر الإلكترونية', 'تطوير تطبيقات الجوال', 'البرمجة الخاصة', 'أنظمة إدارة الأعمال', 'الذكاء الاصطناعي والحلول الذكية', 'أتمتة المهام والعمليات', 'تصميم واجهات المستخدم (UI/UX)', 'تحسين محركات البحث (SEO)', 'إدارة الاستضافة والدومينات', 'الأمن السيبراني', 'الدعم الفني والصيانة', 'الربط بين الأنظمة والمنصات', 'تطوير لوحات التحكم', 'إنشاء الصفحات التعريفية'])" data-en="Normal Digital">نورمال ديجيتال</div>
-            <div class="card" onclick="openModal('Normal Studio', 'نورمال ستوديو', ['تصوير المنتجات', 'تصوير الإعلانات التجارية', 'تصوير الفعاليات والمناسبات', 'التصوير العقاري', 'التصوير الجوي (درون)', 'إنتاج الفيديوهات التسويقية', 'المونتاج الاحترافي', 'صناعة المحتوى المرئي', 'التعليق الصوتي', 'تسجيل البودكاست', 'التصوير الفوتوغرافي', 'البث المباشر', 'الموشن جرافيك', 'كتابة وإنتاج الإعلانات', 'إدارة الاستوديوهات الإعلامية'])" data-en="Normal Studio">نورمال ستوديو</div>
-            <div class="card" onclick="openModal('Normal Art', 'نورمال آرت', ['تصميم الهوية البصرية', 'تصميم الشعارات', 'التصميم الجرافيكي', 'تصميم منشورات السوشيال ميديا', 'تصميم البروفايلات والشركات', 'تصميم البروشورات والفلايرات', 'تصميم الإنفوجرافيك', 'الموشن جرافيك', 'الرسم الرقمي', 'الرسم على الجدران', 'التصميم الداخلي', 'تصميم العبوات والتغليف', 'تصميم الشخصيات والرسومات', 'تصميم العروض التقديمية', 'إعادة تطوير الهويات التجارية'])" data-en="Normal Art">نورمال آرت</div>
-            <div class="card" onclick="openModal('Normal Print', 'نورمال برينت', ['طباعة البطاقات الشخصية', 'طباعة البروشورات', 'طباعة الفلايرات', 'طباعة الكتالوجات', 'طباعة اللوحات الإعلانية', 'طباعة البنرات', 'طباعة الملصقات والستيكرات', 'طباعة الأكواب والهدايا الدعائية', 'طباعة الملابس واليونيفورم', 'طباعة الدروع والشهادات', 'طباعة التغليف والعبوات', 'طباعة دفاتر الفواتير والسندات', 'طباعة ملفات الشركات', 'تجهيز المعارض والفعاليات', 'تنفيذ الهوية البصرية المطبوعة بالكامل'])" data-en="Normal Print">نورمال برينت</div>
+            <div class="card" onclick="openModal('Normal Digital', 'نورمال ديجيتال')" data-en="Normal Digital">نورمال ديجيتال</div>
+            <div class="card" onclick="openModal('Normal Studio', 'نورمال ستوديو')" data-en="Normal Studio">نورمال ستوديو</div>
+            <div class="card" onclick="openModal('Normal Art', 'نورمال آرت')" data-en="Normal Art">نورمال آرت</div>
+            <div class="card" onclick="openModal('Normal Print', 'نورمال برينت')" data-en="Normal Print">نورمال برينت</div>
         </div>
     </div>
 
@@ -62,7 +62,6 @@
     <div class="form-box">
         <button onclick="document.getElementById('modal').style.display='none'" style="background:red;" data-en="Close">إغلاق ✖</button>
         <h3 id="modalTitle"></h3>
-        <ul id="subList" style="list-style:none; padding:0; text-align:right;"></ul>
         <form action="https://formspree.io/f/xykvqjek" method="POST">
             <input type="text" name="service" id="hiddenService" data-en="Required Service" placeholder="الخدمة المطلوبة" required readonly>
             <input type="email" name="email" data-en="Email" placeholder="البريد الإلكتروني" required>
@@ -73,25 +72,35 @@
 </div>
 
 <script>
-    let currentModalData = { en: "", ar: "", items: [] };
+    let lastEnTitle = "";
+    let lastArTitle = "";
+
     function switchLanguage() {
         const isEnglish = document.documentElement.lang === 'en';
         document.documentElement.lang = isEnglish ? 'ar' : 'en';
         document.body.dir = isEnglish ? 'rtl' : 'ltr';
+        
+        // تبديل النصوص العامة
         document.querySelectorAll('[data-en]').forEach(el => {
             const arText = el.dataset.ar || el.innerText || el.placeholder;
             if(!el.dataset.ar) el.dataset.ar = arText;
             if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = isEnglish ? el.dataset.en : el.dataset.ar;
-            else if(el.innerText && !el.querySelector('ul')) el.innerText = isEnglish ? el.dataset.en : el.dataset.ar;
+            else el.innerText = isEnglish ? el.dataset.en : el.dataset.ar;
         });
-        if(document.getElementById('modal').style.display === 'block') openModal(currentModalData.en, currentModalData.ar, currentModalData.items);
+
+        // تبديل مسمى الخدمة في النافذة إذا كانت مفتوحة
+        if(document.getElementById('modal').style.display === 'block') {
+            document.getElementById('modalTitle').innerText = (document.documentElement.lang === 'en') ? lastEnTitle : lastArTitle;
+            document.getElementById('hiddenService').value = (document.documentElement.lang === 'en') ? lastEnTitle : lastArTitle;
+        }
     }
-    function openModal(enTitle, arTitle, items) {
-        currentModalData = { en: enTitle, ar: arTitle, items: items };
+
+    function openModal(enTitle, arTitle) {
+        lastEnTitle = enTitle;
+        lastArTitle = arTitle;
         const isEnglish = document.documentElement.lang === 'en';
         document.getElementById('modalTitle').innerText = isEnglish ? enTitle : arTitle;
         document.getElementById('hiddenService').value = isEnglish ? enTitle : arTitle;
-        document.getElementById('subList').innerHTML = items.map(item => `<li>✅ ${item}</li>`).join('');
         document.getElementById('modal').style.display = 'block';
     }
 </script>
