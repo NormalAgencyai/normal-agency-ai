@@ -8,8 +8,6 @@
         .top-bar { background: #007bff; padding: 15px; display: flex; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .lang-btn { background: white; color: #007bff; border: none; padding: 8px 25px; border-radius: 20px; cursor: pointer; font-weight: bold; }
         .container { max-width: 800px; margin: auto; padding: 20px; }
-        .logo { width: 250px; margin: 20px auto; }
-        .hero-title { font-size: 24px; font-weight: bold; color: #007bff; margin: 10px 0; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px auto; }
         .card { padding: 30px 10px; border: 2px solid #e0e7ff; border-radius: 12px; background: white; cursor: pointer; font-weight: bold; transition: 0.3s; }
         .card:hover { border-color: #007bff; background: #eef5ff; }
@@ -17,8 +15,6 @@
         .form-box { max-width: 500px; margin: 50px auto; background: white; padding: 30px; border-radius: 20px; text-align: right; }
         input, textarea { width: 90%; padding: 12px; margin: 10px auto; border-radius: 8px; border: 1px solid #ccc; display: block; }
         button { background: #007bff; color: white; border: none; padding: 12px 40px; border-radius: 8px; cursor: pointer; }
-        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #007bff; display: flex; justify-content: space-around; padding: 15px 0; z-index: 2000; }
-        .bottom-nav a { text-decoration: none; color: white; font-weight: bold; }
         ul { text-align: right; list-style: none; padding: 0; }
         li { margin: 8px 0; padding: 8px; border-bottom: 1px solid #eee; font-weight: bold; color: #333; }
     </style>
@@ -30,17 +26,12 @@
 </div>
 
 <div class="container">
-    <img src="logo.png.png" alt="شعار نورمال" class="logo">
-    <div class="hero-title" data-en="Normal Agency">✦✦ نورمال للخدمات الإلكترونية المتكاملة ✦✦</div>
-    
-    <div id="services-section">
-        <h1 data-en="Our Services">خدماتنا</h1>
-        <div class="grid">
-            <div class="card" onclick="openModal('Digital')" data-en="Normal Digital">نورمال ديجيتال</div>
-            <div class="card" onclick="openModal('Studio')" data-en="Normal Studio">نورمال ستوديو</div>
-            <div class="card" onclick="openModal('Art')" data-en="Normal Art">نورمال آرت</div>
-            <div class="card" onclick="openModal('Print')" data-en="Normal Print">نورمال برينت</div>
-        </div>
+    <h1 data-en="Our Services">خدماتنا</h1>
+    <div class="grid">
+        <div class="card" onclick="openModal('Digital')" data-en="Normal Digital">نورمال ديجيتال</div>
+        <div class="card" onclick="openModal('Studio')" data-en="Normal Studio">نورمال ستوديو</div>
+        <div class="card" onclick="openModal('Art')" data-en="Normal Art">نورمال آرت</div>
+        <div class="card" onclick="openModal('Print')" data-en="Normal Print">نورمال برينت</div>
     </div>
 </div>
 
@@ -49,30 +40,23 @@
         <button onclick="document.getElementById('modal').style.display='none'" style="background:red; color:white; border:none; padding:10px; cursor:pointer;" data-en="Close">إغلاق ✖</button>
         <h3 id="modalTitle"></h3>
         <ul id="subList"></ul>
-        
         <hr>
-        <h4 id="requestTitle" data-en="Request this Service">طلب الخدمة</h4>
+        <h4 data-en="Request This Service">طلب الخدمة</h4>
         <form action="https://formspree.io/f/xykvqjek" method="POST">
-            <input type="text" name="service_name" id="selectedService" placeholder="الخدمة المختارة" readonly required>
+            <input type="text" name="service_name" id="selectedService" readonly>
             <input type="email" name="email" data-en="Your Email" placeholder="بريدك الإلكتروني" required>
-            <textarea name="details" data-en="Details" placeholder="تفاصيل الطلب..." required></textarea>
+            <textarea name="details" data-en="Write your request details..." placeholder="اكتب تفاصيل طلبك..." required></textarea>
             <button type="submit" data-en="Send Request">إرسال الطلب</button>
         </form>
     </div>
 </div>
 
-<div class="bottom-nav">
-    <a href="#" onclick="window.scrollTo(0,0)" data-en="Home">الرئيسية</a>
-    <a href="#services-section" data-en="Services">خدماتنا</a>
-    <a href="https://wa.me/966595262869" data-en="Contact Us">تواصل معنا</a>
-</div>
-
 <script>
     const db = {
-        Digital: { ar: "نورمال ديجيتال", en: "Normal Digital", items: [['تصميم المواقع', 'Web Design'], ['تطوير المتاجر', 'E-commerce'], ['تطبيقات الجوال', 'Mobile Apps'], ['برمجة خاصة', 'Custom Programming']] },
-        Studio: { ar: "نورمال ستوديو", en: "Normal Studio", items: [['تصوير المنتجات', 'Product Photography'], ['إعلانات تجارية', 'Commercial Ads'], ['تصوير فعاليات', 'Events'], ['عقاري', 'Real Estate']] },
-        Art: { ar: "نورمال آرت", en: "Normal Art", items: [['هوية بصرية', 'Brand Identity'], ['شعارات', 'Logo Design'], ['جرافيك', 'Graphic Design'], ['سوشيال ميديا', 'Social Media']] },
-        Print: { ar: "نورمال برينت", en: "Normal Print", items: [['بطاقات عمل', 'Business Cards'], ['بروشورات', 'Brochures'], ['فلايرات', 'Flyers'], ['كتالوجات', 'Catalogs']] }
+        Digital: { ar: "نورمال ديجيتال", en: "Normal Digital", items: [['تصميم المواقع', 'Web Design'], ['تطوير المتاجر', 'E-commerce'], ['تطبيقات الجوال', 'Mobile Apps'], ['برمجة خاصة', 'Custom Coding'], ['أنظمة إدارة', 'Management Systems'], ['ذكاء اصطناعي', 'AI Solutions'], ['أتمتة المهام', 'Automation'], ['واجهات مستخدم', 'UI/UX'], ['محركات بحث', 'SEO'], ['استضافة', 'Hosting'], ['أمن سيبراني', 'Cyber Security'], ['دعم فني', 'Tech Support'], ['ربط منصات', 'Integration'], ['لوحات تحكم', 'Dashboards'], ['صفحات تعريفية', 'Landing Pages']] },
+        Studio: { ar: "نورمال ستوديو", en: "Normal Studio", items: [['تصوير المنتجات', 'Product Photo'], ['إعلانات تجارية', 'Commercial Ads'], ['تصوير فعاليات', 'Event Coverage'], ['تصوير عقاري', 'Real Estate'], ['تصوير جوي', 'Drone Shots'], ['فيديو تسويقي', 'Marketing Video'], ['مونتاج احترافي', 'Pro Editing'], ['صناعة محتوى', 'Content Creation'], ['تعليق صوتي', 'Voice Over'], ['بودكاست', 'Podcast'], ['تصوير فوتوغرافي', 'Photography'], ['بث مباشر', 'Live Streaming'], ['موشن جرافيك', 'Motion Graphics'], ['إنتاج إعلانات', 'Ad Production'], ['إدارة استوديوهات', 'Media Management']] },
+        Art: { ar: "نورمال آرت", en: "Normal Art", items: [['هوية بصرية', 'Visual Identity'], ['تصميم شعارات', 'Logo Design'], ['تصميم جرافيكي', 'Graphic Design'], ['سوشيال ميديا', 'Social Media'], ['بروفايلات شركات', 'Company Profile'], ['بروشورات', 'Brochures'], ['إنفوجرافيك', 'Infographic'], ['موشن جرافيك', 'Motion Graphics'], ['رسم رقمي', 'Digital Art'], ['رسم جداري', 'Wall Art'], ['تصميم داخلي', 'Interior Design'], ['تغليف وعبوات', 'Packaging'], ['تصميم شخصيات', 'Character Design'], ['عروض تقديمية', 'Presentations'], ['إعادة هوية', 'Rebranding']] },
+        Print: { ar: "نورمال برينت", en: "Normal Print", items: [['بطاقات عمل', 'Business Cards'], ['بروشورات مطبوعة', 'Brochures'], ['فلايرات', 'Flyers'], ['كتالوجات', 'Catalogs'], ['لوحات إعلانية', 'Billboards'], ['بنرات', 'Banners'], ['ملصقات', 'Stickers'], ['هدايا دعائية', 'Promo Gifts'], ['ملابس', 'Apparel'], ['دروع وجوائز', 'Awards'], ['تغليف مطبوع', 'Packaging'], ['فواتير', 'Invoices'], ['ملفات شركة', 'Folders'], ['تجهيز معارض', 'Exhibitions'], ['هوية مطبوعة', 'Printed Branding']] }
     };
 
     let currentCat = "Digital";
@@ -87,7 +71,6 @@
             if(el.placeholder) el.placeholder = isEn ? el.dataset.en : el.dataset.ar;
             else el.innerText = isEn ? el.dataset.en : el.dataset.ar;
         });
-
         if(document.getElementById('modal').style.display === 'block') openModal(currentCat);
     }
 
