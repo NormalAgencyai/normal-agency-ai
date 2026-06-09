@@ -4,35 +4,31 @@
     <meta charset="UTF-8">
     <title>Normal Agency</title>
     <style>
-        body { background-color: #f4f7fb; font-family: sans-serif; text-align: center; margin: 0; padding-bottom: 80px; }
-        .top-bar { background: #007bff; padding: 15px; color: white; }
-        .lang-select { padding: 8px; border-radius: 20px; border: none; cursor: pointer; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 800px; margin: 20px auto; padding: 0 20px; }
-        .card { padding: 30px 10px; background: white; border: 2px solid #e0e7ff; cursor: pointer; border-radius: 12px; font-weight: bold; }
-        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 3000; padding: 20px; overflow-y: auto; }
+        body { background-color: #f4f7fb; color: #050a14; text-align: center; font-family: sans-serif; margin: 0; padding-bottom: 80px; }
+        .top-bar { background: #007bff; padding: 15px; }
+        .lang-btn { background: white; color: #007bff; border: none; padding: 8px 25px; border-radius: 20px; cursor: pointer; font-weight: bold; }
+        .container { max-width: 800px; margin: auto; padding: 20px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px auto; }
+        .card { padding: 30px 10px; border: 2px solid #e0e7ff; background: white; cursor: pointer; font-weight: bold; border-radius: 12px; }
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 3000; overflow-y: auto; padding: 20px; }
         .form-box { max-width: 500px; margin: 50px auto; background: white; padding: 30px; border-radius: 20px; text-align: right; }
+        ul { text-align: right; list-style: none; padding: 0; }
         li { margin: 8px 0; padding: 8px; border-bottom: 1px solid #eee; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <div class="top-bar">
-    <select class="lang-select" onchange="changeLanguage(this.value)">
-        <option value="ar">العربية</option>
-        <option value="en">English</option>
-        <option value="fr">Français</option>
-        <option value="es">Español</option>
-        <option value="de">Deutsch</option>
-        <option value="ru">Русский</option>
-        <option value="zh">中文</option>
-    </select>
+    <button class="lang-btn" onclick="toggleLanguage()">🌐 English / العربية</button>
 </div>
 
-<div class="grid">
-    <div class="card" onclick="openModal('Digital')">نورمال ديجيتال</div>
-    <div class="card" onclick="openModal('Studio')">نورمال ستوديو</div>
-    <div class="card" onclick="openModal('Art')">نورمال آرت</div>
-    <div class="card" onclick="openModal('Print')">نورمال برينت</div>
+<div class="container">
+    <div class="grid">
+        <div class="card" onclick="openModal('Digital')">نورمال ديجيتال</div>
+        <div class="card" onclick="openModal('Studio')">نورمال ستوديو</div>
+        <div class="card" onclick="openModal('Art')">نورمال آرت</div>
+        <div class="card" onclick="openModal('Print')">نورمال برينت</div>
+    </div>
 </div>
 
 <div id="modal" class="modal">
@@ -44,32 +40,27 @@
 </div>
 
 <script>
-    const translations = {
-        ar: { title: "نورمال ديجيتال", items: ['تصميم المواقع', 'تطوير المتاجر', 'تطبيقات الجوال', 'برمجة خاصة', 'أنظمة إدارة', 'ذكاء اصطناعي', 'أتمتة المهام', 'واجهات مستخدم', 'محركات بحث', 'استضافة', 'أمن سيبراني', 'دعم فني', 'ربط منصات', 'لوحات تحكم', 'صفحات تعريفية'] },
-        en: { title: "Normal Digital", items: ['Web Design', 'E-commerce', 'Mobile Apps', 'Custom Coding', 'Business Systems', 'AI Solutions', 'Automation', 'UI/UX Design', 'SEO', 'Hosting', 'Cyber Security', 'Tech Support', 'API Integration', 'Dashboards', 'Landing Pages'] },
-        fr: { title: "Normal Digital", items: ['Design Web', 'E-commerce', 'App Mobile', 'Codage', 'Gestion', 'IA', 'Automatisation', 'UI/UX', 'SEO', 'Hébergement', 'Sécurité', 'Support', 'Intégration', 'Tableaux', 'Landing Pages'] },
-        es: { title: "Normal Digital", items: ['Diseño Web', 'E-commerce', 'Apps', 'Programación', 'Sistemas', 'IA', 'Automatización', 'UI/UX', 'SEO', 'Hosting', 'Seguridad', 'Soporte', 'Integración', 'Dashboards', 'Landing Pages'] },
-        de: { title: "Normal Digital", items: ['Webdesign', 'E-commerce', 'Apps', 'Programmierung', 'Systeme', 'KI', 'Automatisierung', 'UI/UX', 'SEO', 'Hosting', 'Sicherheit', 'Support', 'Integration', 'Dashboards', 'Landing Pages'] },
-        ru: { title: "Normal Digital", items: ['Веб-дизайн', 'E-commerce', 'Приложения', 'Программирование', 'Системы', 'ИИ', 'Автоматизация', 'UI/UX', 'SEO', 'Хостинг', 'Безопасность', 'Поддержка', 'Интеграция', 'Панели', 'Лендинги'] },
-        zh: { title: "Normal Digital", items: ['网页设计', '电子商务', '移动应用', '定制开发', '管理系统', '人工智能', '自动化', 'UI/UX', 'SEO', '主机服务', '网络安全', '技术支持', '系统集成', '仪表盘', '落地页'] }
+    const data = {
+        Digital: { ar: "نورمال ديجيتال", en: "Normal Digital", items: [['تصميم المواقع الإلكترونية', 'Web Design'], ['تطوير المتاجر الإلكترونية', 'E-commerce'], ['تطوير تطبيقات الجوال', 'Mobile Apps'], ['البرمجة الخاصة', 'Custom Coding'], ['أنظمة إدارة الأعمال', 'Business Systems'], ['الذكاء الاصطناعي', 'AI Solutions'], ['أتمتة المهام', 'Automation'], ['تصميم واجهات المستخدم', 'UI/UX'], ['تحسين محركات البحث', 'SEO'], ['إدارة الاستضافة', 'Hosting'], ['الأمن السيبراني', 'Cyber Security'], ['الدعم الفني', 'Tech Support'], ['الربط بين الأنظمة', 'API Integration'], ['تطوير لوحات التحكم', 'Dashboards'], ['إنشاء الصفحات التعريفية', 'Landing Pages']] },
+        Studio: { ar: "نورمال ستوديو", en: "Normal Studio", items: [['تصوير المنتجات', 'Product Photography'], ['تصوير الإعلانات التجارية', 'Commercial Ads'], ['تصوير الفعاليات والمناسبات', 'Events'], ['التصوير العقاري', 'Real Estate'], ['التصوير الجوي (درون)', 'Drone Shots'], ['إنتاج الفيديوهات التسويقية', 'Marketing Videos'], ['المونتاج الاحترافي', 'Professional Editing'], ['صناعة المحتوى المرئي', 'Visual Content'], ['التعليق الصوتي', 'Voice Over'], ['تسجيل البودكاست', 'Podcast'], ['التصوير الفوتوغرافي', 'Photography'], ['البث المباشر', 'Live Streaming'], ['الموشن جرافيك', 'Motion Graphics'], ['كتابة وإنتاج الإعلانات', 'Ad Production'], ['إدارة الاستوديوهات الإعلامية', 'Media Management']] },
+        Art: { ar: "نورمال آرت", en: "Normal Art", items: [['تصميم الهوية البصرية', 'Brand Identity'], ['تصميم الشعارات', 'Logo Design'], ['التصميم الجرافيكي', 'Graphic Design'], ['تصميم منشورات السوشيال ميديا', 'Social Media Design'], ['تصميم البروفايلات والشركات', 'Company Profiles'], ['تصميم البروشورات والفلايرات', 'Brochures'], ['تصميم الإنفوجرافيك', 'Infographics'], ['الموشن جرافيك', 'Motion Graphics'], ['الرسم الرقمي', 'Digital Art'], ['الرسم على الجدران', 'Wall Art'], ['التصميم الداخلي', 'Interior Design'], ['تصميم العبوات والتغليف', 'Packaging'], ['تصميم الشخصيات والرسومات', 'Character Design'], ['تصميم العروض التقديمية', 'Presentations'], ['إعادة تطوير الهويات التجارية', 'Rebranding']] },
+        Print: { ar: "نورمال برينت", en: "Normal Print", items: [['طباعة البطاقات الشخصية', 'Business Cards'], ['طباعة البروشورات', 'Brochures'], ['طباعة الفلايرات', 'Flyers'], ['طباعة الكتالوجات', 'Catalogs'], ['طباعة اللوحات الإعلانية', 'Billboards'], ['طباعة البنرات', 'Banners'], ['طباعة الملصقات والستيكرات', 'Stickers'], ['طباعة الأكواب والهدايا الدعائية', 'Promotional Gifts'], ['طباعة الملابس واليونيفورم', 'Apparel Printing'], ['طباعة الدروع والشهادات', 'Awards'], ['طباعة التغليف والعبوات', 'Packaging'], ['طباعة دفاتر الفواتير والسندات', 'Invoices'], ['طباعة ملفات الشركات', 'Company Folders'], ['تجهيز المعارض والفعاليات', 'Exhibitions'], ['تنفيذ الهوية البصرية المطبوعة', 'Printed Branding']] }
     };
 
-    let currentCat = "Digital";
-    let currentLang = "ar";
+    let currentKey = "Digital";
 
-    function changeLanguage(lang) {
-        currentLang = lang;
-        document.documentElement.lang = lang;
-        document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-        if (document.getElementById('modal').style.display === 'block') openModal(currentCat);
+    function toggleLanguage() {
+        const html = document.documentElement;
+        html.lang = (html.lang === 'en') ? 'ar' : 'en';
+        html.dir = (html.lang === 'en') ? 'ltr' : 'rtl';
+        if (document.getElementById('modal').style.display === 'block') openModal(currentKey);
     }
 
-    function openModal(cat) {
-        currentCat = cat;
-        // هنا يمكنك إضافة منطق لجلب العناوين والقوائم لكل قسم
-        const langData = translations[currentLang];
-        document.getElementById('modalTitle').innerText = langData.title;
-        document.getElementById('subList').innerHTML = langData.items.map(item => `<li>✅ ${item}</li>`).join('');
+    function openModal(key) {
+        currentKey = key;
+        const isEn = document.documentElement.lang === 'en';
+        document.getElementById('modalTitle').innerText = isEn ? data[key].en : data[key].ar;
+        document.getElementById('subList').innerHTML = data[key].items.map(item => `<li>✅ ${isEn ? item[1] : item[0]}</li>`).join('');
         document.getElementById('modal').style.display = 'block';
     }
 </script>
