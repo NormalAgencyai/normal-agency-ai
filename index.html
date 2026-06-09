@@ -21,7 +21,7 @@
         .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #007bff; display: flex; justify-content: space-around; padding: 15px 0; z-index: 2000; }
         .bottom-nav a { text-decoration: none; color: white; font-weight: bold; }
         ul { text-align: right; list-style: none; padding: 0; }
-        li { margin: 8px 0; padding: 8px; border-bottom: 1px solid #eee; font-weight: bold; }
+        li { margin: 8px 0; padding: 8px; border-bottom: 1px solid #eee; font-weight: bold; color: #333; }
     </style>
 </head>
 <body>
@@ -76,26 +76,36 @@
         Print: { ar: "نورمال برينت", en: "Normal Print", items: [['طباعة البطاقات الشخصية', 'Business Cards'], ['طباعة البروشورات', 'Brochures Printing'], ['طباعة الفلايرات', 'Flyers Printing'], ['طباعة الكتالوجات', 'Catalogs Printing'], ['طباعة اللوحات الإعلانية', 'Billboards'], ['طباعة البنرات', 'Banners'], ['طباعة الملصقات والستيكرات', 'Stickers'], ['طباعة الأكواب والهدايا الدعائية', 'Promotional Gifts'], ['طباعة الملابس واليونيفورم', 'Apparel Printing'], ['طباعة الدروع والشهادات', 'Awards & Certificates'], ['طباعة التغليف والعبوات', 'Packaging Printing'], ['طباعة دفاتر الفواتير والسندات', 'Invoices & Documents'], ['طباعة ملفات الشركات', 'Company Folders'], ['تجهيز المعارض والفعاليات', 'Exhibition Setup'], ['تنفيذ الهوية البصرية المطبوعة بالكامل', 'Full Printed Identity']] }
     };
 
-    let cat = "Digital";
+    let currentCat = "Digital";
 
     function toggleLanguage() {
         const isEn = document.documentElement.lang === 'en';
         document.documentElement.lang = isEn ? 'ar' : 'en';
         document.body.dir = isEn ? 'rtl' : 'ltr';
+        
+        // 1. تحديث كافة العناصر في الصفحة
         document.querySelectorAll('[data-en]').forEach(el => {
             if(!el.dataset.ar) el.dataset.ar = el.innerText || el.placeholder;
             if(el.placeholder) el.placeholder = isEn ? el.dataset.en : el.dataset.ar;
             else el.innerText = isEn ? el.dataset.en : el.dataset.ar;
         });
-        if(document.getElementById('modal').style.display === 'block') openModal(cat);
+        
+        // 2. تحديث محتويات النافذة (Modal) بناءً على اللغة الجديدة
+        if(document.getElementById('modal').style.display === 'block') {
+            refreshModalContent();
+        }
     }
 
-    function openModal(c) {
-        cat = c;
-        const isEn = document.documentElement.lang === 'en';
-        document.getElementById('modalTitle').innerText = isEn ? db[c].en : db[c].ar;
-        document.getElementById('subList').innerHTML = db[c].items.map(i => `<li>✅ ${isEn ? i[1] : i[0]}</li>`).join('');
+    function openModal(cat) {
+        currentCat = cat;
+        refreshModalContent();
         document.getElementById('modal').style.display = 'block';
+    }
+
+    function refreshModalContent() {
+        const isEn = document.documentElement.lang === 'en';
+        document.getElementById('modalTitle').innerText = isEn ? db[currentCat].en : db[currentCat].ar;
+        document.getElementById('subList').innerHTML = db[currentCat].items.map(i => `<li>✅ ${isEn ? i[1] : i[0]}</li>`).join('');
     }
 </script>
 </body>
