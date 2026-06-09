@@ -5,26 +5,19 @@
     <title>Normal Agency</title>
     <style>
         body { background-color: #f4f7fb; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0 0 80px 0; transition: 0.3s; }
-        
         .top-bar { background: #007bff; padding: 15px; display: flex; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .lang-btn { background: white; color: #007bff; border: none; padding: 8px 25px; border-radius: 20px; cursor: pointer; font-weight: bold; }
-        
         .container { max-width: 800px; margin: auto; padding: 20px; }
         .logo { width: 250px; margin: 20px auto; }
         .hero-title { font-size: 32px; font-weight: bold; color: #007bff; }
-        
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 600px; margin: 20px auto; }
         .card { padding: 30px 10px; border: 2px solid #e0e7ff; border-radius: 12px; background: white; cursor: pointer; font-weight: bold; transition: 0.3s; }
         .card:hover { border-color: #007bff; background: #eef5ff; }
-        
-        /* تصميم المساعد الذكي */
-        .assistant-box { background: white; border: 2px solid #e0e7ff; border-radius: 20px; padding: 30px; max-width: 500px; margin: 40px auto; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        
+        .assistant-box { background: white; border: 2px solid #e0e7ff; border-radius: 20px; padding: 30px; max-width: 500px; margin: 40px auto; }
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 3000; overflow-y: auto; }
         .form-box { max-width: 500px; margin: 50px auto; background: white; padding: 30px; border-radius: 20px; text-align: right; }
         input, textarea { width: 90%; padding: 15px; margin: 10px auto; border-radius: 10px; border: 1px solid #ddd; display: block; }
         button { background: #007bff; color: white; border: none; padding: 15px 40px; border-radius: 10px; cursor: pointer; }
-        
         .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #007bff; display: flex; justify-content: space-around; padding: 20px 0; z-index: 2000; }
         .bottom-nav a { text-decoration: none; color: white; font-weight: bold; }
     </style>
@@ -42,27 +35,10 @@
         <div id="services-section">
             <h1 data-en="Our Services">خدماتنا</h1>
             <div class="grid">
-                <div class="card" onclick="showSubServices('نورمال ديجيتال', ['تصميم المواقع الإلكترونية', 'تطوير المتاجر الإلكترونية', 'تطوير تطبيقات الجوال', 'البرمجة الخاصة', 'أنظمة إدارة الأعمال', 'الذكاء الاصطناعي', 'أتمتة المهام', 'تصميم واجهات المستخدم', 'تحسين محركات البحث', 'إدارة الاستضافة', 'الأمن السيبراني', 'الدعم الفني'])" data-en="Normal Digital">نورمال ديجيتال</div>
-                <div class="card" onclick="showSubServices('نورمال ستوديو', ['تصوير المنتجات', 'تصوير الإعلانات التجارية', 'تصوير الفعاليات', 'التصوير العقاري', 'التصوير الجوي', 'إنتاج الفيديوهات', 'المونتاج الاحترافي', 'صناعة المحتوى', 'التعليق الصوتي', 'تسجيل البودكاست', 'البث المباشر'])" data-en="Normal Studio">نورمال ستوديو</div>
-                <div class="card" onclick="showSubServices('نورمال آرت', ['تصميم الهوية البصرية', 'تصميم الشعارات', 'التصميم الجرافيكي', 'تصميم السوشيال ميديا', 'تصميم البروفايلات', 'تصميم البروشورات', 'تصميم الإنفوجرافيك', 'الموشن جرافيك', 'الرسم الرقمي', 'التصميم الداخلي'])" data-en="Normal Art">نورمال آرت</div>
-                <div class="card" onclick="showSubServices('نورمال برينت', ['طباعة البطاقات', 'طباعة البروشورات', 'طباعة الفلايرات', 'طباعة الكتالوجات', 'طباعة اللوحات الإعلانية', 'طباعة البنرات', 'طباعة الستيكرات', 'طباعة الهدايا الدعائية', 'طباعة الملابس', 'طباعة الدروع'])" data-en="Normal Print">نورمال برينت</div>
+                <div class="card" onclick="openModal('Normal Digital', 'نورمال ديجيتال', ['Web Design|تصميم المواقع', 'E-commerce|تطوير المتاجر', 'Apps|تطبيقات الجوال'])" data-en="Normal Digital">نورمال ديجيتال</div>
+                <div class="card" onclick="openModal('Normal Studio', 'نورمال ستوديو', ['Photography|تصوير المنتجات', 'Video Editing|المونتاج', 'Voice Over|التعليق الصوتي'])" data-en="Normal Studio">نورمال ستوديو</div>
             </div>
         </div>
-
-        <div class="assistant-box">
-            <h3 data-en="Normal AI Assistant">المساعد الذكي "نورمال"</h3>
-            <form action="https://formspree.io/f/xykvqjek" method="POST">
-                <input type="email" name="email" data-en="Your Email" placeholder="بريدك للتواصل" required>
-                <textarea name="message" data-en="Write your message here..." placeholder="اكتب رسالتك هنا..." required></textarea>
-                <button type="submit" data-en="Send to Assistant">إرسال للمساعد</button>
-            </form>
-        </div>
-    </div>
-
-    <div class="bottom-nav">
-        <a href="#" onclick="window.scrollTo(0, 0);" data-en="Home">الرئيسية</a>
-        <a href="#services-section" data-en="Services">خدماتنا</a>
-        <a href="https://wa.me/966595262869" data-en="Contact Us">تواصل معنا</a>
     </div>
 
     <div id="modal" class="modal">
@@ -70,33 +46,42 @@
             <button onclick="document.getElementById('modal').style.display='none'" style="background:red;" data-en="Close">إغلاق ✖</button>
             <h3 id="modalTitle"></h3>
             <ul id="subList"></ul>
-            <form action="https://formspree.io/f/xykvqjek" method="POST">
-                <input type="text" name="service" id="hiddenService" data-en="Required Service" placeholder="الخدمة المطلوبة" required readonly>
-                <input type="email" name="email" data-en="Email" placeholder="البريد الإلكتروني" required>
-                <textarea name="message" data-en="Request details..." placeholder="تفاصيل الطلب..."></textarea>
-                <button type="submit" data-en="Send Request">إرسال الطلب</button>
-            </form>
         </div>
     </div>
 
     <script>
+        let currentItems = [];
         function switchLanguage() {
             const isEnglish = document.documentElement.lang === 'en';
             document.documentElement.lang = isEnglish ? 'ar' : 'en';
             document.body.dir = isEnglish ? 'rtl' : 'ltr';
+            
+            // تحديث العناوين الأساسية
             document.querySelectorAll('[data-en]').forEach(el => {
-                const arText = el.dataset.ar || el.innerText || el.placeholder;
-                const enText = el.getAttribute('data-en');
-                if (!el.dataset.ar) el.dataset.ar = arText;
-                if (el.innerText && !el.querySelector('ul')) el.innerText = isEnglish ? enText : arText;
-                if (el.placeholder) el.placeholder = isEnglish ? enText : arText;
+                const arText = el.dataset.ar || el.innerText;
+                if(!el.dataset.ar) el.dataset.ar = arText;
+                el.innerText = isEnglish ? el.dataset.en : el.dataset.ar;
             });
+
+            // تحديث القائمة داخل النافذة عند تبديل اللغة
+            if(document.getElementById('modal').style.display === 'block') {
+                renderSubServices();
+            }
         }
-        function showSubServices(title, items) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('subList').innerHTML = items.map(item => `<li>✅ ${item}</li>`).join('');
+
+        function openModal(enTitle, arTitle, items) {
+            currentItems = items;
+            document.getElementById('modalTitle').innerText = (document.documentElement.lang === 'en') ? enTitle : arTitle;
+            renderSubServices();
             document.getElementById('modal').style.display = 'block';
-            document.getElementById('hiddenService').value = title;
+        }
+
+        function renderSubServices() {
+            const isEnglish = document.documentElement.lang === 'en';
+            document.getElementById('subList').innerHTML = currentItems.map(item => {
+                const parts = item.split('|');
+                return `<li>✅ ${isEnglish ? parts[0] : parts[1]}</li>`;
+            }).join('');
         }
     </script>
 </body>
