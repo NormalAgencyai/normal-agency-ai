@@ -2,15 +2,15 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>Normal Agency | خدماتنا</title>
+    <title>Normal Agency | نورمال للخدمات المتكاملة</title>
     <style>
-        body { background-color: #ffffff; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; }
+        body { background-color: #ffffff; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px 20px 80px 20px; }
         .logo { width: 250px; margin: 30px auto; }
-        
         .hero-title { font-size: 24px; font-weight: bold; color: #007bff; margin: 10px 0; }
         .hero-subtitle { font-size: 16px; margin-bottom: 30px; color: #555; }
         
-        h1 { color: #007bff; margin-top: 40px; }
+        #services-section { padding-top: 40px; }
+        h1 { color: #007bff; margin-bottom: 30px; }
         
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 600px; margin: 20px auto; }
         .card { padding: 30px 10px; border: 2px solid #e0e7ff; border-radius: 12px; background: #f8f9ff; cursor: pointer; transition: 0.3s; font-weight: bold; }
@@ -23,24 +23,26 @@
         li { padding: 12px; border-bottom: 1px solid #eee; cursor: pointer; color: #007bff; font-weight: bold; }
         input, textarea { width: 90%; padding: 12px; margin: 10px auto; border-radius: 8px; border: 1px solid #ccc; display: block; }
         button { background: #007bff; color: white; border: none; padding: 12px 40px; border-radius: 8px; cursor: pointer; }
+        
+        /* الشريط السفلي */
+        .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: #ffffff; display: flex; justify-content: space-around; padding: 15px 0; border-top: 2px solid #e0e7ff; box-shadow: 0 -2px 10px rgba(0,0,0,0.05); z-index: 2000; }
+        .bottom-nav a { text-decoration: none; color: #007bff; font-weight: bold; font-size: 14px; }
     </style>
 </head>
 <body>
 
     <img src="logo.png.png" alt="شعار نورمال" class="logo">
-    
     <div class="hero-title">✦✦ نورمال للخدمات الإلكترونية المتكاملة ✦✦</div>
     <div class="hero-subtitle">من الفكرة إلى التنفيذ │ حلول رقمية وإبداعية متكاملة</div>
 
-    <h1>خدماتنا</h1>
-    <div class="grid">
-        <div class="card" onclick="showSubServices('نورمال ديجيتال', ['تصميم المواقع الإلكترونية', 'تطوير المتاجر الإلكترونية', 'تطوير تطبيقات الجوال', 'البرمجة الخاصة', 'أنظمة إدارة الأعمال', 'الذكاء الاصطناعي والحلول الذكية', 'أتمتة المهام والعمليات', 'تصميم واجهات المستخدم (UI/UX)', 'تحسين محركات البحث (SEO)', 'إدارة الاستضافة والدومينات', 'الأمن السيبراني', 'الدعم الفني والصيانة', 'الربط بين الأنظمة والمنصات', 'تطوير لوحات التحكم', 'إنشاء الصفحات التعريفية'])">نورمال ديجيتال</div>
-        
-        <div class="card" onclick="showSubServices('نورمال ستوديو', ['تصوير المنتجات', 'تصوير الإعلانات التجارية', 'تصوير الفعاليات والمناسبات', 'التصوير العقاري', 'التصوير الجوي (درون)', 'إنتاج الفيديوهات التسويقية', 'المونتاج الاحترافي', 'صناعة المحتوى المرئي', 'التعليق الصوتي', 'تسجيل البودكاست', 'التصوير الفوتوغرافي', 'البث المباشر', 'الموشن جرافيك', 'كتابة وإنتاج الإعلانات', 'إدارة الاستوديوهات الإعلامية'])">نورمال ستوديو</div>
-        
-        <div class="card" onclick="showSubServices('نورمال آرت', ['تصميم الهوية البصرية', 'تصميم الشعارات', 'التصميم الجرافيكي', 'تصميم منشورات السوشيال ميديا', 'تصميم البروفايلات والشركات', 'تصميم البروشورات والفلايرات', 'تصميم الإنفوجرافيك', 'الموشن جرافيك', 'الرسم الرقمي', 'الرسم على الجدران', 'التصميم الداخلي', 'تصميم العبوات والتغليف', 'تصميم الشخصيات والرسومات', 'تصميم العروض التقديمية', 'إعادة تطوير الهويات التجارية'])">نورمال آرت</div>
-        
-        <div class="card" onclick="showSubServices('نورمال برينت', ['طباعة البطاقات الشخصية', 'طباعة البروشورات', 'طباعة الفلايرات', 'طباعة الكتالوجات', 'طباعة اللوحات الإعلانية', 'طباعة البنرات', 'طباعة الملصقات والستيكرات', 'طباعة الأكواب والهدايا الدعائية', 'طباعة الملابس واليونيفورم', 'طباعة الدروع والشهادات', 'طباعة التغليف والعبوات', 'طباعة دفاتر الفواتير والسندات', 'طباعة ملفات الشركات', 'تجهيز المعارض والفعاليات', 'تنفيذ الهوية البصرية المطبوعة بالكامل'])">نورمال برينت</div>
+    <div id="services-section">
+        <h1>خدماتنا</h1>
+        <div class="grid">
+            <div class="card" onclick="showSubServices('نورمال ديجيتال', ['تصميم المواقع الإلكترونية', 'تطوير المتاجر الإلكترونية', 'تطوير تطبيقات الجوال', 'البرمجة الخاصة', 'أنظمة إدارة الأعمال', 'الذكاء الاصطناعي والحلول الذكية', 'أتمتة المهام والعمليات', 'تصميم واجهات المستخدم (UI/UX)', 'تحسين محركات البحث (SEO)', 'إدارة الاستضافة والدومينات', 'الأمن السيبراني', 'الدعم الفني والصيانة', 'الربط بين الأنظمة والمنصات', 'تطوير لوحات التحكم', 'إنشاء الصفحات التعريفية'])">نورمال ديجيتال</div>
+            <div class="card" onclick="showSubServices('نورمال ستوديو', ['تصوير المنتجات', 'تصوير الإعلانات التجارية', 'تصوير الفعاليات والمناسبات', 'التصوير العقاري', 'التصوير الجوي (درون)', 'إنتاج الفيديوهات التسويقية', 'المونتاج الاحترافي', 'صناعة المحتوى المرئي', 'التعليق الصوتي', 'تسجيل البودكاست', 'التصوير الفوتوغرافي', 'البث المباشر', 'الموشن جرافيك', 'كتابة وإنتاج الإعلانات', 'إدارة الاستوديوهات الإعلامية'])">نورمال ستوديو</div>
+            <div class="card" onclick="showSubServices('نورمال آرت', ['تصميم الهوية البصرية', 'تصميم الشعارات', 'التصميم الجرافيكي', 'تصميم منشورات السوشيال ميديا', 'تصميم البروفايلات والشركات', 'تصميم البروشورات والفلايرات', 'تصميم الإنفوجرافيك', 'الموشن جرافيك', 'الرسم الرقمي', 'الرسم على الجدران', 'التصميم الداخلي', 'تصميم العبوات والتغليف', 'تصميم الشخصيات والرسومات', 'تصميم العروض التقديمية', 'إعادة تطوير الهويات التجارية'])">نورمال آرت</div>
+            <div class="card" onclick="showSubServices('نورمال برينت', ['طباعة البطاقات الشخصية', 'طباعة البروشورات', 'طباعة الفلايرات', 'طباعة الكتالوجات', 'طباعة اللوحات الإعلانية', 'طباعة البنرات', 'طباعة الملصقات والستيكرات', 'طباعة الأكواب والهدايا الدعائية', 'طباعة الملابس واليونيفورم', 'طباعة الدروع والشهادات', 'طباعة التغليف والعبوات', 'طباعة دفاتر الفواتير والسندات', 'طباعة ملفات الشركات', 'تجهيز المعارض والفعاليات', 'تنفيذ الهوية البصرية المطبوعة بالكامل'])">نورمال برينت</div>
+        </div>
     </div>
 
     <div class="assistant-box">
@@ -52,13 +54,18 @@
         </form>
     </div>
 
+    <div class="bottom-nav">
+        <a href="#" onclick="window.scrollTo(0, 0);">الرئيسية</a>
+        <a href="#services-section">خدماتنا</a>
+        <a href="https://wa.me/966595262869" target="_blank">تواصل معنا</a>
+    </div>
+
     <div id="modal" class="modal">
         <div class="form-box">
             <button onclick="document.getElementById('modal').style.display='none'" style="background:none; border:none; color:red; cursor:pointer;">إغلاق ✖</button>
             <h3 id="modalTitle"></h3>
             <ul id="subList"></ul>
             <form action="https://formspree.io/f/xykvqjek" method="POST">
-                <!-- النموذج المحدث بـ 3 خانات -->
                 <input type="text" name="service" id="hiddenService" placeholder="الخدمة المطلوبة" required readonly>
                 <input type="email" name="email" placeholder="البريد الإلكتروني" required>
                 <textarea name="message" id="messageArea" placeholder="تفاصيل الطلب..."></textarea>
