@@ -14,6 +14,10 @@
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px auto; }
         .card { padding: 30px 10px; border: 2px solid #e0e7ff; border-radius: 12px; background: white; cursor: pointer; font-weight: bold; transition: 0.3s; }
         .card:hover { border-color: #007bff; background: #eef5ff; }
+        
+        /* تصميم المساعد الذكي */
+        .ai-assistant-box { background: #ffffff; border: 2px solid #007bff; border-radius: 20px; padding: 30px; margin-top: 40px; box-shadow: 0 4px 15px rgba(0,123,255,0.1); }
+        
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 3000; overflow-y: auto; padding: 20px; }
         .form-box { max-width: 500px; margin: 50px auto; background: white; padding: 30px; border-radius: 20px; text-align: right; }
         input, textarea { width: 90%; padding: 12px; margin: 10px auto; border-radius: 8px; border: 1px solid #ccc; display: block; }
@@ -38,6 +42,17 @@
         <div class="card" onclick="openModal('Studio')" data-en="Normal Studio">نورمال ستوديو</div>
         <div class="card" onclick="openModal('Art')" data-en="Normal Art">نورمال آرت</div>
         <div class="card" onclick="openModal('Print')" data-en="Normal Print">نورمال برينت</div>
+    </div>
+
+    <!-- المساعد الذكي -->
+    <div class="ai-assistant-box">
+        <h3 data-en="Normal AI Assistant">المساعد الذكي "نورمال"</h3>
+        <p data-en="Ask me anything or request a service">اسألني أي شيء أو اطلب خدمتك الآن</p>
+        <form action="https://formspree.io/f/xykvqjek" method="POST">
+            <input type="email" name="email" data-en="Your Email" placeholder="بريدك الإلكتروني" required>
+            <textarea name="message" data-en="How can I help you today?" placeholder="كيف يمكنني مساعدتك اليوم؟" required></textarea>
+            <button type="submit" data-en="Send Message">إرسال للمساعد</button>
+        </form>
     </div>
 </div>
 
