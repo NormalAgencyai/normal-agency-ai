@@ -4,16 +4,24 @@
     <meta charset="UTF-8">
     <title>Normal Agency</title>
     <style>
-        body { background-color: #f4f7fb; color: #050a14; text-align: center; font-family: sans-serif; margin: 0; padding-bottom: 80px; }
-        .top-bar { background: #007bff; padding: 15px; }
+        body { background-color: #f4f7fb; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0 0 80px 0; }
+        .top-bar { background: #007bff; padding: 15px; display: flex; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .lang-btn { background: white; color: #007bff; border: none; padding: 8px 25px; border-radius: 20px; cursor: pointer; font-weight: bold; }
         .container { max-width: 800px; margin: auto; padding: 20px; }
+        .logo { width: 250px; margin: 20px auto; }
+        .hero-title { font-size: 24px; font-weight: bold; color: #007bff; margin: 10px 0; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px auto; }
-        .card { padding: 30px 10px; border: 2px solid #e0e7ff; background: white; cursor: pointer; font-weight: bold; border-radius: 12px; }
+        .card { padding: 30px 10px; border: 2px solid #e0e7ff; border-radius: 12px; background: white; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .card:hover { border-color: #007bff; background: #eef5ff; }
+        .assistant-box { background: white; border: 2px solid #e0e7ff; border-radius: 20px; padding: 30px; margin: 40px auto; }
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 3000; overflow-y: auto; padding: 20px; }
         .form-box { max-width: 500px; margin: 50px auto; background: white; padding: 30px; border-radius: 20px; text-align: right; }
+        input, textarea { width: 90%; padding: 12px; margin: 10px auto; border-radius: 8px; border: 1px solid #ccc; display: block; }
+        button { background: #007bff; color: white; border: none; padding: 12px 40px; border-radius: 8px; cursor: pointer; }
+        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #007bff; display: flex; justify-content: space-around; padding: 15px 0; z-index: 2000; }
+        .bottom-nav a { text-decoration: none; color: white; font-weight: bold; }
         ul { text-align: right; list-style: none; padding: 0; }
-        li { margin: 8px 0; padding: 8px; border-bottom: 1px solid #eee; font-weight: bold; }
+        li { margin: 8px 0; padding: 8px; border-bottom: 1px solid #eee; font-weight: bold; color: #333; }
     </style>
 </head>
 <body>
@@ -23,44 +31,74 @@
 </div>
 
 <div class="container">
-    <div class="grid">
-        <div class="card" onclick="openModal('Digital')">نورمال ديجيتال</div>
-        <div class="card" onclick="openModal('Studio')">نورمال ستوديو</div>
-        <div class="card" onclick="openModal('Art')">نورمال آرت</div>
-        <div class="card" onclick="openModal('Print')">نورمال برينت</div>
+    <img src="logo.png.png" alt="شعار نورمال" class="logo">
+    <div class="hero-title" data-en="Normal Agency">✦✦ نورمال للخدمات الإلكترونية المتكاملة ✦✦</div>
+    
+    <div id="services-section">
+        <h1 data-en="Our Services">خدماتنا</h1>
+        <div class="grid">
+            <div class="card" onclick="openModal('Digital')" data-en="Normal Digital">نورمال ديجيتال</div>
+            <div class="card" onclick="openModal('Studio')" data-en="Normal Studio">نورمال ستوديو</div>
+            <div class="card" onclick="openModal('Art')" data-en="Normal Art">نورمال آرت</div>
+            <div class="card" onclick="openModal('Print')" data-en="Normal Print">نورمال برينت</div>
+        </div>
+    </div>
+
+    <div class="assistant-box">
+        <h3 data-en="Normal AI Assistant">المساعد الذكي "نورمال"</h3>
+        <form action="https://formspree.io/f/xykvqjek" method="POST">
+            <input type="email" name="email" data-en="Your Email" placeholder="بريدك للتواصل" required>
+            <textarea name="message" data-en="Write your message here..." placeholder="اكتب رسالتك هنا..." required></textarea>
+            <button type="submit" data-en="Send to Assistant">إرسال للمساعد</button>
+        </form>
     </div>
 </div>
 
 <div id="modal" class="modal">
     <div class="form-box">
-        <button onclick="document.getElementById('modal').style.display='none'" style="background:red; color:white; border:none; padding:10px;">إغلاق ✖</button>
+        <button onclick="document.getElementById('modal').style.display='none'" style="background:red; color:white; border:none; padding:10px; cursor:pointer;" data-en="Close">إغلاق ✖</button>
         <h3 id="modalTitle"></h3>
         <ul id="subList"></ul>
     </div>
 </div>
 
+<div class="bottom-nav">
+    <a href="#" onclick="window.scrollTo(0,0)" data-en="Home">الرئيسية</a>
+    <a href="#services-section" data-en="Services">خدماتنا</a>
+    <a href="https://wa.me/966595262869" data-en="Contact Us">تواصل معنا</a>
+</div>
+
 <script>
-    const data = {
-        Digital: { ar: "نورمال ديجيتال", en: "Normal Digital", items: [['تصميم المواقع الإلكترونية', 'Web Design'], ['تطوير المتاجر الإلكترونية', 'E-commerce'], ['تطوير تطبيقات الجوال', 'Mobile Apps'], ['البرمجة الخاصة', 'Custom Coding'], ['أنظمة إدارة الأعمال', 'Business Systems'], ['الذكاء الاصطناعي', 'AI Solutions'], ['أتمتة المهام', 'Automation'], ['تصميم واجهات المستخدم', 'UI/UX'], ['تحسين محركات البحث', 'SEO'], ['إدارة الاستضافة', 'Hosting'], ['الأمن السيبراني', 'Cyber Security'], ['الدعم الفني', 'Tech Support'], ['الربط بين الأنظمة', 'API Integration'], ['تطوير لوحات التحكم', 'Dashboards'], ['إنشاء الصفحات التعريفية', 'Landing Pages']] },
-        Studio: { ar: "نورمال ستوديو", en: "Normal Studio", items: [['تصوير المنتجات', 'Product Photography'], ['تصوير الإعلانات التجارية', 'Commercial Ads'], ['تصوير الفعاليات والمناسبات', 'Events'], ['التصوير العقاري', 'Real Estate'], ['التصوير الجوي (درون)', 'Drone Shots'], ['إنتاج الفيديوهات التسويقية', 'Marketing Videos'], ['المونتاج الاحترافي', 'Professional Editing'], ['صناعة المحتوى المرئي', 'Visual Content'], ['التعليق الصوتي', 'Voice Over'], ['تسجيل البودكاست', 'Podcast'], ['التصوير الفوتوغرافي', 'Photography'], ['البث المباشر', 'Live Streaming'], ['الموشن جرافيك', 'Motion Graphics'], ['كتابة وإنتاج الإعلانات', 'Ad Production'], ['إدارة الاستوديوهات الإعلامية', 'Media Management']] },
-        Art: { ar: "نورمال آرت", en: "Normal Art", items: [['تصميم الهوية البصرية', 'Brand Identity'], ['تصميم الشعارات', 'Logo Design'], ['التصميم الجرافيكي', 'Graphic Design'], ['تصميم منشورات السوشيال ميديا', 'Social Media Design'], ['تصميم البروفايلات والشركات', 'Company Profiles'], ['تصميم البروشورات والفلايرات', 'Brochures'], ['تصميم الإنفوجرافيك', 'Infographics'], ['الموشن جرافيك', 'Motion Graphics'], ['الرسم الرقمي', 'Digital Art'], ['الرسم على الجدران', 'Wall Art'], ['التصميم الداخلي', 'Interior Design'], ['تصميم العبوات والتغليف', 'Packaging'], ['تصميم الشخصيات والرسومات', 'Character Design'], ['تصميم العروض التقديمية', 'Presentations'], ['إعادة تطوير الهويات التجارية', 'Rebranding']] },
-        Print: { ar: "نورمال برينت", en: "Normal Print", items: [['طباعة البطاقات الشخصية', 'Business Cards'], ['طباعة البروشورات', 'Brochures'], ['طباعة الفلايرات', 'Flyers'], ['طباعة الكتالوجات', 'Catalogs'], ['طباعة اللوحات الإعلانية', 'Billboards'], ['طباعة البنرات', 'Banners'], ['طباعة الملصقات والستيكرات', 'Stickers'], ['طباعة الأكواب والهدايا الدعائية', 'Promotional Gifts'], ['طباعة الملابس واليونيفورم', 'Apparel Printing'], ['طباعة الدروع والشهادات', 'Awards'], ['طباعة التغليف والعبوات', 'Packaging'], ['طباعة دفاتر الفواتير والسندات', 'Invoices'], ['طباعة ملفات الشركات', 'Company Folders'], ['تجهيز المعارض والفعاليات', 'Exhibitions'], ['تنفيذ الهوية البصرية المطبوعة', 'Printed Branding']] }
+    const db = {
+        Digital: { ar: "نورمال ديجيتال", en: "Normal Digital", items: [['تصميم المواقع الإلكترونية', 'Web Design'], ['تطوير المتاجر الإلكترونية', 'E-commerce Development'], ['تطوير تطبيقات الجوال', 'Mobile App Development'], ['البرمجة الخاصة', 'Custom Programming'], ['أنظمة إدارة الأعمال', 'Business Management Systems'], ['الذكاء الاصطناعي والحلول الذكية', 'AI & Smart Solutions'], ['أتمتة المهام والعمليات', 'Task & Process Automation'], ['تصميم واجهات المستخدم (UI/UX)', 'UI/UX Design'], ['تحسين محركات البحث (SEO)', 'SEO'], ['إدارة الاستضافة والدومينات', 'Hosting & Domains'], ['الأمن السيبراني', 'Cyber Security'], ['الدعم الفني والصيانة', 'Tech Support & Maintenance'], ['الربط بين الأنظمة والمنصات', 'System Integration'], ['تطوير لوحات التحكم', 'Dashboard Development'], ['إنشاء الصفحات التعريفية (Landing Pages)', 'Landing Pages Creation']] },
+        Studio: { ar: "نورمال ستوديو", en: "Normal Studio", items: [['تصوير المنتجات', 'Product Photography'], ['تصوير الإعلانات التجارية', 'Commercial Ad Photography'], ['تصوير الفعاليات والمناسبات', 'Events Coverage'], ['التصوير العقاري', 'Real Estate Photography'], ['التصوير الجوي (درون)', 'Drone Photography'], ['إنتاج الفيديوهات التسويقية', 'Marketing Video Production'], ['المونتاج الاحترافي', 'Professional Editing'], ['صناعة المحتوى المرئي', 'Visual Content Creation'], ['التعليق الصوتي', 'Voice Over'], ['تسجيل البودكاست', 'Podcast Recording'], ['التصوير الفوتوغرافي', 'Photography'], ['البث المباشر', 'Live Streaming'], ['الموشن جرافيك', 'Motion Graphics'], ['كتابة وإنتاج الإعلانات', 'Ad Production'], ['إدارة الاستوديوهات الإعلامية', 'Media Studio Management']] },
+        Art: { ar: "نورمال آرت", en: "Normal Art", items: [['تصميم الهوية البصرية', 'Visual Identity Design'], ['تصميم الشعارات', 'Logo Design'], ['التصميم الجرافيكي', 'Graphic Design'], ['تصميم منشورات السوشيال ميديا', 'Social Media Design'], ['تصميم البروفايلات والشركات', 'Company Profiles'], ['تصميم البروشورات والفلايرات', 'Brochures & Flyers'], ['تصميم الإنفوجرافيك', 'Infographic Design'], ['الموشن جرافيك', 'Motion Graphics'], ['الرسم الرقمي', 'Digital Art'], ['الرسم على الجدران', 'Wall Art'], ['التصميم الداخلي', 'Interior Design'], ['تصميم العبوات والتغليف', 'Packaging Design'], ['تصميم الشخصيات والرسومات', 'Character Design'], ['تصميم العروض التقديمية', 'Presentation Design'], ['إعادة تطوير الهويات التجارية', 'Rebranding']] },
+        Print: { ar: "نورمال برينت", en: "Normal Print", items: [['طباعة البطاقات الشخصية', 'Business Cards'], ['طباعة البروشورات', 'Brochures Printing'], ['طباعة الفلايرات', 'Flyers Printing'], ['طباعة الكتالوجات', 'Catalogs Printing'], ['طباعة اللوحات الإعلانية', 'Billboards'], ['طباعة البنرات', 'Banners'], ['طباعة الملصقات والستيكرات', 'Stickers'], ['طباعة الأكواب والهدايا الدعائية', 'Promotional Gifts'], ['طباعة الملابس واليونيفورم', 'Apparel Printing'], ['طباعة الدروع والشهادات', 'Awards & Certificates'], ['طباعة التغليف والعبوات', 'Packaging Printing'], ['طباعة دفاتر الفواتير والسندات', 'Invoices & Documents'], ['طباعة ملفات الشركات', 'Company Folders'], ['تجهيز المعارض والفعاليات', 'Exhibition Setup'], ['تنفيذ الهوية البصرية المطبوعة بالكامل', 'Full Printed Identity']] }
     };
 
-    let currentKey = "Digital";
+    let currentCat = "Digital";
 
     function toggleLanguage() {
-        const html = document.documentElement;
-        html.lang = (html.lang === 'en') ? 'ar' : 'en';
-        html.dir = (html.lang === 'en') ? 'ltr' : 'rtl';
-        if (document.getElementById('modal').style.display === 'block') openModal(currentKey);
+        const isEn = document.documentElement.lang === 'en';
+        document.documentElement.lang = isEn ? 'ar' : 'en';
+        document.body.dir = isEn ? 'rtl' : 'ltr';
+        
+        document.querySelectorAll('[data-en]').forEach(el => {
+            if(!el.dataset.ar) el.dataset.ar = el.innerText || el.placeholder;
+            if(el.placeholder) el.placeholder = isEn ? el.dataset.en : el.dataset.ar;
+            else el.innerText = isEn ? el.dataset.en : el.dataset.ar;
+        });
+
+        if(document.getElementById('modal').style.display === 'block') {
+            openModal(currentCat);
+        }
     }
 
-    function openModal(key) {
-        currentKey = key;
+    function openModal(c) {
+        currentCat = c;
         const isEn = document.documentElement.lang === 'en';
-        document.getElementById('modalTitle').innerText = isEn ? data[key].en : data[key].ar;
-        document.getElementById('subList').innerHTML = data[key].items.map(item => `<li>✅ ${isEn ? item[1] : item[0]}</li>`).join('');
+        document.getElementById('modalTitle').innerText = isEn ? db[c].en : db[c].ar;
+        document.getElementById('subList').innerHTML = db[c].items.map(i => `<li>✅ ${isEn ? i[1] : i[0]}</li>`).join('');
         document.getElementById('modal').style.display = 'block';
     }
 </script>
