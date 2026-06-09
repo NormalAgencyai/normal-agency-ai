@@ -6,7 +6,6 @@
     <style>
         body { background-color: #f4f7fb; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0 0 80px 0; transition: 0.3s; }
         
-        /* الشريط العلوي الأزرق */
         .top-bar { background: #007bff; padding: 15px; display: flex; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .lang-btn { background: white; color: #007bff; border: none; padding: 8px 25px; border-radius: 20px; cursor: pointer; font-weight: bold; }
         
@@ -18,12 +17,14 @@
         .card { padding: 30px 10px; border: 2px solid #e0e7ff; border-radius: 12px; background: white; cursor: pointer; font-weight: bold; transition: 0.3s; }
         .card:hover { border-color: #007bff; background: #eef5ff; }
         
+        /* تصميم المساعد الذكي */
+        .assistant-box { background: white; border: 2px solid #e0e7ff; border-radius: 20px; padding: 30px; max-width: 500px; margin: 40px auto; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 3000; overflow-y: auto; }
         .form-box { max-width: 500px; margin: 50px auto; background: white; padding: 30px; border-radius: 20px; text-align: right; }
         input, textarea { width: 90%; padding: 15px; margin: 10px auto; border-radius: 10px; border: 1px solid #ddd; display: block; }
         button { background: #007bff; color: white; border: none; padding: 15px 40px; border-radius: 10px; cursor: pointer; }
         
-        /* الشريط السفلي الأزرق */
         .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #007bff; display: flex; justify-content: space-around; padding: 20px 0; z-index: 2000; }
         .bottom-nav a { text-decoration: none; color: white; font-weight: bold; }
     </style>
@@ -46,6 +47,15 @@
                 <div class="card" onclick="showSubServices('نورمال آرت', ['تصميم الهوية البصرية', 'تصميم الشعارات', 'التصميم الجرافيكي', 'تصميم السوشيال ميديا', 'تصميم البروفايلات', 'تصميم البروشورات', 'تصميم الإنفوجرافيك', 'الموشن جرافيك', 'الرسم الرقمي', 'التصميم الداخلي'])" data-en="Normal Art">نورمال آرت</div>
                 <div class="card" onclick="showSubServices('نورمال برينت', ['طباعة البطاقات', 'طباعة البروشورات', 'طباعة الفلايرات', 'طباعة الكتالوجات', 'طباعة اللوحات الإعلانية', 'طباعة البنرات', 'طباعة الستيكرات', 'طباعة الهدايا الدعائية', 'طباعة الملابس', 'طباعة الدروع'])" data-en="Normal Print">نورمال برينت</div>
             </div>
+        </div>
+
+        <div class="assistant-box">
+            <h3 data-en="Normal AI Assistant">المساعد الذكي "نورمال"</h3>
+            <form action="https://formspree.io/f/xykvqjek" method="POST">
+                <input type="email" name="email" data-en="Your Email" placeholder="بريدك للتواصل" required>
+                <textarea name="message" data-en="Write your message here..." placeholder="اكتب رسالتك هنا..." required></textarea>
+                <button type="submit" data-en="Send to Assistant">إرسال للمساعد</button>
+            </form>
         </div>
     </div>
 
