@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <title>Normal Agency | نورمال للخدمات المتكاملة</title>
     <style>
-        body { background-color: #ffffff; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px 20px 80px 20px; transition: 0.3s; }
+        body { background-color: #ffffff; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px 20px 80px 20px; }
         .logo { width: 250px; margin: 30px auto; }
         .hero-title { font-size: 24px; font-weight: bold; color: #007bff; margin: 10px 0; }
         .hero-subtitle { font-size: 16px; margin-bottom: 30px; color: #555; }
+        
         #services-section { padding-top: 40px; }
         h1 { color: #007bff; margin-bottom: 30px; }
+        
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 600px; margin: 20px auto; }
         .card { padding: 30px 10px; border: 2px solid #e0e7ff; border-radius: 12px; background: #f8f9ff; cursor: pointer; transition: 0.3s; font-weight: bold; }
         .card:hover { border-color: #007bff; background: #eef5ff; }
+        
         .assistant-box { border: 2px solid #e0e7ff; border-radius: 16px; padding: 25px; max-width: 500px; margin: 40px auto; background: #fdfdfd; }
         .modal { display: none; position: fixed; inset: 0; background: rgba(255,255,255,0.98); z-index: 1000; padding: 40px; overflow-y: auto; }
         .form-box { max-width: 500px; margin: auto; border: 2px solid #e0e7ff; padding: 20px; border-radius: 16px; text-align: right; }
@@ -20,8 +23,10 @@
         li { padding: 12px; border-bottom: 1px solid #eee; cursor: pointer; color: #007bff; font-weight: bold; }
         input, textarea { width: 90%; padding: 12px; margin: 10px auto; border-radius: 8px; border: 1px solid #ccc; display: block; }
         button { background: #007bff; color: white; border: none; padding: 12px 40px; border-radius: 8px; cursor: pointer; }
+        
+        /* الشريط السفلي */
         .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: #ffffff; display: flex; justify-content: space-around; padding: 15px 0; border-top: 2px solid #e0e7ff; box-shadow: 0 -2px 10px rgba(0,0,0,0.05); z-index: 2000; }
-        .bottom-nav a { text-decoration: none; color: #007bff; font-weight: bold; font-size: 14px; cursor: pointer; }
+        .bottom-nav a { text-decoration: none; color: #007bff; font-weight: bold; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -33,10 +38,10 @@
     <div id="services-section">
         <h1>خدماتنا</h1>
         <div class="grid">
-            <div class="card" onclick="showSubServices('نورمال ديجيتال', ['تصميم المواقع', 'تطوير متاجر'])">نورمال ديجيتال</div>
-            <div class="card" onclick="showSubServices('نورمال ستوديو', ['تصوير', 'مونتاج'])">نورمال ستوديو</div>
-            <div class="card" onclick="showSubServices('نورمال آرت', ['هوية بصرية', 'تصميم شعارات'])">نورمال آرت</div>
-            <div class="card" onclick="showSubServices('نورمال برينت', ['طباعة كروت', 'لوحات'])">نورمال برينت</div>
+            <div class="card" onclick="showSubServices('نورمال ديجيتال', ['تصميم المواقع الإلكترونية', 'تطوير المتاجر الإلكترونية', 'تطوير تطبيقات الجوال', 'البرمجة الخاصة', 'أنظمة إدارة الأعمال', 'الذكاء الاصطناعي والحلول الذكية', 'أتمتة المهام والعمليات', 'تصميم واجهات المستخدم (UI/UX)', 'تحسين محركات البحث (SEO)', 'إدارة الاستضافة والدومينات', 'الأمن السيبراني', 'الدعم الفني والصيانة', 'الربط بين الأنظمة والمنصات', 'تطوير لوحات التحكم', 'إنشاء الصفحات التعريفية'])">نورمال ديجيتال</div>
+            <div class="card" onclick="showSubServices('نورمال ستوديو', ['تصوير المنتجات', 'تصوير الإعلانات التجارية', 'تصوير الفعاليات والمناسبات', 'التصوير العقاري', 'التصوير الجوي (درون)', 'إنتاج الفيديوهات التسويقية', 'المونتاج الاحترافي', 'صناعة المحتوى المرئي', 'التعليق الصوتي', 'تسجيل البودكاست', 'التصوير الفوتوغرافي', 'البث المباشر', 'الموشن جرافيك', 'كتابة وإنتاج الإعلانات', 'إدارة الاستوديوهات الإعلامية'])">نورمال ستوديو</div>
+            <div class="card" onclick="showSubServices('نورمال آرت', ['تصميم الهوية البصرية', 'تصميم الشعارات', 'التصميم الجرافيكي', 'تصميم منشورات السوشيال ميديا', 'تصميم البروفايلات والشركات', 'تصميم البروشورات والفلايرات', 'تصميم الإنفوجرافيك', 'الموشن جرافيك', 'الرسم الرقمي', 'الرسم على الجدران', 'التصميم الداخلي', 'تصميم العبوات والتغليف', 'تصميم الشخصيات والرسومات', 'تصميم العروض التقديمية', 'إعادة تطوير الهويات التجارية'])">نورمال آرت</div>
+            <div class="card" onclick="showSubServices('نورمال برينت', ['طباعة البطاقات الشخصية', 'طباعة البروشورات', 'طباعة الفلايرات', 'طباعة الكتالوجات', 'طباعة اللوحات الإعلانية', 'طباعة البنرات', 'طباعة الملصقات والستيكرات', 'طباعة الأكواب والهدايا الدعائية', 'طباعة الملابس واليونيفورم', 'طباعة الدروع والشهادات', 'طباعة التغليف والعبوات', 'طباعة دفاتر الفواتير والسندات', 'طباعة ملفات الشركات', 'تجهيز المعارض والفعاليات', 'تنفيذ الهوية البصرية المطبوعة بالكامل'])">نورمال برينت</div>
         </div>
     </div>
 
@@ -52,7 +57,6 @@
     <div class="bottom-nav">
         <a href="#" onclick="window.scrollTo(0, 0);">الرئيسية</a>
         <a href="#services-section">خدماتنا</a>
-        <a href="#" onclick="toggleLanguage()">🌐 EN/AR</a>
         <a href="https://wa.me/966595262869" target="_blank">تواصل معنا</a>
     </div>
 
@@ -71,31 +75,6 @@
     </div>
 
     <script>
-        const translations = {
-            "خدماتنا": "Our Services", "الرئيسية": "Home", "تواصل معنا": "Contact Us",
-            "المساعد الذكي \"نورمال\"": "Normal AI Assistant", "إرسال للمساعد": "Send to Assistant",
-            "الخدمة المطلوبة": "Required Service", "البريد الإلكتروني": "Email",
-            "تفاصيل الطلب...": "Request Details...", "إرسال الطلب": "Send Request",
-            "إغلاق ✖": "Close ✖"
-        };
-        let isArabic = true;
-
-        function toggleLanguage() {
-            isArabic = !isArabic;
-            document.body.style.direction = isArabic ? 'rtl' : 'ltr';
-            document.querySelectorAll('h1, h3, a, button, input, textarea, .card').forEach(el => {
-                if (translations[el.innerText]) el.innerText = translations[el.innerText];
-                else if (!isArabic) { 
-                    // إذا أردت العودة للعربي، ابحث في القيم
-                    for(let key in translations) if(translations[key] === el.innerText) el.innerText = key;
-                }
-                if (el.placeholder && translations[el.placeholder]) el.placeholder = translations[el.placeholder];
-                else if (!isArabic && el.placeholder) {
-                     for(let key in translations) if(translations[key] === el.placeholder) el.placeholder = key;
-                }
-            });
-        }
-
         function showSubServices(title, items) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('subList').innerHTML = items.map(item => `<li onclick="selectSub('${item}')">✅ ${item}</li>`).join('');
@@ -103,8 +82,11 @@
         }
         function selectSub(item) {
             document.getElementById('hiddenService').value = item;
-            alert("تم اختيار: " + item);
+            alert("تم اختيار: " + item + "، يرجى ملء البيانات بالأسفل.");
         }
     </script>
 </body>
 </html>
+
+</body>
+</html> </button>
