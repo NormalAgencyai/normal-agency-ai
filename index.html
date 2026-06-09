@@ -44,7 +44,6 @@
 
     <div class="ai-assistant-box">
         <h3 data-en="Normal AI Assistant" data-ar="المساعد الذكي نورمال">المساعد الذكي نورمال</h3>
-        <p data-en="Ask me anything" data-ar="اسألني أي شيء">اسألني أي شيء</p>
         <form action="https://formspree.io/f/xykvqjek" method="POST">
             <input type="email" name="email" data-en="Your Email" data-ar="بريدك الإلكتروني" placeholder="بريدك الإلكتروني" required>
             <textarea name="message" data-en="How can I help?" data-ar="كيف يمكنني مساعدتك؟" placeholder="كيف يمكنني مساعدتك؟" required></textarea>
@@ -64,6 +63,14 @@
         <button onclick="document.getElementById('modal').style.display='none'" style="background:red" data-en="Close" data-ar="إغلاق">إغلاق ✖</button>
         <h3 id="modalTitle"></h3>
         <ul id="subList"></ul>
+        <hr>
+        <h4 data-en="Request this Service" data-ar="طلب الخدمة">طلب الخدمة</h4>
+        <form action="https://formspree.io/f/xykvqjek" method="POST">
+            <input type="text" name="service_name" id="selectedService" readonly>
+            <input type="email" name="email" data-en="Your Email" data-ar="بريدك الإلكتروني" placeholder="بريدك الإلكتروني" required>
+            <textarea name="details" data-en="Details of your request..." data-ar="تفاصيل الطلب..." placeholder="تفاصيل الطلب..." required></textarea>
+            <button type="submit" data-en="Send Request" data-ar="إرسال الطلب">إرسال الطلب</button>
+        </form>
     </div>
 </div>
 
@@ -93,6 +100,7 @@
         currentCat = c;
         const lang = document.documentElement.lang;
         document.getElementById('modalTitle').innerText = lang === 'ar' ? db[c].ar : db[c].en;
+        document.getElementById('selectedService').value = lang === 'ar' ? db[c].ar : db[c].en;
         document.getElementById('subList').innerHTML = db[c].items.map(i => `<li>✅ ${lang === 'ar' ? i[0] : i[1]}</li>`).join('');
         document.getElementById('modal').style.display = 'block';
     }
