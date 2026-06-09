@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Normal Agency | نورمال للخدمات المتكاملة</title>
     <style>
-        body { background-color: #ffffff; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px 20px 80px 20px; }
+        body { background-color: #ffffff; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px 20px 80px 20px; transition: 0.3s; }
         .logo { width: 250px; margin: 30px auto; }
         .hero-title { font-size: 24px; font-weight: bold; color: #007bff; margin: 10px 0; }
         .hero-subtitle { font-size: 16px; margin-bottom: 30px; color: #555; }
@@ -24,9 +24,8 @@
         input, textarea { width: 90%; padding: 12px; margin: 10px auto; border-radius: 8px; border: 1px solid #ccc; display: block; }
         button { background: #007bff; color: white; border: none; padding: 12px 40px; border-radius: 8px; cursor: pointer; }
         
-        /* الشريط السفلي */
         .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: #ffffff; display: flex; justify-content: space-around; padding: 15px 0; border-top: 2px solid #e0e7ff; box-shadow: 0 -2px 10px rgba(0,0,0,0.05); z-index: 2000; }
-        .bottom-nav a { text-decoration: none; color: #007bff; font-weight: bold; font-size: 14px; }
+        .bottom-nav a { text-decoration: none; color: #007bff; font-weight: bold; font-size: 14px; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -57,6 +56,7 @@
     <div class="bottom-nav">
         <a href="#" onclick="window.scrollTo(0, 0);">الرئيسية</a>
         <a href="#services-section">خدماتنا</a>
+        <a href="#" onclick="toggleLanguage()">🌐 EN/AR</a>
         <a href="https://wa.me/966595262869" target="_blank">تواصل معنا</a>
     </div>
 
@@ -75,6 +75,20 @@
     </div>
 
     <script>
+        // دالة الترجمة
+        const translations = {
+            "خدماتنا": "Our Services", "نورمال ديجيتال": "Normal Digital", "نورمال ستوديو": "Normal Studio",
+            "نورمال آرت": "Normal Art", "نورمال برينت": "Normal Print", "الرئيسية": "Home",
+            "تواصل معنا": "Contact Us", "الخدمة المطلوبة": "Required Service", "البريد الإلكتروني": "Email",
+            "تفاصيل الطلب...": "Request Details...", "إرسال الطلب": "Send Request"
+        };
+        let isArabic = true;
+        function toggleLanguage() {
+            isArabic = !isArabic;
+            document.body.style.direction = isArabic ? 'rtl' : 'ltr';
+            // منطق بسيط للتبديل (يمكن توسيعه)
+        }
+
         function showSubServices(title, items) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('subList').innerHTML = items.map(item => `<li onclick="selectSub('${item}')">✅ ${item}</li>`).join('');
