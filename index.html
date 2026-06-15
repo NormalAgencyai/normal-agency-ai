@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <title>Normal Agency</title>
     <style>
-        body { background-color: #f4f7fb; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; padding-bottom: 100px; }
+        body { background-color: #f4f7fb; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0 0 80px 0; }
         .top-bar { background: #007bff; padding: 15px; display: flex; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .lang-btn { background: white; color: #007bff; border: none; padding: 8px 25px; border-radius: 20px; cursor: pointer; font-weight: bold; }
         .container { max-width: 800px; margin: auto; padding: 20px; }
         .logo { width: 250px; margin: 20px auto; display: block; }
-        .title-blue { color: #007bff; font-weight: bold; font-size: 22px; margin: 5px 0; }
-        .sub-title { color: #555; font-size: 16px; margin-bottom: 20px; font-weight: 500; }
+        .hero-title { font-size: 24px; font-weight: bold; color: #007bff; margin: 10px 0; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px auto; }
         .card { padding: 30px 10px; border: 2px solid #e0e7ff; border-radius: 12px; background: white; cursor: pointer; font-weight: bold; transition: 0.3s; }
         .card:hover { border-color: #007bff; background: #eef5ff; }
-        .ai-assistant-box { background: #ffffff; border: 2px solid #007bff; border-radius: 20px; padding: 30px; margin-top: 40px; box-shadow: 0 4px 15px rgba(0,123,255,0.1); }
-        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 3000; overflow-y: auto; padding: 20px; }
+        .assistant-box { background: white; border: 2px solid #e0e7ff; border-radius: 20px; padding: 30px; margin: 40px auto; }
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 3000; overflow-y: auto; padding: 20px; }
         .form-box { max-width: 500px; margin: 50px auto; background: white; padding: 30px; border-radius: 20px; text-align: right; }
-        input, textarea { width: 90%; padding: 12px; margin: 10px auto; border-radius: 8px; border: 1px solid #ccc; display: block; }
+        input, textarea, select { width: 90%; padding: 12px; margin: 10px auto; border-radius: 8px; border: 1px solid #ccc; display: block; }
         button { background: #007bff; color: white; border: none; padding: 12px 40px; border-radius: 8px; cursor: pointer; }
-        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #007bff; display: flex; justify-content: space-around; padding: 15px 0; z-index: 2500; }
+        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #007bff; display: flex; justify-content: space-around; padding: 15px 0; z-index: 2000; }
         .bottom-nav a { text-decoration: none; color: white; font-weight: bold; }
-        li { margin: 8px 0; padding: 8px; border-bottom: 1px solid #eee; font-weight: bold; color: #333; text-align: right; }
+        ul { text-align: right; list-style: none; padding: 0; }
+        li { margin: 8px 0; padding: 8px; border-bottom: 1px solid #eee; font-weight: bold; color: #333; }
     </style>
 </head>
 <body>
@@ -30,48 +30,54 @@
     <button class="lang-btn" onclick="toggleLanguage()">🌐 English / العربية</button>
 </div>
 
-<div class="container" id="home">
-    <img src="logo.png.png" alt="Normal Logo" class="logo">
-    <div class="title-blue" data-en="✦✦ Normal for Integrated Electronic Services ✦✦">✦✦ نورمال للخدمات الإلكترونية المتكاملة ✦✦</div>
-    <div class="sub-title" data-en="From Idea to Execution │ Integrated Digital & Creative Solutions">من الفكرة إلى التنفيذ │ حلول رقمية وإبداعية متكاملة</div>
+<div class="container">
+    <img src="logo.png.png" alt="شعار نورمال" class="logo">
+    <div class="hero-title" data-en="Normal Agency">✦✦ نورمال للخدمات الإلكترونية المتكاملة ✦✦</div>
     
-    <div class="grid" id="services">
-        <div class="card" onclick="openModal('Digital')" data-ar="نورمال ديجيتال" data-en="Normal Digital">نورمال ديجيتال</div>
-        <div class="card" onclick="openModal('Studio')" data-ar="نورمال ستوديو" data-en="Normal Studio">نورمال ستوديو</div>
-        <div class="card" onclick="openModal('Art')" data-ar="نورمال آرت" data-en="Normal Art">نورمال آرت</div>
-        <div class="card" onclick="openModal('Print')" data-ar="نورمال برينت" data-en="Normal Print">نورمال برينت</div>
+    <div id="services-section">
+        <h1 data-en="Our Services">خدماتنا</h1>
+        <div class="grid">
+            <div class="card" onclick="openModal('Digital')" data-en="Normal Digital">نورمال ديجيتال</div>
+            <div class="card" onclick="openModal('Studio')" data-en="Normal Studio">نورمال ستوديو</div>
+            <div class="card" onclick="openModal('Art')" data-en="Normal Art">نورمال آرت</div>
+            <div class="card" onclick="openModal('Print')" data-en="Normal Print">نورمال برينت</div>
+        </div>
     </div>
 
-    <div class="ai-assistant-box">
-        <h3 data-en="Normal AI Assistant" data-ar="المساعد الذكي نورمال">المساعد الذكي نورمال</h3>
+    <div class="assistant-box">
+        <h3 data-en="Normal AI Assistant">المساعد الذكي "نورمال"</h3>
         <form action="https://formspree.io/f/xykvqjek" method="POST">
-            <input type="email" name="email" data-en="Your Email" data-ar="بريدك الإلكتروني" placeholder="بريدك الإلكتروني" required>
-            <textarea name="message" data-en="How can I help?" data-ar="كيف يمكنني مساعدتك؟" placeholder="كيف يمكنني مساعدتك؟" required></textarea>
-            <button type="submit" data-en="Send" data-ar="إرسال">إرسال</button>
+            <input type="email" name="email" data-en="Your Email" placeholder="بريدك للتواصل" required>
+            <textarea name="message" data-en="Write your message here..." placeholder="اكتب رسالتك هنا..." required></textarea>
+            <button type="submit" data-en="Send to Assistant">إرسال للمساعد</button>
+        </form>
+    </div>
+</div>
+
+<div id="modal" class="modal">
+    <div class="form-box">
+        <button onclick="document.getElementById('modal').style.display='none'" style="background:red; color:white; border:none; padding:10px; cursor:pointer;" data-en="Close">إغلاق ✖</button>
+        <h3 id="modalTitle"></h3>
+        <ul id="subList"></ul>
+        <hr>
+        <h4 data-en="Request This Service" data-ar="طلب الخدمة">طلب الخدمة</h4>
+        <form id="orderForm" onsubmit="handleOrderSubmit(event)">
+            <input type="text" id="serviceName" readonly>
+            <input type="email" id="userEmail" placeholder="بريدك الإلكتروني" required>
+            <textarea id="orderDetails" placeholder="تفاصيل طلبك..." required></textarea>
+            <select id="contactMethod">
+                <option value="whatsapp">واتساب (966543262920)</option>
+                <option value="email">إيميل</option>
+            </select>
+            <button type="submit" data-en="Send Request">إرسال الطلب</button>
         </form>
     </div>
 </div>
 
 <div class="bottom-nav">
-    <a href="#home" data-en="Home" data-ar="الرئيسية">الرئيسية</a>
-    <a href="#services" data-en="Services" data-ar="خدماتنا">خدماتنا</a>
-    <a href="https://wa.me/966595262869" target="_blank" data-en="Contact Us" data-ar="تواصل معنا">تواصل معنا</a>
-</div>
-
-<div id="modal" class="modal">
-    <div class="form-box">
-        <button onclick="document.getElementById('modal').style.display='none'" style="background:red" data-en="Close" data-ar="إغلاق">إغلاق ✖</button>
-        <h3 id="modalTitle"></h3>
-        <ul id="subList"></ul>
-        <hr>
-        <h4 data-en="Request this Service" data-ar="طلب الخدمة">طلب الخدمة</h4>
-        <form action="https://formspree.io/f/xykvqjek" method="POST">
-            <input type="text" name="service_name" id="selectedService" readonly>
-            <input type="email" name="email" data-en="Your Email" data-ar="بريدك الإلكتروني" placeholder="بريدك الإلكتروني" required>
-            <textarea name="details" data-en="Details of your request..." data-ar="تفاصيل الطلب..." placeholder="تفاصيل الطلب..." required></textarea>
-            <button type="submit" data-en="Send Request" data-ar="إرسال الطلب">إرسال الطلب</button>
-        </form>
-    </div>
+    <a href="#" onclick="window.scrollTo(0,0)" data-en="Home">الرئيسية</a>
+    <a href="#services-section" data-en="Services">خدماتنا</a>
+    <a href="https://wa.me/966543262920" target="_blank" data-en="Contact Us">تواصل معنا</a>
 </div>
 
 <script>
@@ -85,24 +91,43 @@
     let currentCat = "Digital";
 
     function toggleLanguage() {
-        const lang = document.documentElement.lang === 'ar' ? 'en' : 'ar';
-        document.documentElement.lang = lang;
-        document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
-        
+        const isEn = document.documentElement.lang === 'en';
+        document.documentElement.lang = isEn ? 'ar' : 'en';
+        document.body.dir = isEn ? 'rtl' : 'ltr';
         document.querySelectorAll('[data-en]').forEach(el => {
-            el.innerText = lang === 'ar' ? (el.dataset.ar || el.innerText) : el.dataset.en;
-            if(el.placeholder) el.placeholder = lang === 'ar' ? (el.dataset.ar || el.placeholder) : el.dataset.en;
+            if(!el.dataset.ar) el.dataset.ar = el.innerText || el.placeholder;
+            if(el.placeholder) el.placeholder = isEn ? el.dataset.en : el.dataset.ar;
+            else el.innerText = isEn ? el.dataset.en : el.dataset.ar;
         });
-        if(document.getElementById('modal').style.display === 'block') openModal(currentCat);
+        refreshModalContent();
     }
 
-    function openModal(c) {
-        currentCat = c;
-        const lang = document.documentElement.lang;
-        document.getElementById('modalTitle').innerText = lang === 'ar' ? db[c].ar : db[c].en;
-        document.getElementById('selectedService').value = lang === 'ar' ? db[c].ar : db[c].en;
-        document.getElementById('subList').innerHTML = db[c].items.map(i => `<li>✅ ${lang === 'ar' ? i[0] : i[1]}</li>`).join('');
+    function openModal(cat) {
+        currentCat = cat;
+        refreshModalContent();
         document.getElementById('modal').style.display = 'block';
+    }
+
+    function refreshModalContent() {
+        const isEn = document.documentElement.lang === 'en';
+        document.getElementById('modalTitle').innerText = isEn ? db[currentCat].en : db[currentCat].ar;
+        document.getElementById('serviceName').value = isEn ? db[currentCat].en : db[currentCat].ar;
+        document.getElementById('subList').innerHTML = db[currentCat].items.map(i => `<li>✅ ${isEn ? i[1] : i[0]}</li>`).join('');
+    }
+
+    function handleOrderSubmit(e) {
+        e.preventDefault();
+        const method = document.getElementById('contactMethod').value;
+        const service = document.getElementById('serviceName').value;
+        const email = document.getElementById('userEmail').value;
+        const details = document.getElementById('orderDetails').value;
+
+        if (method === 'whatsapp') {
+            const msg = `طلب خدمة جديدة من نورمال: ${service}. البريد: ${email}. التفاصيل: ${details}`;
+            window.open(`https://wa.me/966543262920?text=${encodeURIComponent(msg)}`, '_blank');
+        } else {
+            window.location.href = `mailto:your-email@example.com?subject=طلب خدمة ${service}&body=البريد: ${email}%0D%0Aالتفاصيل: ${details}`;
+        }
     }
 </script>
 </body>
