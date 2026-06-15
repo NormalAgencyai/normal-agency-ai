@@ -4,80 +4,89 @@
     <meta charset="UTF-8">
     <title>Normal Agency</title>
     <style>
-        /* التنسيقات الأساسية */
         body { background-color: #f4f7fb; color: #050a14; text-align: center; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0 0 80px 0; }
         .top-bar { background: #007bff; padding: 15px; display: flex; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .lang-btn { background: white; color: #007bff; border: none; padding: 8px 25px; border-radius: 20px; cursor: pointer; font-weight: bold; }
         .container { max-width: 800px; margin: auto; padding: 20px; }
-        .logo { width: 450px; display: block; margin: 10px auto; }
+        
+        .header-block { margin-top: 10px; margin-bottom: 25px; display: flex; flex-direction: column; align-items: center; }
+        .logo { width: 450px; display: block; margin: 0; }
+        .hero-title { font-size: 28px; font-weight: 800; color: #050a14; margin: 15px 0 5px 0; }
+        .sub-title { color: #007bff; font-size: 18px; font-weight: 600; margin: 0; }
+        
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 15px auto; }
         .card { padding: 30px 10px; border: 2px solid #e0e7ff; border-radius: 12px; background: white; cursor: pointer; font-weight: bold; transition: 0.3s; }
         .card:hover { border-color: #007bff; background: #eef5ff; }
         
-        /* تصميم المساعد الذكي (مطابق لـ image_3.png) */
-        .ai-modal-container { display: none; position: fixed; inset: 0; background: rgba(240, 240, 240, 0.8); z-index: 5000; align-items: center; justify-content: center; padding: 20px; }
-        .ai-box { background: #f8f9ff; padding: 40px; border-radius: 25px; text-align: center; border: 1px solid #e0e4ef; width: 100%; max-width: 450px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .ai-header { color: #0056b3; font-size: 24px; margin-bottom: 10px; }
-        .ai-sub { color: #555; margin-bottom: 25px; }
-        .ai-input { width: 100%; padding: 15px; margin: 10px 0; border: 1px solid #d1d5db; border-radius: 12px; box-sizing: border-box; text-align: right; }
-        .ai-submit-btn { background: #007bff; color: white; border: none; padding: 12px 60px; border-radius: 10px; cursor: pointer; font-size: 16px; margin-top: 10px; }
-        .close-btn { background: none; border: none; color: #888; float: left; cursor: pointer; font-size: 20px; }
-        .ai-float-btn { position: fixed; bottom: 80px; right: 20px; background: #007bff; color: white; padding: 15px 20px; border-radius: 30px; cursor: pointer; z-index: 2000; }
-
-        /* مودال الخدمات */
+        /* تصميم المساعد الذكي المدمج (كما في image_4.png) */
+        .ai-embedded-box { background: white; border: 2px solid #e1e4ea; border-radius: 20px; padding: 25px; margin: 30px auto; max-width: 500px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .ai-title { color: #0056b3; font-size: 22px; font-weight: bold; margin-bottom: 10px; }
+        .ai-input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; text-align: right; }
+        .ai-btn { background: #007bff; color: white; border: none; padding: 12px 60px; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+        
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 3000; overflow-y: auto; padding: 20px; }
         .form-box { max-width: 600px; margin: 50px auto; background: white; padding: 30px; border-radius: 20px; text-align: right; }
         .sub-services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin: 20px 0; }
-        .sub-service-item { padding: 15px 5px; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; font-weight: bold; text-align: center; color: #555; }
+        .sub-service-item { padding: 15px 5px; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; transition: 0.3s; font-weight: bold; text-align: center; color: #555; }
         .sub-service-item:hover { background: #f0f7ff; border-color: #007bff; color: #007bff; }
         .selected-item { background: #007bff !important; color: white !important; border-color: #007bff; }
-        input, textarea { width: 100%; padding: 15px; margin: 12px 0; border-radius: 10px; border: 1px solid #ccc; box-sizing: border-box; }
-        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #007bff; display: flex; justify-content: space-around; padding: 15px 0; z-index: 1500; }
+        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #007bff; display: flex; justify-content: space-around; padding: 15px 0; z-index: 2000; }
         .bottom-nav a { text-decoration: none; color: white; font-weight: bold; }
     </style>
 </head>
 <body>
 
-<!-- زر فتح المساعد -->
-<div class="ai-float-btn" onclick="document.getElementById('aiModal').style.display='flex'">💬 المساعد الذكي</div>
+<div class="top-bar">
+    <button class="lang-btn" onclick="toggleLanguage()">🌐 English / العربية</button>
+</div>
 
-<!-- نافذة المساعد الذكي -->
-<div id="aiModal" class="ai-modal-container">
-    <div class="ai-box">
-        <button onclick="document.getElementById('aiModal').style.display='none'" class="close-btn">✖</button>
-        <h2 class="ai-header">المساعد الذكي "نورمال"</h2>
-        <p class="ai-sub">مرحباً بك! أنا مساعد نورمال، كيف يمكنني مساعدتك اليوم؟</p>
+<div class="container">
+    <div class="header-block">
+        <img src="logo.png.png" alt="شعار نورمال" class="logo">
+        <div class="hero-title" data-en="Normal Agency" data-ar="إبداع بلا حدود | نُحوّل أفكارك إلى تجارب استثنائية">إبداع بلا حدود | نُحوّل أفكارك إلى تجارب استثنائية</div>
+    </div>
+    
+    <div id="services-section">
+        <h1 data-en="Our Services" data-ar="خدماتنا">خدماتنا</h1>
+        <div class="grid">
+            <div class="card" onclick="openModal('Digital')" data-ar="نورمال ديجيتال">نورمال ديجيتال</div>
+            <div class="card" onclick="openModal('Studio')" data-ar="نورمال ستوديو">نورمال ستوديو</div>
+            <div class="card" onclick="openModal('Art')" data-ar="نورمال آرت">نورمال آرت</div>
+            <div class="card" onclick="openModal('Print')" data-ar="نورمال برينت">نورمال برينت</div>
+        </div>
+    </div>
+
+    <!-- المساعد الذكي المدمج في الصفحة -->
+    <div class="ai-embedded-box">
+        <div class="ai-title">المساعد الذكي "نورمال"</div>
+        <p>مرحباً بك! أنا مساعد نورمال، كيف يمكنني مساعدتك اليوم؟</p>
         <form action="https://formspree.io/f/xykvqjek" method="POST">
             <input type="email" name="Email" class="ai-input" placeholder="بريدك للتواصل" required>
             <textarea name="Message" class="ai-input" placeholder="اكتب رسالتك هنا..." rows="3" required></textarea>
-            <button type="submit" class="ai-submit-btn">إرسال</button>
+            <button type="submit" class="ai-btn">إرسال</button>
         </form>
     </div>
 </div>
 
-<div class="container">
-    <img src="logo.png.png" class="logo">
-    <h1>خدماتنا</h1>
-    <div class="grid">
-        <div class="card" onclick="openModal('Digital')">نورمال ديجيتال</div>
-        <div class="card" onclick="openModal('Studio')">نورمال ستوديو</div>
-        <div class="card" onclick="openModal('Art')">نورمال آرت</div>
-        <div class="card" onclick="openModal('Print')">نورمال برينت</div>
-    </div>
-</div>
-
-<!-- مودال تفاصيل الخدمة -->
 <div id="modal" class="modal">
     <div class="form-box">
         <button onclick="document.getElementById('modal').style.display='none'" style="background:red; color:white; border:none; padding:10px; cursor:pointer;">إغلاق ✖</button>
         <h3 id="modalTitle">الخدمة</h3>
         <div id="subServicesContainer" class="sub-services-grid"></div>
+        <hr>
         <form action="https://formspree.io/f/xykvqjek" method="POST">
-            <input type="text" id="serviceName" name="Service" placeholder="اختر خدمة..." readonly required>
+            <input type="text" id="serviceName" name="Service" placeholder="اختر خدمة من المربعات أعلاه..." readonly required>
             <input type="email" name="Email" placeholder="بريدك الإلكتروني" required>
             <textarea name="Details" placeholder="تفاصيل الطلب..." required></textarea>
             <button type="submit" style="background:#007bff; color:white; border:none; padding:12px 40px; border-radius:8px;">إرسال الطلب</button>
         </form>
     </div>
+</div>
+
+<div class="bottom-nav">
+    <a href="#" onclick="window.scrollTo(0,0)">الرئيسية</a>
+    <a href="#services-section">خدماتنا</a>
+    <a href="https://wa.me/966543262920" target="_blank">تواصل معنا</a>
 </div>
 
 <script>
