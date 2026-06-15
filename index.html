@@ -8,10 +8,7 @@
         .top-bar { background: #007bff; padding: 15px; display: flex; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .lang-btn { background: white; color: #007bff; border: none; padding: 8px 25px; border-radius: 20px; cursor: pointer; font-weight: bold; }
         .container { max-width: 800px; margin: auto; padding: 20px; }
-        
-        /* تم تكبير اللوغو هنا إلى 350px */
         .logo { width: 350px; margin: 30px auto; display: block; }
-        
         .hero-title { font-size: 24px; font-weight: bold; color: #007bff; margin: 10px 0; }
         .sub-title { color: #555; font-size: 16px; margin-bottom: 20px; font-weight: 500; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px auto; }
@@ -19,13 +16,10 @@
         .card:hover { border-color: #007bff; background: #eef5ff; }
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 3000; overflow-y: auto; padding: 20px; }
         .form-box { max-width: 600px; margin: 50px auto; background: white; padding: 30px; border-radius: 20px; text-align: right; }
-        
-        /* تصميم المربعات للخدمات الفرعية */
         .sub-services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin: 20px 0; }
         .sub-service-item { padding: 15px 5px; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; transition: 0.3s; font-weight: bold; text-align: center; color: #555; }
         .sub-service-item:hover { background: #f0f7ff; border-color: #007bff; color: #007bff; }
         .selected-item { background: #007bff !important; color: white !important; border-color: #007bff; }
-        
         input, textarea { width: 94%; padding: 12px; margin: 10px auto; border-radius: 8px; border: 1px solid #ccc; display: block; }
         button { background: #007bff; color: white; border: none; padding: 12px 40px; border-radius: 8px; cursor: pointer; }
         .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #007bff; display: flex; justify-content: space-around; padding: 15px 0; z-index: 2000; }
@@ -40,43 +34,43 @@
 
 <div class="container">
     <img src="logo.png.png" alt="شعار نورمال" class="logo">
-    <div class="hero-title" data-en="Normal Agency">✦✦ نورمال للخدمات الإلكترونية المتكاملة ✦✦</div>
-    <div class="sub-title" data-en="From Idea to Execution │ Integrated Digital & Creative Solutions">من الفكرة إلى التنفيذ │ حلول رقمية وإبداعية متكاملة</div>
+    <div class="hero-title" data-en="Normal Agency" data-ar="✦✦ نورمال للخدمات الإلكترونية المتكاملة ✦✦">✦✦ نورمال للخدمات الإلكترونية المتكاملة ✦✦</div>
+    <div class="sub-title" data-en="From Idea to Execution │ Integrated Digital & Creative Solutions" data-ar="من الفكرة إلى التنفيذ │ حلول رقمية وإبداعية متكاملة">من الفكرة إلى التنفيذ │ حلول رقمية وإبداعية متكاملة</div>
     
     <div id="services-section">
-        <h1 data-en="Our Services">خدماتنا</h1>
+        <h1 data-en="Our Services" data-ar="خدماتنا">خدماتنا</h1>
         <div class="grid">
-            <div class="card" onclick="openModal('Digital')" data-en="Normal Digital">نورمال ديجيتال</div>
-            <div class="card" onclick="openModal('Studio')" data-en="Normal Studio">نورمال ستوديو</div>
-            <div class="card" onclick="openModal('Art')" data-en="Normal Art">نورمال آرت</div>
-            <div class="card" onclick="openModal('Print')" data-en="Normal Print">نورمال برينت</div>
+            <div class="card" onclick="openModal('Digital')" data-en="Normal Digital" data-ar="نورمال ديجيتال">نورمال ديجيتال</div>
+            <div class="card" onclick="openModal('Studio')" data-en="Normal Studio" data-ar="نورمال ستوديو">نورمال ستوديو</div>
+            <div class="card" onclick="openModal('Art')" data-en="Normal Art" data-ar="نورمال آرت">نورمال آرت</div>
+            <div class="card" onclick="openModal('Print')" data-en="Normal Print" data-ar="نورمال برينت">نورمال برينت</div>
         </div>
     </div>
 </div>
 
 <div id="modal" class="modal">
     <div class="form-box">
-        <button onclick="document.getElementById('modal').style.display='none'" style="background:red; color:white; border:none; padding:10px; cursor:pointer;" data-en="Close">إغلاق ✖</button>
+        <button onclick="document.getElementById('modal').style.display='none'" style="background:red; color:white; border:none; padding:10px; cursor:pointer;" data-en="Close" data-ar="إغلاق ✖">إغلاق ✖</button>
         <h3 id="modalTitle"></h3>
         <div id="subServicesContainer" class="sub-services-grid"></div>
         <hr>
+        <h4 data-en="Order Service" data-ar="طلب الخدمة">طلب الخدمة</h4>
         <form action="https://formspree.io/f/xykvqjek" method="POST">
-            <input type="text" id="serviceName" name="Service" placeholder="اختر خدمة من المربعات أعلاه..." readonly required>
-            <input type="email" name="Email" placeholder="بريدك الإلكتروني" required>
-            <textarea name="Details" placeholder="تفاصيل الطلب..." required></textarea>
-            <button type="submit" data-en="Send Request">إرسال الطلب عبر الإيميل</button>
+            <input type="text" id="serviceName" name="Service" data-en-placeholder="Select a service..." data-ar-placeholder="اختر خدمة من المربعات أعلاه..." placeholder="اختر خدمة من المربعات أعلاه..." readonly required>
+            <input type="email" name="Email" data-en-placeholder="Your Email" data-ar-placeholder="بريدك الإلكتروني" placeholder="بريدك الإلكتروني" required>
+            <textarea name="Details" data-en-placeholder="Order Details..." data-ar-placeholder="تفاصيل الطلب..." placeholder="تفاصيل الطلب..." required></textarea>
+            <button type="submit" data-en="Send Request" data-ar="إرسال الطلب عبر الإيميل">إرسال الطلب عبر الإيميل</button>
         </form>
     </div>
 </div>
 
 <div class="bottom-nav">
-    <a href="#" onclick="window.scrollTo(0,0)" data-en="Home">الرئيسية</a>
-    <a href="#services-section" data-en="Services">خدماتنا</a>
-    <a href="https://wa.me/966543262920" target="_blank" data-en="Contact Us">تواصل معنا</a>
+    <a href="#" onclick="window.scrollTo(0,0)" data-en="Home" data-ar="الرئيسية">الرئيسية</a>
+    <a href="#services-section" data-en="Services" data-ar="خدماتنا">خدماتنا</a>
+    <a href="https://wa.me/966543262920" target="_blank" data-en="Contact Us" data-ar="تواصل معنا">تواصل معنا</a>
 </div>
 
 <script>
-    /* السكربت كما هو دون تغيير */
     const db = {
         Digital: { ar: "نورمال ديجيتال", en: "Normal Digital", items: [['تصميم المواقع', 'Web Design'], ['تطوير المتاجر', 'E-commerce'], ['تطبيقات الجوال', 'Mobile Apps'], ['برمجة خاصة', 'Custom Coding'], ['أنظمة إدارة', 'Management Systems'], ['ذكاء اصطناعي', 'AI Solutions'], ['أتمتة المهام', 'Automation'], ['واجهات مستخدم', 'UI/UX'], ['محركات بحث', 'SEO'], ['استضافة', 'Hosting'], ['أمن سيبراني', 'Cyber Security'], ['دعم فني', 'Tech Support'], ['ربط منصات', 'Integration'], ['لوحات تحكم', 'Dashboards'], ['صفحات تعريفية', 'Landing Pages']] },
         Studio: { ar: "نورمال ستوديو", en: "Normal Studio", items: [['تصوير المنتجات', 'Product Photo'], ['إعلانات تجارية', 'Commercial Ads'], ['تصوير فعاليات', 'Event Coverage'], ['تصوير عقاري', 'Real Estate'], ['تصوير جوي', 'Drone Shots'], ['فيديو تسويقي', 'Marketing Video'], ['مونتاج احترافي', 'Pro Editing'], ['صناعة محتوى', 'Content Creation'], ['تعليق صوتي', 'Voice Over'], ['بودكاست', 'Podcast'], ['تصوير فوتوغرافي', 'Photography'], ['بث مباشر', 'Live Streaming'], ['موشن جرافيك', 'Motion Graphics'], ['إنتاج إعلانات', 'Ad Production'], ['إدارة استوديوهات', 'Media Management']] },
@@ -90,11 +84,17 @@
         const isEn = document.documentElement.lang === 'en';
         document.documentElement.lang = isEn ? 'ar' : 'en';
         document.body.dir = isEn ? 'rtl' : 'ltr';
+        
+        // تحديث النصوص العادية
         document.querySelectorAll('[data-en]').forEach(el => {
-            if(!el.dataset.ar) el.dataset.ar = el.innerText || el.placeholder;
-            if(el.placeholder) el.placeholder = isEn ? el.dataset.en : el.dataset.ar;
-            else el.innerText = isEn ? el.dataset.en : el.dataset.ar;
+            el.innerText = isEn ? el.dataset.en : el.dataset.ar;
         });
+        
+        // تحديث النصوص داخل الـ Input (placeholder)
+        document.querySelectorAll('[data-en-placeholder]').forEach(el => {
+            el.placeholder = isEn ? el.dataset.enPlaceholder : el.dataset.arPlaceholder;
+        });
+
         refreshModal();
     }
 
