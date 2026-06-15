@@ -16,6 +16,7 @@
         .card:hover { border-color: #007bff; background: #eef5ff; }
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 3000; overflow-y: auto; padding: 20px; }
         .form-box { max-width: 600px; margin: 50px auto; background: white; padding: 30px; border-radius: 20px; text-align: right; }
+        [dir="ltr"] .form-box { text-align: left; }
         .sub-services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin: 20px 0; }
         .sub-service-item { padding: 15px 5px; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; transition: 0.3s; font-weight: bold; text-align: center; color: #555; }
         .sub-service-item:hover { background: #f0f7ff; border-color: #007bff; color: #007bff; }
@@ -85,17 +86,22 @@
         document.documentElement.lang = isEn ? 'ar' : 'en';
         document.body.dir = isEn ? 'rtl' : 'ltr';
         
-        // تحديث النصوص
+        // تحديث النصوص العامة
         document.querySelectorAll('[data-en]').forEach(el => {
             el.innerText = isEn ? el.dataset.en : el.dataset.ar;
         });
         
         // تحديث الـ Placeholders
-        document.querySelectorAll('input[data-en-placeholder]').forEach(el => {
-            el.placeholder = isEn ? el.dataset.enPlaceholder : el.dataset.arPlaceholder;
+        document.querySelectorAll('input, textarea').forEach(el => {
+            if (el.dataset.enPlaceholder) {
+                el.placeholder = isEn ? el.dataset.enPlaceholder : el.dataset.arPlaceholder;
+            }
         });
 
-        refreshModal();
+        // تحديث محتوى النافذة المنبثقة فوراً إذا كانت مفتوحة
+        if (document.getElementById('modal').style.display === 'block') {
+            refreshModal();
+        }
     }
 
     function openModal(cat) {
