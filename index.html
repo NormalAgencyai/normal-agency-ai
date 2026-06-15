@@ -52,7 +52,7 @@
 <div id="modal" class="modal">
     <div class="form-box">
         <button onclick="document.getElementById('modal').style.display='none'" style="background:red; color:white; border:none; padding:10px; cursor:pointer;" data-en="Close" data-ar="إغلاق ✖">إغلاق ✖</button>
-        <h3 id="modalTitle"></h3>
+        <h3 id="modalTitle" data-en="Service" data-ar="الخدمة">الخدمة</h3>
         <div id="subServicesContainer" class="sub-services-grid"></div>
         <hr>
         <h4 data-en="Order Service" data-ar="طلب الخدمة">طلب الخدمة</h4>
@@ -82,26 +82,24 @@
     let currentCat = "Digital";
 
     function toggleLanguage() {
-        const isEn = document.documentElement.lang === 'en';
-        document.documentElement.lang = isEn ? 'ar' : 'en';
-        document.body.dir = isEn ? 'rtl' : 'ltr';
+        const isEn = document.documentElement.lang === 'ar'; // تبديل اللغة
+        document.documentElement.lang = isEn ? 'en' : 'ar';
+        document.body.dir = isEn ? 'ltr' : 'rtl';
         
-        // تحديث النصوص العامة
+        // 1. تحديث كافة النصوص (العناوين، الأزرار)
         document.querySelectorAll('[data-en]').forEach(el => {
             el.innerText = isEn ? el.dataset.en : el.dataset.ar;
         });
         
-        // تحديث الـ Placeholders
+        // 2. تحديث الـ Placeholders
         document.querySelectorAll('input, textarea').forEach(el => {
             if (el.dataset.enPlaceholder) {
                 el.placeholder = isEn ? el.dataset.enPlaceholder : el.dataset.arPlaceholder;
             }
         });
 
-        // تحديث محتوى النافذة المنبثقة فوراً إذا كانت مفتوحة
-        if (document.getElementById('modal').style.display === 'block') {
-            refreshModal();
-        }
+        // 3. تحديث الخدمات الفرعية داخل النافذة إذا كانت مفتوحة
+        refreshModal();
     }
 
     function openModal(cat) {
@@ -115,6 +113,7 @@
         document.getElementById('modalTitle').innerText = isEn ? db[currentCat].en : db[currentCat].ar;
         const container = document.getElementById('subServicesContainer');
         container.innerHTML = '';
+        
         db[currentCat].items.forEach(i => {
             const div = document.createElement('div');
             div.className = 'sub-service-item';
