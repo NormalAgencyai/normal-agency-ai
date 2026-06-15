@@ -60,7 +60,7 @@
             <input type="text" id="serviceName" name="Service" data-en-placeholder="Select a service..." data-ar-placeholder="اختر خدمة من المربعات أعلاه..." placeholder="اختر خدمة من المربعات أعلاه..." readonly required>
             <input type="email" name="Email" data-en-placeholder="Your Email" data-ar-placeholder="بريدك الإلكتروني" placeholder="بريدك الإلكتروني" required>
             <textarea name="Details" data-en-placeholder="Order Details..." data-ar-placeholder="تفاصيل الطلب..." placeholder="تفاصيل الطلب..." required></textarea>
-            <button type="submit" data-en="Send Request" data-ar="إرسال الطلب عبر الإيميل">إرسال الطلب عبر الإيميل</button>
+            <button type="submit" data-en="Send Request" data-ar="إرسال الطلب">إرسال الطلب</button>
         </form>
     </div>
 </div>
@@ -82,23 +82,20 @@
     let currentCat = "Digital";
 
     function toggleLanguage() {
-        const isEn = document.documentElement.lang === 'ar'; // تبديل اللغة
+        const isEn = document.documentElement.lang === 'ar'; 
         document.documentElement.lang = isEn ? 'en' : 'ar';
         document.body.dir = isEn ? 'ltr' : 'rtl';
         
-        // 1. تحديث كافة النصوص (العناوين، الأزرار)
         document.querySelectorAll('[data-en]').forEach(el => {
             el.innerText = isEn ? el.dataset.en : el.dataset.ar;
         });
         
-        // 2. تحديث الـ Placeholders
-        document.querySelectorAll('input, textarea').forEach(el => {
+        document.querySelectorAll('input, textarea, button[type="submit"]').forEach(el => {
             if (el.dataset.enPlaceholder) {
                 el.placeholder = isEn ? el.dataset.enPlaceholder : el.dataset.arPlaceholder;
             }
         });
 
-        // 3. تحديث الخدمات الفرعية داخل النافذة إذا كانت مفتوحة
         refreshModal();
     }
 
