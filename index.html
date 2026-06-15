@@ -21,7 +21,9 @@
         .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #007bff; display: flex; justify-content: space-around; padding: 15px 0; z-index: 2000; }
         .bottom-nav a { text-decoration: none; color: white; font-weight: bold; }
         ul { text-align: right; list-style: none; padding: 0; }
-        li { margin: 8px 0; padding: 8px; border-bottom: 1px solid #eee; font-weight: bold; color: #333; }
+        li { margin: 8px 0; padding: 10px; border-bottom: 1px solid #eee; cursor: pointer; transition: 0.2s; font-weight: bold; color: #333; }
+        li:hover { background: #f0f7ff; color: #007bff; }
+        .selected-item { background: #e0f7fa !important; border-right: 5px solid #007bff; }
     </style>
 </head>
 <body>
@@ -33,7 +35,6 @@
 <div class="container">
     <img src="logo.png.png" alt="شعار نورمال" class="logo">
     <div class="hero-title" data-en="Normal Agency">✦✦ نورمال للخدمات الإلكترونية المتكاملة ✦✦</div>
-    <!-- العبارة التي طلبت إعادتها -->
     <div class="sub-title" data-en="From Idea to Execution │ Integrated Digital & Creative Solutions">من الفكرة إلى التنفيذ │ حلول رقمية وإبداعية متكاملة</div>
     
     <div id="services-section">
@@ -55,7 +56,7 @@
         <hr>
         <h4 data-en="Order Service" data-ar="طلب الخدمة">طلب الخدمة</h4>
         <form onsubmit="sendToWhatsApp(event)">
-            <input type="text" id="serviceName" readonly>
+            <input type="text" id="serviceName" placeholder="اضغط على خدمة من القائمة أعلاه..." readonly required>
             <input type="email" id="userEmail" placeholder="البريد الإلكتروني" required>
             <textarea id="orderDetails" placeholder="تفاصيل الطلب..." required></textarea>
             <button type="submit" data-en="Send via WhatsApp">إرسال الطلب عبر واتساب</button>
@@ -100,8 +101,18 @@
     function refreshModal() {
         const isEn = document.documentElement.lang === 'en';
         document.getElementById('modalTitle').innerText = isEn ? db[currentCat].en : db[currentCat].ar;
-        document.getElementById('serviceName').value = isEn ? db[currentCat].en : db[currentCat].ar;
-        document.getElementById('subList').innerHTML = db[currentCat].items.map(i => `<li>✅ ${isEn ? i[1] : i[0]}</li>`).join('');
+        const list = document.getElementById('subList');
+        list.innerHTML = '';
+        db[currentCat].items.forEach(i => {
+            const li = document.createElement('li');
+            li.innerHTML = `✅ ${isEn ? i[1] : i[0]}`;
+            li.onclick = function() {
+                document.querySelectorAll('li').forEach(el => el.classList.remove('selected-item'));
+                li.classList.add('selected-item');
+                document.getElementById('serviceName').value = isEn ? i[1] : i[0];
+            };
+            list.appendChild(li);
+        });
     }
 
     function sendToWhatsApp(e) {
@@ -109,6 +120,7 @@
         const service = document.getElementById('serviceName').value;
         const email = document.getElementById('userEmail').value;
         const details = document.getElementById('orderDetails').value;
+        if(!service) return alert("الرجاء اختيار خدمة أولاً!");
         const msg = `طلب خدمة من نورمال: ${service}%0Aالبريد: ${email}%0Aالتفاصيل: ${details}`;
         window.open(`https://wa.me/966543262920?text=${msg}`, '_blank');
     }
