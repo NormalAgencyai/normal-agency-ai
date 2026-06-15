@@ -1,7 +1,3 @@
-لجعل تغيير اللغة يشمل **كامل الصفحة** (بما في ذلك العناوين، نصوص الأزرار، والمدخلات في النموذج)، قمت بتطوير وظيفة toggleLanguage لتشمل تحديث كافة العناصر التي تحمل الوسم data-en و data-ar.
-لقد قمت بضبط الكود بحيث يتم تبديل النصوص في **الرأس، المتن، المربعات، والقائمة السفلية** بشكل تلقائي عند النقر على زر اللغة.
-### الكود المحدث بالكامل:
-```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -89,13 +85,13 @@
         document.documentElement.lang = isEn ? 'ar' : 'en';
         document.body.dir = isEn ? 'rtl' : 'ltr';
         
-        // تحديث النصوص العادية
+        // تحديث النصوص
         document.querySelectorAll('[data-en]').forEach(el => {
             el.innerText = isEn ? el.dataset.en : el.dataset.ar;
         });
         
-        // تحديث النصوص داخل الـ Input (placeholder)
-        document.querySelectorAll('[data-en-placeholder]').forEach(el => {
+        // تحديث الـ Placeholders
+        document.querySelectorAll('input[data-en-placeholder]').forEach(el => {
             el.placeholder = isEn ? el.dataset.enPlaceholder : el.dataset.arPlaceholder;
         });
 
@@ -128,5 +124,3 @@
 </script>
 </body>
 </html>
-
-```
