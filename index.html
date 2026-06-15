@@ -55,11 +55,11 @@
         <ul id="subList"></ul>
         <hr>
         <h4 data-en="Order Service" data-ar="طلب الخدمة">طلب الخدمة</h4>
-        <form onsubmit="sendToWhatsApp(event)">
-            <input type="text" id="serviceName" placeholder="اضغط على خدمة من القائمة أعلاه..." readonly required>
-            <input type="email" id="userEmail" placeholder="البريد الإلكتروني" required>
-            <textarea id="orderDetails" placeholder="تفاصيل الطلب..." required></textarea>
-            <button type="submit" data-en="Send via WhatsApp">إرسال الطلب عبر واتساب</button>
+        <form action="https://formspree.io/f/xykvqjek" method="POST">
+            <input type="text" id="serviceName" name="Service" placeholder="اضغط على خدمة من القائمة أعلاه..." readonly required>
+            <input type="email" name="Email" placeholder="بريدك الإلكتروني" required>
+            <textarea name="Details" placeholder="تفاصيل الطلب..." required></textarea>
+            <button type="submit" data-en="Send Request">إرسال الطلب عبر الإيميل</button>
         </form>
     </div>
 </div>
@@ -113,16 +113,6 @@
             };
             list.appendChild(li);
         });
-    }
-
-    function sendToWhatsApp(e) {
-        e.preventDefault();
-        const service = document.getElementById('serviceName').value;
-        const email = document.getElementById('userEmail').value;
-        const details = document.getElementById('orderDetails').value;
-        if(!service) return alert("الرجاء اختيار خدمة أولاً!");
-        const msg = `طلب خدمة من نورمال: ${service}%0Aالبريد: ${email}%0Aالتفاصيل: ${details}`;
-        window.open(`https://wa.me/966543262920?text=${msg}`, '_blank');
     }
 </script>
 </body>
