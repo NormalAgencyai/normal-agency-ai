@@ -3,41 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Normal Agency | وكالة نورمال للخدمات الإلكترونية</title>
+    <title>Normal Agency | وكالة نورمال</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- كانفاس الخلفية التفاعلية -->
-    <canvas id="particleCanvas"></canvas>
-
-    <!-- الشريط العلوي الزجاجي -->
+    <!-- الشريط العلوي -->
     <nav class="top-bar">
         <div class="brand-mini">NORMAL AGENCY</div>
-        <div class="top-controls">
-            <!-- زر كتم/تشغيل الصوت التفاعلي -->
-            <button class="sound-toggle-btn" id="soundBtn" onclick="toggleSound()">
-                <span id="soundIcon">🔊</span>
-            </button>
-            <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">
-                <span>🌐</span> 
-                <span id="langText">العربية / English / Français</span>
-            </button>
-        </div>
+        <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">
+            <span>🌐</span> 
+            <span id="langText">العربية / English / Français</span>
+        </button>
     </nav>
 
     <div class="container">
         <!-- قسم الهيدر الرئيسي والشعار المكبر -->
         <header class="hero-section">
-            <!-- فيديو خلفية شو ريل صامت وخفيف -->
-            <div class="hero-video-container">
-                <video autoplay loop muted playsinline class="hero-bg-video">
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-lines-and-dots-mesh-31644-large.mp4" type="video/mp4">
-                </video>
-                <div class="video-overlay"></div>
-            </div>
-
             <div class="logo-wrapper">
                 <img src="logo.png" alt="Normal Agency Logo" class="logo" onerror="this.style.display='none'; document.getElementById('textLogo').style.display='block';">
                 <div id="textLogo" class="text-logo" style="display: none;">
@@ -53,121 +36,107 @@
             </p>
         </header>
 
-        <!-- قسم كروت الخدمات الرئيسية -->
-        <section id="services-section">
+        <!-- قسم الخدمات الرئيسية -->
+        <main id="services-section">
             <div class="section-header">
                 <h2 class="section-title" data-en="Our Services" data-ar="خدماتنا الإبداعية" data-fr="Nos Services">خدماتنا الإبداعية</h2>
             </div>
 
             <div class="services-grid">
+                <!-- كرت نورمال ديجيتال -->
                 <div class="card" onclick="openModal('Digital')">
                     <div class="card-icon">⚡</div>
                     <h3 data-en="Normal Digital" data-ar="نورمال ديجيتال" data-fr="Normal Digital">نورمال ديجيتال</h3>
                     <span class="badge">15 خدمة فرعية</span>
                 </div>
 
+                <!-- كرت نورمال ستوديو -->
                 <div class="card" onclick="openModal('Studio')">
                     <div class="card-icon">🎬</div>
                     <h3 data-en="Normal Studio" data-ar="نورمال ستوديو" data-fr="Normal Studio">نورمال ستوديو</h3>
                     <span class="badge">15 خدمة فرعية</span>
                 </div>
 
+                <!-- كرت نورمال آرت -->
                 <div class="card" onclick="openModal('Art')">
                     <div class="card-icon">🎨</div>
                     <h3 data-en="Normal Art" data-ar="نورمال آرت" data-fr="Normal Art">نورمال آرت</h3>
                     <span class="badge">15 خدمة فرعية</span>
                 </div>
 
+                <!-- كرت نورمال برينت -->
                 <div class="card" onclick="openModal('Print')">
                     <div class="card-icon">💎</div>
                     <h3 data-en="Normal Print" data-ar="نورمال برينت" data-fr="Normal Print">نورمال برينت</h3>
                     <span class="badge">15 خدمة فرعية</span>
                 </div>
             </div>
-        </section>
-
-        <!-- قسم معرض الأعمال التفاعلي (Portfolio Showcase) -->
-        <section id="portfolio-section" class="portfolio-section">
-            <div class="section-header">
-                <h2 class="section-title">معرض الأعمال المتميزة</h2>
-                <p class="section-subtitle">لمحات من المشاريع والهويات التي قمنا بتنفيذها</p>
-            </div>
-
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-thumb">
-                        <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80" alt="Work Sample">
-                        <div class="portfolio-overlay">
-                            <span>مونتاج وتصحيح ألوان سينمائي</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-thumb">
-                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Work Sample">
-                        <div class="portfolio-overlay">
-                            <span>تصميم هويات ومطبوعات فاخرة</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-thumb">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Work Sample">
-                        <div class="portfolio-overlay">
-                            <span>حملات وتسويق رقمي متكامل</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </main>
     </div>
 
-    <!-- النافذة المنبثقة وحاسبة التكلفة التفاعلية (Modal) -->
+    <!-- النافذة المنبثقة والمعرض (Modal) -->
     <div id="modal" class="modal">
         <div class="modal-box">
             <button class="close-btn" onclick="closeModal()">✖</button>
             
             <h3 id="modalTitle" class="modal-title">عنوان الخدمة</h3>
 
+            <!-- عرض نموذج العمل -->
             <div class="work-sample-box">
                 <img id="modalWorkSample" src="" alt="Work Sample" class="work-sample-img">
             </div>
 
-            <label class="input-label">اختر الخدمات المطلوب تنفيذها (يمكنك تحديد أكثر من خدمة):</label>
+            <label class="input-label" data-en="Select sub-service:" data-ar="اختر الخدمة الفرعية من الـ 15 خدمة التالية:" data-fr="Sélectionnez le service:">اختر الخدمة الفرعية من الـ 15 خدمة التالية:</label>
+            
+            <!-- حاوية الخدمات الفرعية -->
             <div id="subServicesContainer" class="sub-services-grid"></div>
-
-            <!-- الحاسبة التفاعلية المباشرة -->
-            <div class="price-estimator-box">
-                <div class="estimator-item">
-                    <span>الوقت التقديري للتسليم:</span>
-                    <strong id="estimatedTime">-- يوم</strong>
-                </div>
-                <div class="estimator-item highlight">
-                    <span>التكلفة التقديرية:</span>
-                    <strong id="estimatedPrice">-- SAR</strong>
-                </div>
-            </div>
 
             <hr class="divider">
 
-            <form action="https://formspree.io/f/xykvqjek" method="POST" class="agency-form">
-                <input type="text" id="serviceName" name="Service" readonly required placeholder="اختر خدمة لتقدير السعر والطلب...">
-                <input type="email" name="Email" required placeholder="بريدك الإلكتروني">
-                <textarea name="Details" rows="3" required placeholder="تفاصيل إضافية أو ملاحظات حول الطلب..."></textarea>
+            <!-- نموذج إرسال الطلب -->
+            <form id="requestForm" action="https://formspree.io/f/xykvqjek" method="POST" class="agency-form">
+                <input type="text" id="serviceName" name="Service" readonly required placeholder="اختر خدمة من المربعات أعلاه..." data-en-placeholder="Select a service above..." data-ar-placeholder="اختر خدمة من المربعات أعلاه..." data-fr-placeholder="Sélectionnez un service...">
+                <input type="text" id="clientName" name="Name" placeholder="اسمك أو اسم المنشأة" data-en-placeholder="Your Name or Company" data-ar-placeholder="اسمك أو اسم المنشأة" data-fr-placeholder="Votre nom">
+                <textarea id="orderDetails" name="Details" rows="3" required placeholder="تفاصيل الطلب..." data-en-placeholder="Order Details..." data-ar-placeholder="تفاصيل الطلب..." data-fr-placeholder="Détails de la commande..."></textarea>
                 
-                <button type="submit" class="submit-btn">تأكيد وإرسال الطلب</button>
+                <!-- أزرار الإرسال (إيميل أو واتساب) -->
+                <div class="form-actions">
+                    <button type="button" class="whatsapp-btn" onclick="sendViaWhatsApp()" data-en="Send via WhatsApp 💬" data-ar="إرسال الطلب عبر الواتساب 💬" data-fr="Envoyer via WhatsApp 💬">
+                        إرسال الطلب عبر الواتساب 💬
+                    </button>
+                    <button type="submit" class="submit-btn" data-en="Send via Email ✉️" data-ar="إرسال عبر البريد الإلكتروني ✉️" data-fr="Envoyer par Email ✉️">
+                        إرسال عبر البريد الإلكتروني ✉️
+                    </button>
+                </div>
             </form>
         </div>
     </div>
 
     <!-- الشريط السفلي العائم -->
     <nav class="bottom-nav">
-        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">الرئيسية</a>
-        <a href="#services-section">خدماتنا</a>
-        <a href="#portfolio-section">أعمالنا</a>
-        <a href="https://wa.me/966543262920" target="_blank" class="highlight-link">تواصل معنا</a>
+        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" data-en="Home" data-ar="الرئيسية" data-fr="Accueil">الرئيسية</a>
+        <a href="#services-section" data-en="Services" data-ar="خدماتنا" data-fr="Services">خدماتنا</a>
+        <a href="https://wa.me/966543262920" target="_blank" class="highlight-link" data-en="Contact Us" data-ar="تواصل معنا" data-fr="Contactez-nous">تواصل معنا</a>
     </nav>
 
     <script src="script.js"></script>
+    <script>
+        // دالة تحويل الطلب تلقائياً لنص واتساب مجهز
+        function sendViaWhatsApp() {
+            const service = document.getElementById('serviceName').value;
+            const name = document.getElementById('clientName').value || 'عميل جديد';
+            const details = document.getElementById('orderDetails').value;
+
+            if (!service) {
+                alert('يرجى اختيار إحدى الخدمات الفرعية أولاً');
+                return;
+            }
+
+            const phoneNumber = "966543262920";
+            const message = `مرحباً وكالة نورمال 👋%0A%0A*طلب خدمة جديدة:*%0A• *الخدمة:* ${encodeURIComponent(service)}%0A• *الاسم:* ${encodeURIComponent(name)}%0A• *التفاصيل:* ${encodeURIComponent(details)}`;
+            
+            window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+        }
+    </script>
 </body>
 </html>
