@@ -36,6 +36,49 @@
             </p>
         </header>
 
+        <!-- 🌟 قسم معرض أعمالنا (Portfolio Showcase) -->
+        <section id="portfolio-section" class="portfolio-section">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Featured Work" data-ar="أحدث أعمالنا" data-fr="Nos Réalisations">أحدث أعمالنا</h2>
+                <p class="section-subtitle" data-en="A glimpse of our creative productions and design work" data-ar="لمحة من إنتاجاتنا الإبداعية وتصاميمنا الأخيرة" data-fr="Un aperçu de nos créations">لمحة من إنتاجاتنا الإبداعية وتصاميمنا الأخيرة</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- عمل 1: إنتاج وفيديو -->
+                <div class="portfolio-item">
+                    <div class="portfolio-media">
+                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" alt="إنتاج مرئي ومونتاج">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-tag">Normal Studio</span>
+                            <h4>إنتاج وفيديو إعلاني</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- عمل 2: هوية بصرية -->
+                <div class="portfolio-item">
+                    <div class="portfolio-media">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="تصميم هوية بصرية">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-tag">Normal Art</span>
+                            <h4>تصميم هوية بصرية كاملة</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- عمل 3: طباعة وتغليف -->
+                <div class="portfolio-item">
+                    <div class="portfolio-media">
+                        <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=600&q=80" alt="طباعة وتغليف">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-tag">Normal Print</span>
+                            <h4>طباعة وتغليف منتجات الفاخرة</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- قسم الخدمات الرئيسية -->
         <main id="services-section">
             <div class="section-header">
@@ -81,7 +124,7 @@
             
             <h3 id="modalTitle" class="modal-title">عنوان الخدمة</h3>
 
-            <!-- عرض نموذج العمل -->
+            <!-- عرض نموذج العمل داخل الخدمة -->
             <div class="work-sample-box">
                 <img id="modalWorkSample" src="" alt="Work Sample" class="work-sample-img">
             </div>
@@ -99,7 +142,7 @@
                 <input type="text" id="clientName" name="Name" placeholder="اسمك أو اسم المنشأة" data-en-placeholder="Your Name or Company" data-ar-placeholder="اسمك أو اسم المنشأة" data-fr-placeholder="Votre nom">
                 <textarea id="orderDetails" name="Details" rows="3" required placeholder="تفاصيل الطلب..." data-en-placeholder="Order Details..." data-ar-placeholder="تفاصيل الطلب..." data-fr-placeholder="Détails de la commande..."></textarea>
                 
-                <!-- أزرار الإرسال (إيميل أو واتساب) -->
+                <!-- أزرار الإرسال -->
                 <div class="form-actions">
                     <button type="button" class="whatsapp-btn" onclick="sendViaWhatsApp()" data-en="Send via WhatsApp 💬" data-ar="إرسال الطلب عبر الواتساب 💬" data-fr="Envoyer via WhatsApp 💬">
                         إرسال الطلب عبر الواتساب 💬
@@ -115,13 +158,13 @@
     <!-- الشريط السفلي العائم -->
     <nav class="bottom-nav">
         <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" data-en="Home" data-ar="الرئيسية" data-fr="Accueil">الرئيسية</a>
+        <a href="#portfolio-section" data-en="Portfolio" data-ar="أعمالنا" data-fr="Portfolio">أعمالنا</a>
         <a href="#services-section" data-en="Services" data-ar="خدماتنا" data-fr="Services">خدماتنا</a>
         <a href="https://wa.me/966543262920" target="_blank" class="highlight-link" data-en="Contact Us" data-ar="تواصل معنا" data-fr="Contactez-nous">تواصل معنا</a>
     </nav>
 
     <script src="script.js"></script>
     <script>
-        // دالة تحويل الطلب تلقائياً لنص واتساب مجهز
         function sendViaWhatsApp() {
             const service = document.getElementById('serviceName').value;
             const name = document.getElementById('clientName').value || 'عميل جديد';
