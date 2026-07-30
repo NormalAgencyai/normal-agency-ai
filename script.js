@@ -1,7 +1,3 @@
-// ==========================================
-// وكالة نورمال - البرمجة التفاعلية المستعادة
-// ==========================================
-
 const servicesData = {
     'Digital': {
         titleAr: 'نورمال ديجيتال',
@@ -119,13 +115,13 @@ function openModal(category) {
         const itemName = currentLang === 'ar' ? item.ar : item.en;
         const priceTag = currentLang === 'ar' ? `(تبدأ من ${item.price} ر.س)` : `(From ${item.price} SAR)`;
         
-        btn.innerText = `${itemName}\n${priceTag}`;
+        btn.innerHTML = `<span>${itemName}</span><span class="service-price-tag">${priceTag}</span>`;
         
         btn.onclick = function() {
             document.querySelectorAll('.sub-service-item').forEach(el => el.classList.remove('selected-item'));
             btn.classList.add('selected-item');
             
-            document.getElementById('serviceName').value = `${itemName} - [يبدأ من ${item.price} ر.س]`;
+            document.getElementById('serviceName').value = `${itemName} - [تبدأ من ${item.price} ر.س]`;
         };
 
         container.appendChild(btn);
