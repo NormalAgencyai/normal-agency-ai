@@ -19,10 +19,14 @@
     </nav>
 
     <div class="container">
-        <!-- قسم الهيدر الرئيسي والشعار -->
+        <!-- قسم الهيدر الرئيسي والشعار المكبر -->
         <header class="hero-section">
             <div class="logo-wrapper">
-                <img src="logo.png" alt="Normal Agency Logo" class="logo" onerror="this.src='https://via.placeholder.com/300x150/0f172a/0072ce?text=NORMAL'">
+                <img src="logo.png" alt="Normal Agency Logo" class="logo" onerror="this.style.display='none'; document.getElementById('textLogo').style.display='block';">
+                <div id="textLogo" class="text-logo" style="display: none;">
+                    <span class="logo-main">NORMAL</span>
+                    <span class="logo-sub">AGENCY</span>
+                </div>
             </div>
             <h1 class="hero-title" data-en="Normal Agency" data-ar="نورمال للخدمات الإلكترونية المتكاملة" data-fr="Agence Normal">
                 نورمال للخدمات الإلكترونية المتكاملة
@@ -32,7 +36,7 @@
             </p>
         </header>
 
-        <!-- قسم الخدمات الاربع الرئيسية -->
+        <!-- قسم الخدمات الرئيسية -->
         <main id="services-section">
             <div class="section-header">
                 <h2 class="section-title" data-en="Our Services" data-ar="خدماتنا الإبداعية" data-fr="Nos Services">خدماتنا الإبداعية</h2>
@@ -84,7 +88,7 @@
 
             <label class="input-label" data-en="Select sub-service:" data-ar="اختر الخدمة الفرعية من الـ 15 خدمة التالية:" data-fr="Sélectionnez le service:">اختر الخدمة الفرعية من الـ 15 خدمة التالية:</label>
             
-            <!-- حاوية الخدمات الفرعية الـ 60 -->
+            <!-- حاوية الخدمات الفرعية -->
             <div id="subServicesContainer" class="sub-services-grid"></div>
 
             <hr class="divider">
