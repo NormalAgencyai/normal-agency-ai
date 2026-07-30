@@ -12,13 +12,12 @@
     <!-- خلفية جمالية سينمائية -->
     <div class="bg-glow"></div>
 
-    <!-- الشريط العلوي الاحترافي مع قائمة اللغات الثلاث -->
+    <!-- الشريط العلوي الاحترافي مع قائمة اللغات -->
     <nav class="top-bar">
         <div class="brand-badge">
             <span class="pulse-dot"></span> NORMAL AGENCY
         </div>
         
-        <!-- خانة اللغات (العربية، الإنجليزية، الفرنسية) -->
         <div class="lang-selector">
             <button class="lang-trigger" onclick="toggleLangMenu(event)">
                 <span class="globe-icon">🌐</span>
@@ -40,7 +39,7 @@
     </nav>
 
     <div class="container">
-        <!-- الهيدر واللوغو البارز -->
+        <!-- الهيدر واللوغو -->
         <header class="hero-section">
             <div class="logo-wrapper">
                 <img src="logo.png" alt="Normal Agency Logo" class="logo" onerror="this.style.display='none'; document.getElementById('textLogo').style.display='flex';">
@@ -57,45 +56,70 @@
             </p>
         </header>
 
-        <!-- معرض الأعمال الإبداعي الباهر (Portfolio Gallery) -->
+        <!-- معرض الأعمال الإبداعي المحدث (شامل نورمال أوفيس وباقي الأقسام) -->
         <section id="portfolio-gallery" class="portfolio-section">
             <div class="section-header">
-                <h2 class="section-title" data-en="Our Masterpieces Gallery" data-ar="معرض أعمالنا الإبداعية" data-fr="Galerie de nos réalisations">معرض أعمالنا الإبداعية</h2>
-                <p class="section-desc" data-en="A glimpse of our professional projects across design, video, and digital solutions" data-ar="نماذج مختارة من أحدث مشاريعنا الاحترافية في التصميم، الإنتاج، والحلول الرقمية" data-fr="Aperçu de nos projets professionnels">نماذج مختارة من أحدث مشاريعنا الاحترافية في التصميم، الإنتاج، والحلول الرقمية</p>
+                <span class="section-tag" data-en="PORTFOLIO" data-ar="معرض الأعمال" data-fr="PORTFOLIO">معرض الأعمال</span>
+                <h2 class="section-title" data-en="Our Masterpieces Gallery" data-ar="مشاريعنا وإبداعاتنا المميزة" data-fr="Galerie de nos réalisations">مشاريعنا وإبداعاتنا المميزة</h2>
+                <p class="section-desc" data-en="Explore our premium execution across all creative divisions" data-ar="استكشف النماذج الاحترافية لأحدث مشاريعنا وخدماتنا المعتمدة" data-fr="Découvrez nos projets professionnels">استكشف النماذج الاحترافية لأحدث مشاريعنا وخدماتنا المعتمدة</p>
             </div>
 
             <div class="portfolio-gallery-grid">
-                <div class="portfolio-item" onclick="openPortfolioLightbox('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1000&q=80', 'نورمال ستوديو - الإنتاج السينمائي والمونتاج', 'إنتاج فيديو إعلاني احترافي مع تدرج ألوان سينمائي متقدم.')">
-                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" alt="إنتاج سينمائي">
-                    <div class="portfolio-item-overlay">
-                        <span class="p-category">Normal Studio</span>
+                <!-- بطاقة نورمال أوفيس -->
+                <div class="portfolio-card" onclick="openPortfolioLightbox('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80', 'نورمال أوفيس - الأعمال المكتبية والشركات', 'إعداد الملفات التعريفية، العروض الاحترافية، ودراسات الجدوى بمعايير عالية.')">
+                    <div class="p-card-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="نورمال أوفيس">
+                        <span class="p-badge">Normal Office</span>
+                    </div>
+                    <div class="p-card-content">
+                        <h3 data-en="Corporate & Office Solutions" data-ar="الأعمال المكتبية وملفات الشركات" data-fr="Solutions d'entreprise">الأعمال المكتبية وملفات الشركات</h3>
+                        <p data-en="CVs, Profiles & Feasibility Studies" data-ar="السير الذاتية، البروفايل، والعقود الإدارية" data-fr="CV, Profils & Études">السير الذاتية، البروفايل، والعقود الإدارية</p>
+                    </div>
+                </div>
+
+                <!-- بطاقة نورمال ستوديو -->
+                <div class="portfolio-card" onclick="openPortfolioLightbox('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80', 'نورمال ستوديو - الإنتاج السينمائي والمونتاج', 'إنتاج فيديو إعلاني احترافي مع تدرج ألوان سينمائي متقدم.')">
+                    <div class="p-card-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" alt="إنتاج سينمائي">
+                        <span class="p-badge">Normal Studio</span>
+                    </div>
+                    <div class="p-card-content">
                         <h3 data-en="Cinematic Production" data-ar="الإنتاج السينمائي والمونتاج" data-fr="Production Cinématographique">الإنتاج السينمائي والمونتاج</h3>
                         <p data-en="Advanced color grading & directing" data-ar="تدرج ألوان وإخراج بصري فاخر" data-fr="Étalonnage et réalisation">تدرج ألوان وإخراج بصري فاخر</p>
                     </div>
                 </div>
 
-                <div class="portfolio-item" onclick="openPortfolioLightbox('https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1000&q=80', 'نورمال آرت - الهويات البصرية والعلامات التجارية', 'تصميم هوية متكاملة تبرز هوية العلامة بأسلوب عصري جذاب.')">
-                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="هوية بصرية">
-                    <div class="portfolio-item-overlay">
-                        <span class="p-category">Normal Art</span>
+                <!-- بطاقة نورمال آرت -->
+                <div class="portfolio-card" onclick="openPortfolioLightbox('https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1200&q=80', 'نورمال آرت - الهويات البصرية والعلامات التجارية', 'تصميم هوية متكاملة تبرز هوية العلامة بأسلوب عصري جذاب.')">
+                    <div class="p-card-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="هوية بصرية">
+                        <span class="p-badge">Normal Art</span>
+                    </div>
+                    <div class="p-card-content">
                         <h3 data-en="Visual Identity & Branding" data-ar="الهويات البصرية والعلامات" data-fr="Identité Visuelle">الهويات البصرية والعلامات</h3>
                         <p data-en="Logos & complete brand guidelines" data-ar="تصميم شعارات وهوية متكاملة" data-fr="Logos et chartes graphiques">تصميم شعارات وهوية متكاملة</p>
                     </div>
                 </div>
 
-                <div class="portfolio-item" onclick="openPortfolioLightbox('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80', 'نورمال ديجيتال - الحلول التقنية والمواقع', 'تطوير واجهات مستخدم متطورة ومنصات رقمية عالية الأداء.')">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="الحلول التقنية">
-                    <div class="portfolio-item-overlay">
-                        <span class="p-category">Normal Digital</span>
+                <!-- بطاقة نورمال ديجيتال -->
+                <div class="portfolio-card" onclick="openPortfolioLightbox('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80', 'نورمال ديجيتال - الحلول التقنية والمواقع', 'تطوير واجهات مستخدم متطورة ومنصات رقمية عالية الأداء.')">
+                    <div class="p-card-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="الحلول التقنية">
+                        <span class="p-badge">Normal Digital</span>
+                    </div>
+                    <div class="p-card-content">
                         <h3 data-en="Digital Platforms & Web" data-ar="المواقع والمنصات الرقمية" data-fr="Plateformes Digitales">المواقع والمنصات الرقمية</h3>
                         <p data-en="Interactive UI & high performance" data-ar="برمجة وتصميم واجهات تفاعلية" data-fr="UI interactive & performance">برمجة وتصميم واجهات تفاعلية</p>
                     </div>
                 </div>
 
-                <div class="portfolio-item" onclick="openPortfolioLightbox('https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=1000&q=80', 'نورمال برينت - التغليف والطباعة الفاخرة', 'طباعة علب منتجات وتغليف فاخر بمعايير جودة عالمية.')">
-                    <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=600&q=80" alt="الطباعة الفاخرة">
-                    <div class="portfolio-item-overlay">
-                        <span class="p-category">Normal Print</span>
+                <!-- بطاقة نورمال برينت -->
+                <div class="portfolio-card" onclick="openPortfolioLightbox('https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=1200&q=80', 'نورمال برينت - التغليف والطباعة الفاخرة', 'طباعة علب منتجات وتغليف فاخر بمعايير جودة عالمية.')">
+                    <div class="p-card-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=600&q=80" alt="الطباعة الفاخرة">
+                        <span class="p-badge">Normal Print</span>
+                    </div>
+                    <div class="p-card-content">
                         <h3 data-en="Luxury Print & Packaging" data-ar="التغليف والطباعة الفاخرة" data-fr="Impression & Packaging">التغليف والطباعة الفاخرة</h3>
                         <p data-en="Exceptional product print quality" data-ar="جودة طباعة استثنائية للمنتجات" data-fr="Qualité d'impression haut de gamme">جودة طباعة استثنائية للمنتجات</p>
                     </div>
@@ -103,14 +127,16 @@
             </div>
         </section>
 
-        <!-- قطاعات الوكالة الرئيسية (الأقسام الـ 5) -->
+        <!-- قطاعات الوكالة الرئيسية (الأقسام الـ 5 بالترتيب المطلوب) -->
         <main id="services-section">
             <div class="section-header">
-                <h2 class="section-title" data-en="Our Creative Divisions" data-ar="قطاعات وكالة نورمال" data-fr="Nos Divisions Créatives">قطاعات وكالة نورمال</h2>
+                <span class="section-tag" data-en="DIVISIONS" data-ar="قطاعات الوكالة" data-fr="DIVISIONS">قطاعات الوكالة</span>
+                <h2 class="section-title" data-en="Our Creative Divisions" data-ar="أقسام وكالة نورمال الإبداعية" data-fr="Nos Divisions Créatives">أقسام وكالة نورمال الإبداعية</h2>
                 <p class="section-desc" data-en="Click any division to explore sub-services and transparent pricing" data-ar="انقر على أي قسم لاستعراض الخدمات الفرعية والأسعار الشفافة" data-fr="Cliquez sur une division">انقر على أي قسم لاستعراض الخدمات الفرعية والأسعار الشفافة</p>
             </div>
 
             <div class="services-grid">
+                <!-- 1. نورمال ديجيتال -->
                 <div class="card" onclick="openModal('Digital')">
                     <div class="card-glow"></div>
                     <div class="card-icon-box">⚡</div>
@@ -119,6 +145,7 @@
                     <span class="badge" data-en="15 Services" data-ar="15 خدمة فرعية" data-fr="15 Services">15 خدمة فرعية</span>
                 </div>
 
+                <!-- 2. نورمال ستوديو -->
                 <div class="card" onclick="openModal('Studio')">
                     <div class="card-glow"></div>
                     <div class="card-icon-box">🎬</div>
@@ -127,6 +154,7 @@
                     <span class="badge" data-en="15 Services" data-ar="15 خدمة فرعية" data-fr="15 Services">15 خدمة فرعية</span>
                 </div>
 
+                <!-- 3. نورمال آرت -->
                 <div class="card" onclick="openModal('Art')">
                     <div class="card-glow"></div>
                     <div class="card-icon-box">🎨</div>
@@ -135,6 +163,7 @@
                     <span class="badge" data-en="15 Services" data-ar="15 خدمة فرعية" data-fr="15 Services">15 خدمة فرعية</span>
                 </div>
 
+                <!-- 4. نورمال برينت -->
                 <div class="card" onclick="openModal('Print')">
                     <div class="card-glow"></div>
                     <div class="card-icon-box">💎</div>
@@ -143,6 +172,7 @@
                     <span class="badge" data-en="15 Services" data-ar="15 خدمة فرعية" data-fr="15 Services">15 خدمة فرعية</span>
                 </div>
 
+                <!-- 5. نورمال أوفيس -->
                 <div class="card" onclick="openModal('Office')">
                     <div class="card-glow"></div>
                     <div class="card-icon-box">📊</div>
@@ -190,8 +220,8 @@
         </div>
     </div>
 
-    <!-- نافذة تكبير معرض الأعمال (Lightbox) -->
-    <div id="portfolioLightbox" class="lightbox-modal" onclick="closePortfolioLightbox()">
+    <!-- نافذة تكبير معرض الأعمال (Lightbox) - تم تصليحها بالكامل -->
+    <div id="portfolioLightbox" class="lightbox-modal" onclick="closePortfolioLightbox(event)">
         <div class="lightbox-content" onclick="event.stopPropagation()">
             <button class="close-lightbox" onclick="closePortfolioLightbox()">✕</button>
             <img id="lightboxImg" src="" alt="Work Sample">
