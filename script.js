@@ -1,5 +1,5 @@
 // ==========================================
-// وكالة نورمال الإبداعية - النظام التفاعلي الكامل
+// وكالة نورمال الإبداعية - النظام الكامل والمنظم
 // ==========================================
 
 const servicesData = {
@@ -100,14 +100,9 @@ const servicesData = {
 let currentCategory = null;
 let currentLang = 'ar';
 
-// ==========================================
-// إدارة قائمة اللغات
-// ==========================================
-
 function toggleLangMenu(event) {
     event.stopPropagation();
-    const selector = document.querySelector('.lang-selector');
-    selector.classList.toggle('open');
+    document.querySelector('.lang-selector').classList.toggle('open');
 }
 
 document.addEventListener('click', function() {
@@ -148,10 +143,6 @@ function selectLanguage(lang) {
     }
 }
 
-// ==========================================
-// إدارة النافذة المنبثقة والخدمات
-// ==========================================
-
 function openModal(category) {
     currentCategory = category;
     const data = servicesData[category];
@@ -186,7 +177,6 @@ function openModal(category) {
         btn.onclick = function() {
             document.querySelectorAll('.sub-service-item').forEach(el => el.classList.remove('selected-item'));
             btn.classList.add('selected-item');
-            
             document.getElementById('serviceName').value = `${itemName} - [${priceTag}]`;
         };
 
@@ -201,6 +191,19 @@ function closeModal() {
     document.getElementById('modal').style.display = 'none';
     document.body.style.overflow = 'auto';
     document.getElementById('requestForm').reset();
+}
+
+function openPortfolioLightbox(imgSrc, title, desc) {
+    document.getElementById('lightboxImg').src = imgSrc;
+    document.getElementById('lightboxTitle').innerText = title;
+    document.getElementById('lightboxDesc').innerText = desc;
+    document.getElementById('portfolioLightbox').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function closePortfolioLightbox() {
+    document.getElementById('portfolioLightbox').style.display = 'none';
+    document.body.style.overflow = 'auto';
 }
 
 function sendViaWhatsApp() {
