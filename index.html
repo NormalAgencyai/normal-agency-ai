@@ -9,16 +9,16 @@
 </head>
 <body>
 
-    <!-- خلفية جمالية سينمائية متحركة -->
+    <!-- خلفية جمالية سينمائية -->
     <div class="bg-glow"></div>
 
-    <!-- الشريط العلوي الاحترافي -->
+    <!-- الشريط العلوي الاحترافي مع قائمة اللغات الثلاث -->
     <nav class="top-bar">
         <div class="brand-badge">
             <span class="pulse-dot"></span> NORMAL AGENCY
         </div>
         
-        <!-- خانة اللغات الأنيقة -->
+        <!-- خانة اللغات (العربية، الإنجليزية، الفرنسية) -->
         <div class="lang-selector">
             <button class="lang-trigger" onclick="toggleLangMenu(event)">
                 <span class="globe-icon">🌐</span>
@@ -40,7 +40,7 @@
     </nav>
 
     <div class="container">
-        <!-- قسم الهيدر واللوغو الحقيقي البارز -->
+        <!-- الهيدر واللوغو البارز -->
         <header class="hero-section">
             <div class="logo-wrapper">
                 <img src="logo.png" alt="Normal Agency Logo" class="logo" onerror="this.style.display='none'; document.getElementById('textLogo').style.display='flex';">
@@ -57,27 +57,60 @@
             </p>
         </header>
 
-        <!-- قسم معرض الأعمال الإبداعية المستعاد (Portfolio Banner) -->
-        <section class="portfolio-showcase">
-            <div class="portfolio-card">
-                <div class="portfolio-overlay"></div>
-                <div class="portfolio-content">
-                    <span class="portfolio-tag" data-en="Featured Showcase" data-ar="معرض الأعمال المميز" data-fr="Galerie en vedette">معرض الأعمال المميز</span>
-                    <h2 data-en="Crafting Digital Masterpieces" data-ar="نصنع تجارب بصرية ورقمية استثنائية" data-fr="Création de chefs-d'œuvre">نصنع تجارب بصرية ورقمية استثنائية</h2>
-                    <p data-en="Explore our specialized divisions crafted for ultimate impact." data-ar="استكشف قطاعاتنا المتخصصة والمصممة خصيصاً لإحداث تأثير مذهل." data-fr="Explorez nos divisions spécialisées.">استكشف قطاعاتنا المتخصصة والمصممة خصيصاً لإحداث تأثير مذهل.</p>
+        <!-- معرض الأعمال الإبداعي الباهر (Portfolio Gallery) -->
+        <section id="portfolio-gallery" class="portfolio-section">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Our Masterpieces Gallery" data-ar="معرض أعمالنا الإبداعية" data-fr="Galerie de nos réalisations">معرض أعمالنا الإبداعية</h2>
+                <p class="section-desc" data-en="A glimpse of our professional projects across design, video, and digital solutions" data-ar="نماذج مختارة من أحدث مشاريعنا الاحترافية في التصميم، الإنتاج، والحلول الرقمية" data-fr="Aperçu de nos projets professionnels">نماذج مختارة من أحدث مشاريعنا الاحترافية في التصميم، الإنتاج، والحلول الرقمية</p>
+            </div>
+
+            <div class="portfolio-gallery-grid">
+                <div class="portfolio-item" onclick="openPortfolioLightbox('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1000&q=80', 'نورمال ستوديو - الإنتاج السينمائي والمونتاج', 'إنتاج فيديو إعلاني احترافي مع تدرج ألوان سينمائي متقدم.')">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" alt="إنتاج سينمائي">
+                    <div class="portfolio-item-overlay">
+                        <span class="p-category">Normal Studio</span>
+                        <h3 data-en="Cinematic Production" data-ar="الإنتاج السينمائي والمونتاج" data-fr="Production Cinématographique">الإنتاج السينمائي والمونتاج</h3>
+                        <p data-en="Advanced color grading & directing" data-ar="تدرج ألوان وإخراج بصري فاخر" data-fr="Étalonnage et réalisation">تدرج ألوان وإخراج بصري فاخر</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" onclick="openPortfolioLightbox('https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1000&q=80', 'نورمال آرت - الهويات البصرية والعلامات التجارية', 'تصميم هوية متكاملة تبرز هوية العلامة بأسلوب عصري جذاب.')">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="هوية بصرية">
+                    <div class="portfolio-item-overlay">
+                        <span class="p-category">Normal Art</span>
+                        <h3 data-en="Visual Identity & Branding" data-ar="الهويات البصرية والعلامات" data-fr="Identité Visuelle">الهويات البصرية والعلامات</h3>
+                        <p data-en="Logos & complete brand guidelines" data-ar="تصميم شعارات وهوية متكاملة" data-fr="Logos et chartes graphiques">تصميم شعارات وهوية متكاملة</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" onclick="openPortfolioLightbox('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80', 'نورمال ديجيتال - الحلول التقنية والمواقع', 'تطوير واجهات مستخدم متطورة ومنصات رقمية عالية الأداء.')">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="الحلول التقنية">
+                    <div class="portfolio-item-overlay">
+                        <span class="p-category">Normal Digital</span>
+                        <h3 data-en="Digital Platforms & Web" data-ar="المواقع والمنصات الرقمية" data-fr="Plateformes Digitales">المواقع والمنصات الرقمية</h3>
+                        <p data-en="Interactive UI & high performance" data-ar="برمجة وتصميم واجهات تفاعلية" data-fr="UI interactive & performance">برمجة وتصميم واجهات تفاعلية</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" onclick="openPortfolioLightbox('https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=1000&q=80', 'نورمال برينت - التغليف والطباعة الفاخرة', 'طباعة علب منتجات وتغليف فاخر بمعايير جودة عالمية.')">
+                    <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=600&q=80" alt="الطباعة الفاخرة">
+                    <div class="portfolio-item-overlay">
+                        <span class="p-category">Normal Print</span>
+                        <h3 data-en="Luxury Print & Packaging" data-ar="التغليف والطباعة الفاخرة" data-fr="Impression & Packaging">التغليف والطباعة الفاخرة</h3>
+                        <p data-en="Exceptional product print quality" data-ar="جودة طباعة استثنائية للمنتجات" data-fr="Qualité d'impression haut de gamme">جودة طباعة استثنائية للمنتجات</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- قسم الخدمات الرئيسية -->
+        <!-- قطاعات الوكالة الرئيسية -->
         <main id="services-section">
             <div class="section-header">
-                <h2 class="section-title" data-en="Our Creative Services" data-ar="قطاعات وكالة نورمال" data-fr="Nos Services Créatifs">قطاعات وكالة نورمال</h2>
-                <p class="section-desc" data-en="Click any division to explore sub-services and transparent pricing" data-ar="انقر على أي قسم لاستعراض الخدمات الفرعية والأسشفارة" data-fr="Cliquez sur une division">انقر على أي قسم لاستعراض الخدمات الفرعية والأسعار الشفافة</p>
+                <h2 class="section-title" data-en="Our Creative Divisions" data-ar="قطاعات وكالة نورمال" data-fr="Nos Divisions Créatives">قطاعات وكالة نورمال</h2>
+                <p class="section-desc" data-en="Click any division to explore sub-services and transparent pricing" data-ar="انقر على أي قسم لاستعراض الخدمات الفرعية والأسعار الشفافة" data-fr="Cliquez sur une division">انقر على أي قسم لاستعراض الخدمات الفرعية والأسعار الشفافة</p>
             </div>
 
             <div class="services-grid">
-                <!-- كرت نورمال ديجيتال -->
                 <div class="card" onclick="openModal('Digital')">
                     <div class="card-glow"></div>
                     <div class="card-icon-box">⚡</div>
@@ -86,7 +119,6 @@
                     <span class="badge" data-en="15 Services" data-ar="15 خدمة فرعية" data-fr="15 Services">15 خدمة فرعية</span>
                 </div>
 
-                <!-- كرت نورمال ستوديو -->
                 <div class="card" onclick="openModal('Studio')">
                     <div class="card-glow"></div>
                     <div class="card-icon-box">🎬</div>
@@ -95,7 +127,6 @@
                     <span class="badge" data-en="15 Services" data-ar="15 خدمة فرعية" data-fr="15 Services">15 خدمة فرعية</span>
                 </div>
 
-                <!-- كرت نورمال آرت -->
                 <div class="card" onclick="openModal('Art')">
                     <div class="card-glow"></div>
                     <div class="card-icon-box">🎨</div>
@@ -104,7 +135,6 @@
                     <span class="badge" data-en="15 Services" data-ar="15 خدمة فرعية" data-fr="15 Services">15 خدمة فرعية</span>
                 </div>
 
-                <!-- كرت نورمال برينت -->
                 <div class="card" onclick="openModal('Print')">
                     <div class="card-glow"></div>
                     <div class="card-icon-box">💎</div>
@@ -116,14 +146,12 @@
         </main>
     </div>
 
-    <!-- النافذة المنبثقة (Modal) -->
+    <!-- النافذة المنبثقة للخدمات والأسعار -->
     <div id="modal" class="modal">
         <div class="modal-box">
             <button class="close-btn" onclick="closeModal()">✕</button>
-            
             <h3 id="modalTitle" class="modal-title">عنوان الخدمة</h3>
 
-            <!-- نموذج العمل المرئي الداخلي -->
             <div class="work-sample-box">
                 <img id="modalWorkSample" src="" alt="Work Sample" class="work-sample-img">
                 <div class="sample-tag-float" data-en="Professional Showcase" data-ar="نموذج أعمال معتمد" data-fr="Exemple Pro">نموذج أعمال معتمد</div>
@@ -131,12 +159,10 @@
 
             <label class="input-label" data-en="Select sub-service & view pricing:" data-ar="اختر الخدمة الفرعية المطلوبة (مع السعر المباشر):" data-fr="Sélectionnez le service:">اختر الخدمة الفرعية المطلوبة:</label>
             
-            <!-- قائمة الخدمات الفرعية مع الأسعار الواضحة -->
             <div id="subServicesContainer" class="sub-services-grid"></div>
 
             <hr class="divider">
 
-            <!-- نموذج الطلب الاحترافي -->
             <form id="requestForm" action="https://formspree.io/f/xykvqjek" method="POST" class="agency-form">
                 <input type="text" id="serviceName" name="Service" readonly required placeholder="اضغط على إحدى الخدمات أعلاه لتحديدها..." data-en-placeholder="Select a service above..." data-ar-placeholder="اضغط على إحدى الخدمات أعلاه لتحديدها..." data-fr-placeholder="Sélectionnez un service...">
                 <div class="form-row">
@@ -153,6 +179,16 @@
                     </button>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <!-- نافذة تكبير معرض الأعمال (Lightbox) -->
+    <div id="portfolioLightbox" class="lightbox-modal" onclick="closePortfolioLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="close-lightbox" onclick="closePortfolioLightbox()">✕</button>
+            <img id="lightboxImg" src="" alt="Work Sample">
+            <h3 id="lightboxTitle"></h3>
+            <p id="lightboxDesc"></p>
         </div>
     </div>
 
