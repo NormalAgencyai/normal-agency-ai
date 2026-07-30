@@ -1,154 +1,191 @@
-// قاعدة البيانات الشاملة لخدمات agency الـ 60 (مترجمة ومقسمة)
-const db = {
-    Digital: { 
-        ar: "نورمال ديجيتال", en: "Normal Digital", fr: "Normal Digital",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80", 
+// ==========================================
+// وكالة نورمال - البرمجة التفاعلية والأسعار المخفضة
+// Normal Agency - Dynamic Logic & Discounted Pricing
+// ==========================================
+
+// 1. قاعدة بيانات الخدمات الفرعية مع الأسعار المخفضة والصور
+const servicesData = {
+    'Digital': {
+        titleAr: 'نورمال ديجيتال',
+        titleEn: 'Normal Digital',
+        titleFr: 'Normal Digital',
+        sampleImg: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80',
         items: [
-            ['تصميم المواقع الإلكترونية', 'Web Design', 'Conception Web'],
-            ['تطوير المتاجر الإلكترونية', 'E-commerce Development', 'Développement E-commerce'],
-            ['تطوير تطبيقات الجوال (iOS & Android)', 'Mobile Apps', 'Applications Mobiles'],
-            ['برمجة الأنظمة الخاصة والمنصات', 'Custom Web Systems', 'Systèmes Sur Mesure'],
-            ['ربط بواجهات البرمجة API', 'API Integration', 'Intégration API'],
-            ['تحسين محركات البحث SEO', 'SEO Optimization', 'Optimisation SEO'],
-            ['إدارة وتأمين السيرفرات', 'Server Management', 'Gestion de Serveurs'],
-            ['دمج حلول الذكاء الاصطناعي', 'AI Solutions', 'Solutions IA'],
-            ['إنشاء وتطوير متاجر سلة وزد', 'Salla & Zid Stores', 'Boutiques Salla & Zid'],
-            ['حماية وتأمين المواقع الإلكترونية', 'Web Security', 'Sécurité Web'],
-            ['تحليل البيانات وتقارير الأداء', 'Analytics & Reporting', 'Analyse de Données'],
-            ['إدارة وتحديث المحتوى الرقمي', 'Content Management', 'Gestion de Contenu'],
-            ['برمجة الشات بوت التفاعلي', 'Chatbot Development', 'Développement Chatbot'],
-            ['تسريع وتحسين أداء المواقع', 'Speed Optimization', 'Optimisation de Vitesse'],
-            ['الاستشارات التقنية والرقمية', 'Tech Consulting', 'Conseil Technique']
-        ] 
+            { ar: 'إدارة حسابات التواصل', en: 'Social Media Management', price: '650' },
+            { ar: 'إطلاق الحملات الإعلانية', en: 'Ad Campaigns', price: '250' },
+            { ar: 'كتابة المحتوى والسيناريو', en: 'Content & Scriptwriting', price: '75' },
+            { ar: 'إنشاء المواقع والمتاجر', en: 'Web & Store Development', price: '490' },
+            { ar: 'تحسين محركات البحث SEO', en: 'SEO Optimization', price: '350' },
+            { ar: 'استراتيجية التسويق الرقمي', en: 'Digital Marketing Strategy', price: '400' },
+            { ar: 'تحليل البيانات والتقارير', en: 'Data Analytics & Reports', price: '200' },
+            { ar: 'التسويق عبر البريد', en: 'Email Marketing', price: '150' },
+            { ar: 'إدارة حملات المشاهير', en: 'Influencer Campaigns', price: '500' },
+            { ar: 'إعادة بناء الهوية الرقمية', en: 'Rebranding Strategy', price: '450' },
+            { ar: 'استشارات تسويقية', en: 'Marketing Consultation', price: '150' },
+            { ar: 'إدارة سمعة العلامة التجارية', en: 'Online Reputation Mgmt', price: '300' },
+            { ar: 'ربط البوابات والأدوات', en: 'API & Tool Integration', price: '250' },
+            { ar: 'إدارة الحملات التفاعلية', en: 'Interactive Campaigns', price: '300' },
+            { ar: 'إعداد خطط نشر المحتوى', en: 'Content Calendar Plan', price: '120' }
+        ]
     },
-    Studio: { 
-        ar: "نورمال ستوديو", en: "Normal Studio", fr: "Normal Studio",
-        image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80", 
+    'Studio': {
+        titleAr: 'نورمال ستوديو',
+        titleEn: 'Normal Studio',
+        titleFr: 'Normal Studio',
+        sampleImg: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80',
         items: [
-            ['تصوير المنتجات الاحترافي', 'Product Photography', 'Photographie de Produits'],
-            ['تصوير الإعلانات التجارية', 'Commercial Ads', 'Tournage Publicitaire'],
-            ['المونتاج وتعديل الفيديو', 'Video Editing', 'Montage Vidéo'],
-            ['التلوين السينمائي (Color Grading)', 'Color Grading', 'Étalonnage Vidéo'],
-            ['إنتاج الفيديوهات القصيرة (Reels/Shorts)', 'Short Video Content', 'Vidéos Courtes'],
-            ['التصوير الجوي بالدرون', 'Drone Shooting', 'Prise de Vue Aérienne'],
-            ['تغطية الفعاليات والمؤتمرات', 'Events Coverage', 'Couverture d\'Événements'],
-            ['إنتاج الأفلام الوثائقية والتعريفية', 'Documentaries & Corporate', 'Films Documentaires'],
-            ['الهندسة والتعليق الصوتي (Voice-over)', 'Sound Design & Voice-over', 'Design Sonore'],
-            ['كتابة السيناريو والحوار الإعلاني', 'Scriptwriting', 'Rédaction de Scénario'],
-            ['الإخراج الفني للإعلانات', 'Video Directing', 'Réalisation Vidéo'],
-            ['تصوير البورتريه والأشخاص', 'Portrait Photography', 'Photographie Portrait'],
-            ['تصميم إضاءة الاستديو', 'Studio Lighting', 'Éclairage Studio'],
-            ['إنتاج الموشن جرافيك 2D/3D', 'Motion Graphics 2D/3D', 'Motion Design 2D/3D'],
-            ['استشارات الإنتاج الإعلاني والمرئي', 'Media Production Consulting', 'Conseil en Production']
-        ] 
+            { ar: 'مونتاج وتعديل الفيديو', en: 'Video Editing', price: '120' },
+            { ar: 'تصحيح وتدرج الألوان', en: 'Color Grading', price: '90' },
+            { ar: 'إنتاج فيديو إعلاني كامل', en: 'Full Commercial Ad Video', price: '390' },
+            { ar: 'المؤثرات البصرية Visual Effects', en: 'Visual Effects (VFX)', price: '180' },
+            { ar: 'تصوير منتجات ميداني', en: 'Product Photography', price: '350' },
+            { ar: 'المونتاج السينمائي', en: 'Cinematic Editing', price: '250' },
+            { ar: 'المؤثرات الصوتية والهندسة', en: 'Sound Design & Mixing', price: '100' },
+            { ar: 'تصوير وتسجيل ستوديو', en: 'Studio Recording', price: '400' },
+            { ar: 'إنتاج فيديو موشن جرافيك', en: 'Motion Graphics Video', price: '220' },
+            { ar: 'مونتاج الريلز والشورتس', en: 'Reels & Shorts Editing', price: '60' },
+            { ar: 'تأجير معدات إضاءة واستوديو', en: 'Studio Equipment Rental', price: '300' },
+            { ar: 'إخراج كليبات وإعلانات', en: 'Directing Services', price: '600' },
+            { ar: 'تغطية الفعاليات والمؤتمرات', en: 'Event Coverage', price: '500' },
+            { ar: 'البث المباشر الاحترافي', en: 'Live Streaming Setup', price: '450' },
+            { ar: 'معالجة ومكساج الصوت', en: 'Audio Post-Production', price: '120' }
+        ]
     },
-    Art: { 
-        ar: "نورمال آرت", en: "Normal Art", fr: "Normal Art",
-        image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80", 
+    'Art': {
+        titleAr: 'نورمال آرت',
+        titleEn: 'Normal Art',
+        titleFr: 'Normal Art',
+        sampleImg: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80',
         items: [
-            ['بناء الهويات البصرية الكاملة', 'Full Brand Identity', 'Identité Visuelle Complète'],
-            ['تصميم الشعارات الاحترافية', 'Logo Design', 'Création de Logo'],
-            ['تصميم العبوات وتغليف المنتجات', 'Packaging Design', 'Design d\'Emballage'],
-            ['كتابة وتصميم دليل العلامة التجارية', 'Brand Guidelines', 'Guide de Charte Graphique'],
-            ['تصميم منشورات منصات التواصل', 'Social Media Graphics', 'Design Réseaux Sociaux'],
-            ['تصميم بروفايل الشركات والمؤسسات', 'Company Profile', 'Design de Profil d\'Entreprise'],
-            ['تصميم المطبوعات والبروشورات', 'Brochures & Flyers', 'Brochures & Dépliants'],
-            ['الرسم الرقمي والـ Graffiti Art', 'Digital Illustration', 'Illustrations Sur Mesure'],
-            ['تصميم اللوحات الإعلانية الخارجية', 'Billboards & Banners', 'Panneaux Publicitaires'],
-            ['تصميم واجهات وتجربة المستخدم UI/UX', 'UI/UX Design', 'Design UI/UX'],
-            ['تصميم العروض التقديمية', 'Presentation Design', 'Design de Présentation'],
-            ['تصميم القوائم والمنيو', 'Menu Design', 'Design de Menu'],
-            ['تصميم الكتب والمجلات', 'Book & Magazine Design', 'Mise en Page Livre/Magazine'],
-            ['إعادة تطوير وتحديث الهويات (Rebranding)', 'Brand Rebranding', 'Refonte d\'Identité'],
-            ['الاستشارات الفنية والتصميمية', 'Art & Design Consulting', 'Conseil en Design']
-        ] 
+            { ar: 'تصميم هوية بصرية كاملة', en: 'Full Brand Identity Design', price: '450' },
+            { ar: 'تصميم شعار Logo Design', en: 'Logo Design', price: '180' },
+            { ar: 'تصاميم السوشيال ميديا', en: 'Social Media Posts', price: '35' },
+            { ar: 'تصميم البكجات والتغليف', en: 'Packaging & Box Design', price: '220' },
+            { ar: 'تصميم الملف التعريفي Profile', en: 'Company Profile Design', price: '190' },
+            { ar: 'رسم واختيار الشخصيات', en: 'Character Illustration', price: '250' },
+            { ar: 'تصميم العروض التقديمية', en: 'Pitch Deck & PPT Design', price: '150' },
+            { ar: 'تصميم لوحات وإعلانات', en: 'Billboard & Banner Design', price: '120' },
+            { ar: 'تصميم المطبوعات والكتالوجات', en: 'Brochure & Catalog Design', price: '160' },
+            { ar: 'تصميم واجهات المستخدم UI/UX', en: 'UI/UX Mobile & Web Design', price: '400' },
+            { ar: 'تصميم القوائم والمنيو', en: 'Menu Design', price: '110' },
+            { ar: 'تصميم كروت الأعمال Business Cards', en: 'Business Card Design', price: '50' },
+            { ar: 'تطوير ودليل العلامة التجارية', en: 'Brand Guidelines Book', price: '280' },
+            { ar: 'تصميم ملصقات واستيكرات', en: 'Sticker & Badge Design', price: '40' },
+            { ar: 'تعديل ومعالجة الصور', en: 'Photo Retouching', price: '30' }
+        ]
     },
-    Print: { 
-        ar: "نورمال برينت", en: "Normal Print", fr: "Normal Print",
-        image: "https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&w=800&q=80", 
+    'Print': {
+        titleAr: 'نورمال برينت',
+        titleEn: 'Normal Print',
+        titleFr: 'Normal Print',
+        sampleImg: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=600&q=80',
         items: [
-            ['طباعة بطاقات العمل الفاخرة', 'Luxury Business Cards', 'Cartes de Visite Premium'],
-            ['طباعة الأكياس والعلب المخصصة', 'Custom Bags & Boxes', 'Sacs & Boîtes Personnalisés'],
-            ['طباعة الأوراق الرسمية والظروف', 'Stationery & Envelopes', 'Papier En-tête & Enveloppes'],
-            ['طباعة الهدايا الدعائية والترويجية', 'Promotional Gifts', 'Cadeaux Publicitaires'],
-            ['طباعة الملصقات والأستيكرات', 'Custom Stickers & Labels', 'Autocollants & Étiquettes'],
-            ['طباعة الكتب والكتالوجات', 'Catalogs & Books', 'Impression de Catalogues'],
-            ['طباعة اللوحات الأكريليك والكانفاس', 'Acrylic & Canvas Prints', 'Impression Acrylique & Toile'],
-            ['طباعة الزي الموحد والملابس (Uniform)', 'Uniform & Apparel Print', 'Impression sur Textile'],
-            ['طباعة الرول أب والفلكس', 'Roll-ups & Banners', 'Impression Roll-Up & Banners'],
-            ['طباعة الأجندات والتقاويم', 'Agendas & Calendars', 'Agendas & Calendriers'],
-            ['طباعة البروشورات والمطويات', 'Brochures Printing', 'Impression de Brochures'],
-            ['طباعة السندات والفواتير', 'Invoices & Receipts', 'Factures & Carnets'],
-            ['التذهيب والكبس الحراري والتنعيم', 'Foil Stamping & Embossing', 'Gaufrage & Dorure'],
-            ['طباعة وتصميم الدروع والجوائز', 'Trophies & Awards', 'Trophées & Récompenses'],
-            ['استشارات خامات المطبوعات والتغليف', 'Print Consulting', 'Conseil en Impression']
-        ] 
+            { ar: 'طباعة كروت وأوراق رسمية', en: 'Business Cards & Letterheads', price: '75' },
+            { ar: 'طباعة التغليف والأكياس', en: 'Custom Packaging & Bags', price: '190' },
+            { ar: 'طباعة الهدايا الدعائية', en: 'Promotional Gifts & Mugs', price: '120' },
+            { ar: 'طباعة اللوحات الإعلانية', en: 'Banners & Signboards', price: '150' },
+            { ar: 'طباعة البروشورات والمنشورات', en: 'Flyers & Pamphlets', price: '80' },
+            { ar: 'طباعة الكتب والكتالوجات', en: 'Books & Catalog Printing', price: '250' },
+            { ar: 'طباعة المنسوجات والزي', en: 'Uniform & Apparel Printing', price: '140' },
+            { ar: 'طباعة الاستيكرات والملصقات', en: 'Sticker Printing Roll', price: '60' },
+            { ar: 'طباعة العلب الكرتونية', en: 'Carton Box Printing', price: '220' },
+            { ar: 'طباعة الأجنحة والمعارض', en: 'Exhibition Booth Printing', price: '600' },
+            { ar: 'طباعة التقاويم والمذكرات', en: 'Calendars & Diaries', price: '110' },
+            { ar: 'طباعة المنيو البلاستيكي/المقوى', en: 'Menu Board Printing', price: '90' },
+            { ar: 'طباعة أظرف ووسائل المراسلة', en: 'Envelope Printing', price: '70' },
+            { ar: 'طباعة الأكواب والأوراق الذهبية', en: 'Gold Foil Special Printing', price: '180' },
+            { ar: 'طباعة الأعلام والرولات Roll-up', en: 'Roll-up Banners & Flags', price: '130' }
+        ]
     }
 };
 
-let currentLangIndex = 0;
-const langs = ['ar', 'en', 'fr'];
-let currentCat = "Digital";
+let currentLang = 'ar';
+let selectedPrice = '';
 
-function toggleLanguage() {
-    currentLangIndex = (currentLangIndex + 1) % langs.length;
-    const lang = langs[currentLangIndex];
+// 2. فتح النافذة المنبثقة
+function openModal(category) {
+    const data = servicesData[category];
+    if (!data) return;
+
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalImg = document.getElementById('modalWorkSample');
+    const container = document.getElementById('subServicesContainer');
     
-    document.documentElement.lang = lang;
-    document.body.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    // ضبط العنوان حسب اللغة
+    modalTitle.innerText = currentLang === 'ar' ? data.titleAr : (currentLang === 'en' ? data.titleEn : data.titleFr);
+    modalImg.src = data.sampleImg;
 
-    document.querySelectorAll('[data-en]').forEach(el => { 
-        if (el.dataset[lang]) {
-            el.innerText = el.dataset[lang]; 
-        }
-    });
-    
-    document.querySelectorAll('input, textarea').forEach(el => {
-        if (el.dataset[`${lang}Placeholder`]) { 
-            el.placeholder = el.dataset[`${lang}Placeholder`]; 
-        }
+    // تفريغ الحاوية وتعبئة الخدمات الـ 15 مع سعرها المخفض
+    container.innerHTML = '';
+    data.items.forEach(item => {
+        const btn = document.createElement('div');
+        btn.className = 'sub-service-item';
+        
+        const itemName = currentLang === 'ar' ? item.ar : item.en;
+        btn.innerText = `${itemName} (تبدأ من ${item.price} ر.س)`;
+        
+        btn.onclick = function() {
+            // إزالة التحديد السابق
+            document.querySelectorAll('.sub-service-item').forEach(el => el.classList.remove('selected-item'));
+            btn.classList.add('selected-item');
+            
+            // تعبئة الخانة بالسعر والخدمة
+            document.getElementById('serviceName').value = `${itemName} - [يبدأ من ${item.price} ر.س]`;
+            selectedPrice = item.price;
+        };
+
+        container.appendChild(btn);
     });
 
-    refreshModal();
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
 }
 
-function openModal(cat) {
-    currentCat = cat;
-    refreshModal();
-    document.getElementById('modal').style.display = 'block';
-}
-
+// 3. إغلاق النافذة المنبثقة
 function closeModal() {
     document.getElementById('modal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+    document.getElementById('requestForm').reset();
+    selectedPrice = '';
 }
 
-function refreshModal() {
-    const lang = langs[currentLangIndex];
-    const langMap = { ar: 0, en: 1, fr: 2 };
-    const idx = langMap[lang];
+// 4. دالة تحويل الطلب للواتساب
+function sendViaWhatsApp() {
+    const service = document.getElementById('serviceName').value;
+    const name = document.getElementById('clientName').value || 'عميل جديد';
+    const details = document.getElementById('orderDetails').value;
 
-    document.getElementById('modalTitle').innerText = db[currentCat][lang];
-    document.getElementById('modalWorkSample').src = db[currentCat].image;
-
-    const container = document.getElementById('subServicesContainer');
-    container.innerHTML = '';
-
-    db[currentCat].items.forEach(i => {
-        const div = document.createElement('div');
-        div.className = 'sub-service-item';
-        div.innerText = i[idx];
-        div.onclick = function() {
-            document.querySelectorAll('.sub-service-item').forEach(el => el.classList.remove('selected-item'));
-            div.classList.add('selected-item');
-            document.getElementById('serviceName').value = i[idx];
-        };
-        container.appendChild(div);
-    });
-}
-
-window.onclick = function(event) {
-    const modal = document.getElementById('modal');
-    if (event.target == modal) { 
-        closeModal(); 
+    if (!service) {
+        alert(currentLang === 'ar' ? 'يرجى اختيار إحدى الخدمات الفرعية أولاً' : 'Please select a sub-service first');
+        return;
     }
+
+    const phoneNumber = "966543262920";
+    const message = `مرحباً وكالة نورمال 👋%0A%0A*طلب خدمة جديد:*%0A• *الخدمة والسعر:* ${encodeURIComponent(service)}%0A• *الاسم:* ${encodeURIComponent(name)}%0A• *التفاصيل:* ${encodeURIComponent(details)}`;
+    
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+}
+
+// 5. تبديل اللغات (عربي / English / Français)
+function toggleLanguage() {
+    if (currentLang === 'ar') currentLang = 'en';
+    else if (currentLang === 'en') currentLang = 'fr';
+    else currentLang = 'ar';
+
+    document.querySelectorAll('[data-ar]').forEach(el => {
+        if (currentLang === 'ar') el.innerText = el.getAttribute('data-ar');
+        else if (currentLang === 'en') el.innerText = el.getAttribute('data-en');
+        else if (currentLang === 'fr') el.innerText = el.getAttribute('data-fr');
+    });
+
+    // تحديث الخانات النصية (Placeholders)
+    document.querySelectorAll('[data-ar-placeholder]').forEach(input => {
+        if (currentLang === 'ar') input.placeholder = input.getAttribute('data-ar-placeholder');
+        else if (currentLang === 'en') input.placeholder = input.getAttribute('data-en-placeholder');
+        else if (currentLang === 'fr') input.placeholder = input.getAttribute('data-fr-placeholder');
+    });
+
+    document.getElementById('langText').innerText = currentLang === 'ar' ? 'العربية' : (currentLang === 'en' ? 'English' : 'Français');
+    document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
 }
