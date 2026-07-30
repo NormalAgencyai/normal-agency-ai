@@ -3,535 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Normal Agency</title>
-    <!-- استدعاء خط Cairo الاحترافي من Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary: #0066ff;
-            --primary-hover: #0052cc;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #0f172a;
-            --text-muted: #475569;
-            --border-color: #e2e8f0;
-            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 20px 25px -5px rgba(0, 102, 255, 0.15);
-        }
-
-        * {
-            box-sizing: border-box;
-            transition: all 0.25s ease-in-out;
-        }
-
-        body { 
-            background-color: var(--bg-color); 
-            color: var(--text-main); 
-            text-align: center; 
-            font-family: 'Cairo', sans-serif; 
-            margin: 0; 
-            padding: 0 0 100px 0; 
-        }
-
-        /* Top Bar & Language Toggle */
-        .top-bar { 
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 12px 20px; 
-            display: flex; 
-            justify-content: flex-end; 
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .lang-btn { 
-            background: #eef2ff; 
-            color: var(--primary); 
-            border: 1px solid rgba(0, 102, 255, 0.2); 
-            padding: 8px 20px; 
-            border-radius: 30px; 
-            cursor: pointer; 
-            font-weight: 700; 
-            font-family: 'Cairo', sans-serif;
-        }
-
-        .lang-btn:hover {
-            background: var(--primary);
-            color: #fff;
-            transform: translateY(-2px);
-        }
-
-        .container { 
-            max-width: 900px; 
-            margin: auto; 
-            padding: 0 20px; 
-        }
-
-        /* Header / Hero Section */
-        .header-block { 
-            margin-top: 20px; 
-            margin-bottom: 35px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-        }
-
-        .logo { 
-            width: 100%;
-            max-width: 380px; 
-            height: auto;
-            display: block; 
-            margin-bottom: 15px;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.05));
-        }
-
-        .hero-title { 
-            font-size: 30px; 
-            font-weight: 800; 
-            color: var(--primary); 
-            margin: 10px 0 5px 0; 
-            line-height: 1.3;
-        }
-
-        .sub-title { 
-            color: var(--text-muted); 
-            font-size: 17px; 
-            font-weight: 600; 
-            margin: 0; 
-        }
-
-        .section-title {
-            font-size: 24px;
-            font-weight: 800;
-            margin: 40px 0 20px 0;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50%;
-            height: 4px;
-            background: var(--primary);
-            margin: 6px auto 0 auto;
-            border-radius: 2px;
-        }
-
-        /* Services Grid */
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-            gap: 20px; 
-            margin: 20px 0; 
-        }
-
-        .card { 
-            padding: 35px 20px; 
-            border: 1px solid var(--border-color); 
-            border-radius: 16px; 
-            background: var(--card-bg); 
-            cursor: pointer; 
-            font-weight: 700; 
-            font-size: 18px;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .card:hover { 
-            border-color: var(--primary); 
-            background: #ffffff;
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-            color: var(--primary);
-        }
-
-        /* AI Assistant Box */
-        .ai-box { 
-            background: linear-gradient(145deg, #ffffff, #f4f8ff); 
-            border: 1px solid rgba(0, 102, 255, 0.2); 
-            border-radius: 24px; 
-            padding: 30px 25px; 
-            margin: 40px auto; 
-            max-width: 650px; 
-            box-shadow: var(--shadow-md); 
-            text-align: center; 
-        }
-
-        .ai-title { 
-            color: var(--primary); 
-            font-size: 24px; 
-            font-weight: 800; 
-            margin-bottom: 8px; 
-        }
-
-        .ai-box p {
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
-
-        /* Inputs & Buttons */
-        input, textarea { 
-            width: 100%; 
-            padding: 14px 18px; 
-            margin: 10px 0; 
-            border-radius: 12px; 
-            border: 1px solid var(--border-color); 
-            display: block; 
-            box-sizing: border-box; 
-            font-family: 'Cairo', sans-serif;
-            font-size: 15px;
-            background: #fafafa;
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: #fff;
-            box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.1);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        button[type="submit"] { 
-            background: var(--primary); 
-            color: white; 
-            border: none; 
-            padding: 14px 40px; 
-            border-radius: 12px; 
-            cursor: pointer; 
-            font-family: 'Cairo', sans-serif;
-            font-weight: 700;
-            font-size: 16px;
-            width: 100%;
-            margin-top: 10px;
-            box-shadow: 0 4px 12px rgba(0, 102, 255, 0.25);
-        }
-
-        button[type="submit"]:hover {
-            background: var(--primary-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 102, 255, 0.35);
-        }
-
-        /* Modal Popup */
-        .modal { 
-            display: none; 
-            position: fixed; 
-            inset: 0; 
-            background: rgba(15, 23, 42, 0.6); 
-            backdrop-filter: blur(5px);
-            z-index: 3000; 
-            overflow-y: auto; 
-            padding: 20px; 
-        }
-
-        .form-box { 
-            max-width: 600px; 
-            margin: 40px auto; 
-            background: white; 
-            padding: 30px; 
-            border-radius: 24px; 
-            text-align: right; 
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            position: relative;
-        }
-
-        [dir="ltr"] .form-box { text-align: left; }
-
-        .close-btn {
-            background: #fee2e2 !important; 
-            color: #ef4444 !important; 
-            border: none; 
-            padding: 8px 16px; 
-            border-radius: 8px; 
-            cursor: pointer;
-            font-weight: 700;
-            font-family: 'Cairo', sans-serif;
-            float: left;
-        }
-        [dir="ltr"] .close-btn { float: right; }
-
-        .sub-services-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); 
-            gap: 10px; 
-            margin: 20px 0; 
-            max-height: 220px;
-            overflow-y: auto;
-            padding-right: 5px;
-        }
-
-        .sub-service-item { 
-            padding: 10px 8px; 
-            border: 1px solid var(--border-color); 
-            border-radius: 10px; 
-            cursor: pointer; 
-            font-weight: 600; 
-            font-size: 13px;
-            text-align: center; 
-            color: var(--text-muted); 
-            background: #f8fafc;
-        }
-
-        .sub-service-item:hover { 
-            background: #eef5ff; 
-            border-color: var(--primary); 
-            color: var(--primary); 
-        }
-
-        .selected-item { 
-            background: var(--primary) !important; 
-            color: white !important; 
-            border-color: var(--primary) !important; 
-        }
-
-        hr {
-            border: none;
-            border-top: 1px solid var(--border-color);
-            margin: 20px 0;
-        }
-
-        /* Bottom Floating Nav */
-        .bottom-nav { 
-            position: fixed; 
-            bottom: 20px; 
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 500px;
-            background: rgba(15, 23, 42, 0.85); 
-            backdrop-filter: blur(12px);
-            display: flex; 
-            justify-content: space-around; 
-            padding: 12px 0; 
-            border-radius: 40px;
-            z-index: 2000; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-
-        .bottom-nav a { 
-            text-decoration: none; 
-            color: #ffffff; 
-            font-weight: 700; 
-            font-size: 14px;
-            padding: 4px 12px;
-            border-radius: 20px;
-        }
-
-        .bottom-nav a:hover {
-            color: var(--primary);
-            background: rgba(255,255,255,0.1);
-        }
-    </style>
+    <title>Normal Agency | وكالة نورمال الإبداعية</title>
+    <!-- خط القاهرة وفاخر للعنوانين -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800;900&family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="top-bar">
-    <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">🌐 العربية / English / Français</button>
-</div>
+    <!-- الخلفية التفاعلية والتوهج الفاخر -->
+    <div class="bg-glow"></div>
+    <div class="bg-grid"></div>
 
-<div class="container">
-    <div class="header-block">
-        <img src="logo.png.png" alt="شعار نورمال" class="logo">
-        <div class="hero-title" data-en="Normal Agency" data-ar="نورمال للخدمات الإلكترونية المتكاملة" data-fr="Agence Normal">نورمال للخدمات الإلكترونية المتكاملة</div>
-        <div class="sub-title" data-en="From Idea to Execution | Integrated Digital & Creative Solutions" data-ar="من الفكرة إلى التنفيذ | حلول رقمية وإبداعية متكاملة" data-fr="De l'idée à l'exécution | Solutions numériques et créatives intégrées">من الفكرة إلى التنفيذ | حلول رقمية وإبداعية متكاملة</div>
+    <!-- الشريط العلوي -->
+    <nav class="top-bar">
+        <div class="brand-mini">NORMAL AGENCY</div>
+        <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">
+            <span class="globe-icon">🌐</span> 
+            <span id="langText">EN / FR / AR</span>
+        </button>
+    </nav>
+
+    <div class="container">
+        <!-- قسم الهيدر الرئيسي -->
+        <header class="hero-section">
+            <div class="logo-wrapper">
+                <img src="images/logo.png" alt="Normal Agency Logo" class="logo" onerror="this.src='https://via.placeholder.com/380x120/0a0a0c/d4af37?text=NORMAL+AGENCY'">
+            </div>
+            <div class="badge" data-en="CREATIVE STUDIO & DIGITAL AGENCY" data-ar="وكالة رقمية واستوديو إبداعي متكامل" data-fr="STUDIO CRÉATIF & AGENCE NUMÉRIQUE">
+                وكالة رقمية واستوديو إبداعي متكامل
+            </div>
+            <h1 class="hero-title" data-en="Redefining Digital Elegance" data-ar="نعيد تعريف الفخامة الرقمية" data-fr="Redéfinir L'Élégance Numérique">
+                نعيد تعريف الفخامة الرقمية
+            </h1>
+            <p class="sub-title" data-en="Crafting exceptional digital experiences, studio productions, and brand identities." data-ar="نصنع تجارب رقمية استثنائية، إنتاجات ستوديو احترافية، وهويات بصرية تخلق الأثر." data-fr="Création d'expériences numériques exceptionnelles et d'identités de marque.">
+                نصنع تجارب رقمية استثنائية، إنتاجات ستوديو احترافية، وهويات بصرية تخلق الأثر.
+            </p>
+        </header>
+
+        <!-- قسم الخدمات الفاخرة -->
+        <main id="services-section">
+            <div class="section-header">
+                <span class="gold-text" data-en="EXCELLENCE IN EXECUTION" data-ar="التميز في التنفيذ" data-fr="EXCELLENCE D'EXÉCUTION">التميز في التنفيذ</span>
+                <h2 class="section-title" data-en="Our Elite Services" data-ar="خدماتنا النخبوية" data-fr="Nos Services D'Élite">خدماتنا النخبوية</h2>
+            </div>
+
+            <div class="services-grid">
+                <!-- كرت نورمال ديجيتال -->
+                <div class="luxury-card" onclick="openModal('Digital')">
+                    <div class="card-border"></div>
+                    <div class="card-icon">⚡</div>
+                    <h3 data-en="Normal Digital" data-ar="نورمال ديجيتال" data-fr="Normal Digital">نورمال ديجيتال</h3>
+                    <p class="card-desc" data-en="Websites, apps & AI solutions built for scaling." data-ar="مواقع، تطبيقات، وحلول ذكاء اصطناعي لنمو أعمالك." data-fr="Sites web, applications et solutions IA.">مواقع، تطبيقات، وحلول ذكاء اصطناعي لنمو أعمالك.</p>
+                    <div class="card-arrow">←</div>
+                </div>
+
+                <!-- كرت نورمال ستوديو -->
+                <div class="luxury-card" onclick="openModal('Studio')">
+                    <div class="card-border"></div>
+                    <div class="card-icon">🎬</div>
+                    <h3 data-en="Normal Studio" data-ar="نورمال ستوديو" data-fr="Normal Studio">نورمال ستوديو</h3>
+                    <p class="card-desc" data-en="Cinematic production, commercial ads & editing." data-ar="إنتاج سينمائي، إعلانات تجارية ومونتاج احترافي." data-fr="Production cinématographique et montage.">إنتاج سينمائي، إعلانات تجارية ومونتاج احترافي.</p>
+                    <div class="card-arrow">←</div>
+                </div>
+
+                <!-- كرت نورمال آرت -->
+                <div class="luxury-card" onclick="openModal('Art')">
+                    <div class="card-border"></div>
+                    <div class="card-icon">🎨</div>
+                    <h3 data-en="Normal Art" data-ar="نورمال آرت" data-fr="Normal Art">نورمال آرت</h3>
+                    <p class="card-desc" data-en="Visual identities, logos & luxury packaging." data-ar="هويات بصرية، تصميم شعارات وتغليف فاخر." data-fr="Identités visuelles, logos et emballages.">هويات بصرية، تصميم شعارات وتغليف فاخر.</p>
+                    <div class="card-arrow">←</div>
+                </div>
+
+                <!-- كرت نورمال برينت -->
+                <div class="luxury-card" onclick="openModal('Print')">
+                    <div class="card-border"></div>
+                    <div class="card-icon">💎</div>
+                    <h3 data-en="Normal Print" data-ar="نورمال برينت" data-fr="Normal Print">نورمال برينت</h3>
+                    <p class="card-desc" data-en="Premium business cards & promo gifts." data-ar="مطبوعات فاخرة، كروت أعمال وهدايا دعائية." data-fr="Cartes de visite premium et cadeaux.">مطبوعات فاخرة، كروت أعمال وهدايا دعائية.</p>
+                    <div class="card-arrow">←</div>
+                </div>
+            </div>
+        </main>
     </div>
-    
-    <div id="services-section">
-        <h2 class="section-title" data-en="Our Services" data-ar="خدماتنا" data-fr="Nos Services">خدماتنا</h2>
-        <div class="grid">
-            <div class="card" onclick="openModal('Digital')" data-en="Normal Digital" data-ar="نورمال ديجيتال" data-fr="Normal Digital">نورمال ديجيتال</div>
-            <div class="card" onclick="openModal('Studio')" data-en="Normal Studio" data-ar="نورمال ستوديو" data-fr="Normal Studio">نورمال ستوديو</div>
-            <div class="card" onclick="openModal('Art')" data-en="Normal Art" data-ar="نورمال آرت" data-fr="Normal Art">نورمال آرت</div>
-            <div class="card" onclick="openModal('Print')" data-en="Normal Print" data-ar="نورمال برينت" data-fr="Normal Print">نورمال برينت</div>
+
+    <!-- النافذة المنبثقة والمعرض (Modal) -->
+    <div id="modal" class="modal">
+        <div class="modal-box">
+            <button class="close-btn" onclick="closeModal()">✕</button>
+            
+            <div class="modal-header-info">
+                <span class="modal-tag">PORTFOLIO & REQUEST</span>
+                <h3 id="modalTitle" class="modal-title">عنوان الخدمة</h3>
+            </div>
+
+            <!-- عرض نموذج العمل الزجاجي -->
+            <div class="work-sample-box">
+                <div class="sample-overlay">
+                    <span class="sample-label" data-en="WORK SAMPLE" data-ar="نموذج من أعمالنا" data-fr="ÉCHANTILLON">نموذج من أعمالنا</span>
+                </div>
+                <img id="modalWorkSample" src="" alt="Work Sample" class="work-sample-img">
+            </div>
+
+            <!-- قائمة الخدمات الفرعية -->
+            <label class="input-label" data-en="SELECT SUB-SERVICE:" data-ar="اختر الخدمة الفرعية المطلوبة:" data-fr="SÉLECTIONNEZ LE SERVICE:">اختر الخدمة الفرعية المطلوبة:</label>
+            <div id="subServicesContainer" class="sub-services-grid"></div>
+
+            <!-- نموذج الطلب الفاخر -->
+            <form action="https://formspree.io/f/xykvqjek" method="POST" class="luxury-form">
+                <input type="text" id="serviceName" name="Service" readonly required placeholder="اختر خدمة من الخيارات أعلاه...">
+                <input type="email" name="Email" required placeholder="بريدك الإلكتروني (Your Email)" data-en-placeholder="Your Email" data-ar-placeholder="بريدك الإلكتروني" data-fr-placeholder="Votre Email">
+                <textarea name="Details" rows="3" required placeholder="تفاصيل مشروعك الإبداعي..." data-en-placeholder="Tell us about your project..." data-ar-placeholder="تفاصيل مشروعك الإبداعي..." data-fr-placeholder="Détails de votre projet..."></textarea>
+                
+                <button type="submit" class="submit-btn">
+                    <span data-en="START A PROJECT" data-ar="ابدأ مشروعك الآن" data-fr="LANCER LE PROJET">ابدأ مشروعك الآن</span>
+                    <span class="btn-arrow">⟶</span>
+                </button>
+            </form>
         </div>
     </div>
 
-    <!-- المساعد الذكي -->
-    <div class="ai-box">
-        <div class="ai-title" data-en="Normal AI Assistant" data-ar="المساعد الذكي 'نورمال'" data-fr="Assistant IA Normal">المساعد الذكي "نورمال"</div>
-        <p data-en="Welcome! I am Normal Assistant, how can I help you today?" data-ar="مرحباً بك! أنا مساعد نورمال، كيف يمكنني مساعدتك اليوم؟" data-fr="Bienvenue ! Je suis l'assistant Normal, comment puis-je vous aider aujourd'hui ?">مرحباً بك! أنا مساعد نورمال، كيف يمكنني مساعدتك اليوم؟</p>
-        <form action="https://formspree.io/f/xykvqjek" method="POST">
-            <input type="email" name="Email" data-en-placeholder="Your Email" data-ar-placeholder="بريدك للتواصل" data-fr-placeholder="Votre Email" placeholder="بريدك للتواصل" required>
-            <textarea name="Message" data-en-placeholder="Write your message here..." data-ar-placeholder="اكتب رسالتك هنا..." data-fr-placeholder="Écrivez votre message ici..." placeholder="اكتب رسالتك هنا..." required></textarea>
-            <button type="submit" data-en="Send" data-ar="إرسال" data-fr="Envoyer">إرسال</button>
-        </form>
-    </div>
-</div>
+    <!-- الشريط السفلي العائم الزجاجي -->
+    <nav class="bottom-nav">
+        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" data-en="HOME" data-ar="الرئيسية" data-fr="ACCUEIL">الرئيسية</a>
+        <div class="nav-divider"></div>
+        <a href="#services-section" data-en="SERVICES" data-ar="خدماتنا" data-fr="SERVICES">خدماتنا</a>
+        <div class="nav-divider"></div>
+        <a href="https://wa.me/966543262920" target="_blank" class="gold-link" data-en="WHATSAPP" data-ar="واتساب الوكالة" data-fr="WHATSAPP">واتساب الوكالة</a>
+    </nav>
 
-<div id="modal" class="modal">
-    <div class="form-box">
-        <button class="close-btn" onclick="document.getElementById('modal').style.display='none'" data-en="Close ✖" data-ar="إغلاق ✖" data-fr="Fermer ✖">إغلاق ✖</button>
-        <h3 id="modalTitle" style="margin-top:0; color:var(--primary)" data-en="Service" data-ar="الخدمة" data-fr="Service">الخدمة</h3>
-        <div id="subServicesContainer" class="sub-services-grid"></div>
-        <hr>
-        <form action="https://formspree.io/f/xykvqjek" method="POST">
-            <input type="text" id="serviceName" name="Service" data-en-placeholder="Select a service..." data-ar-placeholder="اختر خدمة من المربعات أعلاه..." data-fr-placeholder="Sélectionnez un service..." placeholder="اختر خدمة من المربعات أعلاه..." readonly required>
-            <input type="email" name="Email" data-en-placeholder="Your Email" data-ar-placeholder="بريدك الإلكتروني" data-fr-placeholder="Votre Email" placeholder="بريدك الإلكتروني" required>
-            <textarea name="Details" data-en-placeholder="Order Details..." data-ar-placeholder="تفاصيل الطلب..." data-fr-placeholder="Détails de la commande..." placeholder="تفاصيل الطلب..." required></textarea>
-            <button type="submit" data-en="Send Request" data-ar="إرسال الطلب" data-fr="Envoyer la demande">إرسال الطلب</button>
-        </form>
-    </div>
-</div>
-
-<div class="bottom-nav">
-    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" data-en="Home" data-ar="الرئيسية" data-fr="Accueil">الرئيسية</a>
-    <a href="#services-section" data-en="Services" data-ar="خدماتنا" data-fr="Services">خدماتنا</a>
-    <a href="https://wa.me/966543262920" target="_blank" data-en="Contact Us" data-ar="تواصل معنا" data-fr="Contactez-nous">تواصل معنا</a>
-</div>
-
-<script>
-    const db = {
-        Digital: { 
-            ar: "نورمال ديجيتال", en: "Normal Digital", fr: "Normal Digital",
-            items: [
-                ['تصميم المواقع', 'Web Design', 'Conception Web'],
-                ['تطوير المتاجر', 'E-commerce', 'E-commerce'],
-                ['تطبيقات الجوال', 'Mobile Apps', 'Applications Mobiles'],
-                ['برمجة خاصة', 'Custom Coding', 'Développement Sur Mesure'],
-                ['أنظمة إدارة', 'Management Systems', 'Systèmes de Gestion'],
-                ['ذكاء اصطناعي', 'AI Solutions', 'Solutions IA'],
-                ['أتمتة المهام', 'Automation', 'Automatisation'],
-                ['واجهات مستخدم', 'UI/UX', 'UI/UX Design'],
-                ['محركات بحث', 'SEO', 'Référencement SEO'],
-                ['استضافة', 'Hosting', 'Hébergement'],
-                ['أمن سيبراني', 'Cyber Security', 'Cybersécurité'],
-                ['دعم فني', 'Tech Support', 'Support Technique'],
-                ['ربط منصات', 'Integration', 'Intégration'],
-                ['لوحات تحكم', 'Dashboards', 'Tableaux de Bord'],
-                ['صفحات تعريفية', 'Landing Pages', 'Pages d\'Atterrissage']
-            ] 
-        },
-        Studio: { 
-            ar: "نورمال ستوديو", en: "Normal Studio", fr: "Normal Studio",
-            items: [
-                ['تصوير المنتجات', 'Product Photo', 'Photographie de Produits'],
-                ['إعلانات تجارية', 'Commercial Ads', 'Publicités Commerciales'],
-                ['تصوير فعاليات', 'Event Coverage', 'Couverture d\'Événements'],
-                ['تصوير عقاري', 'Real Estate', 'Photographie Immobilière'],
-                ['تصوير جوي', 'Drone Shots', 'Prises de Vue par Drone'],
-                ['فيديو تسويقي', 'Marketing Video', 'Vidéo Marketing'],
-                ['مونتاج احترافي', 'Pro Editing', 'Montage Professionnel'],
-                ['صناعة محتوى', 'Content Creation', 'Création de Contenu'],
-                ['تعليق صوتي', 'Voice Over', 'Voix Off'],
-                ['بودكاست', 'Podcast', 'Podcast'],
-                ['تصوير فوتوغرافي', 'Photography', 'Photographie'],
-                ['بث مباشر', 'Live Streaming', 'Diffusion en Direct'],
-                ['موشن جرافيك', 'Motion Graphics', 'Motion Design'],
-                ['إنتاج إعلانات', 'Ad Production', 'Production Publicitaire'],
-                ['إدارة استوديوهات', 'Media Management', 'Gestion Médias']
-            ] 
-        },
-        Art: { 
-            ar: "نورمال آرت", en: "Normal Art", fr: "Normal Art",
-            items: [
-                ['هوية بصرية', 'Visual Identity', 'Identité Visuelle'],
-                ['تصميم شعارات', 'Logo Design', 'Création de Logo'],
-                ['تصميم جرافيكي', 'Graphic Design', 'Design Graphique'],
-                ['سوشيال ميديا', 'Social Media', 'Réseaux Sociaux'],
-                ['بروفايلات شركات', 'Company Profile', 'Profil d\'Entreprise'],
-                ['بروشورات', 'Brochures', 'Brochures'],
-                ['إنفوجرافيك', 'Infographic', 'Infographie'],
-                ['موشن جرافيك', 'Motion Graphics', 'Motion Design'],
-                ['رسم رقمي', 'Digital Art', 'Art Numérique'],
-                ['رسم جداري', 'Wall Art', 'Peinture Murale'],
-                ['تصميم داخلي', 'Interior Design', 'Design d\'Intérieur'],
-                ['تغليف وعبوات', 'Packaging', 'Emballage & Packaging'],
-                ['تصميم شخصيات', 'Character Design', 'Design de Personnages'],
-                ['عروض تقديمية', 'Presentations', 'Présentations'],
-                ['إعادة هوية', 'Rebranding', 'Refonte d\'Identité']
-            ] 
-        },
-        Print: { 
-            ar: "نورمال برينت", en: "Normal Print", fr: "Normal Print",
-            items: [
-                ['بطاقات عمل', 'Business Cards', 'Cartes de Visite'],
-                ['بروشورات مطبوعة', 'Brochures', 'Brochures Imprimées'],
-                ['فلايرات', 'Flyers', 'Prospectus / Flyers'],
-                ['كتالوجات', 'Catalogs', 'Catalogues'],
-                ['لوحات إعلانية', 'Billboards', 'Panneaux Publicitaires'],
-                ['بنرات', 'Banners', 'Bannières'],
-                ['ملصقات', 'Stickers', 'Autocollants'],
-                ['هدايا دعائية', 'Promo Gifts', 'Cadeaux Publicitaires'],
-                ['ملابس', 'Apparel', 'Vêtements'],
-                ['دروع وجوائز', 'Awards', 'Trophées & Prix'],
-                ['تغليف مطبوع', 'Packaging', 'Emballage Imprimé'],
-                ['فواتير', 'Invoices', 'Factures'],
-                ['ملفات شركة', 'Folders', 'Chemises de Présentation'],
-                ['تجهيز معارض', 'Exhibitions', 'Équipement d\'Exposition'],
-                ['هوية مطبوعة', 'Printed Branding', 'Impression de Marque']
-            ] 
-        }
-    };
-
-    let currentLangIndex = 0; // 0: AR, 1: EN, 2: FR
-    const langs = ['ar', 'en', 'fr'];
-    let currentCat = "Digital";
-
-    function toggleLanguage() {
-        currentLangIndex = (currentLangIndex + 1) % langs.length;
-        const lang = langs[currentLangIndex];
-
-        document.documentElement.lang = lang;
-        document.body.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-
-        // تحديث النصوص ذات البيانات المخصصة
-        document.querySelectorAll('[data-en]').forEach(el => { 
-            el.innerText = el.dataset[lang]; 
-        });
-
-        // تحديث التلميحات (Placeholders)
-        document.querySelectorAll('input, textarea').forEach(el => {
-            if (el.dataset[`${lang}Placeholder`]) { 
-                el.placeholder = el.dataset[`${lang}Placeholder`]; 
-            }
-        });
-
-        refreshModal();
-    }
-
-    function openModal(cat) {
-        currentCat = cat;
-        refreshModal();
-        document.getElementById('modal').style.display = 'block';
-    }
-
-    function refreshModal() {
-        const lang = langs[currentLangIndex];
-        const langMap = { ar: 0, en: 1, fr: 2 };
-        const idx = langMap[lang];
-
-        document.getElementById('modalTitle').innerText = db[currentCat][lang];
-        const container = document.getElementById('subServicesContainer');
-        container.innerHTML = '';
-
-        db[currentCat].items.forEach(i => {
-            const div = document.createElement('div');
-            div.className = 'sub-service-item';
-            div.innerText = i[idx];
-            div.onclick = function() {
-                document.querySelectorAll('.sub-service-item').forEach(el => el.classList.remove('selected-item'));
-                div.classList.add('selected-item');
-                document.getElementById('serviceName').value = i[idx];
-            };
-            container.appendChild(div);
-        });
-    }
-
-    // إغلاق النافذة عند الضغط خارج المودال
-    window.onclick = function(event) {
-        const modal = document.getElementById('modal');
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-</script>
+    <script src="script.js"></script>
 </body>
 </html>
