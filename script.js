@@ -1,5 +1,5 @@
 // ==========================================
-// وكالة نورمال الإبداعية - النظام الكامل والمنظم
+// وكالة نورمال الإبداعية - النظام الكامل والمنظم (5 أقسام)
 // ==========================================
 
 const servicesData = {
@@ -93,6 +93,29 @@ const servicesData = {
             { ar: 'طباعة الأظرف والوسائل', en: 'Envelope Printing', fr: 'Impression d’enveloppes', price: '70' },
             { ar: 'طباعة الأوراق الذهبية', en: 'Gold Foil Printing', fr: 'Impression dorure', price: '180' },
             { ar: 'طباعة الأعلام والرولات Roll-up', en: 'Roll-up Banners Printing', fr: 'Impression de Roll-up', price: '130' }
+        ]
+    },
+    'Office': {
+        titleAr: 'نورمال أوفيس',
+        titleEn: 'Normal Office',
+        titleFr: 'Normal Office',
+        sampleImg: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80',
+        items: [
+            { ar: 'تصميم السيرة الذاتية CV الاحترافية', en: 'Professional CV Design', fr: 'Design de CV professionnel', price: '90' },
+            { ar: 'تصميم عروض الأسعار للشركات Quotation', en: 'Corporate Quotation Design', fr: 'Design de devis d’entreprise', price: '120' },
+            { ar: 'إعداد الملف التعريفي Company Profile', en: 'Company Profile Creation', fr: 'Création de profil d’entreprise', price: '200' },
+            { ar: 'كتابة الخطابات الرسمية والإدارية', en: 'Official Administrative Letters', fr: 'Lettres administratives officielles', price: '60' },
+            { ar: 'ترجمة المستندات والوثائق الرسمية', en: 'Document Translation Services', fr: 'Services de traduction de documents', price: '80' },
+            { ar: 'تنسيق وعمل العروض التقديمية PPT', en: 'Presentation Formatting (PPT)', fr: 'Mise en page de présentations', price: '130' },
+            { ar: 'صياغة العقود واتفاقيات العمل', en: 'Contracts & Work Agreements', fr: 'Rédaction de contrats de travail', price: '250' },
+            { ar: 'تفريغ النصوص والملفات الصوتية', en: 'Transcription & Typing Services', fr: 'Services de transcription', price: '50' },
+            { ar: 'إعداد دراسات الجدوى المبسطة', en: 'Simplified Feasibility Studies', fr: 'Études de faisabilité simplifiées', price: '350' },
+            { ar: 'إعداد التقارير المالية والإدارية', en: 'Financial & Administrative Reports', fr: 'Rapports financiers et administratifs', price: '180' },
+            { ar: 'تصميم النماذج والفواتير المعتمدة', en: 'Invoice & Form Templates Design', fr: 'Design de factures et formulaires', price: '70' },
+            { ar: 'كتابة المحتوى الإداري للمراسلات', en: 'Business Correspondence Content', fr: 'Contenu de correspondance d’affaires', price: '75' },
+            { ar: 'تنظيم وتدقيق الجداول الإحصائية Excel', en: 'Excel Data Organization & Sheets', fr: 'Organisation de données Excel', price: '100' },
+            { ar: 'إعداد خطط العمل التشغيلية Operations', en: 'Operational Business Plans', fr: 'Plans d’affaires opérationnels', price: '220' },
+            { ar: 'خدمة أعمال مكتبية أخرى (مخصصة)', en: 'Other Custom Office Services', fr: 'Autres services de bureau personnalisés', price: '100' }
         ]
     }
 };
