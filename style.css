@@ -1,3 +1,6 @@
+/* ==========================================
+   المتغيرات والألوان الأساسية (مستوحاة من الشعار)
+   ========================================== */
 :root {
     --normal-blue: #0072CE;       /* الأزرق المأخوذ من الشعار */
     --normal-navy: #0F172A;       /* الكحلي المأخوذ من الشعار */
@@ -22,7 +25,7 @@ body {
     background-color: var(--bg-light);
     color: var(--text-main);
     font-family: 'Cairo', sans-serif;
-    padding-bottom: 110px;
+    padding-bottom: 110px; /* مساحة للشريط السفلي العائم */
 }
 
 .container {
@@ -31,7 +34,9 @@ body {
     padding: 0 20px;
 }
 
-/* الشريط العلوي */
+/* ==========================================
+   الشريط العلوي (النافيجيشن)
+   ========================================== */
 .top-bar {
     display: flex;
     justify-content: space-between;
@@ -68,37 +73,84 @@ body {
     color: #fff;
 }
 
-/* الهيدر والشعار */
+/* ==========================================
+   قسم الهيدر والشعار (المكبر والمبرز)
+   ========================================== */
 .hero-section {
     text-align: center;
-    padding: 40px 0 20px 0;
+    padding: 40px 20px 25px 20px;
+    position: relative;
 }
 
 .logo-wrapper {
-    margin-bottom: 15px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 20px 35px;
+    border-radius: 24px;
+    /* خلفية هادئة ناعمة لبروز الشعار */
+    background: radial-gradient(circle, rgba(0, 114, 206, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
 }
 
 .logo {
-    max-width: 220px;
+    width: 100%;
+    max-width: 340px; /* تكبير الحجم بشكل ممتاز */
     height: auto;
     display: block;
-    margin: 0 auto;
+    object-fit: contain;
+    /* ظل خفيف بلون الشعار الأزرق لإعطاء عمق */
+    filter: drop-shadow(0px 8px 16px rgba(0, 114, 206, 0.2));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.04);
+    filter: drop-shadow(0px 12px 24px rgba(0, 114, 206, 0.3));
 }
 
 .hero-title {
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 900;
     color: var(--normal-navy);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
 }
 
 .sub-title {
     color: var(--text-muted);
     font-size: 16px;
     font-weight: 600;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
 }
 
-/* الأقسام والخدمات */
+/* الشعار النصي الاحتياطي (في حال عدم تحميل الصورة) */
+.text-logo {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.text-logo .logo-main {
+    display: block;
+    font-size: 42px;
+    color: var(--normal-navy);
+    letter-spacing: 2px;
+}
+
+.text-logo .logo-sub {
+    display: block;
+    font-size: 16px;
+    color: var(--normal-blue);
+    letter-spacing: 6px;
+    margin-top: 4px;
+}
+
+/* ==========================================
+   الأقسام وكروت الخدمات الرئيسية
+   ========================================== */
 .section-header {
     text-align: center;
     margin: 35px 0 20px 0;
@@ -154,7 +206,9 @@ body {
     border-radius: 12px;
 }
 
-/* النافذة المنبثقة (Modal) */
+/* ==========================================
+   النافذة المنبثقة (Modal) والخدمات الفرعية
+   ========================================== */
 .modal {
     display: none;
     position: fixed;
@@ -225,7 +279,7 @@ body {
     margin-bottom: 10px;
 }
 
-/* قائمة الـ 60 خدمة المتسقة */
+/* شبكة الـ 60 خدمة (15 خدمة لكل قسم) */
 .sub-services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
@@ -260,7 +314,9 @@ body {
     margin: 15px 0;
 }
 
-/* المدخلات والزر */
+/* ==========================================
+   النموذج (Form) والمدخلات
+   ========================================== */
 .agency-form input, .agency-form textarea {
     width: 100%;
     background: #F8FAFC;
@@ -295,7 +351,9 @@ body {
     background: var(--normal-hover);
 }
 
-/* الشريط السفلي العائم */
+/* ==========================================
+   الشريط السفلي العائم (Bottom Nav)
+   ========================================== */
 .bottom-nav {
     position: fixed;
     bottom: 20px;
@@ -319,4 +377,34 @@ body {
 
 .highlight-link {
     color: #38BDF8 !important;
+}
+
+/* ==========================================
+   التجاوب مع شاشات الجوال (Media Queries)
+   ========================================== */
+@media (max-width: 600px) {
+    .hero-section {
+        padding: 25px 15px 15px 15px;
+    }
+
+    .logo-wrapper {
+        padding: 10px 15px;
+        margin-bottom: 15px;
+    }
+
+    .logo {
+        max-width: 250px; /* حجم متناسق مع الجوال */
+    }
+
+    .hero-title {
+        font-size: 22px;
+    }
+
+    .sub-title {
+        font-size: 14px;
+    }
+    
+    .sub-services-grid {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    }
 }
