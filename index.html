@@ -334,77 +334,166 @@
 <body>
 
 <div class="top-bar">
-    <button class="lang-btn" onclick="toggleLanguage()">🌐 English / العربية</button>
+    <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">🌐 العربية / English / Français</button>
 </div>
 
 <div class="container">
     <div class="header-block">
         <img src="logo.png.png" alt="شعار نورمال" class="logo">
-        <div class="hero-title" data-en="Normal Agency" data-ar="نورمال للخدمات الإلكترونية المتكاملة">نورمال للخدمات الإلكترونية المتكاملة</div>
-        <div class="sub-title" data-en="From Idea to Execution | Integrated Digital & Creative Solutions" data-ar="من الفكرة إلى التنفيذ | حلول رقمية وإبداعية متكاملة">من الفكرة إلى التنفيذ | حلول رقمية وإبداعية متكاملة</div>
+        <div class="hero-title" data-en="Normal Agency" data-ar="نورمال للخدمات الإلكترونية المتكاملة" data-fr="Agence Normal">نورمال للخدمات الإلكترونية المتكاملة</div>
+        <div class="sub-title" data-en="From Idea to Execution | Integrated Digital & Creative Solutions" data-ar="من الفكرة إلى التنفيذ | حلول رقمية وإبداعية متكاملة" data-fr="De l'idée à l'exécution | Solutions numériques et créatives intégrées">من الفكرة إلى التنفيذ | حلول رقمية وإبداعية متكاملة</div>
     </div>
     
     <div id="services-section">
-        <h2 class="section-title" data-en="Our Services" data-ar="خدماتنا">خدماتنا</h2>
+        <h2 class="section-title" data-en="Our Services" data-ar="خدماتنا" data-fr="Nos Services">خدماتنا</h2>
         <div class="grid">
-            <div class="card" onclick="openModal('Digital')" data-en="Normal Digital" data-ar="نورمال ديجيتال">نورمال ديجيتال</div>
-            <div class="card" onclick="openModal('Studio')" data-en="Normal Studio" data-ar="نورمال ستوديو">نورمال ستوديو</div>
-            <div class="card" onclick="openModal('Art')" data-en="Normal Art" data-ar="نورمال آرت">نورمال آرت</div>
-            <div class="card" onclick="openModal('Print')" data-en="Normal Print" data-ar="نورمال برينت">نورمال برينت</div>
+            <div class="card" onclick="openModal('Digital')" data-en="Normal Digital" data-ar="نورمال ديجيتال" data-fr="Normal Digital">نورمال ديجيتال</div>
+            <div class="card" onclick="openModal('Studio')" data-en="Normal Studio" data-ar="نورمال ستوديو" data-fr="Normal Studio">نورمال ستوديو</div>
+            <div class="card" onclick="openModal('Art')" data-en="Normal Art" data-ar="نورمال آرت" data-fr="Normal Art">نورمال آرت</div>
+            <div class="card" onclick="openModal('Print')" data-en="Normal Print" data-ar="نورمال برينت" data-fr="Normal Print">نورمال برينت</div>
         </div>
     </div>
 
     <!-- المساعد الذكي -->
     <div class="ai-box">
-        <div class="ai-title" data-en="Normal AI Assistant" data-ar="المساعد الذكي 'نورمال'">المساعد الذكي "نورمال"</div>
-        <p data-en="Welcome! I am Normal Assistant, how can I help you today?" data-ar="مرحباً بك! أنا مساعد نورمال، كيف يمكنني مساعدتك اليوم؟">مرحباً بك! أنا مساعد نورمال، كيف يمكنني مساعدتك اليوم؟</p>
+        <div class="ai-title" data-en="Normal AI Assistant" data-ar="المساعد الذكي 'نورمال'" data-fr="Assistant IA Normal">المساعد الذكي "نورمال"</div>
+        <p data-en="Welcome! I am Normal Assistant, how can I help you today?" data-ar="مرحباً بك! أنا مساعد نورمال، كيف يمكنني مساعدتك اليوم؟" data-fr="Bienvenue ! Je suis l'assistant Normal, comment puis-je vous aider aujourd'hui ?">مرحباً بك! أنا مساعد نورمال، كيف يمكنني مساعدتك اليوم؟</p>
         <form action="https://formspree.io/f/xykvqjek" method="POST">
-            <input type="email" name="Email" data-en-placeholder="Your Email" data-ar-placeholder="بريدك للتواصل" placeholder="بريدك للتواصل" required>
-            <textarea name="Message" data-en-placeholder="Write your message here..." data-ar-placeholder="اكتب رسالتك هنا..." placeholder="اكتب رسالتك هنا..." required></textarea>
-            <button type="submit" data-en="Send" data-ar="إرسال">إرسال</button>
+            <input type="email" name="Email" data-en-placeholder="Your Email" data-ar-placeholder="بريدك للتواصل" data-fr-placeholder="Votre Email" placeholder="بريدك للتواصل" required>
+            <textarea name="Message" data-en-placeholder="Write your message here..." data-ar-placeholder="اكتب رسالتك هنا..." data-fr-placeholder="Écrivez votre message ici..." placeholder="اكتب رسالتك هنا..." required></textarea>
+            <button type="submit" data-en="Send" data-ar="إرسال" data-fr="Envoyer">إرسال</button>
         </form>
     </div>
 </div>
 
 <div id="modal" class="modal">
     <div class="form-box">
-        <button class="close-btn" onclick="document.getElementById('modal').style.display='none'" data-en="Close ✖" data-ar="إغلاق ✖">إغلاق ✖</button>
-        <h3 id="modalTitle" style="margin-top:0; color:var(--primary)" data-en="Service" data-ar="الخدمة">الخدمة</h3>
+        <button class="close-btn" onclick="document.getElementById('modal').style.display='none'" data-en="Close ✖" data-ar="إغلاق ✖" data-fr="Fermer ✖">إغلاق ✖</button>
+        <h3 id="modalTitle" style="margin-top:0; color:var(--primary)" data-en="Service" data-ar="الخدمة" data-fr="Service">الخدمة</h3>
         <div id="subServicesContainer" class="sub-services-grid"></div>
         <hr>
         <form action="https://formspree.io/f/xykvqjek" method="POST">
-            <input type="text" id="serviceName" name="Service" data-en-placeholder="Select a service..." data-ar-placeholder="اختر خدمة من المربعات أعلاه..." placeholder="اختر خدمة من المربعات أعلاه..." readonly required>
-            <input type="email" name="Email" data-en-placeholder="Your Email" data-ar-placeholder="بريدك الإلكتروني" placeholder="بريدك الإلكتروني" required>
-            <textarea name="Details" data-en-placeholder="Order Details..." data-ar-placeholder="تفاصيل الطلب..." placeholder="تفاصيل الطلب..." required></textarea>
-            <button type="submit" data-en="Send Request" data-ar="إرسال الطلب">إرسال الطلب</button>
+            <input type="text" id="serviceName" name="Service" data-en-placeholder="Select a service..." data-ar-placeholder="اختر خدمة من المربعات أعلاه..." data-fr-placeholder="Sélectionnez un service..." placeholder="اختر خدمة من المربعات أعلاه..." readonly required>
+            <input type="email" name="Email" data-en-placeholder="Your Email" data-ar-placeholder="بريدك الإلكتروني" data-fr-placeholder="Votre Email" placeholder="بريدك الإلكتروني" required>
+            <textarea name="Details" data-en-placeholder="Order Details..." data-ar-placeholder="تفاصيل الطلب..." data-fr-placeholder="Détails de la commande..." placeholder="تفاصيل الطلب..." required></textarea>
+            <button type="submit" data-en="Send Request" data-ar="إرسال الطلب" data-fr="Envoyer la demande">إرسال الطلب</button>
         </form>
     </div>
 </div>
 
 <div class="bottom-nav">
-    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" data-en="Home" data-ar="الرئيسية">الرئيسية</a>
-    <a href="#services-section" data-en="Services" data-ar="خدماتنا">خدماتنا</a>
-    <a href="https://wa.me/966543262920" target="_blank" data-en="Contact Us" data-ar="تواصل معنا">تواصل معنا</a>
+    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" data-en="Home" data-ar="الرئيسية" data-fr="Accueil">الرئيسية</a>
+    <a href="#services-section" data-en="Services" data-ar="خدماتنا" data-fr="Services">خدماتنا</a>
+    <a href="https://wa.me/966543262920" target="_blank" data-en="Contact Us" data-ar="تواصل معنا" data-fr="Contactez-nous">تواصل معنا</a>
 </div>
 
 <script>
     const db = {
-        Digital: { ar: "نورمال ديجيتال", en: "Normal Digital", items: [['تصميم المواقع', 'Web Design'], ['تطوير المتاجر', 'E-commerce'], ['تطبيقات الجوال', 'Mobile Apps'], ['برمجة خاصة', 'Custom Coding'], ['أنظمة إدارة', 'Management Systems'], ['ذكاء اصطناعي', 'AI Solutions'], ['أتمتة المهام', 'Automation'], ['واجهات مستخدم', 'UI/UX'], ['محركات بحث', 'SEO'], ['استضافة', 'Hosting'], ['أمن سيبراني', 'Cyber Security'], ['دعم فني', 'Tech Support'], ['ربط منصات', 'Integration'], ['لوحات تحكم', 'Dashboards'], ['صفحات تعريفية', 'Landing Pages']] },
-        Studio: { ar: "نورمال ستوديو", en: "Normal Studio", items: [['تصوير المنتجات', 'Product Photo'], ['إعلانات تجارية', 'Commercial Ads'], ['تصوير فعاليات', 'Event Coverage'], ['تصوير عقاري', 'Real Estate'], ['تصوير جوي', 'Drone Shots'], ['فيديو تسويقي', 'Marketing Video'], ['مونتاج احترافي', 'Pro Editing'], ['صناعة محتوى', 'Content Creation'], ['تعليق صوتي', 'Voice Over'], ['بودكاست', 'Podcast'], ['تصوير فوتوغرافي', 'Photography'], ['بث مباشر', 'Live Streaming'], ['موشن جرافيك', 'Motion Graphics'], ['إنتاج إعلانات', 'Ad Production'], ['إدارة استوديوهات', 'Media Management']] },
-        Art: { ar: "نورمال آرت", en: "Normal Art", items: [['هوية بصرية', 'Visual Identity'], ['تصميم شعارات', 'Logo Design'], ['تصميم جرافيكي', 'Graphic Design'], ['سوشيال ميديا', 'Social Media'], ['بروفايلات شركات', 'Company Profile'], ['بروشورات', 'Brochures'], ['إنفوجرافيك', 'Infographic'], ['موشن جرافيك', 'Motion Graphics'], ['رسم رقمي', 'Digital Art'], ['رسم جداري', 'Wall Art'], ['تصميم داخلي', 'Interior Design'], ['تغليف وعبوات', 'Packaging'], ['تصميم شخصيات', 'Character Design'], ['عروض تقديمية', 'Presentations'], ['إعادة هوية', 'Rebranding']] },
-        Print: { ar: "نورمال برينت", en: "Normal Print", items: [['بطاقات عمل', 'Business Cards'], ['بروشورات مطبوعة', 'Brochures'], ['فلايرات', 'Flyers'], ['كتالوجات', 'Catalogs'], ['لوحات إعلانية', 'Billboards'], ['بنرات', 'Banners'], ['ملصقات', 'Stickers'], ['هدايا دعائية', 'Promo Gifts'], ['ملابس', 'Apparel'], ['دروع وجوائز', 'Awards'], ['تغليف مطبوع', 'Packaging'], ['فواتير', 'Invoices'], ['ملفات شركة', 'Folders'], ['تجهيز معارض', 'Exhibitions'], ['هوية مطبوعة', 'Printed Branding']] }
+        Digital: { 
+            ar: "نورمال ديجيتال", en: "Normal Digital", fr: "Normal Digital",
+            items: [
+                ['تصميم المواقع', 'Web Design', 'Conception Web'],
+                ['تطوير المتاجر', 'E-commerce', 'E-commerce'],
+                ['تطبيقات الجوال', 'Mobile Apps', 'Applications Mobiles'],
+                ['برمجة خاصة', 'Custom Coding', 'Développement Sur Mesure'],
+                ['أنظمة إدارة', 'Management Systems', 'Systèmes de Gestion'],
+                ['ذكاء اصطناعي', 'AI Solutions', 'Solutions IA'],
+                ['أتمتة المهام', 'Automation', 'Automatisation'],
+                ['واجهات مستخدم', 'UI/UX', 'UI/UX Design'],
+                ['محركات بحث', 'SEO', 'Référencement SEO'],
+                ['استضافة', 'Hosting', 'Hébergement'],
+                ['أمن سيبراني', 'Cyber Security', 'Cybersécurité'],
+                ['دعم فني', 'Tech Support', 'Support Technique'],
+                ['ربط منصات', 'Integration', 'Intégration'],
+                ['لوحات تحكم', 'Dashboards', 'Tableaux de Bord'],
+                ['صفحات تعريفية', 'Landing Pages', 'Pages d\'Atterrissage']
+            ] 
+        },
+        Studio: { 
+            ar: "نورمال ستوديو", en: "Normal Studio", fr: "Normal Studio",
+            items: [
+                ['تصوير المنتجات', 'Product Photo', 'Photographie de Produits'],
+                ['إعلانات تجارية', 'Commercial Ads', 'Publicités Commerciales'],
+                ['تصوير فعاليات', 'Event Coverage', 'Couverture d\'Événements'],
+                ['تصوير عقاري', 'Real Estate', 'Photographie Immobilière'],
+                ['تصوير جوي', 'Drone Shots', 'Prises de Vue par Drone'],
+                ['فيديو تسويقي', 'Marketing Video', 'Vidéo Marketing'],
+                ['مونتاج احترافي', 'Pro Editing', 'Montage Professionnel'],
+                ['صناعة محتوى', 'Content Creation', 'Création de Contenu'],
+                ['تعليق صوتي', 'Voice Over', 'Voix Off'],
+                ['بودكاست', 'Podcast', 'Podcast'],
+                ['تصوير فوتوغرافي', 'Photography', 'Photographie'],
+                ['بث مباشر', 'Live Streaming', 'Diffusion en Direct'],
+                ['موشن جرافيك', 'Motion Graphics', 'Motion Design'],
+                ['إنتاج إعلانات', 'Ad Production', 'Production Publicitaire'],
+                ['إدارة استوديوهات', 'Media Management', 'Gestion Médias']
+            ] 
+        },
+        Art: { 
+            ar: "نورمال آرت", en: "Normal Art", fr: "Normal Art",
+            items: [
+                ['هوية بصرية', 'Visual Identity', 'Identité Visuelle'],
+                ['تصميم شعارات', 'Logo Design', 'Création de Logo'],
+                ['تصميم جرافيكي', 'Graphic Design', 'Design Graphique'],
+                ['سوشيال ميديا', 'Social Media', 'Réseaux Sociaux'],
+                ['بروفايلات شركات', 'Company Profile', 'Profil d\'Entreprise'],
+                ['بروشورات', 'Brochures', 'Brochures'],
+                ['إنفوجرافيك', 'Infographic', 'Infographie'],
+                ['موشن جرافيك', 'Motion Graphics', 'Motion Design'],
+                ['رسم رقمي', 'Digital Art', 'Art Numérique'],
+                ['رسم جداري', 'Wall Art', 'Peinture Murale'],
+                ['تصميم داخلي', 'Interior Design', 'Design d\'Intérieur'],
+                ['تغليف وعبوات', 'Packaging', 'Emballage & Packaging'],
+                ['تصميم شخصيات', 'Character Design', 'Design de Personnages'],
+                ['عروض تقديمية', 'Presentations', 'Présentations'],
+                ['إعادة هوية', 'Rebranding', 'Refonte d\'Identité']
+            ] 
+        },
+        Print: { 
+            ar: "نورمال برينت", en: "Normal Print", fr: "Normal Print",
+            items: [
+                ['بطاقات عمل', 'Business Cards', 'Cartes de Visite'],
+                ['بروشورات مطبوعة', 'Brochures', 'Brochures Imprimées'],
+                ['فلايرات', 'Flyers', 'Prospectus / Flyers'],
+                ['كتالوجات', 'Catalogs', 'Catalogues'],
+                ['لوحات إعلانية', 'Billboards', 'Panneaux Publicitaires'],
+                ['بنرات', 'Banners', 'Bannières'],
+                ['ملصقات', 'Stickers', 'Autocollants'],
+                ['هدايا دعائية', 'Promo Gifts', 'Cadeaux Publicitaires'],
+                ['ملابس', 'Apparel', 'Vêtements'],
+                ['دروع وجوائز', 'Awards', 'Trophées & Prix'],
+                ['تغليف مطبوع', 'Packaging', 'Emballage Imprimé'],
+                ['فواتير', 'Invoices', 'Factures'],
+                ['ملفات شركة', 'Folders', 'Chemises de Présentation'],
+                ['تجهيز معارض', 'Exhibitions', 'Équipement d\'Exposition'],
+                ['هوية مطبوعة', 'Printed Branding', 'Impression de Marque']
+            ] 
+        }
     };
 
+    let currentLangIndex = 0; // 0: AR, 1: EN, 2: FR
+    const langs = ['ar', 'en', 'fr'];
     let currentCat = "Digital";
 
     function toggleLanguage() {
-        const isEn = document.documentElement.lang === 'ar'; 
-        document.documentElement.lang = isEn ? 'en' : 'ar';
-        document.body.dir = isEn ? 'ltr' : 'rtl';
-        document.querySelectorAll('[data-en]').forEach(el => { el.innerText = isEn ? el.dataset.en : el.dataset.ar; });
-        document.querySelectorAll('input, textarea').forEach(el => {
-            if (el.dataset.enPlaceholder) { el.placeholder = isEn ? el.dataset.enPlaceholder : el.dataset.arPlaceholder; }
+        currentLangIndex = (currentLangIndex + 1) % langs.length;
+        const lang = langs[currentLangIndex];
+
+        document.documentElement.lang = lang;
+        document.body.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+
+        // تحديث النصوص ذات البيانات المخصصة
+        document.querySelectorAll('[data-en]').forEach(el => { 
+            el.innerText = el.dataset[lang]; 
         });
+
+        // تحديث التلميحات (Placeholders)
+        document.querySelectorAll('input, textarea').forEach(el => {
+            if (el.dataset[`${lang}Placeholder`]) { 
+                el.placeholder = el.dataset[`${lang}Placeholder`]; 
+            }
+        });
+
         refreshModal();
     }
 
@@ -415,24 +504,28 @@
     }
 
     function refreshModal() {
-        const isEn = document.documentElement.lang === 'en';
-        document.getElementById('modalTitle').innerText = isEn ? db[currentCat].en : db[currentCat].ar;
+        const lang = langs[currentLangIndex];
+        const langMap = { ar: 0, en: 1, fr: 2 };
+        const idx = langMap[lang];
+
+        document.getElementById('modalTitle').innerText = db[currentCat][lang];
         const container = document.getElementById('subServicesContainer');
         container.innerHTML = '';
+
         db[currentCat].items.forEach(i => {
             const div = document.createElement('div');
             div.className = 'sub-service-item';
-            div.innerText = isEn ? i[1] : i[0];
+            div.innerText = i[idx];
             div.onclick = function() {
                 document.querySelectorAll('.sub-service-item').forEach(el => el.classList.remove('selected-item'));
                 div.classList.add('selected-item');
-                document.getElementById('serviceName').value = isEn ? i[1] : i[0];
+                document.getElementById('serviceName').value = i[idx];
             };
             container.appendChild(div);
         });
     }
 
-    // إغلاق النوافذ عند الضغط خارج المودال
+    // إغلاق النافذة عند الضغط خارج المودال
     window.onclick = function(event) {
         const modal = document.getElementById('modal');
         if (event.target == modal) {
