@@ -3,72 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Normal Agency | وكالة نورمال</title>
+    <title>Normal Agency | وكالة نورمال الإبداعية</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- الشريط العلوي -->
+    <!-- خلفية جمالية سينمائية متحركة -->
+    <div class="bg-glow"></div>
+
+    <!-- الشريط العلوي الاحترافي -->
     <nav class="top-bar">
-        <div class="brand-mini">NORMAL AGENCY</div>
-        <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">
-            <span>🌐</span> 
-            <span id="langText">العربية</span>
-        </button>
+        <div class="brand-badge">
+            <span class="pulse-dot"></span> NORMAL AGENCY
+        </div>
+        
+        <!-- خانة اللغات الأنيقة -->
+        <div class="lang-selector">
+            <button class="lang-trigger" onclick="toggleLangMenu(event)">
+                <span class="globe-icon">🌐</span>
+                <span id="currentLangText">العربية</span>
+                <span class="arrow-icon">▾</span>
+            </button>
+            <div class="lang-dropdown" id="langDropdown">
+                <button class="lang-option active" data-lang="ar" onclick="selectLanguage('ar')">
+                    <span class="flag">🇸🇦</span> العربية
+                </button>
+                <button class="lang-option" data-lang="en" onclick="selectLanguage('en')">
+                    <span class="flag">🇬🇧</span> English
+                </button>
+                <button class="lang-option" data-lang="fr" onclick="selectLanguage('fr')">
+                    <span class="flag">🇫🇷</span> Français
+                </button>
+            </div>
+        </div>
     </nav>
 
     <div class="container">
-        <!-- قسم الهيدر الرئيسي -->
+        <!-- قسم الهيدر واللوغو الحقيقي البارز -->
         <header class="hero-section">
             <div class="logo-wrapper">
-                <img src="logo.png" alt="Normal Agency Logo" class="logo" onerror="this.style.display='none'; document.getElementById('textLogo').style.display='block';">
+                <img src="logo.png" alt="Normal Agency Logo" class="logo" onerror="this.style.display='none'; document.getElementById('textLogo').style.display='flex';">
                 <div id="textLogo" class="text-logo" style="display: none;">
                     <span class="logo-main">NORMAL</span>
                     <span class="logo-sub">AGENCY</span>
                 </div>
             </div>
-            <h1 class="hero-title" data-en="Normal Agency" data-ar="نورمال للخدمات الإلكترونية المتكاملة" data-fr="Agence Normal">
-                نورمال للخدمات الإلكترونية المتكاملة
+            <h1 class="hero-title" data-en="Integrated Digital & Creative Solutions" data-ar="حلول رقمية وإبداعية متكاملة" data-fr="Solutions numériques et créatives">
+                حلول رقمية وإبداعية متكاملة
             </h1>
-            <p class="sub-title" data-en="From Idea to Execution | Integrated Digital & Creative Solutions" data-ar="من الفكرة إلى التنفيذ | حلول رقمية وإبداعية متكاملة" data-fr="De l'idée à l'exécution | Solutions numériques et créatives intégrées">
-                من الفكرة إلى التنفيذ | حلول رقمية وإبداعية متكاملة
+            <p class="sub-title" data-en="From Vision and Idea to Flawless Execution" data-ar="من الفكرة والرؤية إلى التنفيذ الاحترافي الفائق" data-fr="De l'idée à l'exécution parfaite">
+                من الفكرة والرؤية إلى التنفيذ الاحترافي الفائق
             </p>
         </header>
+
+        <!-- قسم معرض الأعمال الإبداعية المستعاد (Portfolio Banner) -->
+        <section class="portfolio-showcase">
+            <div class="portfolio-card">
+                <div class="portfolio-overlay"></div>
+                <div class="portfolio-content">
+                    <span class="portfolio-tag" data-en="Featured Showcase" data-ar="معرض الأعمال المميز" data-fr="Galerie en vedette">معرض الأعمال المميز</span>
+                    <h2 data-en="Crafting Digital Masterpieces" data-ar="نصنع تجارب بصرية ورقمية استثنائية" data-fr="Création de chefs-d'œuvre">نصنع تجارب بصرية ورقمية استثنائية</h2>
+                    <p data-en="Explore our specialized divisions crafted for ultimate impact." data-ar="استكشف قطاعاتنا المتخصصة والمصممة خصيصاً لإحداث تأثير مذهل." data-fr="Explorez nos divisions spécialisées.">استكشف قطاعاتنا المتخصصة والمصممة خصيصاً لإحداث تأثير مذهل.</p>
+                </div>
+            </div>
+        </section>
 
         <!-- قسم الخدمات الرئيسية -->
         <main id="services-section">
             <div class="section-header">
-                <h2 class="section-title" data-en="Our Services" data-ar="خدماتنا الإبداعية" data-fr="Nos Services">خدماتنا الإبداعية</h2>
+                <h2 class="section-title" data-en="Our Creative Services" data-ar="قطاعات وكالة نورمال" data-fr="Nos Services Créatifs">قطاعات وكالة نورمال</h2>
+                <p class="section-desc" data-en="Click any division to explore sub-services and transparent pricing" data-ar="انقر على أي قسم لاستعراض الخدمات الفرعية والأسشفارة" data-fr="Cliquez sur une division">انقر على أي قسم لاستعراض الخدمات الفرعية والأسعار الشفافة</p>
             </div>
 
             <div class="services-grid">
                 <!-- كرت نورمال ديجيتال -->
                 <div class="card" onclick="openModal('Digital')">
-                    <div class="card-icon">⚡</div>
+                    <div class="card-glow"></div>
+                    <div class="card-icon-box">⚡</div>
                     <h3 data-en="Normal Digital" data-ar="نورمال ديجيتال" data-fr="Normal Digital">نورمال ديجيتال</h3>
-                    <span class="badge">15 خدمة فرعية</span>
+                    <p data-en="Digital Marketing & Tech" data-ar="إدارة وتسويق وتقنية" data-fr="Marketing & Tech">إدارة وتسويق وتقنية</p>
+                    <span class="badge" data-en="15 Services" data-ar="15 خدمة فرعية" data-fr="15 Services">15 خدمة فرعية</span>
                 </div>
 
                 <!-- كرت نورمال ستوديو -->
                 <div class="card" onclick="openModal('Studio')">
-                    <div class="card-icon">🎬</div>
+                    <div class="card-glow"></div>
+                    <div class="card-icon-box">🎬</div>
                     <h3 data-en="Normal Studio" data-ar="نورمال ستوديو" data-fr="Normal Studio">نورمال ستوديو</h3>
-                    <span class="badge">15 خدمة فرعية</span>
+                    <p data-en="Video Production & Editing" data-ar="إنتاج وفيديو ومونتاج" data-fr="Production Vidéo">إنتاج وفيديو ومونتاج</p>
+                    <span class="badge" data-en="15 Services" data-ar="15 خدمة فرعية" data-fr="15 Services">15 خدمة فرعية</span>
                 </div>
 
                 <!-- كرت نورمال آرت -->
                 <div class="card" onclick="openModal('Art')">
-                    <div class="card-icon">🎨</div>
+                    <div class="card-glow"></div>
+                    <div class="card-icon-box">🎨</div>
                     <h3 data-en="Normal Art" data-ar="نورمال آرت" data-fr="Normal Art">نورمال آرت</h3>
-                    <span class="badge">15 خدمة فرعية</span>
+                    <p data-en="Branding & Visual Design" data-ar="هويات بصرية وتصميم" data-fr="Design Visuel">هويات بصرية وتصميم</p>
+                    <span class="badge" data-en="15 Services" data-ar="15 خدمة فرعية" data-fr="15 Services">15 خدمة فرعية</span>
                 </div>
 
                 <!-- كرت نورمال برينت -->
                 <div class="card" onclick="openModal('Print')">
-                    <div class="card-icon">💎</div>
+                    <div class="card-glow"></div>
+                    <div class="card-icon-box">💎</div>
                     <h3 data-en="Normal Print" data-ar="نورمال برينت" data-fr="Normal Print">نورمال برينت</h3>
-                    <span class="badge">15 خدمة فرعية</span>
+                    <p data-en="High-End Printing & Merch" data-ar="طباعة فاخرة وتغليف" data-fr="Impression Haut de gamme">طباعة فاخرة وتغليف</p>
+                    <span class="badge" data-en="15 Services" data-ar="15 خدمة فرعية" data-fr="15 Services">15 خدمة فرعية</span>
                 </div>
             </div>
         </main>
@@ -81,29 +123,32 @@
             
             <h3 id="modalTitle" class="modal-title">عنوان الخدمة</h3>
 
-            <!-- نموذج العمل -->
+            <!-- نموذج العمل المرئي الداخلي -->
             <div class="work-sample-box">
                 <img id="modalWorkSample" src="" alt="Work Sample" class="work-sample-img">
+                <div class="sample-tag-float" data-en="Professional Showcase" data-ar="نموذج أعمال معتمد" data-fr="Exemple Pro">نموذج أعمال معتمد</div>
             </div>
 
-            <label class="input-label" data-en="Select sub-service:" data-ar="اختر الخدمة الفرعية المطلوبة:" data-fr="Sélectionnez le service:">اختر الخدمة الفرعية المطلوبة:</label>
+            <label class="input-label" data-en="Select sub-service & view pricing:" data-ar="اختر الخدمة الفرعية المطلوبة (مع السعر المباشر):" data-fr="Sélectionnez le service:">اختر الخدمة الفرعية المطلوبة:</label>
             
-            <!-- قائمة الخدمات الفرعية مع الأسعار -->
+            <!-- قائمة الخدمات الفرعية مع الأسعار الواضحة -->
             <div id="subServicesContainer" class="sub-services-grid"></div>
 
             <hr class="divider">
 
-            <!-- نموذج الطلب -->
+            <!-- نموذج الطلب الاحترافي -->
             <form id="requestForm" action="https://formspree.io/f/xykvqjek" method="POST" class="agency-form">
                 <input type="text" id="serviceName" name="Service" readonly required placeholder="اضغط على إحدى الخدمات أعلاه لتحديدها..." data-en-placeholder="Select a service above..." data-ar-placeholder="اضغط على إحدى الخدمات أعلاه لتحديدها..." data-fr-placeholder="Sélectionnez un service...">
-                <input type="text" id="clientName" name="Name" placeholder="الاسم أو اسم المنشأة" data-en-placeholder="Your Name or Company" data-ar-placeholder="الاسم أو اسم المنشأة" data-fr-placeholder="Votre nom">
-                <textarea id="orderDetails" name="Details" rows="3" required placeholder="تفاصيل الطلب أو الملاحظات..." data-en-placeholder="Order Details..." data-ar-placeholder="تفاصيل الطلب أو الملاحظات..." data-fr-placeholder="Détails de la commande..."></textarea>
+                <div class="form-row">
+                    <input type="text" id="clientName" name="Name" placeholder="الاسم أو اسم المنشأة" data-en-placeholder="Your Name or Company" data-ar-placeholder="الاسم أو اسم المنشأة" data-fr-placeholder="Votre nom">
+                </div>
+                <textarea id="orderDetails" name="Details" rows="3" required placeholder="تفاصيل الطلب، الأبعاد، أو ملاحظات خاصة..." data-en-placeholder="Order Details & Special Notes..." data-ar-placeholder="تفاصيل الطلب، الأبعاد، أو ملاحظات خاصة..." data-fr-placeholder="Détails de la commande..."></textarea>
                 
                 <div class="form-actions">
-                    <button type="button" class="whatsapp-btn" onclick="sendViaWhatsApp()" data-en="Send via WhatsApp 💬" data-ar="إرسال الطلب عبر الواتساب 💬" data-fr="Envoyer via WhatsApp 💬">
-                        إرسال الطلب عبر الواتساب 💬
+                    <button type="button" class="whatsapp-btn" onclick="sendViaWhatsApp()" data-en="Send Request via WhatsApp 💬" data-ar="إرسال الطلب الفوري عبر الواتساب 💬" data-fr="Envoyer via WhatsApp 💬">
+                        إرسال الطلب الفوري عبر الواتساب 💬
                     </button>
-                    <button type="submit" class="submit-btn" data-en="Send via Email ✉️" data-ar="إرسال عبر البريد الإلكتروني ✉️" data-fr="Envoyer par Email ✉️">
+                    <button type="submit" class="submit-btn" data-en="Submit via Email ✉️" data-ar="إرسال عبر البريد الإلكتروني ✉️" data-fr="Envoyer par Email ✉️">
                         إرسال عبر البريد الإلكتروني ✉️
                     </button>
                 </div>
@@ -111,11 +156,11 @@
         </div>
     </div>
 
-    <!-- الشريط السفلي -->
+    <!-- الشريط السفلي العائم -->
     <nav class="bottom-nav">
         <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" data-en="Home" data-ar="الرئيسية" data-fr="Accueil">الرئيسية</a>
         <a href="#services-section" data-en="Services" data-ar="خدماتنا" data-fr="Services">خدماتنا</a>
-        <a href="https://wa.me/966543262920" target="_blank" class="highlight-link" data-en="Contact Us" data-ar="تواصل معنا" data-fr="Contactez-nous">تواصل معنا</a>
+        <a href="https://wa.me/966543262920" target="_blank" class="highlight-link" data-en="Direct WhatsApp" data-ar="تواصل مباشر 💬" data-fr="Contact direct">تواصل مباشر 💬</a>
     </nav>
 
     <script src="script.js"></script>
