@@ -161,7 +161,7 @@ function selectLanguage(lang) {
 
     document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
 
-    if (document.getElementById('modal').style.display === 'block' && currentCategory) {
+    if (document.getElementById('modal').style.display === 'flex' && currentCategory) {
         openModal(currentCategory);
     }
 }
@@ -206,7 +206,7 @@ function openModal(category) {
         container.appendChild(btn);
     });
 
-    modal.style.display = 'block';
+    modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }
 
@@ -224,7 +224,7 @@ function openPortfolioLightbox(imgSrc, title, desc) {
     document.body.style.overflow = 'hidden';
 }
 
-function closePortfolioLightbox() {
+function closePortfolioLightbox(event) {
     document.getElementById('portfolioLightbox').style.display = 'none';
     document.body.style.overflow = 'auto';
 }
