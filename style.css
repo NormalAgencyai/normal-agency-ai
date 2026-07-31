@@ -748,4 +748,68 @@ body {
     .logo { max-width: 270px; }
     .hero-title { font-size: 23px; }
     .modal-box { padding: 20px; margin: 20px auto; }
+    /* ==========================================
+   لمسات فنية وتجميلية - وكالة نورمال
+   ========================================== */
+
+/* 1. مؤشر الماوس المخصص */
+body {
+    cursor: default;
+}
+
+.custom-cursor {
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color, #ff3366); /* لون هويتكم الرئيسي */
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+}
+
+.custom-cursor-follower {
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease-out, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+}
+
+/* تأثير الماوس عند التأشير على العناصر */
+body.hovering .custom-cursor {
+    width: 14px;
+    height: 14px;
+    background-color: #ffffff;
+}
+
+body.hovering .custom-cursor-follower {
+    width: 48px;
+    height: 48px;
+    border-color: var(--primary-color, #ff3366);
+    background: rgba(255, 51, 102, 0.05);
+}
+
+/* 2. تأثير الزجاج الضبابي للنافذة المنبثقة والبطاقات */
+.modal-content, .service-card, .portfolio-item {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 3. بريق وحركة بطاقات الخدمات عند المرور */
+.service-card {
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease, border-color 0.4s ease !important;
+}
+
+.service-card:hover {
+    transform: translateY(-8px) scale(1.01) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 51, 102, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+}
 }
