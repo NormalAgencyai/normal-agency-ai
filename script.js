@@ -1,5 +1,5 @@
 // ==========================================
-// وكالة نورمال الإبداعية - النظام الكامل والمنظم (5 أقسام مع الترجمة الفورية)
+// وكالة نورمال الإبداعية - النظام الكامل والمنظم (5 أقسام مع الترجمة الفورية وخدمة العملاء)
 // ==========================================
 
 const servicesData = {
@@ -217,7 +217,6 @@ function closeModal() {
     document.getElementById('requestForm').reset();
 }
 
-// دالة فتح معرض الأعمال مع دعم الترجمة التلقائية بناءً على لغة الموقع
 function openPortfolioLightbox(imgSrc, arTitle, enTitle, arDesc, enDesc) {
     const lightbox = document.getElementById('portfolioLightbox');
     const img = document.getElementById('lightboxImg');
@@ -256,11 +255,27 @@ function sendViaWhatsApp() {
     const message = `مرحباً وكالة نورمال 👋%0A%0A*طلب خدمة جديد / New Order:*%0A• *الخدمة والسعر:* ${encodeURIComponent(service)}%0A• *الاسم:* ${encodeURIComponent(name)}%0A• *التفاصيل:* ${encodeURIComponent(details)}`;
     
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
-    // ==========================================
+}
+
+// فتح وإغلاق قائمة خدمة العملاء
+function toggleSupportMenu() {
+    const dropdown = document.getElementById('supportDropdown');
+    if (dropdown) {
+        dropdown.classList.toggle('open');
+    }
+}
+
+// إغلاق نافذة خدمة العملاء عند النقر خارجها
+document.addEventListener('click', (e) => {
+    const widget = document.getElementById('supportWidget');
+    const dropdown = document.getElementById('supportDropdown');
+    if (widget && dropdown && !widget.contains(e.target)) {
+        dropdown.classList.remove('open');
+    }
+});
+
 // تفعيل المؤشر الفني التفاعلي (Custom Cursor)
-// ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-    // إنشاء عناصر الماوس تلقائياً
     const cursor = document.createElement('div');
     const follower = document.createElement('div');
     cursor.className = 'custom-cursor';
@@ -279,7 +294,6 @@ document.addEventListener('DOMContentLoaded', () => {
         cursor.style.top = `${mouseY}px`;
     });
 
-    // حركة سلسة وهادئة للدائرة الخارجية
     function render() {
         posX += (mouseX - posX) * 0.15;
         posY += (mouseY - posY) * 0.15;
@@ -291,8 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     render();
 
-    // التفاعل عند وضع الماوس على الأزرار والبطاقات
-    const interactiveElements = 'a, button, .service-card, .sub-service-item, .portfolio-item, .lang-selector';
+    const interactiveElements = 'a, button, .service-card, .sub-service-item, .portfolio-item, .lang-selector, .support-trigger';
     
     document.addEventListener('mouseover', (e) => {
         if (e.target.closest(interactiveElements)) {
@@ -306,4 +319,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-}
