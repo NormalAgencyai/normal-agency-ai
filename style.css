@@ -1,6 +1,6 @@
 :root {
-    --normal-blue: #0072CE;       
-    --normal-navy: #0B132B;       
+    --normal-blue: #0072CE;        
+    --normal-navy: #0B132B;        
     --normal-light-blue: #3A86FF;
     --whatsapp-green: #25D366;
     --whatsapp-hover: #1EBE5D;
@@ -40,7 +40,7 @@ body {
     width: 100%;
     max-width: 1200px;
     height: 450px;
-    background: radial-gradient(circle, rgba(0,114,206,0.06) 0%, rgba(244,247,251,0) 70%);
+    background: radial-gradient(circle, rgba(0, 114, 206, 0.06) 0%, rgba(244, 247, 251, 0) 70%);
     z-index: -1;
     pointer-events: none;
 }
@@ -108,7 +108,7 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
 .lang-trigger:hover {
@@ -376,7 +376,7 @@ body {
     width: 100%;
     padding: 30px;
     position: relative;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
     text-align: right;
 }
 
