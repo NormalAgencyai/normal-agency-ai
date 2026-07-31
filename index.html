@@ -1,256 +1,338 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وكالة نورمال الإبداعية | Normal Agency</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Normal Agency | وكالة نورمال الإبداعية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================
+       1. VARIABLES & RESET
+       ========================================== */
+    :root {
+      --primary-blue: #1D70B8;
+      --dark-navy: #1B2A38;
+      --accent-light: #EBF4FA;
+      --bg-color: #F8FAFC;
+      --text-color: #2D3748;
+      --text-muted: #718096;
+      --white: #FFFFFF;
+      --shadow: 0 10px 25px -5px rgba(27, 42, 56, 0.08);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Tajawal', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ==========================================
+       2. HEADER & NAVIGATION (مع اللوغو الجديد)
+       ========================================== */
+    .main-header {
+      background-color: var(--white);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 12px 0;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .brand-logo img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      transition: var(--transition);
+    }
+
+    .brand-logo:hover img {
+      transform: scale(1.05);
+    }
+
+    .brand-title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--dark-navy);
+      letter-spacing: 1.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      color: var(--dark-navy);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-blue);
+    }
+
+    .btn-contact {
+      background-color: var(--primary-blue);
+      color: var(--white) !important;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    .btn-contact:hover {
+      background-color: var(--dark-navy);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================
+       3. HERO SECTION
+       ========================================== */
+    .hero {
+      padding: 90px 24px;
+      text-align: center;
+      background: linear-gradient(135deg, var(--white) 0%, var(--accent-light) 100%);
+      border-bottom: 1px solid rgba(29, 112, 184, 0.1);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background-color: rgba(29, 112, 184, 0.1);
+      color: var(--primary-blue);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: var(--dark-navy);
+      margin-bottom: 20px;
+      font-weight: 900;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 35px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .btn-secondary {
+      border: 2px solid var(--dark-navy);
+      color: var(--dark-navy);
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--dark-navy);
+      color: var(--white);
+    }
+
+    /* ==========================================
+       4. SERVICES SECTION
+       ========================================== */
+    .section-title {
+      text-align: center;
+      margin: 70px 0 40px;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      color: var(--dark-navy);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary-blue);
+      border-radius: 2px;
+    }
+
+    .services-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 35px 25px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--primary-blue);
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .service-card h3 {
+      font-size: 1.4rem;
+      color: var(--dark-navy);
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+
+    /* ==========================================
+       5. FOOTER
+       ========================================== */
+    footer {
+      background-color: var(--dark-navy);
+      color: var(--white);
+      text-align: center;
+      padding: 40px 24px;
+      margin-top: 80px;
+    }
+
+    footer p {
+      color: #A0AEC0;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero h1 { font-size: 2.1rem; }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Header & Navigation -->
-    <header class="main-header">
-        <div class="container header-container">
-            <div class="logo-area">
-                <a href="#" class="brand-logo">
-                    <span class="logo-text">NORMAL</span>
-                    <span class="logo-badge">AGENCY</span>
-                </a>
-            </div>
+  <!-- 1. NAVIGATION BAR -->
+  <header class="main-header">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <!-- ضع اسم ملف الشعار المرفق بنفس المجلد -->
+        <img src="IMG_2644.png" alt="Normal Agency Logo">
+        <span class="brand-title">NORMAL</span>
+      </a>
 
-            <nav class="main-nav">
-                <a href="#hero" data-ar="الرئيسية" data-en="Home" data-fr="Accueil">الرئيسية</a>
-                <a href="#services" data-ar="خدماتنا" data-en="Services" data-fr="Services">خدماتنا</a>
-                <a href="#portfolio" data-ar="معرض الأعمال" data-en="Portfolio" data-fr="Portfolio">معرض الأعمال</a>
-                <a href="#contact" data-ar="تواصل معنا" data-en="Contact" data-fr="Contact">تواصل معنا</a>
-            </nav>
-
-            <div class="header-actions">
-                <!-- Language Selector Dropdown -->
-                <div class="lang-selector">
-                    <button class="lang-btn" onclick="toggleLangMenu(event)">
-                        <i class="fa-solid me-1 fa-globe"></i>
-                        <span id="currentLangText">العربية</span>
-                        <i class="fa-solid fa-chevron-down arrow"></i>
-                    </button>
-                    <div class="lang-dropdown">
-                        <button class="lang-option active" data-lang="ar" onclick="selectLanguage('ar')">العربية</button>
-                        <button class="lang-option" data-lang="en" onclick="selectLanguage('en')">English</button>
-                        <button class="lang-option" data-lang="fr" onclick="selectLanguage('fr')">Français</button>
-                    </div>
-                </div>
-
-                <a href="https://wa.me/966543262920" target="_blank" class="cta-btn header-cta" data-ar="اطلب خدمتك" data-en="Get Started" data-fr="Commencer">اطلب خدمتك</a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero-section">
-        <div class="hero-bg-overlay"></div>
-        <div class="container hero-content">
-            <span class="hero-subtitle" data-ar="وكالة إبداعية متكاملة" data-en="Full-Service Creative Agency" data-fr="Agence Créative Complète">وكالة إبداعية متكاملة</span>
-            <h1 class="hero-title" data-ar="نصنع لك بصمة استثنائية تُميز علاماتك التجارية" data-en="Crafting Exceptional Identities For Your Brand" data-fr="Créer Une Identité Exceptionnelle Pour Votre Marque">نصنع لك بصمة استثنائية تُميز علاماتك التجارية</h1>
-            <p class="hero-description" data-ar="حلول تسويقية ورقمية، إنتاج سينمائي، تصميم هوية بصرية، طباعة فاخرة وإدارة الأعمال المكتبية بمستويات احترافية." data-en="Marketing solutions, cinematic production, visual identity, premium printing, and administrative excellence." data-fr="Solutions de marketing, production cinématographique, identité visuelle et impression haut de gamme.">حلول تسويقية ورقمية، إنتاج سينمائي، تصميم هوية بصرية، طباعة فاخرة وإدارة الأعمال المكتبية بمستويات احترافية.</p>
-            <div class="hero-buttons">
-                <a href="#services" class="btn btn-primary" data-ar="استكشف أقسامنا" data-en="Explore Services" data-fr="Découvrir les Services">استكشف أقسامنا</a>
-                <a href="https://wa.me/966543262920" target="_blank" class="btn btn-outline" data-ar="تواصل مباشر" data-en="Contact Us" data-fr="Contactez-nous">تواصل مباشر</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Main Services Grid -->
-    <section id="services" class="services-section">
-        <div class="container">
-            <div class="section-title text-center">
-                <span class="badge-tag" data-ar="أقسامنا الرئيسية" data-en="Our Core Divisions" data-fr="Nos Divisions">أقسامنا الرئيسية</span>
-                <h2 data-ar="خدمات متكاملة تلبي طموحك" data-en="Comprehensive Services For Your Business" data-fr="Services Complets Pour Votre Entreprise">خدمات متكاملة تلبي طموحك</h2>
-            </div>
-
-            <div class="services-grid">
-                <!-- Normal Digital -->
-                <div class="service-card" onclick="openModal('Digital')">
-                    <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
-                    <h3 data-ar="نورمال ديجيتال" data-en="Normal Digital" data-fr="Normal Digital">نورمال ديجيتال</h3>
-                    <p data-ar="تسويق رقمي، حملات إعلانية، إدارة حسابات وتطوير المواقع والمتاجر." data-en="Digital marketing, ad campaigns, social management, and web development." data-fr="Marketing digital, campagnes publicitaires et développement web.">تسويق رقمي، حملات إعلانية، إدارة حسابات وتطوير المواقع والمتاجر.</p>
-                    <span class="explore-link" data-ar="عرض الخدمات الفرعية ←" data-en="View Sub-Services →" data-fr="Voir les Services →">عرض الخدمات الفرعية ←</span>
-                </div>
-
-                <!-- Normal Studio -->
-                <div class="service-card" onclick="openModal('Studio')">
-                    <div class="card-icon"><i class="fa-solid fa-video"></i></div>
-                    <h3 data-ar="نورمال ستوديو" data-en="Normal Studio" data-fr="Normal Studio">نورمال ستوديو</h3>
-                    <p data-ar="إنتاج سينمائي، مونتاج احترافي، تصحيح ألوان، وهندسة صوتية متكاملة." data-en="Cinematic production, video editing, color grading, and sound engineering." data-fr="Production cinématographique, montage vidéo et étalonnage.">إنتاج سينمائي، مونتاج احترافي، تصحيح ألوان، وهندسة صوتية متكاملة.</p>
-                    <span class="explore-link" data-ar="عرض الخدمات الفرعية ←" data-en="View Sub-Services →" data-fr="Voir les Services →">عرض الخدمات الفرعية ←</span>
-                </div>
-
-                <!-- Normal Art -->
-                <div class="service-card" onclick="openModal('Art')">
-                    <div class="card-icon"><i class="fa-solid fa-palette"></i></div>
-                    <h3 data-ar="نورمال آرت" data-en="Normal Art" data-fr="Normal Art">نورمال آرت</h3>
-                    <p data-ar="تصميم الهويات البصرية، الشعارات، البكجات، وواجهات الاستخدام UI/UX." data-en="Brand identity, logo design, packaging, and UI/UX design." data-fr="Design d'identité visuelle, logos, emballages et UI/UX.">تصميم الهويات البصرية، الشعارات، البكجات، وواجهات الاستخدام UI/UX.</p>
-                    <span class="explore-link" data-ar="عرض الخدمات الفرعية ←" data-en="View Sub-Services →" data-fr="Voir les Services →">عرض الخدمات الفرعية ←</span>
-                </div>
-
-                <!-- Normal Print -->
-                <div class="service-card" onclick="openModal('Print')">
-                    <div class="card-icon"><i class="fa-solid fa-print"></i></div>
-                    <h3 data-ar="نورمال برينت" data-en="Normal Print" data-fr="Normal Print">نورمال برينت</h3>
-                    <p data-ar="طباعة كروت الأعمال، التغليف، اللوحات، المنسوجات والمواد الترويجية." data-en="Business card printing, packaging, signboards, and promo gifts." data-fr="Impression de cartes, emballages, enseignes et cadeaux.">طباعة كروت الأعمال، التغليف، اللوحات، المنسوجات والمواد الترويجية.</p>
-                    <span class="explore-link" data-ar="عرض الخدمات الفرعية ←" data-en="View Sub-Services →" data-fr="Voir les Services →">عرض الخدمات الفرعية ←</span>
-                </div>
-
-                <!-- Normal Office -->
-                <div class="service-card" onclick="openModal('Office')">
-                    <div class="card-icon"><i class="fa-solid fa-briefcase"></i></div>
-                    <h3 data-ar="نورمال أوفيس" data-en="Normal Office" data-fr="Normal Office">نورمال أوفيس</h3>
-                    <p data-ar="تصميم السير الذاتية، بروفايل الشركات، المراسلات، والعروض التقديمية." data-en="CV design, company profiles, administrative letters, and PPT decks." data-fr="Design de CV, profils d'entreprise, lettres et présentations.">تصميم السير الذاتية، بروفايل الشركات، المراسلات، والعروض التقديمية.</p>
-                    <span class="explore-link" data-ar="عرض الخدمات الفرعية ←" data-en="View Sub-Services →" data-fr="Voir les Services →">عرض الخدمات الفرعية ←</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio-section">
-        <div class="container">
-            <div class="section-title text-center">
-                <span class="badge-tag" data-ar="معرض الأعمال" data-en="Our Portfolio" data-fr="Notre Portfolio">معرض الأعمال</span>
-                <h2 data-ar="نماذج من إبداع نورمال" data-en="Showcase Of Our Recent Work" data-fr="Aperçu De Nos Réalisations">نماذج من إبداع نورمال</h2>
-            </div>
-
-            <div class="portfolio-grid">
-                <div class="portfolio-item" onclick="openPortfolioLightbox('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80', 'حملة إعلانية سينمائية - Waff & Roll', 'Cinematic Campaign - Waff & Roll', 'إنتاج وإخراج فيديو إعلاني كامل للهوية التجارية في موقع قصر الحكم.', 'Full commercial video production filmed at Qasr Al-Hukm.')">
-                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" alt="Work 1">
-                    <div class="portfolio-overlay">
-                        <h4>Waff & Roll</h4>
-                        <p data-ar="إنتاج سينمائي ومونتاج" data-en="Cinematic Video Production" data-fr="Production Cinématographique">إنتاج سينمائي ومونتاج</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" onclick="openPortfolioLightbox('https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80', 'تصميم وتغليف حلوى الزنجبيل', 'Gingerbread Packaging Design', 'هوية وتصميم تغليف فاخر لحلوى الزنجبيل مع طباعة عالية الجودة.', 'Luxury packaging identity designed for gingerbread candy.')">
-                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="Work 2">
-                    <div class="portfolio-overlay">
-                        <h4 data-ar="حلوى الزنجبيل" data-en="Gingerbread Candy" data-fr="Bonbons au Gingembre">حلوى الزنجبيل</h4>
-                        <p data-ar="تصميم تغليف وهوية" data-en="Packaging & Identity" data-fr="Design d'Emballage">تصميم تغليف وهوية</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" onclick="openPortfolioLightbox('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80', 'حملة تسويقية - Team Burger', 'Marketing Campaign - Team Burger', 'إدارة وتطوير المحتوى الرقمي وإطلاق الحملات الإعلانية المميزة.', 'Digital campaign and content development for Team Burger.')">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Work 3">
-                    <div class="portfolio-overlay">
-                        <h4>Team Burger</h4>
-                        <p data-ar="إدارة حملات وتوديد رقمي" data-en="Digital Marketing & Ads" data-fr="Marketing Digital">إدارة حملات وتوديد رقمي</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Request Modal -->
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <div class="modal-header">
-                <h3 id="modalTitle">اسم القسم</h3>
-            </div>
-            <div class="modal-body">
-                <div class="sample-image-box">
-                    <img id="modalWorkSample" src="" alt="Sample Work">
-                </div>
-                
-                <h4 class="sub-title" data-ar="اختر الخدمة المطلوبة:" data-en="Select a Service:" data-fr="Choisissez un service:">اختر الخدمة المطلوبة:</h4>
-                <div class="sub-services-grid" id="subServicesContainer"></div>
-
-                <!-- Fast Order Form -->
-                <form id="requestForm" class="request-form" onsubmit="event.preventDefault(); sendViaWhatsApp();">
-                    <div class="form-group">
-                        <input type="text" id="serviceName" readonly required placeholder="اختر خدمة من القائمة أعلاه" data-ar-placeholder="اختر خدمة من القائمة أعلاه" data-en-placeholder="Select a service from above" data-fr-placeholder="Sélectionnez un service ci-dessus">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="clientName" placeholder="اسمك الكريم / اسم الشركة" data-ar-placeholder="اسمك الكريم / اسم الشركة" data-en-placeholder="Your Name / Company Name" data-fr-placeholder="Votre nom / Nom de l'entreprise">
-                    </div>
-                    <div class="form-group">
-                        <textarea id="orderDetails" rows="3" placeholder="ملاحظات أو تفاصيل إضافية عن المشروع..." data-ar-placeholder="ملاحظات أو تفاصيل إضافية عن المشروع..." data-en-placeholder="Additional project details..." data-fr-placeholder="Détails supplémentaires du projet..."></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn" data-ar="إرسال الطلب عبر الواتساب 💬" data-en="Send Request via WhatsApp 💬" data-fr="Envoyer via WhatsApp 💬">إرسال الطلب عبر الواتساب 💬</button>
-                </form>
-            </div>
-        </div>
+      <ul class="nav-links">
+        <li><a href="#services">الخدمات</a></li>
+        <li><a href="#portfolio">الأعمال</a></li>
+        <li><a href="#about">من نحن</a></li>
+        <li><a href="#contact" class="btn-contact">تواصل معنا</a></li>
+      </ul>
     </div>
+  </header>
 
-    <!-- Portfolio Lightbox -->
-    <div class="lightbox" id="portfolioLightbox" onclick="closePortfolioLightbox(event)">
-        <div class="lightbox-content" onclick="event.stopPropagation()">
-            <span class="close-lightbox" onclick="closePortfolioLightbox()">&times;</span>
-            <img id="lightboxImg" src="" alt="Portfolio Image">
-            <div class="lightbox-info">
-                <h3 id="lightboxTitle"></h3>
-                <p id="lightboxDesc"></p>
-            </div>
-        </div>
+  <!-- 2. HERO SECTION -->
+  <section class="hero">
+    <span class="hero-badge">NORMAL AGENCY</span>
+    <h1>نبتكر الحلول الرقمية والإبداعية لعلامتك التجارية</h1>
+    <p>نساعد الشركات والأنشطة التجارية على النمو عبر خدمات الإنتاج المرئي، التصميم الإبداعي، وإدارة المحتوى الاحترافي.</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-contact">ابدأ مشروعك الآن</a>
+      <a href="#services" class="btn-secondary">استكشف خدماتنا</a>
     </div>
+  </section>
 
-    <!-- ========================================== -->
-    <!-- مركز خدمة العملاء الفاخر - وكالة نورمال    -->
-    <!-- ========================================== -->
-    <div class="support-widget" id="supportWidget">
-        <button class="support-trigger" onclick="toggleSupportMenu()">
-            <span class="support-icon">🎧</span>
-            <span class="support-text" 
-                  data-ar="خدمة العملاء" 
-                  data-en="Customer Support" 
-                  data-fr="Service Client">خدمة العملاء</span>
-        </button>
-
-        <div class="support-dropdown" id="supportDropdown">
-            <div class="support-header">
-                <h4 data-ar="خدمة عملاء نورمال 💬" 
-                    data-en="Normal Customer Care 💬" 
-                    data-fr="Support Normal Agency 💬">خدمة عملاء نورمال 💬</h4>
-                <span class="status-online" 
-                      data-ar="● متواجدون للرد فوراً" 
-                      data-en="● Online & ready to help" 
-                      data-fr="● En ligne, réponse rapide">● متواجدون للرد فوراً</span>
-            </div>
-
-            <div class="support-body">
-                <!-- خيار محادثة الواتساب -->
-                <a href="https://wa.me/966543262920?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D9%88%D9%83%D8%A7%D9%84%D8%A9%20%D9%86%D9%88%D8%B1%D9%85%D8%A7%D9%84" 
-                   target="_blank" 
-                   class="support-item">
-                    <span class="icon">💬</span>
-                    <div>
-                        <strong data-ar="محادثة واتساب مباشرة" 
-                                data-en="Live WhatsApp Chat" 
-                                data-fr="Chat WhatsApp Direct">محادثة واتساب مباشرة</strong>
-                        <small data-ar="الرد خلال بضع دقائق" 
-                               data-en="Replies within minutes" 
-                               data-fr="Réponse en quelques minutes">الرد خلال بضع دقائق</small>
-                    </div>
-                </a>
-
-                <!-- خيار الاتصال الهاتف المباشر -->
-                <a href="tel:+966543262920" class="support-item">
-                    <span class="icon">📞</span>
-                    <div>
-                        <strong data-ar="اتصال هاتفي مباشر" 
-                                data-en="Direct Phone Call" 
-                                data-fr="Appel Téléphonique Direct">اتصال هاتفي مباشر</strong>
-                        <small data-ar="الأحد - الخميس (9 ص - 6 م)" 
-                               data-en="Sun - Thu (9 AM - 6 PM)" 
-                               data-fr="Dim - Jeu (9h00 - 18h00)">الأحد - الخميس (9 ص - 6 م)</small>
-                    </div>
-                </a>
-            </div>
-        </div>
+  <!-- 3. SERVICES SECTION -->
+  <section id="services">
+    <div class="section-title">
+      <h2>خدماتنا الإبداعية</h2>
     </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Digital Services</h3>
+        <p>إدارة الحملات التسويقية، صناعة المحتوى، وإدارة منصات التواصل الاجتماعي بأعلى كفاءة.</p>
+      </div>
+      <div class="service-card">
+        <h3>Studio Services</h3>
+        <p>تصوير المنتجات، إنتاج الفيديوهات الإعلانية، المونتاج الاحترافي وتعديل الألوان.</p>
+      </div>
+      <div class="service-card">
+        <h3>Art & Design</h3>
+        <p>تطوير الهويات البصرية، تصميم الشعارات، وتغليف المنتجات لمختلف القطاعات.</p>
+      </div>
+      <div class="service-card">
+        <h3>Print & Office</h3>
+        <p>حلول الطباعة والمطبوعات التجارية وتجهيز المكاتب بالهويات الرسمية.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
+  <!-- 4. FOOTER -->
+  <footer>
+    <p>جميع الحقوق محفوظة © 2026 Normal Agency</p>
+  </footer>
+
+  <!-- 5. JAVASCRIPT -->
+  <script>
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
