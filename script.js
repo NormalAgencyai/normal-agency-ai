@@ -1,5 +1,5 @@
 // ==========================================
-// وكالة نورمال الإبداعية - النظام الكامل والمنظم (5 أقسام مع الترجمة الفورية)
+// وكالة نورمال الإبداعية - النظام البرمجي الكامل (يدعم العربية والإنجليزي والفرنسي للخدمات والمعرض)
 // ==========================================
 
 const servicesData = {
@@ -60,7 +60,7 @@ const servicesData = {
             { ar: 'تصاميم السوشيال ميديا', en: 'Social Media Designs', fr: 'Design réseaux sociaux', price: '35' },
             { ar: 'تصميم البكجات والتغليف', en: 'Packaging Design', fr: 'Design d’emballage', price: '220' },
             { ar: 'تصميم الملف التعريفي Profile', en: 'Company Profile Design', fr: 'Profile d’entreprise', price: '190' },
-            { ar: 'رسم واختيار الشخصيات', en: 'Character Design', fr: 'Design de personnages', price: '250' },
+            { ar: 'رسم وااختيار الشخصيات', en: 'Character Design', fr: 'Design de personnages', price: '250' },
             { ar: 'تصميم العروض التقديمية', en: 'Presentation Deck Design', fr: 'Design de présentation', price: '150' },
             { ar: 'تصميم لوحات وإعلانات', en: 'Banner & Sign Design', fr: 'Design de bannières', price: '120' },
             { ar: 'تصميم المطبوعات والكتالوجات', en: 'Brochure & Catalog Design', fr: 'Design de brochures', price: '160' },
@@ -217,8 +217,8 @@ function closeModal() {
     document.getElementById('requestForm').reset();
 }
 
-// دالة فتح معرض الأعمال مع دعم الترجمة التلقائية بناءً على لغة الموقع
-function openPortfolioLightbox(imgSrc, arTitle, enTitle, arDesc, enDesc) {
+// دالة فتح معرض الأعمال مع دعم ثلاثي اللغات (عربي، إنجليزي، فرنسي)
+function openPortfolioLightbox(imgSrc, arTitle, enTitle, frTitle, arDesc, enDesc, frDesc) {
     const lightbox = document.getElementById('portfolioLightbox');
     const img = document.getElementById('lightboxImg');
     const titleEl = document.getElementById('lightboxTitle');
@@ -226,8 +226,17 @@ function openPortfolioLightbox(imgSrc, arTitle, enTitle, arDesc, enDesc) {
 
     if (lightbox && img && titleEl && descEl) {
         img.src = imgSrc;
-        titleEl.innerText = (currentLang === 'en') ? enTitle : arTitle;
-        descEl.innerText = (currentLang === 'en') ? enDesc : arDesc;
+        
+        if (currentLang === 'en') {
+            titleEl.innerText = enTitle;
+            descEl.innerText = enDesc;
+        } else if (currentLang === 'fr') {
+            titleEl.innerText = frTitle || enTitle;
+            descEl.innerText = frDesc || enDesc;
+        } else {
+            titleEl.innerText = arTitle;
+            descEl.innerText = arDesc;
+        }
         
         lightbox.style.display = 'flex';
         document.body.style.overflow = 'hidden';
