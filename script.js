@@ -1,5 +1,5 @@
 // ==========================================
-// وكالة نورمال الإبداعية - النظام البرمجي الكامل (يدعم العربية والإنجليزي والفرنسي للخدمات والمعرض)
+// وكالة نورمال الإبداعية - النظام الكامل والمنظم (5 أقسام مع الترجمة الفورية)
 // ==========================================
 
 const servicesData = {
@@ -60,7 +60,7 @@ const servicesData = {
             { ar: 'تصاميم السوشيال ميديا', en: 'Social Media Designs', fr: 'Design réseaux sociaux', price: '35' },
             { ar: 'تصميم البكجات والتغليف', en: 'Packaging Design', fr: 'Design d’emballage', price: '220' },
             { ar: 'تصميم الملف التعريفي Profile', en: 'Company Profile Design', fr: 'Profile d’entreprise', price: '190' },
-            { ar: 'رسم وااختيار الشخصيات', en: 'Character Design', fr: 'Design de personnages', price: '250' },
+            { ar: 'رسم واختيار الشخصيات', en: 'Character Design', fr: 'Design de personnages', price: '250' },
             { ar: 'تصميم العروض التقديمية', en: 'Presentation Deck Design', fr: 'Design de présentation', price: '150' },
             { ar: 'تصميم لوحات وإعلانات', en: 'Banner & Sign Design', fr: 'Design de bannières', price: '120' },
             { ar: 'تصميم المطبوعات والكتالوجات', en: 'Brochure & Catalog Design', fr: 'Design de brochures', price: '160' },
@@ -123,11 +123,13 @@ const servicesData = {
 let currentCategory = null;
 let currentLang = 'ar';
 
+// إظهار وإخفاء قائمة تحويل اللغات
 function toggleLangMenu(event) {
     event.stopPropagation();
     document.querySelector('.lang-selector').classList.toggle('open');
 }
 
+// إغلاق قائمة اللغات عند النقر خارجها
 document.addEventListener('click', function() {
     const selector = document.querySelector('.lang-selector');
     if (selector && selector.classList.contains('open')) {
@@ -135,6 +137,7 @@ document.addEventListener('click', function() {
     }
 });
 
+// دالة تغيير لغة الموقع والترجمة الفورية
 function selectLanguage(lang) {
     if (currentLang === lang) return;
     currentLang = lang;
@@ -167,6 +170,7 @@ function selectLanguage(lang) {
     }
 }
 
+// دالة فتح النافذة المنبثقة للقطاع المختار
 function openModal(category) {
     currentCategory = category;
     const data = servicesData[category];
@@ -211,14 +215,15 @@ function openModal(category) {
     document.body.style.overflow = 'hidden';
 }
 
+// دالة إغلاق نافذة الخدمات
 function closeModal() {
     document.getElementById('modal').style.display = 'none';
     document.body.style.overflow = 'auto';
     document.getElementById('requestForm').reset();
 }
 
-// دالة فتح معرض الأعمال مع دعم ثلاثي اللغات (عربي، إنجليزي، فرنسي)
-function openPortfolioLightbox(imgSrc, arTitle, enTitle, frTitle, arDesc, enDesc, frDesc) {
+// دالة فتح معرض الأعمال Lightbox
+function openPortfolioLightbox(imgSrc, arTitle, enTitle, arDesc, enDesc) {
     const lightbox = document.getElementById('portfolioLightbox');
     const img = document.getElementById('lightboxImg');
     const titleEl = document.getElementById('lightboxTitle');
@@ -226,23 +231,15 @@ function openPortfolioLightbox(imgSrc, arTitle, enTitle, frTitle, arDesc, enDesc
 
     if (lightbox && img && titleEl && descEl) {
         img.src = imgSrc;
-        
-        if (currentLang === 'en') {
-            titleEl.innerText = enTitle;
-            descEl.innerText = enDesc;
-        } else if (currentLang === 'fr') {
-            titleEl.innerText = frTitle || enTitle;
-            descEl.innerText = frDesc || enDesc;
-        } else {
-            titleEl.innerText = arTitle;
-            descEl.innerText = arDesc;
-        }
+        titleEl.innerText = (currentLang === 'en') ? enTitle : arTitle;
+        descEl.innerText = (currentLang === 'en') ? enDesc : arDesc;
         
         lightbox.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     }
 }
 
+// دالة إغلاق معرض الأعمال Lightbox
 function closePortfolioLightbox(event) {
     const lightbox = document.getElementById('portfolioLightbox');
     if (lightbox) {
@@ -251,6 +248,7 @@ function closePortfolioLightbox(event) {
     }
 }
 
+// دالة تجهيز وإرسال الطلب عبر الواتساب Direct Order
 function sendViaWhatsApp() {
     const service = document.getElementById('serviceName').value;
     const name = document.getElementById('clientName').value || (currentLang === 'ar' ? 'عميل جديد' : 'New Client');
