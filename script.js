@@ -256,4 +256,54 @@ function sendViaWhatsApp() {
     const message = `مرحباً وكالة نورمال 👋%0A%0A*طلب خدمة جديد / New Order:*%0A• *الخدمة والسعر:* ${encodeURIComponent(service)}%0A• *الاسم:* ${encodeURIComponent(name)}%0A• *التفاصيل:* ${encodeURIComponent(details)}`;
     
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+    // ==========================================
+// تفعيل المؤشر الفني التفاعلي (Custom Cursor)
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    // إنشاء عناصر الماوس تلقائياً
+    const cursor = document.createElement('div');
+    const follower = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    follower.className = 'custom-cursor-follower';
+    document.body.appendChild(cursor);
+    document.body.appendChild(follower);
+
+    let posX = 0, posY = 0;
+    let mouseX = 0, mouseY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        cursor.style.left = `${mouseX}px`;
+        cursor.style.top = `${mouseY}px`;
+    });
+
+    // حركة سلسة وهادئة للدائرة الخارجية
+    function render() {
+        posX += (mouseX - posX) * 0.15;
+        posY += (mouseY - posY) * 0.15;
+        
+        follower.style.left = `${posX}px`;
+        follower.style.top = `${posY}px`;
+
+        requestAnimationFrame(render);
+    }
+    render();
+
+    // التفاعل عند وضع الماوس على الأزرار والبطاقات
+    const interactiveElements = 'a, button, .service-card, .sub-service-item, .portfolio-item, .lang-selector';
+    
+    document.addEventListener('mouseover', (e) => {
+        if (e.target.closest(interactiveElements)) {
+            document.body.classList.add('hovering');
+        }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+        if (e.target.closest(interactiveElements)) {
+            document.body.classList.remove('hovering');
+        }
+    });
+});
 }
