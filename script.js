@@ -1,5 +1,5 @@
 // ==========================================
-// وكالة نورمال الإبداعية - النظام الكامل والمنظم (5 أقسام)
+// وكالة نورمال الإبداعية - النظام الكامل والمنظم (5 أقسام مع الترجمة الفورية)
 // ==========================================
 
 const servicesData = {
@@ -160,6 +160,7 @@ function selectLanguage(lang) {
     });
 
     document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.setAttribute('lang', currentLang);
 
     if (document.getElementById('modal').style.display === 'flex' && currentCategory) {
         openModal(currentCategory);
@@ -216,17 +217,29 @@ function closeModal() {
     document.getElementById('requestForm').reset();
 }
 
-function openPortfolioLightbox(imgSrc, title, desc) {
-    document.getElementById('lightboxImg').src = imgSrc;
-    document.getElementById('lightboxTitle').innerText = title;
-    document.getElementById('lightboxDesc').innerText = desc;
-    document.getElementById('portfolioLightbox').style.display = 'flex';
-    document.body.style.overflow = 'hidden';
+// دالة فتح معرض الأعمال مع دعم الترجمة التلقائية بناءً على لغة الموقع
+function openPortfolioLightbox(imgSrc, arTitle, enTitle, arDesc, enDesc) {
+    const lightbox = document.getElementById('portfolioLightbox');
+    const img = document.getElementById('lightboxImg');
+    const titleEl = document.getElementById('lightboxTitle');
+    const descEl = document.getElementById('lightboxDesc');
+
+    if (lightbox && img && titleEl && descEl) {
+        img.src = imgSrc;
+        titleEl.innerText = (currentLang === 'en') ? enTitle : arTitle;
+        descEl.innerText = (currentLang === 'en') ? enDesc : arDesc;
+        
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
 }
 
 function closePortfolioLightbox(event) {
-    document.getElementById('portfolioLightbox').style.display = 'none';
-    document.body.style.overflow = 'auto';
+    const lightbox = document.getElementById('portfolioLightbox');
+    if (lightbox) {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
 }
 
 function sendViaWhatsApp() {
