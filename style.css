@@ -263,7 +263,7 @@ body {
 }
 
 /* ==========================================
-   معرض الأعمال الجديد (World-Class Portfolio Grid)
+   معرض الأعمال (World-Class Portfolio Grid)
    ========================================== */
 .portfolio-section {
     margin: 40px 0 60px 0;
@@ -285,6 +285,16 @@ body {
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .portfolio-card:hover {
@@ -346,7 +356,7 @@ body {
     font-weight: 600;
 }
 
-/* نافذة تكبير معرض الأعمال (Lightbox Modal - تم إصلاحها بالكامل) */
+/* نافذة تكبير معرض الأعمال (Lightbox Modal) */
 .lightbox-modal {
     display: none;
     position: fixed;
@@ -412,6 +422,32 @@ body {
 }
 
 [dir="ltr"] .close-lightbox { left: auto; right: 20px; }
+
+/* زر الواتساب العائم الفاخر */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 95px;
+    right: 25px;
+    background: var(--whatsapp-green);
+    color: #ffffff;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    z-index: 3000;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[dir="ltr"] .floating-whatsapp { right: auto; left: 25px; }
+
+.floating-whatsapp:hover {
+    transform: scale(1.1) rotate(10deg);
+    background: var(--whatsapp-hover);
+    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
+}
 
 /* ==========================================
    قطاعات الخدمات (Services Cards)
