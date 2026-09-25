@@ -120,6 +120,39 @@ const servicesData = {
     }
 };
 
+// ==========================================
+// بيانات آراء العملاء (تحكم كامل: أضف/عدّل/احذف أي تقييم من هنا مباشرة)
+// ⚠️ هذه بيانات تجريبية/نموذجية فقط — استبدلها بتقييمات عملائك الحقيقية قبل النشر.
+// نظرًا لأن الموقع ثابت (Static) بدون قاعدة بيانات، فإن أبسط وأدق طريقة للتحكم بما
+// يظهر (بما في ذلك حذف أي تقييم سلبي) هي تعديل هذه القائمة مباشرة بدل نظام تعليقات حي.
+// ==========================================
+const testimonialsData = [
+    {
+        nameAr: 'اسم العميل', nameEn: 'Client Name', nameFr: 'Nom du client',
+        roleAr: 'صاحب مشروع', roleEn: 'Business Owner', roleFr: 'Propriétaire d’entreprise',
+        rating: 5,
+        textAr: 'مثال: تعاملنا مع نورمال ديجيتال لإطلاق حملة إعلانية وكانت النتائج ممتازة والتسليم في الوقت المحدد.',
+        textEn: 'Example: We worked with Normal Digital on an ad campaign — excellent results and on-time delivery.',
+        textFr: 'Exemple : Nous avons travaillé avec Normal Digital sur une campagne publicitaire — excellents résultats.'
+    },
+    {
+        nameAr: 'اسم العميل', nameEn: 'Client Name', nameFr: 'Nom du client',
+        roleAr: 'مدير تسويق', roleEn: 'Marketing Manager', roleFr: 'Responsable marketing',
+        rating: 5,
+        textAr: 'مثال: فريق نورمال آرت صمم لنا هوية بصرية كاملة احترفنا بها في السوق.',
+        textEn: 'Example: The Normal Art team designed a complete brand identity that elevated our presence.',
+        textFr: 'Exemple : L’équipe Normal Art a conçu une identité de marque complète.'
+    },
+    {
+        nameAr: 'اسم العميل', nameEn: 'Client Name', nameFr: 'Nom du client',
+        roleAr: 'صاحبة متجر', roleEn: 'Store Owner', roleFr: 'Propriétaire de boutique',
+        rating: 4,
+        textAr: 'مثال: خدمة الطباعة كانت احترافية وجودة التغليف ممتازة، وننصح بالتعامل معهم.',
+        textEn: 'Example: Printing service was professional with excellent packaging quality.',
+        textFr: 'Exemple : Le service d’impression était professionnel.'
+    }
+];
+
 let currentCategory = null;
 let currentLang = 'ar';
 
@@ -165,6 +198,8 @@ function selectLanguage(lang) {
     if (document.getElementById('modal').style.display === 'flex' && currentCategory) {
         openModal(currentCategory);
     }
+
+    renderTestimonials();
 }
 
 function openModal(category) {
@@ -242,6 +277,35 @@ function closePortfolioLightbox(event) {
     }
 }
 
+// عرض تقييمات العملاء — يعيد الرسم عند تبديل اللغة
+function renderTestimonials() {
+    const grid = document.getElementById('testimonialsGrid');
+    if (!grid) return;
+
+    grid.innerHTML = '';
+    testimonialsData.forEach(t => {
+        const name = currentLang === 'ar' ? t.nameAr : (currentLang === 'en' ? t.nameEn : t.nameFr);
+        const role = currentLang === 'ar' ? t.roleAr : (currentLang === 'en' ? t.roleEn : t.roleFr);
+        const text = currentLang === 'ar' ? t.textAr : (currentLang === 'en' ? t.textEn : t.textFr);
+        const stars = '★'.repeat(t.rating) + '☆'.repeat(5 - t.rating);
+
+        const card = document.createElement('div');
+        card.className = 'testimonial-card';
+        card.innerHTML = `
+            <div class="testimonial-stars">${stars}</div>
+            <p class="testimonial-text">"${text}"</p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">${name.charAt(0)}</div>
+                <div>
+                    <div class="testimonial-name">${name}</div>
+                    <div class="testimonial-role">${role}</div>
+                </div>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+}
+
 function sendViaWhatsApp() {
     const service = document.getElementById('serviceName').value;
     const name = document.getElementById('clientName').value || (currentLang === 'ar' ? 'عميل جديد' : 'New Client');
@@ -257,3 +321,10 @@ function sendViaWhatsApp() {
     
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
 }
+
+// تهيئة عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    renderTestimonials();
+    const yearEl = document.getElementById('footerYear');
+    if (yearEl) yearEl.innerText = new Date().getFullYear();
+});
