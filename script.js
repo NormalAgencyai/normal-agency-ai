@@ -7,7 +7,6 @@ const servicesData = {
         titleAr: 'نورمال ديجيتال',
         titleEn: 'Normal Digital',
         titleFr: 'Normal Digital',
-        sampleImg: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80',
         items: [
             { ar: 'إدارة حسابات التواصل', en: 'Social Media Management', fr: 'Gestion des réseaux sociaux', price: '650' },
             { ar: 'إطلاق الحملات الإعلانية', en: 'Ad Campaigns Launch', fr: 'Lancement publicitaire', price: '250' },
@@ -30,7 +29,6 @@ const servicesData = {
         titleAr: 'نورمال ستوديو',
         titleEn: 'Normal Studio',
         titleFr: 'Normal Studio',
-        sampleImg: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80',
         items: [
             { ar: 'مونتاج وتعديل الفيديو', en: 'Video Editing', fr: 'Montage vidéo', price: '120' },
             { ar: 'تصحيح وتدرج الألوان', en: 'Color Grading', fr: 'Étalonnage couleur', price: '90' },
@@ -53,7 +51,6 @@ const servicesData = {
         titleAr: 'نورمال آرت',
         titleEn: 'Normal Art',
         titleFr: 'Normal Art',
-        sampleImg: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80',
         items: [
             { ar: 'تصميم هوية بصرية كاملة', en: 'Full Brand Identity Design', fr: 'Design d’identité visuelle', price: '450' },
             { ar: 'تصميم شعار Logo Design', en: 'Logo Design', fr: 'Conception de logo', price: '180' },
@@ -76,7 +73,6 @@ const servicesData = {
         titleAr: 'نورمال برينت',
         titleEn: 'Normal Print',
         titleFr: 'Normal Print',
-        sampleImg: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=600&q=80',
         items: [
             { ar: 'طباعة كروت وأوراق رسمية', en: 'Business Cards Printing', fr: 'Impression cartes de visite', price: '75' },
             { ar: 'طباعة التغليف والأكياس', en: 'Packaging Printing', fr: 'Impression d’emballages', price: '190' },
@@ -99,7 +95,6 @@ const servicesData = {
         titleAr: 'نورمال أوفيس',
         titleEn: 'Normal Office',
         titleFr: 'Normal Office',
-        sampleImg: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80',
         items: [
             { ar: 'تصميم السيرة الذاتية CV الاحترافية', en: 'Professional CV Design', fr: 'Design de CV professionnel', price: '90' },
             { ar: 'تصميم عروض الأسعار للشركات Quotation', en: 'Corporate Quotation Design', fr: 'Design de devis d’entreprise', price: '120' },
@@ -127,31 +122,108 @@ const servicesData = {
 // يظهر (بما في ذلك حذف أي تقييم سلبي) هي تعديل هذه القائمة مباشرة بدل نظام تعليقات حي.
 // ==========================================
 const testimonialsData = [
-    {
-        nameAr: 'اسم العميل', nameEn: 'Client Name', nameFr: 'Nom du client',
-        roleAr: 'صاحب مشروع', roleEn: 'Business Owner', roleFr: 'Propriétaire d’entreprise',
-        rating: 5,
-        textAr: 'مثال: تعاملنا مع نورمال ديجيتال لإطلاق حملة إعلانية وكانت النتائج ممتازة والتسليم في الوقت المحدد.',
-        textEn: 'Example: We worked with Normal Digital on an ad campaign — excellent results and on-time delivery.',
-        textFr: 'Exemple : Nous avons travaillé avec Normal Digital sur une campagne publicitaire — excellents résultats.'
-    },
-    {
-        nameAr: 'اسم العميل', nameEn: 'Client Name', nameFr: 'Nom du client',
-        roleAr: 'مدير تسويق', roleEn: 'Marketing Manager', roleFr: 'Responsable marketing',
-        rating: 5,
-        textAr: 'مثال: فريق نورمال آرت صمم لنا هوية بصرية كاملة احترفنا بها في السوق.',
-        textEn: 'Example: The Normal Art team designed a complete brand identity that elevated our presence.',
-        textFr: 'Exemple : L’équipe Normal Art a conçu une identité de marque complète.'
-    },
-    {
-        nameAr: 'اسم العميل', nameEn: 'Client Name', nameFr: 'Nom du client',
-        roleAr: 'صاحبة متجر', roleEn: 'Store Owner', roleFr: 'Propriétaire de boutique',
-        rating: 4,
-        textAr: 'مثال: خدمة الطباعة كانت احترافية وجودة التغليف ممتازة، وننصح بالتعامل معهم.',
-        textEn: 'Example: Printing service was professional with excellent packaging quality.',
-        textFr: 'Exemple : Le service d’impression était professionnel.'
-    }
+    { sample: true, nameAr: "عميل من قطاع التجزئة", nameEn: "Retail client", nameFr: "Client du commerce", roleAr: '', roleEn: '', roleFr: '', rating: 5,
+      textAr: "تنفيذ سريع وتصاميم رفعت مستوى متجرنا بشكل واضح.", textEn: "Fast delivery and designs that clearly lifted our store.", textFr: "Livraison rapide et des designs qui ont élevé notre boutique." },
+    { sample: true, nameAr: "عميل من قطاع المطاعم", nameEn: "Restaurant client", nameFr: "Client restauration", roleAr: '', roleEn: '', roleFr: '', rating: 5,
+      textAr: "المنيو والهوية الجديدة لفتت انتباه الزبائن من أول أسبوع.", textEn: "The new menu and identity caught customers’ attention from week one.", textFr: "Le nouveau menu et l’identité ont séduit dès la première semaine." },
+    { sample: true, nameAr: "عميل من قطاع العقارات", nameEn: "Real-estate client", nameFr: "Client immobilier", roleAr: '', roleEn: '', roleFr: '', rating: 4,
+      textAr: "ملف تعريفي أنيق ساعدنا في عرض مشاريعنا بثقة.", textEn: "An elegant profile that helped us present our projects with confidence.", textFr: "Un profil élégant pour présenter nos projets avec confiance." },
+    { sample: true, nameAr: "صاحب شركة ناشئة", nameEn: "Startup founder", nameFr: "Fondateur de start-up", roleAr: '', roleEn: '', roleFr: '', rating: 5,
+      textAr: "فريق متفاهم قدّم لنا موقعًا وهوية متكاملة في وقت قياسي.", textEn: "A responsive team that delivered a site and identity in record time.", textFr: "Une équipe réactive : site et identité livrés en un temps record." },
+    { sample: true, nameAr: "عميل من التجارة الإلكترونية", nameEn: "E-commerce client", nameFr: "Client e-commerce", roleAr: '', roleEn: '', roleFr: '', rating: 5,
+      textAr: "حملاتنا الإعلانية تحسنت نتائجها بعد التعاون معهم.", textEn: "Our ad campaigns performed noticeably better after working with them.", textFr: "Nos campagnes publicitaires ont nettement mieux performé." },
+    { sample: true, nameAr: "عميل من القطاع الصحي", nameEn: "Healthcare client", nameFr: "Client du secteur santé", roleAr: '', roleEn: '', roleFr: '', rating: 4,
+      textAr: "التزام بالمواعيد وجودة طباعة ممتازة لموادنا التعريفية.", textEn: "On-time delivery and excellent print quality for our materials.", textFr: "Respect des délais et excellente qualité d’impression." }
 ];
+
+// ==========================================
+// معرض الأعمال — أضف مشاريعك الحقيقية هنا
+// ------------------------------------------
+// 1) ارفع الصورة داخل مجلد في المستودع (مثال: images/office-1.jpg)
+// 2) ضع مسارها في الحقل img  (مثال: img: 'images/office-1.jpg')
+// 3) لإضافة مشروع جديد: انسخ سطرًا كاملًا { ... } وغيّر بياناته
+// cat يجب أن يكون واحدًا من: Office / Studio / Art / Digital / Print
+// concept: true تعني "تصور تصميمي" (ليس مشروع عميل) — احذف هذا الحقل عند وضع مشروع حقيقي.
+// المشروع الذي img فيه فارغ '' يظهر كبطاقة "قريبًا" ولا يُفتح.
+// ==========================================
+const portfolioData = [
+    { cat: 'Office', concept: true, img: CONCEPT_IMGS.office1,
+      titleAr: "هوية ملف تعريفي لشركة", titleEn: "Company Profile Design", titleFr: "Design de profil d’entreprise",
+      descAr: "ملف تعريفي متكامل بتنسيق أنيق وإحصائيات مصورة", descEn: "A complete, elegantly formatted company profile with visual stats", descFr: "Profil complet avec statistiques visuelles" },
+    { cat: 'Office', concept: true, img: CONCEPT_IMGS.office2,
+      titleAr: "عرض شركة وتقارير", titleEn: "Corporate Deck & Reports", titleFr: "Présentation & rapports",
+      descAr: "عروض وتقارير إدارية بتصميم احترافي", descEn: "Executive decks and reports with a polished layout", descFr: "Présentations et rapports professionnels" },
+    { cat: 'Studio', concept: true, img: CONCEPT_IMGS.studio1,
+      titleAr: "فيديو إعلاني سينمائي", titleEn: "Cinematic Commercial", titleFr: "Publicité cinématographique",
+      descAr: "مونتاج وتدرج ألوان دافئ لإعلان علامة تجارية", descEn: "Editing and warm colour grading for a brand commercial", descFr: "Montage et étalonnage chaud pour une marque" },
+    { cat: 'Studio', concept: true, img: CONCEPT_IMGS.studio2,
+      titleAr: "فيلم تعريفي بتدرج بارد", titleEn: "Cool-Toned Brand Film", titleFr: "Film de marque, tons froids",
+      descAr: "إخراج ومونتاج بتدرج ألوان بارد وفاخر", descEn: "Directing and editing with a cool, premium grade", descFr: "Réalisation et montage aux tons froids" },
+    { cat: 'Art', concept: true, img: CONCEPT_IMGS.art1,
+      titleAr: "هوية بصرية متكاملة", titleEn: "Complete Visual Identity", titleFr: "Identité visuelle complète",
+      descAr: "شعار وألوان وخطوط ومطبوعات مكتبية متناسقة", descEn: "Logo, palette, typography and stationery in harmony", descFr: "Logo, couleurs, typographie et papeterie" },
+    { cat: 'Art', concept: true, img: CONCEPT_IMGS.art2,
+      titleAr: "هوية علامة دافئة", titleEn: "Warm Brand Identity", titleFr: "Identité de marque chaleureuse",
+      descAr: "هوية بألوان دافئة لعلامة تجارية عصرية", descEn: "A warm-toned identity for a modern brand", descFr: "Identité aux tons chauds pour une marque moderne" },
+    { cat: 'Digital', concept: true, img: CONCEPT_IMGS.digital1,
+      titleAr: "موقع شركة عصري", titleEn: "Modern Company Website", titleFr: "Site d’entreprise moderne",
+      descAr: "واجهة موقع نظيفة سريعة ومتجاوبة", descEn: "A clean, fast and responsive website interface", descFr: "Interface de site propre, rapide et responsive" },
+    { cat: 'Digital', concept: true, img: CONCEPT_IMGS.digital2,
+      titleAr: "صفحة هبوط لمنتج", titleEn: "Product Landing Page", titleFr: "Page d’atterrissage produit",
+      descAr: "صفحة هبوط مصممة لرفع التحويل", descEn: "A landing page designed to lift conversions", descFr: "Page conçue pour augmenter les conversions" },
+    { cat: 'Print', concept: true, img: CONCEPT_IMGS.print1,
+      titleAr: "علبة تغليف فاخرة", titleEn: "Luxury Packaging Box", titleFr: "Boîte d’emballage de luxe",
+      descAr: "علبة منتج وبطاقات أعمال بطباعة راقية", descEn: "Product box and business cards with premium print", descFr: "Boîte produit et cartes de visite haut de gamme" },
+    { cat: 'Print', concept: true, img: CONCEPT_IMGS.print2,
+      titleAr: "تغليف بلمسة دافئة", titleEn: "Warm-Toned Packaging", titleFr: "Emballage aux tons chauds",
+      descAr: "تغليف بهوية دافئة وطباعة عالية الجودة", descEn: "Warm-toned packaging with high-quality print", descFr: "Emballage chaleureux, impression de qualité" }
+];
+
+let portfolioFilter = 'all';
+
+function langKey() { return currentLang === 'ar' ? 'Ar' : (currentLang === 'en' ? 'En' : 'Fr'); }
+
+function setPortfolioFilter(cat) {
+    portfolioFilter = cat;
+    renderPortfolio();
+}
+
+function renderPortfolio() {
+    const grid = document.getElementById('portfolioGrid');
+    if (!grid) return;
+    const L = langKey();
+    const emptyText = { Ar: 'يُضاف مشروع قريبًا', En: 'Project coming soon', Fr: 'Projet à venir' }[L];
+    const conceptLbl = { Ar: 'تصور تصميمي', En: 'Design concept', Fr: 'Concept' }[L];
+
+    document.querySelectorAll('.filter-chip').forEach(c =>
+        c.classList.toggle('active', c.getAttribute('data-cat') === portfolioFilter));
+
+    grid.innerHTML = '';
+    portfolioData.forEach((p, i) => {
+        if (portfolioFilter !== 'all' && p.cat !== portfolioFilter) return;
+        const cat = servicesData[p.cat];
+        const badge = cat ? cat['title' + L] : p.cat;
+        const media = p.img
+            ? `<img src="${p.img}" alt="${p['title' + L]}" loading="lazy">`
+            : `<div class="p-empty"><img src="logo-mark.png" alt="" class="light-only"><img src="logo-mark-dark.png" alt="" class="dark-only"><span>${emptyText}</span></div>`;
+        const card = document.createElement('div');
+        card.className = 'portfolio-card' + (p.img ? '' : ' is-empty');
+        if (p.img) card.onclick = () => openPortfolioItem(i);
+        card.innerHTML = `
+            <div class="p-card-img-wrap">${media}<span class="p-badge">${badge}</span>${p.concept ? `<span class="concept-pill">${conceptLbl}</span>` : ''}</div>
+            <div class="p-card-content"><h3>${p['title' + L]}</h3><p>${p['desc' + L]}</p></div>`;
+        grid.appendChild(card);
+    });
+}
+
+// ==========================================
+// الوضع الصباحي / الليلي (يُحفظ اختيار الزائر)
+// ==========================================
+function toggleTheme() {
+    const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+}
 
 let currentCategory = null;
 let currentLang = 'ar';
@@ -194,12 +266,17 @@ function selectLanguage(lang) {
 
     document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.setAttribute('lang', currentLang);
+    document.title = { ar: 'Normal Agency | وكالة نورمال الإبداعية', en: 'Normal Agency | Creative Digital Agency', fr: 'Normal Agency | Agence créative' }[currentLang];
+    document.querySelectorAll('.modal-lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-lang') === currentLang));
+    try { localStorage.setItem('lang', currentLang); } catch (e) {}
 
     if (document.getElementById('modal').style.display === 'flex' && currentCategory) {
         openModal(currentCategory);
     }
 
     renderTestimonials();
+    renderPortfolio();
+    renderMarquee();
 }
 
 function openModal(category) {
@@ -213,7 +290,10 @@ function openModal(category) {
     const container = document.getElementById('subServicesContainer');
     
     modalTitle.innerText = currentLang === 'ar' ? data.titleAr : (currentLang === 'en' ? data.titleEn : data.titleFr);
-    modalImg.src = data.sampleImg;
+    const sample = portfolioData.find(p => p.cat === category && p.img);
+    const sampleBox = modalImg.parentElement;
+    if (sample) { modalImg.src = sample.img; sampleBox.style.display = 'block'; }
+    else { modalImg.removeAttribute('src'); sampleBox.style.display = 'none'; }
 
     container.innerHTML = '';
     data.items.forEach(item => {
@@ -252,21 +332,17 @@ function closeModal() {
     document.getElementById('requestForm').reset();
 }
 
-// دالة فتح معرض الأعمال مع دعم الترجمة التلقائية بناءً على لغة الموقع
-function openPortfolioLightbox(imgSrc, arTitle, enTitle, arDesc, enDesc) {
+// فتح مشروع من المعرض (يدعم العربية والإنجليزية والفرنسية)
+function openPortfolioItem(index) {
+    const p = portfolioData[index];
     const lightbox = document.getElementById('portfolioLightbox');
-    const img = document.getElementById('lightboxImg');
-    const titleEl = document.getElementById('lightboxTitle');
-    const descEl = document.getElementById('lightboxDesc');
-
-    if (lightbox && img && titleEl && descEl) {
-        img.src = imgSrc;
-        titleEl.innerText = (currentLang === 'en') ? enTitle : arTitle;
-        descEl.innerText = (currentLang === 'en') ? enDesc : arDesc;
-        
-        lightbox.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
+    if (!p || !p.img || !lightbox) return;
+    const L = langKey();
+    document.getElementById('lightboxImg').src = p.img;
+    document.getElementById('lightboxTitle').innerText = p['title' + L];
+    document.getElementById('lightboxDesc').innerText = p['desc' + L];
+    lightbox.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
 }
 
 function closePortfolioLightbox(event) {
@@ -281,6 +357,8 @@ function closePortfolioLightbox(event) {
 function renderTestimonials() {
     const grid = document.getElementById('testimonialsGrid');
     if (!grid) return;
+    const section = document.getElementById('testimonials-section');
+    if (section) section.style.display = testimonialsData.length ? '' : 'none';
 
     grid.innerHTML = '';
     testimonialsData.forEach(t => {
@@ -288,17 +366,18 @@ function renderTestimonials() {
         const role = currentLang === 'ar' ? t.roleAr : (currentLang === 'en' ? t.roleEn : t.roleFr);
         const text = currentLang === 'ar' ? t.textAr : (currentLang === 'en' ? t.textEn : t.textFr);
         const stars = '★'.repeat(t.rating) + '☆'.repeat(5 - t.rating);
+        const sampleLbl = { Ar: 'مثال توضيحي', En: 'Sample', Fr: 'Exemple' }[langKey()];
 
         const card = document.createElement('div');
         card.className = 'testimonial-card';
         card.innerHTML = `
-            <div class="testimonial-stars">${stars}</div>
+            <div class="testimonial-stars">${stars}${t.sample ? `<em class="sample-pill">${sampleLbl}</em>` : ''}</div>
             <p class="testimonial-text">"${text}"</p>
             <div class="testimonial-author">
                 <div class="testimonial-avatar">${name.charAt(0)}</div>
                 <div>
                     <div class="testimonial-name">${name}</div>
-                    <div class="testimonial-role">${role}</div>
+                    ${role ? `<div class="testimonial-role">${role}</div>` : ''}
                 </div>
             </div>
         `;
@@ -324,7 +403,55 @@ function sendViaWhatsApp() {
 
 // تهيئة عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', function() {
+    try { const sl = localStorage.getItem('lang'); if (sl && sl !== 'ar') selectLanguage(sl); } catch (e) {}
+    renderMarquee();
+    renderPortfolio();
     renderTestimonials();
     const yearEl = document.getElementById('footerYear');
     if (yearEl) yearEl.innerText = new Date().getFullYear();
 });
+
+// شريط أسماء الأقسام المتحرك
+function renderMarquee() {
+    const t = document.getElementById('marqueeTrack');
+    if (!t) return;
+    const L = langKey();
+    const names = Object.values(servicesData).map(d => d['title' + L]);
+    let out = '';
+    for (let half = 0; half < 2; half++)
+        for (let k = 0; k < 3; k++)
+            names.forEach(n => out += `<span class="mq-item"><img src="logo-mark.png" alt="" class="light-only"><img src="logo-mark-dark.png" alt="" class="dark-only">${n}</span>`);
+    t.innerHTML = out;
+}
+
+// توهج البطاقات يتبع المؤشر + شريط تقدم التمرير
+document.addEventListener('mousemove', function(e) {
+    const el = e.target.closest && e.target.closest('.card, .portfolio-card, .testimonial-card');
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+});
+window.addEventListener('scroll', function() {
+    const bar = document.getElementById('scrollProgress');
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (bar && max > 0) bar.style.width = (window.scrollY / max * 100) + '%';
+}, { passive: true });
+
+// ==========================================
+// شاركنا رأيك — يصلك الرأي على بريدك (Formspree) وأنت تقرر إضافته أو لا
+// ==========================================
+function openReviewModal() { document.getElementById('reviewMsg').innerText = ''; document.getElementById('reviewModal').style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+function closeReviewModal() { document.getElementById('reviewModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
+async function submitReview(e) {
+    e.preventDefault();
+    const f = e.target, msg = document.getElementById('reviewMsg'), L = currentLang;
+    const t = { ar: ['جارٍ الإرسال...', 'شكرًا لك! سيظهر رأيك بعد مراجعته.', 'تعذّر الإرسال، حاول مرة أخرى.'], en: ['Sending...', 'Thank you! Your review will appear after it is reviewed.', 'Could not send, please try again.'], fr: ['Envoi...', 'Merci ! Votre avis apparaîtra après vérification.', 'Échec de l’envoi, réessayez.'] }[L];
+    msg.innerText = t[0];
+    try {
+        const res = await fetch('https://formspree.io/f/xykvqjek', { method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+            body: JSON.stringify({ Type: 'Customer review', Name: f.rName.value, Role: f.rRole.value, Rating: f.rRating.value, Comment: f.rComment.value }) });
+        if (!res.ok) throw new Error('bad');
+        msg.innerText = t[1]; f.reset(); setTimeout(closeReviewModal, 2600);
+    } catch (err) { msg.innerText = t[2]; }
+}
