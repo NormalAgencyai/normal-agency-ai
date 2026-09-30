@@ -8,21 +8,21 @@ const servicesData = {
         titleEn: 'Normal Digital',
         titleFr: 'Normal Digital',
         items: [
-            { ar: 'إدارة حسابات التواصل', en: 'Social Media Management', fr: 'Gestion des réseaux sociaux', price: '650' },
-            { ar: 'إطلاق الحملات الإعلانية', en: 'Ad Campaigns Launch', fr: 'Lancement publicitaire', price: '250' },
-            { ar: 'كتابة المحتوى والسيناريو', en: 'Content & Scriptwriting', fr: 'Rédaction de contenu', price: '75' },
-            { ar: 'إنشاء المواقع والمتاجر', en: 'Web & E-Commerce Dev', fr: 'Création de sites', price: '490' },
-            { ar: 'تحسين محركات البحث SEO', en: 'SEO Optimization', fr: 'Optimisation SEO', price: '350' },
-            { ar: 'استراتيجية التسويق الرقمي', en: 'Digital Marketing Strategy', fr: 'Stratégie digitale', price: '400' },
-            { ar: 'تحليل البيانات والتقارير', en: 'Data Analytics & Reports', fr: 'Analyse de données', price: '200' },
-            { ar: 'التسويق عبر البريد', en: 'Email Marketing', fr: 'Email marketing', price: '150' },
-            { ar: 'إدارة حملات المشاهير', en: 'Influencer Campaigns', fr: 'Campagnes d’influenceurs', price: '500' },
-            { ar: 'إعادة بناء الهوية الرقمية', en: 'Rebranding Strategy', fr: 'Stratégie de rebranding', price: '450' },
-            { ar: 'استشارات تسويقية', en: 'Marketing Consultation', fr: 'Conseil en marketing', price: '150' },
-            { ar: 'إدارة سمعة العلامة التجارية', en: 'Brand Reputation Mgmt', fr: 'Gestion de réputation', price: '300' },
-            { ar: 'ربط البوابات والأدوات', en: 'API & Tool Integration', fr: 'Intégration d’API', price: '250' },
-            { ar: 'إدارة الحملات التفاعلية', en: 'Interactive Campaigns', fr: 'Campagnes interactives', price: '300' },
-            { ar: 'إعداد خطط نشر المحتوى', en: 'Content Calendar Planning', fr: 'Planification', price: '120' }
+            { ar: 'إدارة حسابات التواصل', en: 'Social Media Management', fr: 'Gestion des réseaux sociaux', price: '1300' },
+            { ar: 'إطلاق الحملات الإعلانية', en: 'Ad Campaigns Launch', fr: 'Lancement publicitaire', price: '500' },
+            { ar: 'كتابة المحتوى والسيناريو', en: 'Content & Scriptwriting', fr: 'Rédaction de contenu', price: '150' },
+            { ar: 'إنشاء المواقع والمتاجر', en: 'Web & E-Commerce Dev', fr: 'Création de sites', price: '1000' },
+            { ar: 'تحسين محركات البحث SEO', en: 'SEO Optimization', fr: 'Optimisation SEO', price: '700' },
+            { ar: 'استراتيجية التسويق الرقمي', en: 'Digital Marketing Strategy', fr: 'Stratégie digitale', price: '800' },
+            { ar: 'تحليل البيانات والتقارير', en: 'Data Analytics & Reports', fr: 'Analyse de données', price: '400' },
+            { ar: 'التسويق عبر البريد', en: 'Email Marketing', fr: 'Email marketing', price: '300' },
+            { ar: 'إدارة حملات المشاهير', en: 'Influencer Campaigns', fr: 'Campagnes d’influenceurs', price: '1000' },
+            { ar: 'إعادة بناء الهوية الرقمية', en: 'Rebranding Strategy', fr: 'Stratégie de rebranding', price: '900' },
+            { ar: 'استشارات تسويقية', en: 'Marketing Consultation', fr: 'Conseil en marketing', price: '300' },
+            { ar: 'إدارة سمعة العلامة التجارية', en: 'Brand Reputation Mgmt', fr: 'Gestion de réputation', price: '600' },
+            { ar: 'ربط البوابات والأدوات', en: 'API & Tool Integration', fr: 'Intégration d’API', price: '500' },
+            { ar: 'إدارة الحملات التفاعلية', en: 'Interactive Campaigns', fr: 'Campagnes interactives', price: '600' },
+            { ar: 'إعداد خطط نشر المحتوى', en: 'Content Calendar Planning', fr: 'Planification', price: '250' }
         ]
     },
     'Studio': {
@@ -30,21 +30,21 @@ const servicesData = {
         titleEn: 'Normal Studio',
         titleFr: 'Normal Studio',
         items: [
-            { ar: 'مونتاج وتعديل الفيديو', en: 'Video Editing', fr: 'Montage vidéo', price: '120' },
-            { ar: 'تصحيح وتدرج الألوان', en: 'Color Grading', fr: 'Étalonnage couleur', price: '90' },
-            { ar: 'إنتاج فيديو إعلاني كامل', en: 'Commercial Video Production', fr: 'Production commerciale', price: '390' },
-            { ar: 'المؤثرات البصرية Visual Effects', en: 'VFX & Visual Effects', fr: 'Effets visuels (VFX)', price: '180' },
-            { ar: 'تصوير منتجات ميداني', en: 'Product Photography', fr: 'Photographie produits', price: '350' },
-            { ar: 'المونتاج السينمائي', en: 'Cinematic Editing', fr: 'Montage cinématographique', price: '250' },
-            { ar: 'المؤثرات الصوتية والهندسة', en: 'Sound Design & Engineering', fr: 'Design sonore', price: '100' },
-            { ar: 'تصوير وتسجيل ستوديو', en: 'Studio Shooting & Recording', fr: 'Tournage studio', price: '400' },
-            { ar: 'إنتاج فيديو موشن جرافيك', en: 'Motion Graphics Video', fr: 'Motion Design', price: '220' },
-            { ar: 'مونتاج الريلز والشورتس', en: 'Reels & Shorts Editing', fr: 'Montage Reels', price: '60' },
-            { ar: 'تأجير معدات إضاءة واستوديو', en: 'Studio Equipment Rental', fr: 'Location d’équipement', price: '300' },
-            { ar: 'إخراج كليبات وإعلانات', en: 'Directing Services', fr: 'Réalisation', price: '600' },
-            { ar: 'تغطية الفعاليات والمؤتمرات', en: 'Event Coverage', fr: 'Couverture d’événements', price: '500' },
-            { ar: 'البث المباشر الاحترافي', en: 'Professional Live Streaming', fr: 'Streaming en direct', price: '450' },
-            { ar: 'معالجة ومكساج الصوت', en: 'Audio Post-Production', fr: 'Post-production audio', price: '120' }
+            { ar: 'مونتاج وتعديل الفيديو', en: 'Video Editing', fr: 'Montage vidéo', price: '300' },
+            { ar: 'تصحيح وتدرج الألوان', en: 'Color Grading', fr: 'Étalonnage couleur', price: '225' },
+            { ar: 'إنتاج فيديو إعلاني كامل', en: 'Commercial Video Production', fr: 'Production commerciale', price: '950' },
+            { ar: 'المؤثرات البصرية Visual Effects', en: 'VFX & Visual Effects', fr: 'Effets visuels (VFX)', price: '450' },
+            { ar: 'تصوير منتجات ميداني', en: 'Product Photography', fr: 'Photographie produits', price: '850' },
+            { ar: 'المونتاج السينمائي', en: 'Cinematic Editing', fr: 'Montage cinématographique', price: '600' },
+            { ar: 'المؤثرات الصوتية والهندسة', en: 'Sound Design & Engineering', fr: 'Design sonore', price: '250' },
+            { ar: 'تصوير وتسجيل ستوديو', en: 'Studio Shooting & Recording', fr: 'Tournage studio', price: '950' },
+            { ar: 'إنتاج فيديو موشن جرافيك', en: 'Motion Graphics Video', fr: 'Motion Design', price: '550' },
+            { ar: 'مونتاج الريلز والشورتس', en: 'Reels & Shorts Editing', fr: 'Montage Reels', price: '150' },
+            { ar: 'تأجير معدات إضاءة واستوديو', en: 'Studio Equipment Rental', fr: 'Location d’équipement', price: '700' },
+            { ar: 'إخراج كليبات وإعلانات', en: 'Directing Services', fr: 'Réalisation', price: '1450' },
+            { ar: 'تغطية الفعاليات والمؤتمرات', en: 'Event Coverage', fr: 'Couverture d’événements', price: '1200' },
+            { ar: 'البث المباشر الاحترافي', en: 'Professional Live Streaming', fr: 'Streaming en direct', price: '1100' },
+            { ar: 'معالجة ومكساج الصوت', en: 'Audio Post-Production', fr: 'Post-production audio', price: '300' }
         ]
     },
     'Art': {
@@ -52,21 +52,21 @@ const servicesData = {
         titleEn: 'Normal Art',
         titleFr: 'Normal Art',
         items: [
-            { ar: 'تصميم هوية بصرية كاملة', en: 'Full Brand Identity Design', fr: 'Design d’identité visuelle', price: '450' },
-            { ar: 'تصميم شعار Logo Design', en: 'Logo Design', fr: 'Conception de logo', price: '180' },
-            { ar: 'تصاميم السوشيال ميديا', en: 'Social Media Designs', fr: 'Design réseaux sociaux', price: '35' },
-            { ar: 'تصميم البكجات والتغليف', en: 'Packaging Design', fr: 'Design d’emballage', price: '220' },
-            { ar: 'تصميم الملف التعريفي Profile', en: 'Company Profile Design', fr: 'Profile d’entreprise', price: '190' },
-            { ar: 'رسم واختيار الشخصيات', en: 'Character Design', fr: 'Design de personnages', price: '250' },
-            { ar: 'تصميم العروض التقديمية', en: 'Presentation Deck Design', fr: 'Design de présentation', price: '150' },
-            { ar: 'تصميم لوحات وإعلانات', en: 'Banner & Sign Design', fr: 'Design de bannières', price: '120' },
-            { ar: 'تصميم المطبوعات والكتالوجات', en: 'Brochure & Catalog Design', fr: 'Design de brochures', price: '160' },
-            { ar: 'تصميم واجهات المستخدم UI/UX', en: 'UI/UX Interface Design', fr: 'UI/UX Design', price: '400' },
-            { ar: 'تصميم القوائم والمنيو', en: 'Menu Design', fr: 'Design de menu', price: '110' },
-            { ar: 'تصميم كروت الأعمال', en: 'Business Cards Design', fr: 'Cartes de visite', price: '50' },
-            { ar: 'تطوير ودليل العلامة التجارية', en: 'Brand Guidelines Manual', fr: 'Guide de marque', price: '280' },
-            { ar: 'تصميم ملصقات واستيكرات', en: 'Sticker Design', fr: 'Design d’autocollants', price: '40' },
-            { ar: 'تعديل ومعالجة الصور', en: 'Photo Retouching', fr: 'Retouche photo', price: '30' }
+            { ar: 'تصميم هوية بصرية كاملة', en: 'Full Brand Identity Design', fr: 'Design d’identité visuelle', price: '1100' },
+            { ar: 'تصميم شعار Logo Design', en: 'Logo Design', fr: 'Conception de logo', price: '450' },
+            { ar: 'تصاميم السوشيال ميديا', en: 'Social Media Designs', fr: 'Design réseaux sociaux', price: '100' },
+            { ar: 'تصميم البكجات والتغليف', en: 'Packaging Design', fr: 'Design d’emballage', price: '550' },
+            { ar: 'تصميم الملف التعريفي Profile', en: 'Company Profile Design', fr: 'Profile d’entreprise', price: '500' },
+            { ar: 'رسم واختيار الشخصيات', en: 'Character Design', fr: 'Design de personnages', price: '600' },
+            { ar: 'تصميم العروض التقديمية', en: 'Presentation Deck Design', fr: 'Design de présentation', price: '400' },
+            { ar: 'تصميم لوحات وإعلانات', en: 'Banner & Sign Design', fr: 'Design de bannières', price: '300' },
+            { ar: 'تصميم المطبوعات والكتالوجات', en: 'Brochure & Catalog Design', fr: 'Design de brochures', price: '400' },
+            { ar: 'تصميم واجهات المستخدم UI/UX', en: 'UI/UX Interface Design', fr: 'UI/UX Design', price: '1000' },
+            { ar: 'تصميم القوائم والمنيو', en: 'Menu Design', fr: 'Design de menu', price: '275' },
+            { ar: 'تصميم كروت الأعمال', en: 'Business Cards Design', fr: 'Cartes de visite', price: '125' },
+            { ar: 'تطوير ودليل العلامة التجارية', en: 'Brand Guidelines Manual', fr: 'Guide de marque', price: '700' },
+            { ar: 'تصميم ملصقات واستيكرات', en: 'Sticker Design', fr: 'Design d’autocollants', price: '100' },
+            { ar: 'تعديل ومعالجة الصور', en: 'Photo Retouching', fr: 'Retouche photo', price: '75' }
         ]
     },
     'Print': {
@@ -74,21 +74,21 @@ const servicesData = {
         titleEn: 'Normal Print',
         titleFr: 'Normal Print',
         items: [
-            { ar: 'طباعة كروت وأوراق رسمية', en: 'Business Cards Printing', fr: 'Impression cartes de visite', price: '75' },
-            { ar: 'طباعة التغليف والأكياس', en: 'Packaging Printing', fr: 'Impression d’emballages', price: '190' },
-            { ar: 'طباعة الهدايا الدعائية', en: 'Promo Gifts Printing', fr: 'Cadeaux promotionnels', price: '120' },
-            { ar: 'طباعة اللوحات الإعلانية', en: 'Signboards Printing', fr: 'Impression d’enseignes', price: '150' },
-            { ar: 'طباعة البروشورات والمنشورات', en: 'Flyers Printing', fr: 'Impression de flyers', price: '80' },
-            { ar: 'طباعة الكتب والكتالوجات', en: 'Catalog Printing', fr: 'Impression de catalogues', price: '250' },
-            { ar: 'طباعة المنسوجات والزي', en: 'Apparel & Uniform Printing', fr: 'Impression textile', price: '140' },
-            { ar: 'طباعة الاستيكرات والملصقات', en: 'Stickers Roll Printing', fr: 'Impression d’autocollants', price: '60' },
-            { ar: 'طباعة العلب الكرتونية', en: 'Carton Box Printing', fr: 'Impression de boîtes', price: '220' },
-            { ar: 'طباعة الأجنحة والمعارض', en: 'Exhibition Booth Printing', fr: 'Impression pour stands', price: '600' },
-            { ar: 'طباعة التقاويم والمذكرات', en: 'Diaries Printing', fr: 'Impression d’agendas', price: '110' },
-            { ar: 'طباعة المنيو البلاستيكي', en: 'Menu Board Printing', fr: 'Impression de menus', price: '90' },
-            { ar: 'طباعة الأظرف والوسائل', en: 'Envelope Printing', fr: 'Impression d’enveloppes', price: '70' },
-            { ar: 'طباعة الأوراق الذهبية', en: 'Gold Foil Printing', fr: 'Impression dorure', price: '180' },
-            { ar: 'طباعة الأعلام والرولات Roll-up', en: 'Roll-up Banners Printing', fr: 'Impression de Roll-up', price: '130' }
+            { ar: 'طباعة كروت وأوراق رسمية', en: 'Business Cards Printing', fr: 'Impression cartes de visite', price: '100' },
+            { ar: 'طباعة التغليف والأكياس', en: 'Packaging Printing', fr: 'Impression d’emballages', price: '275' },
+            { ar: 'طباعة الهدايا الدعائية', en: 'Promo Gifts Printing', fr: 'Cadeaux promotionnels', price: '175' },
+            { ar: 'طباعة اللوحات الإعلانية', en: 'Signboards Printing', fr: 'Impression d’enseignes', price: '225' },
+            { ar: 'طباعة البروشورات والمنشورات', en: 'Flyers Printing', fr: 'Impression de flyers', price: '125' },
+            { ar: 'طباعة الكتب والكتالوجات', en: 'Catalog Printing', fr: 'Impression de catalogues', price: '400' },
+            { ar: 'طباعة المنسوجات والزي', en: 'Apparel & Uniform Printing', fr: 'Impression textile', price: '200' },
+            { ar: 'طباعة الاستيكرات والملصقات', en: 'Stickers Roll Printing', fr: 'Impression d’autocollants', price: '100' },
+            { ar: 'طباعة العلب الكرتونية', en: 'Carton Box Printing', fr: 'Impression de boîtes', price: '350' },
+            { ar: 'طباعة الأجنحة والمعارض', en: 'Exhibition Booth Printing', fr: 'Impression pour stands', price: '900' },
+            { ar: 'طباعة التقاويم والمذكرات', en: 'Diaries Printing', fr: 'Impression d’agendas', price: '175' },
+            { ar: 'طباعة المنيو البلاستيكي', en: 'Menu Board Printing', fr: 'Impression de menus', price: '125' },
+            { ar: 'طباعة الأظرف والوسائل', en: 'Envelope Printing', fr: 'Impression d’enveloppes', price: '100' },
+            { ar: 'طباعة الأوراق الذهبية', en: 'Gold Foil Printing', fr: 'Impression dorure', price: '275' },
+            { ar: 'طباعة الأعلام والرولات Roll-up', en: 'Roll-up Banners Printing', fr: 'Impression de Roll-up', price: '200' }
         ]
     },
     'Office': {
@@ -96,23 +96,23 @@ const servicesData = {
         titleEn: 'Normal Office',
         titleFr: 'Normal Office',
         items: [
-            { ar: 'تصميم السيرة الذاتية CV الاحترافية', en: 'Professional CV Design', fr: 'Design de CV professionnel', price: '90' },
-            { ar: 'تصميم عروض الأسعار للشركات Quotation', en: 'Corporate Quotation Design', fr: 'Design de devis d’entreprise', price: '120' },
-            { ar: 'إعداد الملف التعريفي Company Profile', en: 'Company Profile Creation', fr: 'Création de profil d’entreprise', price: '200' },
-            { ar: 'كتابة الخطابات الرسمية والإدارية', en: 'Official Administrative Letters', fr: 'Lettres administratives officielles', price: '60' },
-            { ar: 'ترجمة المستندات والوثائق الرسمية', en: 'Document Translation Services', fr: 'Services de traduction de documents', price: '80' },
-            { ar: 'تنسيق وعمل العروض التقديمية PPT', en: 'Presentation Formatting (PPT)', fr: 'Mise en page de présentations', price: '130' },
-            { ar: 'صياغة العقود واتفاقيات العمل', en: 'Contracts & Work Agreements', fr: 'Rédaction de contrats de travail', price: '250' },
-            { ar: 'تفريغ النصوص والملفات الصوتية', en: 'Transcription & Typing Services', fr: 'Services de transcription', price: '50' },
-            { ar: 'إعداد دراسات الجدوى المبسطة', en: 'Simplified Feasibility Studies', fr: 'Études de faisabilité simplifiées', price: '350' },
-            { ar: 'إعداد التقارير المالية والإدارية', en: 'Financial & Administrative Reports', fr: 'Rapports financiers et administratifs', price: '180' },
-            { ar: 'تصميم النماذج والفواتير المعتمدة', en: 'Invoice & Form Templates Design', fr: 'Design de factures et formulaires', price: '70' },
-            { ar: 'كتابة المحتوى الإداري للمراسلات', en: 'Business Correspondence Content', fr: 'Contenu de correspondance d’affaires', price: '75' },
-            { ar: 'تنظيم وتدقيق الجداول الإحصائية Excel', en: 'Excel Data Organization & Sheets', fr: 'Organisation de données Excel', price: '100' },
-            { ar: 'إعداد خطط العمل التشغيلية Operations', en: 'Operational Business Plans', fr: 'Plans d’affaires opérationnels', price: '220' },
-            { ar: 'خدمة أعمال مكتبية أخرى (مخصصة)', en: 'Other Custom Office Services', fr: 'Autres services de bureau personnalisés', price: '100' }
+            { ar: 'تصميم السيرة الذاتية CV الاحترافية', en: 'Professional CV Design', fr: 'Design de CV professionnel', price: '150' },
+            { ar: 'تصميم عروض الأسعار للشركات Quotation', en: 'Corporate Quotation Design', fr: 'Design de devis d’entreprise', price: '225' },
+            { ar: 'إعداد الملف التعريفي Company Profile', en: 'Company Profile Creation', fr: 'Création de profil d’entreprise', price: '350' },
+            { ar: 'كتابة الخطابات الرسمية والإدارية', en: 'Official Administrative Letters', fr: 'Lettres administratives officielles', price: '100' },
+            { ar: 'ترجمة المستندات والوثائق الرسمية', en: 'Document Translation Services', fr: 'Services de traduction de documents', price: '150' },
+            { ar: 'تنسيق وعمل العروض التقديمية PPT', en: 'Presentation Formatting (PPT)', fr: 'Mise en page de présentations', price: '225' },
+            { ar: 'صياغة العقود واتفاقيات العمل', en: 'Contracts & Work Agreements', fr: 'Rédaction de contrats de travail', price: '450' },
+            { ar: 'تفريغ النصوص والملفات الصوتية', en: 'Transcription & Typing Services', fr: 'Services de transcription', price: '100' },
+            { ar: 'إعداد دراسات الجدوى المبسطة', en: 'Simplified Feasibility Studies', fr: 'Études de faisabilité simplifiées', price: '650' },
+            { ar: 'إعداد التقارير المالية والإدارية', en: 'Financial & Administrative Reports', fr: 'Rapports financiers et administratifs', price: '300' },
+            { ar: 'تصميم النماذج والفواتير المعتمدة', en: 'Invoice & Form Templates Design', fr: 'Design de factures et formulaires', price: '125' },
+            { ar: 'كتابة المحتوى الإداري للمراسلات', en: 'Business Correspondence Content', fr: 'Contenu de correspondance d’affaires', price: '125' },
+            { ar: 'تنظيم وتدقيق الجداول الإحصائية Excel', en: 'Excel Data Organization & Sheets', fr: 'Organisation de données Excel', price: '175' },
+            { ar: 'إعداد خطط العمل التشغيلية Operations', en: 'Operational Business Plans', fr: 'Plans d’affaires opérationnels', price: '400' },
+            { ar: 'خدمة أعمال مكتبية أخرى (مخصصة)', en: 'Other Custom Office Services', fr: 'Autres services de bureau personnalisés', price: '175' }
         ]
-    }
+    },
 };
 
 // ==========================================
@@ -147,34 +147,34 @@ const testimonialsData = [
 // المشروع الذي img فيه فارغ '' يظهر كبطاقة "قريبًا" ولا يُفتح.
 // ==========================================
 const portfolioData = [
-    { cat: 'Office', concept: true, img: CONCEPT_IMGS.office1,
+    { cat: 'Office', concept: true, svgKey: 'office1',
       titleAr: "هوية ملف تعريفي لشركة", titleEn: "Company Profile Design", titleFr: "Design de profil d’entreprise",
       descAr: "ملف تعريفي متكامل بتنسيق أنيق وإحصائيات مصورة", descEn: "A complete, elegantly formatted company profile with visual stats", descFr: "Profil complet avec statistiques visuelles" },
-    { cat: 'Office', concept: true, img: CONCEPT_IMGS.office2,
+    { cat: 'Office', concept: true, svgKey: 'office2',
       titleAr: "عرض شركة وتقارير", titleEn: "Corporate Deck & Reports", titleFr: "Présentation & rapports",
       descAr: "عروض وتقارير إدارية بتصميم احترافي", descEn: "Executive decks and reports with a polished layout", descFr: "Présentations et rapports professionnels" },
-    { cat: 'Studio', concept: true, img: CONCEPT_IMGS.studio1,
+    { cat: 'Studio', concept: true, svgKey: 'studio1',
       titleAr: "فيديو إعلاني سينمائي", titleEn: "Cinematic Commercial", titleFr: "Publicité cinématographique",
       descAr: "مونتاج وتدرج ألوان دافئ لإعلان علامة تجارية", descEn: "Editing and warm colour grading for a brand commercial", descFr: "Montage et étalonnage chaud pour une marque" },
-    { cat: 'Studio', concept: true, img: CONCEPT_IMGS.studio2,
+    { cat: 'Studio', concept: true, svgKey: 'studio2',
       titleAr: "فيلم تعريفي بتدرج بارد", titleEn: "Cool-Toned Brand Film", titleFr: "Film de marque, tons froids",
       descAr: "إخراج ومونتاج بتدرج ألوان بارد وفاخر", descEn: "Directing and editing with a cool, premium grade", descFr: "Réalisation et montage aux tons froids" },
-    { cat: 'Art', concept: true, img: CONCEPT_IMGS.art1,
+    { cat: 'Art', concept: true, svgKey: 'art1',
       titleAr: "هوية بصرية متكاملة", titleEn: "Complete Visual Identity", titleFr: "Identité visuelle complète",
       descAr: "شعار وألوان وخطوط ومطبوعات مكتبية متناسقة", descEn: "Logo, palette, typography and stationery in harmony", descFr: "Logo, couleurs, typographie et papeterie" },
-    { cat: 'Art', concept: true, img: CONCEPT_IMGS.art2,
+    { cat: 'Art', concept: true, svgKey: 'art2',
       titleAr: "هوية علامة دافئة", titleEn: "Warm Brand Identity", titleFr: "Identité de marque chaleureuse",
       descAr: "هوية بألوان دافئة لعلامة تجارية عصرية", descEn: "A warm-toned identity for a modern brand", descFr: "Identité aux tons chauds pour une marque moderne" },
-    { cat: 'Digital', concept: true, img: CONCEPT_IMGS.digital1,
+    { cat: 'Digital', concept: true, svgKey: 'digital1',
       titleAr: "موقع شركة عصري", titleEn: "Modern Company Website", titleFr: "Site d’entreprise moderne",
       descAr: "واجهة موقع نظيفة سريعة ومتجاوبة", descEn: "A clean, fast and responsive website interface", descFr: "Interface de site propre, rapide et responsive" },
-    { cat: 'Digital', concept: true, img: CONCEPT_IMGS.digital2,
+    { cat: 'Digital', concept: true, svgKey: 'digital2',
       titleAr: "صفحة هبوط لمنتج", titleEn: "Product Landing Page", titleFr: "Page d’atterrissage produit",
       descAr: "صفحة هبوط مصممة لرفع التحويل", descEn: "A landing page designed to lift conversions", descFr: "Page conçue pour augmenter les conversions" },
-    { cat: 'Print', concept: true, img: CONCEPT_IMGS.print1,
+    { cat: 'Print', concept: true, svgKey: 'print1',
       titleAr: "علبة تغليف فاخرة", titleEn: "Luxury Packaging Box", titleFr: "Boîte d’emballage de luxe",
       descAr: "علبة منتج وبطاقات أعمال بطباعة راقية", descEn: "Product box and business cards with premium print", descFr: "Boîte produit et cartes de visite haut de gamme" },
-    { cat: 'Print', concept: true, img: CONCEPT_IMGS.print2,
+    { cat: 'Print', concept: true, svgKey: 'print2',
       titleAr: "تغليف بلمسة دافئة", titleEn: "Warm-Toned Packaging", titleFr: "Emballage aux tons chauds",
       descAr: "تغليف بهوية دافئة وطباعة عالية الجودة", descEn: "Warm-toned packaging with high-quality print", descFr: "Emballage chaleureux, impression de qualité" }
 ];
@@ -203,12 +203,13 @@ function renderPortfolio() {
         if (portfolioFilter !== 'all' && p.cat !== portfolioFilter) return;
         const cat = servicesData[p.cat];
         const badge = cat ? cat['title' + L] : p.cat;
-        const media = p.img
-            ? `<img src="${p.img}" alt="${p['title' + L]}" loading="lazy">`
+        const src = p.svgKey ? svgUrl(p.svgKey) : p.img;
+        const media = src
+            ? `<img src="${src}" alt="${p['title' + L]}" loading="lazy">`
             : `<div class="p-empty"><img src="logo-mark.png" alt="" class="light-only"><img src="logo-mark-dark.png" alt="" class="dark-only"><span>${emptyText}</span></div>`;
         const card = document.createElement('div');
-        card.className = 'portfolio-card' + (p.img ? '' : ' is-empty');
-        if (p.img) card.onclick = () => openPortfolioItem(i);
+        card.className = 'portfolio-card' + (src ? '' : ' is-empty');
+        if (src) card.onclick = () => openPortfolioItem(i);
         card.innerHTML = `
             <div class="p-card-img-wrap">${media}<span class="p-badge">${badge}</span>${p.concept ? `<span class="concept-pill">${conceptLbl}</span>` : ''}</div>
             <div class="p-card-content"><h3>${p['title' + L]}</h3><p>${p['desc' + L]}</p></div>`;
@@ -290,9 +291,9 @@ function openModal(category) {
     const container = document.getElementById('subServicesContainer');
     
     modalTitle.innerText = currentLang === 'ar' ? data.titleAr : (currentLang === 'en' ? data.titleEn : data.titleFr);
-    const sample = portfolioData.find(p => p.cat === category && p.img);
+    const sample = portfolioData.find(p => p.cat === category && (p.img || p.svgKey));
     const sampleBox = modalImg.parentElement;
-    if (sample) { modalImg.src = sample.img; sampleBox.style.display = 'block'; }
+    if (sample) { modalImg.src = sample.svgKey ? svgUrl(sample.svgKey) : sample.img; sampleBox.style.display = 'block'; }
     else { modalImg.removeAttribute('src'); sampleBox.style.display = 'none'; }
 
     container.innerHTML = '';
@@ -336,9 +337,10 @@ function closeModal() {
 function openPortfolioItem(index) {
     const p = portfolioData[index];
     const lightbox = document.getElementById('portfolioLightbox');
-    if (!p || !p.img || !lightbox) return;
+    const src = p && (p.svgKey ? svgUrl(p.svgKey) : p.img);
+    if (!p || !src || !lightbox) return;
     const L = langKey();
-    document.getElementById('lightboxImg').src = p.img;
+    document.getElementById('lightboxImg').src = src;
     document.getElementById('lightboxTitle').innerText = p['title' + L];
     document.getElementById('lightboxDesc').innerText = p['desc' + L];
     lightbox.style.display = 'flex';
