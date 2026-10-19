@@ -1,1 +1,15 @@
+موقع نورمال — طريقة الرفع على GitHub
+====================================
+1) ارفع كل محتويات هذا المجلد إلى جذر المستودع (index.html وبقية الملفات والمجلدان images و videos).
+2) الأكواد الأربعة: index.html و style.css و script.js و works.js
+   صور اللوغو الأربع: logo.png / logo-dark.png / logo-mark.png / logo-mark-dark.png
+   المجلدان: images (صور المعرض) و videos (الفيديوهات).
 
+إدارة الأعمال (حذف / إخفاء / تعديل / ترتيب):
+- افتح موقعك بإضافة #owner في آخر الرابط:  https://normalagencyai.github.io/normal-agency-ai/#owner
+- عدّل ما تريد، ثم اضغط «نسخ ملف works.js» والصقه مكان محتوى works.js في GitHub ثم Commit.
+- التثبيت للجميع لا يتم إلا لمن يملك صلاحية الكتابة على المستودع.
+
+لإضافة شخصين يديران الأعمال معك:
+- في GitHub: Settings ← Collaborators ← Add people، وأضف حسابيهما.
+- فعّل التحقق بخطوتين (2FA) على حسابك وحساباتهم.
