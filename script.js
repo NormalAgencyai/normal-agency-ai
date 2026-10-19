@@ -429,49 +429,10 @@ const testimonialsData = [
       textAr: "التزام بالمواعيد وجودة طباعة ممتازة لموادنا التعريفية.", textEn: "On-time delivery and excellent print quality for our materials.", textFr: "Respect des délais et excellente qualité d’impression." }
 ];
 
-// ==========================================
-// معرض الأعمال — أضف مشاريعك الحقيقية هنا
-// ------------------------------------------
-// 1) ارفع الصورة داخل مجلد في المستودع (مثال: images/office-1.jpg)
-// 2) ضع مسارها في الحقل img  (مثال: img: 'images/office-1.jpg')
-// 3) لإضافة مشروع جديد: انسخ سطرًا كاملًا { ... } وغيّر بياناته
-// cat يجب أن يكون واحدًا من: Office / Studio / Art / Digital / Print
-// concept: true تعني "تصور تصميمي" (ليس مشروع عميل) — احذف هذا الحقل عند وضع مشروع حقيقي.
-// المشروع الذي img فيه فارغ '' يظهر كبطاقة "قريبًا" ولا يُفتح.
-// ==========================================
-const portfolioData = [
-    { cat: 'Office', concept: true, svgKey: 'office1',
-      titleAr: "هوية ملف تعريفي لشركة", titleEn: "Company Profile Design", titleFr: "Design de profil d’entreprise",
-      descAr: "ملف تعريفي متكامل بتنسيق أنيق وإحصائيات مصورة", descEn: "A complete, elegantly formatted company profile with visual stats", descFr: "Profil complet avec statistiques visuelles" },
-    { cat: 'Office', concept: true, svgKey: 'office2',
-      titleAr: "عرض شركة وتقارير", titleEn: "Corporate Deck & Reports", titleFr: "Présentation & rapports",
-      descAr: "عروض وتقارير إدارية بتصميم احترافي", descEn: "Executive decks and reports with a polished layout", descFr: "Présentations et rapports professionnels" },
-    { cat: 'Studio', concept: true, svgKey: 'studio1',
-      titleAr: "فيديو إعلاني سينمائي", titleEn: "Cinematic Commercial", titleFr: "Publicité cinématographique",
-      descAr: "مونتاج وتدرج ألوان دافئ لإعلان علامة تجارية", descEn: "Editing and warm colour grading for a brand commercial", descFr: "Montage et étalonnage chaud pour une marque" },
-    { cat: 'Studio', concept: true, svgKey: 'studio2',
-      titleAr: "فيلم تعريفي بتدرج بارد", titleEn: "Cool-Toned Brand Film", titleFr: "Film de marque, tons froids",
-      descAr: "إخراج ومونتاج بتدرج ألوان بارد وفاخر", descEn: "Directing and editing with a cool, premium grade", descFr: "Réalisation et montage aux tons froids" },
-    { cat: 'Art', concept: true, svgKey: 'art1',
-      titleAr: "هوية بصرية متكاملة", titleEn: "Complete Visual Identity", titleFr: "Identité visuelle complète",
-      descAr: "شعار وألوان وخطوط ومطبوعات مكتبية متناسقة", descEn: "Logo, palette, typography and stationery in harmony", descFr: "Logo, couleurs, typographie et papeterie" },
-    { cat: 'Art', concept: true, svgKey: 'art2',
-      titleAr: "هوية علامة دافئة", titleEn: "Warm Brand Identity", titleFr: "Identité de marque chaleureuse",
-      descAr: "هوية بألوان دافئة لعلامة تجارية عصرية", descEn: "A warm-toned identity for a modern brand", descFr: "Identité aux tons chauds pour une marque moderne" },
-    { cat: 'Digital', concept: true, svgKey: 'digital1',
-      titleAr: "موقع شركة عصري", titleEn: "Modern Company Website", titleFr: "Site d’entreprise moderne",
-      descAr: "واجهة موقع نظيفة سريعة ومتجاوبة", descEn: "A clean, fast and responsive website interface", descFr: "Interface de site propre, rapide et responsive" },
-    { cat: 'Digital', concept: true, svgKey: 'digital2',
-      titleAr: "صفحة هبوط لمنتج", titleEn: "Product Landing Page", titleFr: "Page d’atterrissage produit",
-      descAr: "صفحة هبوط مصممة لرفع التحويل", descEn: "A landing page designed to lift conversions", descFr: "Page conçue pour augmenter les conversions" },
-    { cat: 'Print', concept: true, svgKey: 'print1',
-      titleAr: "علبة تغليف فاخرة", titleEn: "Luxury Packaging Box", titleFr: "Boîte d’emballage de luxe",
-      descAr: "علبة منتج وبطاقات أعمال بطباعة راقية", descEn: "Product box and business cards with premium print", descFr: "Boîte produit et cartes de visite haut de gamme" },
-    { cat: 'Print', concept: true, svgKey: 'print2',
-      titleAr: "تغليف بلمسة دافئة", titleEn: "Warm-Toned Packaging", titleFr: "Emballage aux tons chauds",
-      descAr: "تغليف بهوية دافئة وطباعة عالية الجودة", descEn: "Warm-toned packaging with high-quality print", descFr: "Emballage chaleureux, impression de qualité" }
-];
 
+
+function assetUrl(p) { return (window.__ASSETS && window.__ASSETS[p]) || p; }
+let ownerMode = false;
 let portfolioFilter = 'all';
 
 function langKey() { return currentLang === 'ar' ? 'Ar' : (currentLang === 'en' ? 'En' : 'Fr'); }
@@ -486,6 +447,7 @@ function renderPortfolio() {
     if (!grid) return;
     const L = langKey();
     const emptyText = { Ar: 'يُضاف مشروع قريبًا', En: 'Project coming soon', Fr: 'Projet à venir' }[L];
+    const sampleLbl = { Ar: 'نموذج ببيانات وهمية', En: 'Sample · fictional data', Fr: 'Exemple · données fictives' }[L];
     const conceptLbl = { Ar: 'تصور تصميمي', En: 'Design concept', Fr: 'Concept' }[L];
 
     document.querySelectorAll('.filter-chip').forEach(c =>
@@ -493,18 +455,21 @@ function renderPortfolio() {
 
     grid.innerHTML = '';
     portfolioData.forEach((p, i) => {
+        if (p.hidden && !ownerMode) return;
         if (portfolioFilter !== 'all' && p.cat !== portfolioFilter) return;
         const cat = servicesData[p.cat];
         const badge = cat ? cat['title' + L] : p.cat;
-        const src = p.svgKey ? svgUrl(p.svgKey) : p.img;
+        const src = p.svgKey ? svgUrl(p.svgKey) : assetUrl(p.img);
+        const playIcon = p.video ? '<span class="play-badge">▶</span>' : '';
         const media = src
-            ? `<img src="${src}" alt="${p['title' + L]}" loading="lazy">`
+            ? `<img src="${src}" alt="${p['title' + L]}" loading="lazy">${playIcon}`
             : `<div class="p-empty"><img src="logo-mark.png" alt="" class="light-only"><img src="logo-mark-dark.png" alt="" class="dark-only"><span>${emptyText}</span></div>`;
         const card = document.createElement('div');
         card.className = 'portfolio-card' + (src ? '' : ' is-empty');
-        if (src) card.onclick = () => openPortfolioItem(i);
+        if (src) { card.onclick = () => openPortfolioItem(i); card.tabIndex = 0; card.setAttribute('role', 'button'); card.onkeydown = ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); openPortfolioItem(i); } }; }
+        if (p.hidden) card.style.opacity = '.45';
         card.innerHTML = `
-            <div class="p-card-img-wrap">${media}<span class="p-badge">${badge}</span>${p.concept ? `<span class="concept-pill">${conceptLbl}</span>` : ''}</div>
+            <div class="p-card-img-wrap">${media}<span class="p-badge">${badge}</span></div>
             <div class="p-card-content"><h3>${p['title' + L]}</h3><p>${p['desc' + L]}</p></div>`;
         grid.appendChild(card);
     });
@@ -586,7 +551,7 @@ function openModal(category) {
     modalTitle.innerText = currentLang === 'ar' ? data.titleAr : (currentLang === 'en' ? data.titleEn : data.titleFr);
     const sample = portfolioData.find(p => p.cat === category && (p.img || p.svgKey));
     const sampleBox = modalImg.parentElement;
-    if (sample) { modalImg.src = sample.svgKey ? svgUrl(sample.svgKey) : sample.img; sampleBox.style.display = 'block'; }
+    if (sample) { modalImg.src = sample.svgKey ? svgUrl(sample.svgKey) : assetUrl(sample.img); sampleBox.style.display = 'block'; }
     else { modalImg.removeAttribute('src'); sampleBox.style.display = 'none'; }
 
     container.innerHTML = '';
@@ -630,10 +595,23 @@ function closeModal() {
 function openPortfolioItem(index) {
     const p = portfolioData[index];
     const lightbox = document.getElementById('portfolioLightbox');
-    const src = p && (p.svgKey ? svgUrl(p.svgKey) : p.img);
+    const src = p && (p.svgKey ? svgUrl(p.svgKey) : assetUrl(p.img));
     if (!p || !src || !lightbox) return;
     const L = langKey();
-    document.getElementById('lightboxImg').src = src;
+    const img = document.getElementById('lightboxImg');
+    const vid = document.getElementById('lightboxVideo');
+    if (p.video) {
+        vid.querySelector('source').src = assetUrl(p.video);
+        vid.load();
+        vid.style.display = 'block';
+        const pp = vid.play(); if (pp && pp.catch) pp.catch(() => {});
+        img.style.display = 'none';
+    } else {
+        vid.pause();
+        vid.style.display = 'none';
+        img.style.display = 'block';
+        img.src = src;
+    }
     document.getElementById('lightboxTitle').innerText = p['title' + L];
     document.getElementById('lightboxDesc').innerText = p['desc' + L];
     lightbox.style.display = 'flex';
@@ -642,6 +620,8 @@ function openPortfolioItem(index) {
 
 function closePortfolioLightbox(event) {
     const lightbox = document.getElementById('portfolioLightbox');
+    const vid = document.getElementById('lightboxVideo');
+    if (vid) vid.pause();
     if (lightbox) {
         lightbox.style.display = 'none';
         document.body.style.overflow = 'auto';
@@ -750,3 +730,167 @@ async function submitReview(e) {
         msg.innerText = t[1]; f.reset(); setTimeout(closeReviewModal, 2600);
     } catch (err) { msg.innerText = t[2]; }
 }
+
+
+// ===== شريط التنقل السفلي: واتساب جاهز الرسالة + تمييز القسم الحالي =====
+function openWa(kind) {
+    const m = {
+        consult: { ar: 'مرحباً وكالة نورمال، أرغب بحجز استشارة.', en: 'Hello Normal Agency, I would like to book a consultation.', fr: 'Bonjour Normal Agency, je souhaite réserver une consultation.' },
+        support: { ar: 'مرحباً وكالة نورمال، أحتاج مساعدة من خدمة العملاء.', en: 'Hello Normal Agency, I need help from customer support.', fr: 'Bonjour Normal Agency, j’ai besoin d’aide du service client.' }
+    };
+    window.open('https://wa.me/966543262920?text=' + encodeURIComponent(m[kind][currentLang]), '_blank');
+}
+(function () {
+    const map = [['home', null], ['work', 'portfolio-gallery'], ['grid', 'services-section']];
+    function spy() {
+        let cur = 'home';
+        map.forEach(([k, id]) => {
+            if (!id) return;
+            const el = document.getElementById(id);
+            if (el && el.getBoundingClientRect().top < window.innerHeight * 0.45) cur = k;
+        });
+        document.querySelectorAll('.bn-item[data-nav]').forEach(a => {
+            if (a.classList.contains('bn-cta')) return;
+            if (['home', 'grid', 'work'].includes(a.dataset.nav)) a.classList.toggle('active', a.dataset.nav === cur);
+        });
+    }
+    window.addEventListener('scroll', spy, { passive: true });
+    window.addEventListener('load', spy);
+})();
+
+
+// ===== إحصائيات حركية: عدّاد + حلقات تمتلئ عند ظهور القسم =====
+(function () {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function run(card) {
+        if (card.classList.contains('in')) return;
+        card.classList.add('in');
+        const p = parseFloat(card.dataset.p) / 100;
+        const fg = card.querySelector('.ring-fg');
+        const num = card.querySelector('.count');
+        const target = parseInt(num.dataset.count, 10);
+        requestAnimationFrame(() => { fg.style.strokeDashoffset = (326.7 * (1 - p)).toFixed(1); });
+        if (reduce) { num.textContent = target; return; }
+        const t0 = performance.now(), dur = 1900;
+        (function tick(now) {
+            const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+            num.textContent = Math.round(target * e);
+            if (k < 1) requestAnimationFrame(tick);
+        })(t0);
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        const cards = document.querySelectorAll('.stat-card');
+        if (!('IntersectionObserver' in window)) { cards.forEach(run); return; }
+        const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { run(en.target); io.unobserve(en.target); } }), { threshold: 0.35 });
+        cards.forEach(c => io.observe(c));
+    });
+})();
+
+
+// ===== إحصائيات (تصميم ب): عدّاد + منحنى يُرسم + أشرطة متدرجة =====
+(function () {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function countUp(el, dur) {
+        const target = parseInt(el.dataset.count, 10);
+        const from = parseInt(el.dataset.from || '0', 10);
+        if (reduce) { el.textContent = target.toLocaleString('en'); return; }
+        const t0 = performance.now();
+        (function tick(now) {
+            const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+            el.textContent = Math.round(from + (target - from) * e).toLocaleString('en');
+            if (k < 1) requestAnimationFrame(tick);
+        })(t0);
+    }
+    function run(panel) {
+        panel.classList.add('in');
+        panel.querySelectorAll('.sb-bar').forEach((b, i) => {
+            setTimeout(() => { b.querySelector('.sb-fill').style.width = b.dataset.p + '%'; }, 500 + i * 180);
+        });
+        panel.querySelectorAll('.count').forEach(el => {
+            const big = !!el.closest('.sb-big');
+            countUp(el, big ? 2600 : 1800);
+            if (big && !reduce) setTimeout(() => liveTick(el), 2900);
+        });
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        const panel = document.querySelector('.sb-panel');
+        if (!panel) return;
+        if (!('IntersectionObserver' in window)) { run(panel); return; }
+        const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { run(en.target); io.unobserve(en.target); } }), { threshold: 0.3 });
+        io.observe(panel);
+    });
+})();
+
+
+// بعد الوصول إلى 1,000 يستمر الرقم بالارتفاع تدريجيًا دون توقف (حركة عرض فقط)
+function liveTick(el) {
+    let v = parseInt(el.textContent.replace(/,/g, ''), 10) || 1000;
+    (function loop() {
+        v += 1;
+        el.textContent = v.toLocaleString('en');
+        el.classList.remove('tick'); void el.offsetWidth; el.classList.add('tick');
+        setTimeout(loop, 1100 + Math.random() * 1900);
+    })();
+}
+
+// =====================================================================
+// لوحة المالك — تظهر فقط عند فتح الموقع بالرابط: ...#owner
+// التعديلات هنا تظهر لك أنت فقط؛ لتثبيتها للجميع: انسخ ملف works.js الناتج والصقه في GitHub.
+// الأمان الحقيقي: لا يستطيع أحد تغيير الموقع العام إلا من يملك صلاحية الكتابة على المستودع.
+// =====================================================================
+(function () {
+    const CATS = { Office: 'أوفيس', Studio: 'ستوديو', Art: 'آرت', Digital: 'ديجيتال', Print: 'برينت' };
+    let panel = null;
+    function el(tag, props, kids) {
+        const e = document.createElement(tag);
+        Object.keys(props || {}).forEach(k => { if (k === 'text') e.textContent = props[k]; else if (k === 'class') e.className = props[k]; else if (k.startsWith('on')) e[k] = props[k]; else e[k] = props[k]; });
+        (kids || []).forEach(c => e.appendChild(c)); return e;
+    }
+    function field(label, obj, key, rtl) {
+        const inp = el('input', { type: 'text', value: obj[key] || '', dir: rtl ? 'rtl' : 'ltr', placeholder: label });
+        inp.oninput = () => { obj[key] = inp.value; renderPortfolio(); };
+        return el('label', { class: 'op-f' }, [el('span', { text: label }), inp]);
+    }
+    function toFile() {
+        return '// ملف الأعمال — يُنشأ من لوحة المالك\n// hidden: true = إخفاء العمل دون حذفه\nconst portfolioData = ' + JSON.stringify(portfolioData, null, 2) + ';\n';
+    }
+    function copyText(t, btn) {
+        const done = () => { const o = btn.textContent; btn.textContent = 'تم النسخ ✓'; setTimeout(() => btn.textContent = o, 1800); };
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, () => fallback());
+        else fallback();
+        function fallback() { const ta = el('textarea', { value: t }); document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); done(); } catch (e) {} ta.remove(); }
+    }
+    function move(i, d) { const k = i + d; if (k < 0 || k >= portfolioData.length) return; const t = portfolioData[i]; portfolioData[i] = portfolioData[k]; portfolioData[k] = t; build(); renderPortfolio(); }
+    function row(w, i) {
+        const thumb = el('img', { src: assetUrl(w.img), alt: '' });
+        const title = el('input', { type: 'text', value: w.titleAr || '', class: 'op-title' }); title.oninput = () => { w.titleAr = title.value; renderPortfolio(); };
+        const cat = el('select', {}, Object.keys(CATS).map(k => { const o = el('option', { value: k, text: CATS[k] }); if (w.cat === k) o.selected = true; return o; })); cat.onchange = () => { w.cat = cat.value; renderPortfolio(); };
+        const hid = el('input', { type: 'checkbox' }); hid.checked = !!w.hidden; hid.onchange = () => { w.hidden = hid.checked; build(); renderPortfolio(); };
+        const det = el('div', { class: 'op-det', style: 'display:none' }, [
+            field('العنوان بالإنجليزي', w, 'titleEn'), field('العنوان بالفرنسي', w, 'titleFr'),
+            field('الوصف بالعربي', w, 'descAr', true), field('الوصف بالإنجليزي', w, 'descEn'), field('الوصف بالفرنسي', w, 'descFr'),
+            field('مسار الغلاف (images/...)', w, 'img'), field('مسار الفيديو (videos/...) — اتركه فارغًا للصور', w, 'video')]);
+        const edit = el('button', { text: '✎ تفاصيل', onclick: () => { det.style.display = det.style.display === 'none' ? 'grid' : 'none'; } });
+        const del = el('button', { text: '🗑 حذف', class: 'op-del', onclick: () => { if (confirm('حذف «' + (w.titleAr || 'هذا العمل') + '» نهائيًا من القائمة؟ (يمكنك بدل الحذف أن تخفيه)')) { portfolioData.splice(i, 1); build(); renderPortfolio(); } } });
+        return el('div', { class: 'op-row' + (w.hidden ? ' is-hidden' : '') }, [
+            el('div', { class: 'op-main' }, [thumb, title, cat, el('label', { class: 'op-hid' }, [hid, el('span', { text: 'مخفي' })]),
+                el('button', { text: '↑', onclick: () => move(i, -1) }), el('button', { text: '↓', onclick: () => move(i, 1) }), edit, del]), det]);
+    }
+    function build() {
+        if (panel) panel.remove();
+        const copyBtn = el('button', { class: 'op-primary', text: 'نسخ ملف works.js' }); copyBtn.onclick = () => copyText(toFile(), copyBtn);
+        const dl = el('button', { text: 'تنزيل works.js', onclick: () => { const a = el('a', { href: URL.createObjectURL(new Blob([toFile()], { type: 'text/javascript' })), download: 'works.js' }); document.body.appendChild(a); a.click(); a.remove(); } });
+        const add = el('button', { text: '＋ إضافة عمل', onclick: () => { portfolioData.unshift({ cat: 'Studio', img: 'images/new.webp', video: '', titleAr: 'عمل جديد', titleEn: 'New work', titleFr: 'Nouveau travail', descAr: '', descEn: '', descFr: '' }); build(); renderPortfolio(); } });
+        const close = el('button', { text: '✕ إغلاق', onclick: () => { ownerMode = false; panel.remove(); panel = null; history.replaceState(null, '', location.pathname + location.search); renderPortfolio(); } });
+        panel = el('div', { id: 'ownerPanel', class: 'owner-panel', dir: 'rtl' }, [el('div', { class: 'op-box' }, [
+            el('div', { class: 'op-head' }, [el('h3', { text: 'لوحة المالك — إدارة الأعمال' }), close]),
+            el('p', { class: 'op-note', text: 'عدّل أو أخفِ أو احذف أو رتّب أي عمل، وستراه يتغير في المعرض فورًا (عندك أنت فقط). ولتثبيت التغيير للجميع: اضغط «نسخ ملف works.js» ثم الصقه مكان محتوى works.js في GitHub واضغط Commit. هذا يستطيعه فقط من يملك صلاحية الكتابة على المستودع، وهو الذي يحمي موقعك.' }),
+            el('div', { class: 'op-bar' }, [add, copyBtn, dl]),
+            el('div', { class: 'op-list' }, portfolioData.map(row))])]);
+        document.body.appendChild(panel);
+    }
+    function check() { if (location.hash === '#owner') { ownerMode = true; build(); renderPortfolio(); } }
+    window.addEventListener('hashchange', check);
+    document.addEventListener('DOMContentLoaded', check);
+    document.addEventListener('keydown', ev => { if (ev.key === 'Escape') { const lb = document.getElementById('portfolioLightbox'); if (lb && lb.style.display === 'flex') closePortfolioLightbox(); } });
+})();
