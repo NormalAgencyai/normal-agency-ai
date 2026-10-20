@@ -286,8 +286,9 @@
     <div id="portfolioLightbox" class="lightbox-modal" onclick="closePortfolioLightbox(event)">
         <div class="lightbox-content" onclick="event.stopPropagation()">
             <button class="close-lightbox" onclick="closePortfolioLightbox()">✕</button>
-            <img id="lightboxImg" src="" alt="Work Sample">
+            <img id="lightboxImg" src="" alt="Work Sample" onerror="window.flatFallback&&flatFallback(this)">
             <video id="lightboxVideo" controls playsinline preload="metadata" style="display:none;"><source src="" type="video/mp4"></video>
+            <div id="lightboxVideoMsg" class="vid-msg" style="display:none"></div>
             <h3 id="lightboxTitle"></h3>
             <p id="lightboxDesc"></p>
         </div>

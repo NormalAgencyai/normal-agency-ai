@@ -431,6 +431,12 @@ const testimonialsData = [
 
 
 
+// إن رُفعت الصور/الفيديوهات خارج مجلداتها (مثل رفعها من الجوال) نبحث عنها في الجذر
+function flatFallback(el) {
+    const s = el.getAttribute('src') || ''; if (!s || el.dataset.fb) return; el.dataset.fb = '1';
+    const f = s.split('/').pop();
+    if (f && f !== s) el.setAttribute('src', f);
+}
 function assetUrl(p) { return (window.__ASSETS && window.__ASSETS[p]) || p; }
 let ownerMode = false;
 let portfolioFilter = 'all';
@@ -462,7 +468,7 @@ function renderPortfolio() {
         const src = p.svgKey ? svgUrl(p.svgKey) : assetUrl(p.img);
         const playIcon = p.video ? '<span class="play-badge">▶</span>' : '';
         const media = src
-            ? `<img src="${src}" alt="${p['title' + L]}" loading="lazy">${playIcon}`
+            ? `<img src="${src}" alt="${p['title' + L]}" loading="lazy" decoding="async" onerror="window.flatFallback&&flatFallback(this)">${playIcon}`
             : `<div class="p-empty"><img src="logo-mark.png" alt="" class="light-only"><img src="logo-mark-dark.png" alt="" class="dark-only"><span>${emptyText}</span></div>`;
         const card = document.createElement('div');
         card.className = 'portfolio-card' + (src ? '' : ' is-empty');
@@ -601,13 +607,22 @@ function openPortfolioItem(index) {
     const img = document.getElementById('lightboxImg');
     const vid = document.getElementById('lightboxVideo');
     if (p.video) {
-        vid.querySelector('source').src = assetUrl(p.video);
+        const srcEl = vid.querySelector('source'); const msg = document.getElementById('lightboxVideoMsg');
+        const vpath = assetUrl(p.video); let tried = false;
+        if (msg) msg.style.display = 'none';
+        const fail = () => {
+            if (!tried && vpath.indexOf('/') > -1 && vpath.indexOf('_blob') === -1) { tried = true; srcEl.setAttribute('src', vpath.split('/').pop()); vid.load(); return; }
+            if (msg) { msg.style.display = 'block'; msg.innerHTML = ''; const a = document.createElement('a'); a.href = vpath; a.target = '_blank'; a.rel = 'noopener'; a.textContent = { Ar: 'تعذّر تشغيل الفيديو هنا — اضغط لفتحه في صفحة مستقلة', En: 'Could not play the video here — tap to open it on its own', Fr: 'Lecture impossible ici — touchez pour l’ouvrir seul' }[L]; msg.appendChild(a); }
+        };
+        srcEl.onerror = fail; vid.onerror = fail; vid.poster = assetUrl(p.img);
+        srcEl.setAttribute('src', vpath);
         vid.load();
         vid.style.display = 'block';
         const pp = vid.play(); if (pp && pp.catch) pp.catch(() => {});
         img.style.display = 'none';
     } else {
         vid.pause();
+        { const m = document.getElementById('lightboxVideoMsg'); if (m) m.style.display = 'none'; }
         vid.style.display = 'none';
         img.style.display = 'block';
         img.src = src;

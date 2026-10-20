@@ -1378,3 +1378,6 @@ body, .brand-badge, .stat-number, .footer-brand, .p-badge, .logo-main, .logo-sub
 .op-det { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px; margin-top: 10px; }
 .op-f { display: flex; flex-direction: column; gap: 3px; font-size: 11.5px; color: var(--text-muted); font-weight: 700; }
 .op-f input { width: 100%; }
+
+.vid-msg { margin: 0 0 16px; padding: 14px 16px; border-radius: 12px; background: rgba(248,113,113,.12); border: 1px solid rgba(248,113,113,.4); font-size: 13px; font-weight: 700; }
+.vid-msg a { color: var(--normal-blue); text-decoration: underline; }
