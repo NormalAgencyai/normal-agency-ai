@@ -1381,3 +1381,47 @@ body, .brand-badge, .stat-number, .footer-brand, .p-badge, .logo-main, .logo-sub
 
 .vid-msg { margin: 0 0 16px; padding: 14px 16px; border-radius: 12px; background: rgba(248,113,113,.12); border: 1px solid rgba(248,113,113,.4); font-size: 13px; font-weight: 700; }
 .vid-msg a { color: var(--normal-blue); text-decoration: underline; }
+
+/* ===== كيف نعمل ===== */
+.process-section,.faq-section{max-width:1100px;margin:70px auto 0;padding:0 20px}
+.process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;position:relative;margin-top:34px}
+.process-grid::before{content:"";position:absolute;top:34px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,transparent,var(--normal-blue),transparent);opacity:.45}
+.pstep{position:relative;text-align:center;background:var(--card-bg);border:1px solid var(--border-color);border-radius:18px;padding:22px 14px 20px;box-shadow:var(--shadow-premium);opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.pstep.in{opacity:1;transform:none}
+.pstep:nth-child(2){transition-delay:.1s}.pstep:nth-child(3){transition-delay:.2s}.pstep:nth-child(4){transition-delay:.3s}.pstep:nth-child(5){transition-delay:.4s}
+.pnum{position:absolute;top:8px;inset-inline-start:12px;font-size:.8rem;font-weight:800;color:var(--normal-blue);opacity:.7}
+.pico{width:52px;height:52px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--normal-blue),var(--normal-light-blue));box-shadow:0 8px 22px -8px var(--normal-blue)}
+.pico svg{width:24px;height:24px}
+.pstep h3{font-size:1.02rem;margin:0 0 6px;color:var(--heading)}
+.pstep p{font-size:.86rem;line-height:1.7;margin:0;color:var(--text-muted)}
+.faq-list{max-width:820px;margin:30px auto 0;display:grid;gap:12px}
+.faq-item{background:var(--card-bg);border:1px solid var(--border-color);border-radius:14px;overflow:hidden;transition:border-color .25s,box-shadow .25s}
+.faq-item[open]{border-color:var(--normal-blue);box-shadow:var(--shadow-premium)}
+.faq-item summary{list-style:none;cursor:pointer;padding:16px 20px;font-weight:700;color:var(--heading);display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";font-size:1.4rem;line-height:1;color:var(--normal-blue);transition:transform .25s}
+.faq-item[open] summary::after{content:"\2212"}
+.faq-a{padding:0 20px 18px;line-height:1.9;color:var(--text-muted)}
+.op-sub{margin:16px 0 6px;color:var(--text-main)}
+.op-ta{width:100%;min-height:60px;border-radius:8px;padding:8px;font:inherit}
+@media(max-width:860px){.process-grid{grid-template-columns:1fr}.process-grid::before{display:none}.pstep{text-align:start;display:grid;grid-template-columns:52px 1fr;gap:4px 14px;align-items:center}.pico{grid-row:1/3;margin:0}}
+@media(prefers-reduced-motion:reduce){.pstep{opacity:1;transform:none;transition:none}}
+
+/* مراجعة نهائية */
+.footer-links a{padding:10px 4px;display:inline-block}
+.hero-cta{row-gap:12px}
+@media(max-width:600px){.hero-cta .btn-primary,.hero-cta .btn-ghost{padding:13px 22px}}
+
+
+/* بطاقة التخصص الرئيسي */
+.card-featured{grid-column:1/-1;padding:44px 24px;background:linear-gradient(160deg,#18294a,#0A1220);border-color:rgba(127,192,255,.35)}
+.card-featured h3{color:#fff;font-size:24px}
+.card-featured p{color:#B4C4D9;max-width:520px;margin-inline:auto}
+.card-featured .badge{background:rgba(127,192,255,.14);color:#8CC6FA}
+.card-featured .card-icon-box{background:linear-gradient(135deg,#2B8FE0,#175C93);color:#fff;border-color:transparent}
+
+/* مقدمة الوكالة التسويقية */
+.hero-kicker{letter-spacing:.06em}
+:root[lang="ar"] .hero-kicker,[dir="rtl"] .hero-kicker{letter-spacing:0;font-size:13px;font-weight:800}
+.hero-kicker{font-size:15px;color:#fff;border-top-color:rgba(127,192,255,.5)}
+:root[lang="ar"] .hero-kicker,[dir="rtl"] .hero-kicker{font-size:17px}
