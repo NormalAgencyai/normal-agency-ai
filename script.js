@@ -296,6 +296,28 @@ function svgUrl(key) {
 // ==========================================
 
 const servicesData = {
+    'Marketing': {
+        titleAr: 'نورمال للتسويق',
+        titleEn: 'Normal Marketing',
+        titleFr: 'Normal Marketing',
+        items: [
+            { ar: 'إعلانات سناب شات', en: 'Snapchat Ads', fr: 'Publicités Snapchat', price: '400' },
+            { ar: 'إعلانات تيك توك', en: 'TikTok Ads', fr: 'Publicités TikTok', price: '400' },
+            { ar: 'إعلانات انستقرام وميتا', en: 'Instagram & Meta Ads', fr: 'Publicités Instagram et Meta', price: '450' },
+            { ar: 'إعلانات جوجل للبحث', en: 'Google Search Ads', fr: 'Publicités Google Search', price: '500' },
+            { ar: 'إعادة الاستهداف', en: 'Retargeting Campaigns', fr: 'Campagnes de retargeting', price: '350' },
+            { ar: 'السيو المحلي وخرائط جوجل', en: 'Local SEO & Maps', fr: 'SEO local et Maps', price: '450' },
+            { ar: 'تصميم صفحات الهبوط', en: 'Landing Page Design', fr: "Pages d'atterrissage", price: '600' },
+            { ar: 'رسائل واتساب التسويقية', en: 'WhatsApp Marketing Messages', fr: 'Messages marketing WhatsApp', price: '250' },
+            { ar: 'حملات المسابقات والهدايا', en: 'Contest & Giveaway Campaigns', fr: 'Concours et giveaways', price: '350' },
+            { ar: 'برامج ولاء العملاء', en: 'Loyalty Programs', fr: 'Programmes de fidélité', price: '500' },
+            { ar: 'كتابة البيانات الصحفية', en: 'Press Release Writing', fr: 'Communiqués de presse', price: '200' },
+            { ar: 'خطة تسويقية سنوية', en: 'Annual Marketing Plan', fr: 'Plan marketing annuel', price: '800' },
+            { ar: 'دراسة السوق والمنافسين', en: 'Market & Competitor Research', fr: 'Étude de marché', price: '600' },
+            { ar: 'تحديد الموقع التسويقي للعلامة', en: 'Brand Positioning', fr: 'Positionnement de marque', price: '500' },
+            { ar: 'لوحة مؤشرات الأداء KPI', en: 'KPI Dashboard', fr: 'Tableau de bord KPI', price: '450' },
+        ]
+    },
     'Digital': {
         titleAr: 'نورمال ديجيتال',
         titleEn: 'Normal Digital',
@@ -414,20 +436,8 @@ const servicesData = {
 // نظرًا لأن الموقع ثابت (Static) بدون قاعدة بيانات، فإن أبسط وأدق طريقة للتحكم بما
 // يظهر (بما في ذلك حذف أي تقييم سلبي) هي تعديل هذه القائمة مباشرة بدل نظام تعليقات حي.
 // ==========================================
-const testimonialsData = [
-    { sample: true, nameAr: "عميل من قطاع التجزئة", nameEn: "Retail client", nameFr: "Client du commerce", roleAr: '', roleEn: '', roleFr: '', rating: 5,
-      textAr: "تنفيذ سريع وتصاميم رفعت مستوى متجرنا بشكل واضح.", textEn: "Fast delivery and designs that clearly lifted our store.", textFr: "Livraison rapide et des designs qui ont élevé notre boutique." },
-    { sample: true, nameAr: "عميل من قطاع المطاعم", nameEn: "Restaurant client", nameFr: "Client restauration", roleAr: '', roleEn: '', roleFr: '', rating: 5,
-      textAr: "المنيو والهوية الجديدة لفتت انتباه الزبائن من أول أسبوع.", textEn: "The new menu and identity caught customers’ attention from week one.", textFr: "Le nouveau menu et l’identité ont séduit dès la première semaine." },
-    { sample: true, nameAr: "عميل من قطاع العقارات", nameEn: "Real-estate client", nameFr: "Client immobilier", roleAr: '', roleEn: '', roleFr: '', rating: 4,
-      textAr: "ملف تعريفي أنيق ساعدنا في عرض مشاريعنا بثقة.", textEn: "An elegant profile that helped us present our projects with confidence.", textFr: "Un profil élégant pour présenter nos projets avec confiance." },
-    { sample: true, nameAr: "صاحب شركة ناشئة", nameEn: "Startup founder", nameFr: "Fondateur de start-up", roleAr: '', roleEn: '', roleFr: '', rating: 5,
-      textAr: "فريق متفاهم قدّم لنا موقعًا وهوية متكاملة في وقت قياسي.", textEn: "A responsive team that delivered a site and identity in record time.", textFr: "Une équipe réactive : site et identité livrés en un temps record." },
-    { sample: true, nameAr: "عميل من التجارة الإلكترونية", nameEn: "E-commerce client", nameFr: "Client e-commerce", roleAr: '', roleEn: '', roleFr: '', rating: 5,
-      textAr: "حملاتنا الإعلانية تحسنت نتائجها بعد التعاون معهم.", textEn: "Our ad campaigns performed noticeably better after working with them.", textFr: "Nos campagnes publicitaires ont nettement mieux performé." },
-    { sample: true, nameAr: "عميل من القطاع الصحي", nameEn: "Healthcare client", nameFr: "Client du secteur santé", roleAr: '', roleEn: '', roleFr: '', rating: 4,
-      textAr: "التزام بالمواعيد وجودة طباعة ممتازة لموادنا التعريفية.", textEn: "On-time delivery and excellent print quality for our materials.", textFr: "Respect des délais et excellente qualité d’impression." }
-];
+// ==========================================
+
 
 
 
@@ -648,20 +658,21 @@ function renderTestimonials() {
     const grid = document.getElementById('testimonialsGrid');
     if (!grid) return;
     const section = document.getElementById('testimonials-section');
-    if (section) section.style.display = testimonialsData.length ? '' : 'none';
+    if (section) section.style.display = '';
 
     grid.innerHTML = '';
-    testimonialsData.forEach(t => {
-        const name = currentLang === 'ar' ? t.nameAr : (currentLang === 'en' ? t.nameEn : t.nameFr);
+    let pend = []; try { pend = JSON.parse(localStorage.getItem('pendingReviews') || '[]'); } catch (e) {}
+    testimonialsData.concat(pend).forEach(t => {
+        const name = (currentLang === 'ar' ? t.nameAr : (currentLang === 'en' ? t.nameEn : t.nameFr)) || t.nameAr || '?';
         const role = currentLang === 'ar' ? t.roleAr : (currentLang === 'en' ? t.roleEn : t.roleFr);
-        const text = currentLang === 'ar' ? t.textAr : (currentLang === 'en' ? t.textEn : t.textFr);
+        const text = (currentLang === 'ar' ? t.textAr : (currentLang === 'en' ? t.textEn : t.textFr)) || t.textAr || '';
         const stars = '★'.repeat(t.rating) + '☆'.repeat(5 - t.rating);
         const sampleLbl = { Ar: 'مثال توضيحي', En: 'Sample', Fr: 'Exemple' }[langKey()];
 
         const card = document.createElement('div');
         card.className = 'testimonial-card';
         card.innerHTML = `
-            <div class="testimonial-stars">${stars}${t.sample ? `<em class="sample-pill">${sampleLbl}</em>` : ''}</div>
+            <div class="testimonial-stars">${stars}${t.pending ? `<em class="sample-pill">${{ Ar: 'رأيك — قيد المراجعة', En: 'Your review — pending', Fr: 'Votre avis — en attente' }[langKey()]}</em>` : ''}</div>
             <p class="testimonial-text">"${text}"</p>
             <div class="testimonial-author">
                 <div class="testimonial-avatar">${name.charAt(0)}</div>
@@ -742,7 +753,7 @@ async function submitReview(e) {
         const res = await fetch('https://formspree.io/f/xykvqjek', { method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
             body: JSON.stringify({ Type: 'Customer review', Name: f.rName.value, Role: f.rRole.value, Rating: f.rRating.value, Comment: f.rComment.value }) });
         if (!res.ok) throw new Error('bad');
-        msg.innerText = t[1]; f.reset(); setTimeout(closeReviewModal, 2600);
+        msg.innerText = t[1]; addPendingReview({ nameAr: f.rName.value, nameEn: f.rName.value, nameFr: f.rName.value, roleAr: f.rRole.value, roleEn: f.rRole.value, roleFr: f.rRole.value, rating: +f.rRating.value, textAr: f.rComment.value, textEn: f.rComment.value, textFr: f.rComment.value, pending: true }); f.reset(); setTimeout(closeReviewModal, 2600);
     } catch (err) { msg.innerText = t[2]; }
 }
 
@@ -867,7 +878,7 @@ function liveTick(el) {
         return el('label', { class: 'op-f' }, [el('span', { text: label }), inp]);
     }
     function toFile() {
-        return '// ملف الأعمال — يُنشأ من لوحة المالك\n// hidden: true = إخفاء العمل دون حذفه\nconst portfolioData = ' + JSON.stringify(portfolioData, null, 2) + ';\n';
+        return '// ملف الأعمال والآراء — يُنشأ من لوحة المالك\n// hidden: true = إخفاء العمل دون حذفه\nconst portfolioData = ' + JSON.stringify(portfolioData, null, 2) + ';\n\n// آراء العملاء الحقيقيين فقط (بإذنهم)\nconst testimonialsData = ' + JSON.stringify(testimonialsData, null, 2) + ';\n';
     }
     function copyText(t, btn) {
         const done = () => { const o = btn.textContent; btn.textContent = 'تم النسخ ✓'; setTimeout(() => btn.textContent = o, 1800); };
@@ -891,6 +902,12 @@ function liveTick(el) {
             el('div', { class: 'op-main' }, [thumb, title, cat, el('label', { class: 'op-hid' }, [hid, el('span', { text: 'مخفي' })]),
                 el('button', { text: '↑', onclick: () => move(i, -1) }), el('button', { text: '↓', onclick: () => move(i, 1) }), edit, del]), det]);
     }
+    function trow(t, i) {
+        const f = (k, ph, ta) => { const x = el(ta ? 'textarea' : 'input', ta ? { class: 'op-ta', placeholder: ph, value: t[k] || '' } : { type: 'text', placeholder: ph, value: t[k] || '' }); x.oninput = () => { t[k] = x.value; renderTestimonials(); }; return x; };
+        const rate = el('select', {}, [5, 4, 3, 2, 1].map(n => { const o = el('option', { value: n, text: n + ' ★' }); if (t.rating === n) o.selected = true; return o; })); rate.onchange = () => { t.rating = +rate.value; renderTestimonials(); };
+        const del = el('button', { text: '🗑 حذف', class: 'op-del', onclick: () => { testimonialsData.splice(i, 1); build(); renderTestimonials(); } });
+        return el('div', { class: 'op-row' }, [el('div', { class: 'op-main' }, [f('nameAr', 'الاسم'), f('roleAr', 'النشاط / المسمى'), rate, del]), f('textAr', 'نص الرأي بالعربي', true), f('textEn', 'Review in English', true), f('textFr', 'Avis en français', true)]);
+    }
     function build() {
         if (panel) panel.remove();
         const copyBtn = el('button', { class: 'op-primary', text: 'نسخ ملف works.js' }); copyBtn.onclick = () => copyText(toFile(), copyBtn);
@@ -901,7 +918,10 @@ function liveTick(el) {
             el('div', { class: 'op-head' }, [el('h3', { text: 'لوحة المالك — إدارة الأعمال' }), close]),
             el('p', { class: 'op-note', text: 'عدّل أو أخفِ أو احذف أو رتّب أي عمل، وستراه يتغير في المعرض فورًا (عندك أنت فقط). ولتثبيت التغيير للجميع: اضغط «نسخ ملف works.js» ثم الصقه مكان محتوى works.js في GitHub واضغط Commit. هذا يستطيعه فقط من يملك صلاحية الكتابة على المستودع، وهو الذي يحمي موقعك.' }),
             el('div', { class: 'op-bar' }, [add, copyBtn, dl]),
-            el('div', { class: 'op-list' }, portfolioData.map(row))])]);
+            el('div', { class: 'op-list' }, portfolioData.map(row)),
+            el('h4', { class: 'op-sub', text: 'آراء العملاء (الحقيقية فقط وبإذنهم)' }),
+            el('div', { class: 'op-bar' }, [el('button', { text: '＋ إضافة رأي', onclick: () => { testimonialsData.push({ nameAr: '', roleAr: '', rating: 5, textAr: '', textEn: '', textFr: '' }); build(); renderTestimonials(); } })]),
+            el('div', { class: 'op-list' }, testimonialsData.map(trow))])]);
         document.body.appendChild(panel);
     }
     function check() { if (location.hash === '#owner') { ownerMode = true; build(); renderPortfolio(); } }
@@ -909,3 +929,19 @@ function liveTick(el) {
     document.addEventListener('DOMContentLoaded', check);
     document.addEventListener('keydown', ev => { if (ev.key === 'Escape') { const lb = document.getElementById('portfolioLightbox'); if (lb && lb.style.display === 'flex') closePortfolioLightbox(); } });
 })();
+
+
+// ظهور خطوات «كيف نعمل»
+(function () {
+    const steps = document.querySelectorAll('.pstep');
+    if (!('IntersectionObserver' in window)) { steps.forEach(x => x.classList.add('in')); return; }
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.2 });
+    steps.forEach(x => io.observe(x));
+})();
+
+
+// رأي الزائر يظهر له فورًا (على جهازه) وبوسم «قيد المراجعة»، ويصلك على بريدك لتعتمده للجميع من لوحة المالك
+function addPendingReview(r) {
+  try { const a = JSON.parse(localStorage.getItem('pendingReviews') || '[]'); a.push(r); localStorage.setItem('pendingReviews', JSON.stringify(a.slice(-5))); } catch (e) {}
+  renderTestimonials();
+}
