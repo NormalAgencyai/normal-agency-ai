@@ -62,3 +62,11 @@ const portfolioData = [
       titleAr: "صفحات الخدمات وتتبع الشحنات", titleEn: "Services & Shipment Tracking Pages", titleFr: "Pages services et suivi d’expédition",
       descAr: "صفحة خدمات بشبكة بطاقات وصفحة تتبع بخريطة ومراحل الشحنة", descEn: "A services page with a card grid and a tracking page with map and shipment stages", descFr: "Une page services en grille et une page de suivi avec carte et étapes" }
 ];
+
+// آراء العملاء — أضف هنا آراء عملائك الحقيقيين فقط (بإذنهم)
+// الصيغة (انسخ هذا القالب وعبّئه بكلام العميل الحقيقي واسمه كما وافق):
+// { nameAr: 'الاسم', nameEn: 'Name', nameFr: 'Nom', roleAr: 'المسمى أو النشاط', roleEn: '', roleFr: '', rating: 5,
+//   textAr: 'نص رأيه', textEn: 'his review', textFr: 'son avis' },
+// وما دامت القائمة فارغة يظهر نموذج «شاركنا رأيك» بدل الآراء.
+// ==========================================
+const testimonialsData = [];
