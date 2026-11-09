@@ -69,4 +69,90 @@ const portfolioData = [
 //   textAr: 'نص رأيه', textEn: 'his review', textFr: 'son avis' },
 // وما دامت القائمة فارغة يظهر نموذج «شاركنا رأيك» بدل الآراء.
 // ==========================================
+const testimonialsData = [
+  {
+    "nameAr": "عميل من نورمال",
+    "nameEn": "A Normal client",
+    "nameFr": "Un client de Normal",
+    "roleAr": "",
+    "roleEn": "",
+    "roleFr": "",
+    "rating": 0,
+    "textAr": "أهنيك على الشغل النظيف، يعطيك العافية",
+    "textEn": "I congratulate you on the clean work, well done.",
+    "textFr": "Félicitations pour ce travail soigné, bravo."
+  },
+  {
+    "nameAr": "عميل من نورمال",
+    "nameEn": "A Normal client",
+    "nameFr": "Un client de Normal",
+    "roleAr": "",
+    "roleEn": "",
+    "roleFr": "",
+    "rating": 0,
+    "textAr": "شكرًا يعطيك العافية، الصور حلوة",
+    "textEn": "Thank you, well done. The photos look great.",
+    "textFr": "Merci, bravo. Les photos sont superbes."
+  },
+  {
+    "nameAr": "عميل من نورمال",
+    "nameEn": "A Normal client",
+    "nameFr": "Un client de Normal",
+    "roleAr": "",
+    "roleEn": "",
+    "roleFr": "",
+    "rating": 0,
+    "textAr": "تسلم إيدك حبيبنا، ما قصّرت",
+    "textEn": "Bless your hands, you did not fall short.",
+    "textFr": "Merci beaucoup, vous n'avez pas ménagé vos efforts."
+  },
+  {
+    "nameAr": "عميل من نورمال",
+    "nameEn": "A Normal client",
+    "nameFr": "Un client de Normal",
+    "roleAr": "",
+    "roleEn": "",
+    "roleFr": "",
+    "rating": 0,
+    "textAr": "يعطيك العافية حبيبي، الله يسعدك ويوفقك",
+    "textEn": "Well done, may God bring you joy and success.",
+    "textFr": "Bravo, que Dieu vous accorde bonheur et réussite."
+  },
+  {
+    "nameAr": "عميل من نورمال",
+    "nameEn": "A Normal client",
+    "nameFr": "Un client de Normal",
+    "roleAr": "",
+    "roleEn": "",
+    "roleFr": "",
+    "rating": 0,
+    "textAr": "تسلم يمينك",
+    "textEn": "Bless your hand.",
+    "textFr": "Merci infiniment."
+  },
+  {
+    "nameAr": "عميل من نورمال",
+    "nameEn": "A Normal client",
+    "nameFr": "Un client de Normal",
+    "roleAr": "",
+    "roleEn": "",
+    "roleFr": "",
+    "rating": 0,
+    "textAr": "الله يعطيك العافية يا حبيبي من الآخر",
+    "textEn": "Truly, well done, my friend.",
+    "textFr": "Vraiment, bravo mon ami."
+  },
+  {
+    "nameAr": "عميل من نورمال",
+    "nameEn": "A Normal client",
+    "nameFr": "Un client de Normal",
+    "roleAr": "",
+    "roleEn": "",
+    "roleFr": "",
+    "rating": 0,
+    "textAr": "تسلم يدك يا حبيبي",
+    "textEn": "Bless your hand, my friend.",
+    "textFr": "Merci mon ami."
+  }
+];==================
 const testimonialsData = [];
