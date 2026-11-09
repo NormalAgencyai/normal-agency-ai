@@ -301,21 +301,31 @@ const servicesData = {
         titleEn: 'Normal Marketing',
         titleFr: 'Normal Marketing',
         items: [
-            { ar: 'إعلانات سناب شات', en: 'Snapchat Ads', fr: 'Publicités Snapchat', price: '400' },
-            { ar: 'إعلانات تيك توك', en: 'TikTok Ads', fr: 'Publicités TikTok', price: '400' },
-            { ar: 'إعلانات انستقرام وميتا', en: 'Instagram & Meta Ads', fr: 'Publicités Instagram et Meta', price: '450' },
-            { ar: 'إعلانات جوجل للبحث', en: 'Google Search Ads', fr: 'Publicités Google Search', price: '500' },
-            { ar: 'إعادة الاستهداف', en: 'Retargeting Campaigns', fr: 'Campagnes de retargeting', price: '350' },
-            { ar: 'السيو المحلي وخرائط جوجل', en: 'Local SEO & Maps', fr: 'SEO local et Maps', price: '450' },
-            { ar: 'تصميم صفحات الهبوط', en: 'Landing Page Design', fr: "Pages d'atterrissage", price: '600' },
-            { ar: 'رسائل واتساب التسويقية', en: 'WhatsApp Marketing Messages', fr: 'Messages marketing WhatsApp', price: '250' },
-            { ar: 'حملات المسابقات والهدايا', en: 'Contest & Giveaway Campaigns', fr: 'Concours et giveaways', price: '350' },
-            { ar: 'برامج ولاء العملاء', en: 'Loyalty Programs', fr: 'Programmes de fidélité', price: '500' },
-            { ar: 'كتابة البيانات الصحفية', en: 'Press Release Writing', fr: 'Communiqués de presse', price: '200' },
-            { ar: 'خطة تسويقية سنوية', en: 'Annual Marketing Plan', fr: 'Plan marketing annuel', price: '800' },
-            { ar: 'دراسة السوق والمنافسين', en: 'Market & Competitor Research', fr: 'Étude de marché', price: '600' },
-            { ar: 'تحديد الموقع التسويقي للعلامة', en: 'Brand Positioning', fr: 'Positionnement de marque', price: '500' },
-            { ar: 'لوحة مؤشرات الأداء KPI', en: 'KPI Dashboard', fr: 'Tableau de bord KPI', price: '450' },
+            { ar: 'تصميم قوالب المنشورات', en: 'Post Template Design', fr: 'Modèles de publications', price: '400' },
+            { ar: 'كتابة سيناريوهات الريلز', en: 'Reels Scriptwriting', fr: 'Scénarios de Reels', price: '300' },
+            { ar: 'إعلانات سناب شات (شهريًا)', en: 'Snapchat Ads (monthly)', fr: 'Publicités Snapchat (mensuel)', price: '1500' },
+            { ar: 'إعلانات تيك توك (شهريًا)', en: 'TikTok Ads (monthly)', fr: 'Publicités TikTok (mensuel)', price: '1500' },
+            { ar: 'إعلانات انستقرام وميتا (شهريًا)', en: 'Instagram & Meta Ads (monthly)', fr: 'Publicités Instagram et Meta (mensuel)', price: '1500' },
+            { ar: 'إعلانات جوجل للبحث (شهريًا)', en: 'Google Search Ads (monthly)', fr: 'Publicités Google Search (mensuel)', price: '1800' },
+            { ar: 'إعادة الاستهداف (شهريًا)', en: 'Retargeting Campaigns (monthly)', fr: 'Campagnes de retargeting (mensuel)', price: '1200' },
+            { ar: 'اختبار الإعلانات A/B', en: 'A/B Ad Testing', fr: 'Tests A/B publicitaires', price: '800' },
+            { ar: 'السيو المحلي وخرائط جوجل (شهريًا)', en: 'Local SEO & Maps (monthly)', fr: 'SEO local et Maps (mensuel)', price: '2500' },
+            { ar: 'كتابة مقالات المدونة', en: 'Blog Article Writing', fr: 'Articles de blog', price: '400' },
+            { ar: 'إعداد ملف جوجل للأعمال', en: 'Google Business Profile', fr: 'Profil Google Business', price: '500' },
+            { ar: 'تصميم صفحات الهبوط', en: 'Landing Page Design', fr: "Pages d'atterrissage", price: '1500' },
+            { ar: 'تحسين صفحات المنتجات CRO', en: 'Product Page CRO', fr: 'Optimisation fiches produit', price: '1200' },
+            { ar: 'رسائل واتساب التسويقية', en: 'WhatsApp Marketing Messages', fr: 'Messages marketing WhatsApp', price: '600' },
+            { ar: 'رسائل السلة المتروكة', en: 'Abandoned Cart Messages', fr: 'Messages panier abandonné', price: '800' },
+            { ar: 'حملات المسابقات والهدايا', en: 'Contest & Giveaway Campaigns', fr: 'Concours et giveaways', price: '800' },
+            { ar: 'برامج ولاء العملاء', en: 'Loyalty Programs', fr: 'Programmes de fidélité', price: '2000' },
+            { ar: 'كتابة البيانات الصحفية', en: 'Press Release Writing', fr: 'Communiqués de presse', price: '350' },
+            { ar: 'إدارة فعاليات الإطلاق', en: 'Launch Event Management', fr: "Gestion d'événements de lancement", price: '3000' },
+            { ar: 'خطة تسويقية سنوية', en: 'Annual Marketing Plan', fr: 'Plan marketing annuel', price: '3000' },
+            { ar: 'دراسة السوق والمنافسين', en: 'Market & Competitor Research', fr: 'Étude de marché', price: '1500' },
+            { ar: 'تحديد الموقع التسويقي للعلامة', en: 'Brand Positioning', fr: 'Positionnement de marque', price: '1500' },
+            { ar: 'لوحة مؤشرات الأداء KPI', en: 'KPI Dashboard', fr: 'Tableau de bord KPI', price: '1500' },
+            { ar: 'تتبع التحويلات', en: 'Conversion Tracking Setup', fr: 'Suivi des conversions', price: '800' },
+            { ar: 'تدقيق شامل للحضور الرقمي', en: 'Full Digital Presence Audit', fr: 'Audit de présence digitale', price: '1000' }
         ]
     },
     'Digital': {
@@ -470,9 +480,15 @@ function renderPortfolio() {
         c.classList.toggle('active', c.getAttribute('data-cat') === portfolioFilter));
 
     grid.innerHTML = '';
-    portfolioData.forEach((p, i) => {
+    // ترتيب العرض فقط (لا يغيّر البيانات): التسويق ثم الفيديو الإعلاني ثم البقية
+    const rank = p => p.cat === 'Marketing' ? 0 : (p.video ? 1 : 2);
+    const order = portfolioData.map((p, i) => i).sort((a, b) => rank(portfolioData[a]) - rank(portfolioData[b]) || a - b);
+    let shown = 0;
+    order.forEach(i => {
+        const p = portfolioData[i];
         if (p.hidden && !ownerMode) return;
         if (portfolioFilter !== 'all' && p.cat !== portfolioFilter) return;
+        shown++;
         const cat = servicesData[p.cat];
         const badge = cat ? cat['title' + L] : p.cat;
         const src = p.svgKey ? svgUrl(p.svgKey) : assetUrl(p.img);
@@ -489,6 +505,12 @@ function renderPortfolio() {
             <div class="p-card-content"><h3>${p['title' + L]}</h3><p>${p['desc' + L]}</p></div>`;
         grid.appendChild(card);
     });
+    if (!shown && portfolioFilter !== 'all') {
+        const e = document.createElement('div');
+        e.className = 'portfolio-card is-empty';
+        e.innerHTML = `<div class="p-card-img-wrap"><div class="p-empty"><img src="logo-mark.png" alt="" class="light-only"><img src="logo-mark-dark.png" alt="" class="dark-only"><span>${emptyText}</span></div></div><div class="p-card-content"><h3>${servicesData[portfolioFilter] ? servicesData[portfolioFilter]['title' + L] : ''}</h3></div>`;
+        grid.appendChild(e);
+    }
 }
 
 // ==========================================
@@ -666,7 +688,7 @@ function renderTestimonials() {
         const name = (currentLang === 'ar' ? t.nameAr : (currentLang === 'en' ? t.nameEn : t.nameFr)) || t.nameAr || '?';
         const role = currentLang === 'ar' ? t.roleAr : (currentLang === 'en' ? t.roleEn : t.roleFr);
         const text = (currentLang === 'ar' ? t.textAr : (currentLang === 'en' ? t.textEn : t.textFr)) || t.textAr || '';
-        const stars = '★'.repeat(t.rating) + '☆'.repeat(5 - t.rating);
+        const stars = t.rating ? '★'.repeat(t.rating) + '☆'.repeat(5 - t.rating) : '';
         const sampleLbl = { Ar: 'مثال توضيحي', En: 'Sample', Fr: 'Exemple' }[langKey()];
 
         const card = document.createElement('div');
@@ -865,7 +887,7 @@ function liveTick(el) {
 // الأمان الحقيقي: لا يستطيع أحد تغيير الموقع العام إلا من يملك صلاحية الكتابة على المستودع.
 // =====================================================================
 (function () {
-    const CATS = { Office: 'أوفيس', Studio: 'ستوديو', Art: 'آرت', Digital: 'ديجيتال', Print: 'برينت' };
+    const CATS = { Marketing: 'تسويق', Office: 'أوفيس', Studio: 'ستوديو', Art: 'آرت', Digital: 'ديجيتال', Print: 'برينت' };
     let panel = null;
     function el(tag, props, kids) {
         const e = document.createElement(tag);
