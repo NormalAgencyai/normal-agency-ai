@@ -154,5 +154,4 @@ const testimonialsData = [
     "textEn": "Bless your hand, my friend.",
     "textFr": "Merci mon ami."
   }
-];==================
-const testimonialsData = [];
+];
