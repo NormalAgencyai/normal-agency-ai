@@ -481,7 +481,7 @@ function renderPortfolio() {
 
     grid.innerHTML = '';
     // ترتيب العرض فقط (لا يغيّر البيانات): التسويق ثم الفيديو الإعلاني ثم البقية
-    const rank = p => p.cat === 'Marketing' ? 0 : (p.video ? 1 : 2);
+    const rank = p => p.first ? -1 : (p.cat === 'Marketing' ? 0 : (p.video ? 1 : 2));
     const order = portfolioData.map((p, i) => i).sort((a, b) => rank(portfolioData[a]) - rank(portfolioData[b]) || a - b);
     let shown = 0;
     order.forEach(i => {
@@ -511,6 +511,123 @@ function renderPortfolio() {
         e.innerHTML = `<div class="p-card-img-wrap"><div class="p-empty"><img src="logo-mark.png" alt="" class="light-only"><img src="logo-mark-dark.png" alt="" class="dark-only"><span>${emptyText}</span></div></div><div class="p-card-content"><h3>${servicesData[portfolioFilter] ? servicesData[portfolioFilter]['title' + L] : ''}</h3></div>`;
         grid.appendChild(e);
     }
+    renderShowcase();
+}
+
+
+// ==========================================
+// شاشة العرض — أعمالنا على الشاشة (تُبنى من showcaseData)
+// ==========================================
+const NS = { i: 0, filter: 'all', paused: false, muted: true, t0: 0, el: null, built: false, vis: true, hover: false, slides: [], list: [] };
+const NS_ICON = {
+    prev: '<svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>', next: '<svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>',
+    play: '<svg viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><path d="M7 4.5v15l13-7.5z"/></svg>', pause: '<svg viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>',
+    on: '<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg>', off: '<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 9l4 6M21 9l-4 6"/></svg>',
+    full: '<svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>',
+    vid: '<svg viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg>', img: '<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="m4 18 6-5 4 3 3-2 3 3"/></svg>'
+};
+const NS_LBL = {
+    video: { Ar: 'فيديو', En: 'Video', Fr: 'Vidéo' }, image: { Ar: 'صورة', En: 'Photo', Fr: 'Photo' }, poster: { Ar: 'بوستر', En: 'Poster', Fr: 'Affiche' },
+    all: { Ar: 'الكل', En: 'All', Fr: 'Tout' }
+};
+
+function nsList() { return (typeof showcaseData === 'undefined' ? [] : showcaseData).filter(s => NS.filter === 'all' || s.cat === NS.filter); }
+
+function nsBuildSlides() {
+    const stage = document.getElementById('nsStage'), th = document.getElementById('nsThumbs');
+    stage.innerHTML = ''; th.innerHTML = ''; NS.slides = [];
+    NS.list = nsList();
+    NS.list.forEach((s, k) => {
+        const el = document.createElement('div'); el.className = 'ns-slide';
+        const cover = assetUrl(s.poster || s.src);
+        const bg = document.createElement('div'); bg.className = 'ns-bgimg'; bg.style.backgroundImage = 'url("' + cover + '")'; el.appendChild(bg);
+        let media;
+        if (s.type === 'video') {
+            media = document.createElement('video'); media.muted = true; media.defaultMuted = true; media.playsInline = true; media.preload = 'none'; media.poster = cover; media.setAttribute('playsinline', '');
+            media.dataset.src = assetUrl(s.src);
+            media.addEventListener('ended', () => { if (NS.list[NS.i] === s && !NS.paused) nsGo(NS.i + 1); });
+            media.addEventListener('click', () => { media.paused ? media.play().catch(() => {}) : media.pause(); });
+        } else { media = document.createElement('img'); media.loading = k < 3 ? 'eager' : 'lazy'; media.decoding = 'async'; media.src = cover; media.alt = ''; }
+        el.appendChild(media); stage.appendChild(el); NS.slides.push({ el, media, s });
+        const b = document.createElement('button'); b.type = 'button'; b.className = 'ns-th';
+        b.innerHTML = '<img src="' + cover + '" alt="" loading="lazy">' + (s.type === 'video' ? '<i></i>' : '');
+        b.onclick = () => nsGo(k); th.appendChild(b);
+    });
+}
+
+function nsLabels() {
+    const L = langKey(), rtl = currentLang === 'ar';
+    const tabs = document.getElementById('nsTabs'); tabs.innerHTML = '';
+    const cats = ['all'].concat(['Marketing', 'Studio', 'Office', 'Print', 'Art', 'Digital'].filter(c => (typeof showcaseData !== 'undefined') && showcaseData.some(s => s.cat === c)));
+    cats.forEach(c => {
+        const b = document.createElement('button'); b.type = 'button'; b.className = 'ns-tab' + (NS.filter === c ? ' on' : ''); b.setAttribute('role', 'tab');
+        b.textContent = c === 'all' ? NS_LBL.all[L] : ((servicesData[c] && servicesData[c]['title' + L]) || c);
+        b.onclick = () => { NS.filter = c; NS.i = 0; nsBuildSlides(); nsLabels(); nsGo(0); };
+        tabs.appendChild(b);
+    });
+    document.getElementById('nsL').innerHTML = NS_ICON.prev; document.getElementById('nsR').innerHTML = NS_ICON.next;
+    document.getElementById('nsL').setAttribute('aria-label', rtl ? 'Next' : 'Previous'); document.getElementById('nsR').setAttribute('aria-label', rtl ? 'Previous' : 'Next');
+    nsRender();
+}
+
+function nsRender() {
+    const L = langKey(), cur = NS.slides[NS.i]; if (!cur) return;
+    const s = cur.s;
+    NS.slides.forEach((x, k) => {
+        const on = k === NS.i; x.el.classList.toggle('on', on);
+        if (x.s.type === 'video') {
+            if (on) { if (!x.media.getAttribute('src')) x.media.src = x.media.dataset.src; x.media.muted = NS.muted; x.media.currentTime = 0; const p = x.media.play(); if (p && p.catch) p.catch(() => {}); if (NS.paused) x.media.pause(); }
+            else { x.media.pause(); }
+        }
+    });
+    document.querySelectorAll('#nsThumbs .ns-th').forEach((b, k) => { b.classList.toggle('on', k === NS.i); if (k === NS.i && b.scrollIntoView && NS.vis) { try { const t = document.getElementById('nsThumbs'); t.scrollTo({ left: b.offsetLeft - t.clientWidth / 2 + b.clientWidth / 2, behavior: 'smooth' }); } catch (e) {} } });
+    document.getElementById('nsCnt').textContent = ('0' + (NS.i + 1)).slice(-2) + ' / ' + ('0' + NS.list.length).slice(-2);
+    document.getElementById('nsBdg').innerHTML = (s.type === 'video' ? NS_ICON.vid : NS_ICON.img) + NS_LBL[s.type][L];
+    document.getElementById('nsTitle').textContent = s[currentLang];
+    document.getElementById('nsCat').textContent = (servicesData[s.cat] && servicesData[s.cat]['title' + L]) || s.cat;
+    document.getElementById('nsGlow').style.backgroundImage = 'url("' + assetUrl(s.poster || s.src) + '")';
+    const mute = document.getElementById('nsMute'); mute.innerHTML = NS.muted ? NS_ICON.off : NS_ICON.on; mute.disabled = s.type !== 'video';
+    document.getElementById('nsPlay').innerHTML = NS.paused ? NS_ICON.play : NS_ICON.pause;
+    document.getElementById('nsFull').innerHTML = NS_ICON.full;
+}
+
+function nsGo(n) {
+    const len = NS.list.length; if (!len) return;
+    NS.i = (n + len) % len; NS.t0 = performance.now(); nsRender();
+}
+
+function renderShowcase() {
+    const root = document.getElementById('nshow'); if (!root || typeof showcaseData === 'undefined') return;
+    if (!NS.built) {
+        NS.built = true;
+        try { NS.paused = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+        nsBuildSlides();
+        const scr = document.getElementById('nsScreen');
+        const step = d => nsGo(NS.i + d);
+        document.getElementById('nsL').onclick = () => step(currentLang === 'ar' ? 1 : -1);
+        document.getElementById('nsR').onclick = () => step(currentLang === 'ar' ? -1 : 1);
+        document.getElementById('nsPlay').onclick = () => { NS.paused = !NS.paused; NS.t0 = performance.now(); const c = NS.slides[NS.i]; if (c && c.s.type === 'video') { NS.paused ? c.media.pause() : c.media.play().catch(() => {}); } nsRender(); };
+        document.getElementById('nsMute').onclick = () => { NS.muted = !NS.muted; const c = NS.slides[NS.i]; if (c && c.s.type === 'video') c.media.muted = NS.muted; nsRender(); };
+        document.getElementById('nsFull').onclick = () => { try { if (document.fullscreenElement) document.exitFullscreen(); else if (scr.requestFullscreen) scr.requestFullscreen(); } catch (e) {} };
+        scr.addEventListener('mouseenter', () => { NS.hover = true; }); scr.addEventListener('mouseleave', () => { NS.hover = false; NS.t0 = performance.now(); });
+        let tx = 0; scr.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+        scr.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 40) step((currentLang === 'ar' ? dx > 0 : dx < 0) ? 1 : -1); });
+        scr.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') step(currentLang === 'ar' ? 1 : -1); else if (e.key === 'ArrowRight') step(currentLang === 'ar' ? -1 : 1); else if (e.key === ' ') { e.preventDefault(); document.getElementById('nsPlay').click(); } });
+        if ('IntersectionObserver' in window) new IntersectionObserver(en => { NS.vis = en[0].isIntersecting; const c = NS.slides[NS.i]; if (c && c.s.type === 'video') { if (!NS.vis) c.media.pause(); else if (!NS.paused) c.media.play().catch(() => {}); } NS.t0 = performance.now(); }, { threshold: 0.25 }).observe(root);
+        const IMG_MS = 5500, bar = document.getElementById('nsBar');
+        const tick = now => {
+            const c = NS.slides[NS.i];
+            if (c) {
+                if (c.s.type === 'video') { const d = c.media.duration; bar.style.width = (d && isFinite(d) ? Math.min(100, c.media.currentTime / d * 100) : 0) + '%'; }
+                else if (!NS.paused && NS.vis && !NS.hover) { const e = now - NS.t0; bar.style.width = Math.min(100, e / IMG_MS * 100) + '%'; if (e >= IMG_MS) nsGo(NS.i + 1); }
+                else if (NS.paused) bar.style.width = '0%';
+                else NS.t0 = now - (parseFloat(bar.style.width) || 0) / 100 * IMG_MS;
+            }
+            requestAnimationFrame(tick);
+        };
+        NS.t0 = performance.now(); requestAnimationFrame(tick);
+    }
+    if (NS.lang !== currentLang) { NS.lang = currentLang; nsLabels(); }
 }
 
 // ==========================================
@@ -688,19 +805,21 @@ function renderTestimonials() {
         const name = (currentLang === 'ar' ? t.nameAr : (currentLang === 'en' ? t.nameEn : t.nameFr)) || t.nameAr || '?';
         const role = currentLang === 'ar' ? t.roleAr : (currentLang === 'en' ? t.roleEn : t.roleFr);
         const text = (currentLang === 'ar' ? t.textAr : (currentLang === 'en' ? t.textEn : t.textFr)) || t.textAr || '';
-        const stars = t.rating ? '★'.repeat(t.rating) + '☆'.repeat(5 - t.rating) : '';
+        const rt = Math.max(0, Math.min(5, parseInt(t.rating, 10) || 0));
+        const stars = rt ? '★'.repeat(rt) + '☆'.repeat(5 - rt) : '';
         const sampleLbl = { Ar: 'مثال توضيحي', En: 'Sample', Fr: 'Exemple' }[langKey()];
 
+        const esc = v => String(v == null ? '' : v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
         const card = document.createElement('div');
         card.className = 'testimonial-card';
         card.innerHTML = `
             <div class="testimonial-stars">${stars}${t.pending ? `<em class="sample-pill">${{ Ar: 'رأيك — قيد المراجعة', En: 'Your review — pending', Fr: 'Votre avis — en attente' }[langKey()]}</em>` : ''}</div>
-            <p class="testimonial-text">"${text}"</p>
+            <p class="testimonial-text">"${esc(text)}"</p>
             <div class="testimonial-author">
-                <div class="testimonial-avatar">${name.charAt(0)}</div>
+                <div class="testimonial-avatar">${esc(name.charAt(0))}</div>
                 <div>
-                    <div class="testimonial-name">${name}</div>
-                    ${role ? `<div class="testimonial-role">${role}</div>` : ''}
+                    <div class="testimonial-name">${esc(name)}</div>
+                    ${role ? `<div class="testimonial-role">${esc(role)}</div>` : ''}
                 </div>
             </div>
         `;
