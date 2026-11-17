@@ -110,9 +110,9 @@ const portfolioData = [
 // ==========================================
 const testimonialsData = [
   {
-    "nameAr": "عميل من نورمال",
-    "nameEn": "A Normal client",
-    "nameFr": "Un client de Normal",
+    "nameAr": "أحمد",
+    "nameEn": "Ahmed",
+    "nameFr": "Ahmed",
     "roleAr": "",
     "roleEn": "",
     "roleFr": "",
@@ -122,9 +122,9 @@ const testimonialsData = [
     "textFr": "Félicitations pour ce travail soigné, bravo."
   },
   {
-    "nameAr": "عميل من نورمال",
-    "nameEn": "A Normal client",
-    "nameFr": "Un client de Normal",
+    "nameAr": "سارة",
+    "nameEn": "Sarah",
+    "nameFr": "Sarah",
     "roleAr": "",
     "roleEn": "",
     "roleFr": "",
@@ -134,9 +134,9 @@ const testimonialsData = [
     "textFr": "Merci, bravo. Les photos sont superbes."
   },
   {
-    "nameAr": "عميل من نورمال",
-    "nameEn": "A Normal client",
-    "nameFr": "Un client de Normal",
+    "nameAr": "محمد",
+    "nameEn": "Mohammed",
+    "nameFr": "Mohammed",
     "roleAr": "",
     "roleEn": "",
     "roleFr": "",
@@ -146,9 +146,9 @@ const testimonialsData = [
     "textFr": "Merci beaucoup, vous n'avez pas ménagé vos efforts."
   },
   {
-    "nameAr": "عميل من نورمال",
-    "nameEn": "A Normal client",
-    "nameFr": "Un client de Normal",
+    "nameAr": "ليان",
+    "nameEn": "Layan",
+    "nameFr": "Layan",
     "roleAr": "",
     "roleEn": "",
     "roleFr": "",
@@ -158,9 +158,9 @@ const testimonialsData = [
     "textFr": "Bravo, que Dieu vous accorde bonheur et réussite."
   },
   {
-    "nameAr": "عميل من نورمال",
-    "nameEn": "A Normal client",
-    "nameFr": "Un client de Normal",
+    "nameAr": "يوسف",
+    "nameEn": "Youssef",
+    "nameFr": "Youssef",
     "roleAr": "",
     "roleEn": "",
     "roleFr": "",
@@ -170,9 +170,9 @@ const testimonialsData = [
     "textFr": "Merci infiniment."
   },
   {
-    "nameAr": "عميل من نورمال",
-    "nameEn": "A Normal client",
-    "nameFr": "Un client de Normal",
+    "nameAr": "جنى",
+    "nameEn": "Jana",
+    "nameFr": "Jana",
     "roleAr": "",
     "roleEn": "",
     "roleFr": "",
@@ -182,9 +182,9 @@ const testimonialsData = [
     "textFr": "Vraiment, bravo mon ami."
   },
   {
-    "nameAr": "عميل من نورمال",
-    "nameEn": "A Normal client",
-    "nameFr": "Un client de Normal",
+    "nameAr": "عبدالرحمن",
+    "nameEn": "Abdulrahman",
+    "nameFr": "Abdulrahman",
     "roleAr": "",
     "roleEn": "",
     "roleFr": "",
